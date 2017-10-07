@@ -1,0 +1,87 @@
+\documentclass[titlepage,twoside,openright]{scrreprt}
+
+% Direct input of special characters
+\usepackage[utf8]{inputenc}
+
+% Support west european fonts / languages
+\usepackage[T1]{fontenc}
+
+% Use german translations for titles etc. (e.g. Inhaltsverzeichnis instead of Table of contents)
+\usepackage[ngerman]{babel}
+
+% Koma page style
+\usepackage[automark]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+
+% Bibliography
+\usepackage[backend=biber,style=numeric-comp]{biblatex}
+\addbibresource{../resources/literature.bib}
+
+\usepackage{listings}
+
+\lstset {
+	language = Java,
+	basicstyle = \ttfamily\small,
+	numberstyle = \footnotesize,
+	showspaces = false,
+	showtabs = false,
+	showstringspaces = false,
+	frame = single,
+	tabsize = 4,
+	captionpos = b,
+	breaklines = true,
+	numbers = left,
+	breakatwhitespace = true
+}
+
+\usepackage{graphicx}
+\usepackage[margin=2.5cm]{geometry}
+%\usepackage{lmodern}
+
+% Support for links in pdf files
+\usepackage[
+	pdftex,
+	hypertexnames=false,
+	colorlinks=true,
+	ocgcolorlinks
+]{hyperref}
+
+\hypersetup{
+	unicode = {true},
+	pdftitle = {Grundlagen des Domain Driven Designs},
+	pdfauthor = {Tim Gremplewski}
+	pdfsubject = {Domain Driven Design},
+	pdfkeywords = {
+		{Domain Driven Design},
+		{FernUni in Hagen}
+	}
+}
+
+\titlehead{FernUniversität in Hagen\newline
+Fakultät für Mathematik und Informatik\newline
+Lehrgebiet Programmiersysteme\newline
+Prof. Dr. Friedrich Steimann\newline
+Universitätsstraße 1\newline
+58097 Hagen, Deutschland\newline}
+\subject{Masterarbeit}
+\title{Erstellung einer domänenspezifischen Sprache zur automatische Klassifizierung der Inhalte von Webseiten}
+\author{Tim Gremplewski\thanks{tim.gremplewski@gmail.com, Martrikel-Nr: 9514244}}
+\date{01. Februar 2018}
+
+\begin{document}
+	\maketitle
+	\begingroup
+		\let\cleardoublepage\relax
+		\let\clearpage\relax
+		\tableofcontents
+		\listoffigures
+		\lstlistoflistings
+	\endgroup
+
+	\newpage
+
+	\cite{voelter:DslEngineering}
+
+	\sloppy
+	\printbibliography[heading=bibintoc]
+\end{document}
