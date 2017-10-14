@@ -1,0 +1,50 @@
+Einleitung
+    Relaunch des Internetauftrittes der FernUni Hagen
+    Aufbau der Arbeit
+
+Analyse / Problemstellung
+    Imperia
+    Wordpress
+    Abstrakte (FernUni-unabhängige) Problemstellung
+    Analyse der Problemdomäne
+
+Lösungskonzept
+    Domänenspezifische Sprache zur Klassendefinition
+    Automatische Klassifizierung
+    Visualisierung und Nachbesserung der Klassifikation einer Seite über Web-Annotationen
+    Weboberfläche zur Einsicht aller Klassifikationen / Weboberfläche für Power-User
+    Bereitstellung der Klassifikation zur Weiterverareitung
+    Werkzeug zum Auffinden aller zu klassifizierenden Seiten
+    Architektur des Systems
+
+Domänenspezifische Sprachen
+    DSLs vs. GPLs
+    Interne- vs. externe DSLs
+    Parser-basiert vs. Projektional
+    Kompilierung vs. Interpretation
+
+Microservices
+    Philosophie
+    Vor- und Nachteile
+
+Komponenten
+    Sprache zur Definition von Seiten-, Inhalts- und Referenzklassen
+    Klassifizierungsservice
+    Pageservice
+    Persistenz
+    AnnotatorJS Plugin
+    Annotationsservice
+    Weboberfläche
+    Webseiten-Discovery-Tool
+
+Ergebnisse
+    Fallstudie Wordpress Seiten der KSW der FernUni Hagen
+    Zweite Fallstudie (TBD)
+
+Diskussion der Ergebnisse
+
+Schlussbetrachtungen
+    Zusammenfassung
+    Einschränkungen der Lösung
+    Erweiterungsmöglichkeiten / Ausblick
+    Fazit
