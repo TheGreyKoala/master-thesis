@@ -1,50 +1,75 @@
-Einleitung
-    Relaunch des Internetauftrittes der FernUni Hagen
-    Aufbau der Arbeit
+1.  Einleitung
+    1.1 Relaunch des Internetauftrittes der FernUni Hagen
+    1.2 Aufbau der Arbeit
 
-Analyse / Problemstellung
-    Imperia
-    Wordpress
-    Abstrakte (FernUni-unabhängige) Problemstellung
-    Analyse der Problemdomäne
+2.  Analyse / Problemstellung
+    2.1 Imperia
+    2.2 Wordpress
+    2.3 Abstrakte (FernUni-unabhängige) Problemstellung
+    2.4 Analyse der Problemdomäne
 
-Lösungskonzept
-    Domänenspezifische Sprache zur Klassendefinition
-    Automatische Klassifizierung
-    Visualisierung und Nachbesserung der Klassifikation einer Seite über Web-Annotationen
-    Weboberfläche zur Einsicht aller Klassifikationen / Weboberfläche für Power-User
-    Bereitstellung der Klassifikation zur Weiterverareitung
-    Werkzeug zum Auffinden aller zu klassifizierenden Seiten
-    Architektur des Systems
+3.  Lösungskonzept
+    3.1 Domänenspezifische Sprache zur Klassendefinition        
+    3.2 Automatische Klassifizierung
+    3.3 Visualisierung und Nachbesserung der Klassifikation einer Seite über Web-Annotationen
+    3.4 Weboberfläche zur Einsicht aller Klassifikationen
+    3.5 Bereitstellung der Klassifikation zur Weiterverareitung
+    3.6 Werkzeug zum Auffinden aller zu klassifizierenden Seiten
+    3.7 Architektur des Systems
+        3.7.1 Microservices
+                Philosophie
+                Vor- und Nachteile
+        3.7.2 Beschreibung / Übersicht der Architektur
 
-Domänenspezifische Sprachen
-    DSLs vs. GPLs
-    Interne- vs. externe DSLs
-    Parser-basiert vs. Projektional
-    Kompilierung vs. Interpretation
+4.  Komponenten
+    4.1 Domänenspezifische Sprache zur Klassendefinition
+        4.1.1 Domänenspezifische Sprachen
+                DSLs vs. GPLs
+                Interne- vs. externe DSLs
+                Parser-Systeme vs. Projektionale Editoren
+                Generierung vs. Interpretation
+        4.1.2 Vergleich und Auswahl von DSL Engineering Werkzeugen
+                Manuelle Entwicklung
+                Interne DSL
+                Jetbrains MPS
+                Xtext
+        4.1.2 Abbildung der Domänenkonzepte auf Sprachkonzepte
+        4.1.3 Struktur (Modularisierung, Sichtbarkeit, Partitionierung, Spezialisierung, ...)
+        4.1.4 Scoping & Linking
+        4.1.5 Typsystem & Constraints
+        4.1.6 Konkrete Syntax und deren Grammatik
+        4.1.7 Generierung
+        4.1.8 IDE Features
+    4.2 Klassifizierungsservice
+        4.2.1 Schnittstellenbeschreibung
+        4.2.2 Implementierungshinweise
+    4.3 Persistenz
+        4.3.1 Vergleich und Auswahl von Datenbanksystemen
+                Relationale Datenbanken
+                Dokumentenorientierte Datenbanken
+                Graphdatenbanken
+                Spaltenorientierte Datenbanken
+        4.3.2 Datenmodell
+        4.3.3 Constraints
+    4.4 Pageservice
+        4.4.1 Schnittstellenbeschreibung
+        4.4.2 Algorithmus zum idempotenten Speichern eines Klassifikationsergebnisses
+    4.5 AnnotatorJS Plugin
+    4.6 Annotationsservice
+        4.6.1 Schnittstellenbeschreibung
+        4.6.2 Umwandlung eines Klassifikationsergebnisses zu einer AnnotatorJS Annotation
+        4.6.3 Hinweise zur Implementierung der AnnotatorJS Storage API
+    4.7 Weboberfläche
+    4.8 Webseiten-Discovery-Tool
 
-Microservices
-    Philosophie
-    Vor- und Nachteile
+5.  Ergebnisse
+    5.1 Fallstudie: Wordpress Seiten der KSW der FernUni Hagen
+    5.2 Zweite Fallstudie (TBD)
 
-Komponenten
-    Sprache zur Definition von Seiten-, Inhalts- und Referenzklassen
-    Klassifizierungsservice
-    Pageservice
-    Persistenz
-    AnnotatorJS Plugin
-    Annotationsservice
-    Weboberfläche
-    Webseiten-Discovery-Tool
+6. Diskussion der Ergebnisse
 
-Ergebnisse
-    Fallstudie Wordpress Seiten der KSW der FernUni Hagen
-    Zweite Fallstudie (TBD)
-
-Diskussion der Ergebnisse
-
-Schlussbetrachtungen
-    Zusammenfassung
-    Einschränkungen der Lösung
-    Erweiterungsmöglichkeiten / Ausblick
-    Fazit
+7. Schlussbetrachtungen
+    7.1 Zusammenfassung
+    7.2 Einschränkungen der Lösung
+    7.3 Erweiterungsmöglichkeiten / Ausblick
+    7.4 Fazit
