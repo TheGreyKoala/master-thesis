@@ -1,4 +1,4 @@
-\documentclass[titlepage,twoside,openright]{scrreprt}
+\documentclass[abstract=on,titlepage,twoside,openright]{scrreprt}
 
 % Direct input of special characters
 \usepackage[utf8]{inputenc}
@@ -70,8 +70,15 @@ Universitätsstraße 1\newline
 
 \begin{document}
 	\maketitle
+
+	\begin{abstract}
+		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+	\end{abstract}
+
+	\newpage
+
 	\begingroup
-		\let\cleardoublepage\relax
+		%\let\cleardoublepage\relax
 		\let\clearpage\relax
 		\tableofcontents
 		\listoffigures
@@ -80,7 +87,13 @@ Universitätsstraße 1\newline
 
 	\newpage
 
-	\cite{voelter:DslEngineering}
+	\include{FernUniRelaunch}
+	\include{ProblemAnalysis}
+	\include{SolutionConcept}
+	\include{SolutionDetails}
+	\include{Findings}
+	\include{FindingsDiscussion}
+	\include{SummaryAndOutlook}
 
 	\sloppy
 	\printbibliography[heading=bibintoc]
