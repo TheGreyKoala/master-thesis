@@ -1,4 +1,4 @@
-\documentclass[abstract=on,titlepage,twoside,openright]{scrreprt}
+\documentclass[abstract=on,parskip=half,titlepage,twoside,openright]{scrreprt}
 
 % Direct input of special characters
 \usepackage[utf8]{inputenc}
@@ -38,6 +38,10 @@
 \usepackage[margin=2.5cm]{geometry}
 %\usepackage{lmodern}
 
+\usepackage[acronym]{glossaries}
+\makeglossaries
+\newacronym{cms}{CMS}{Content Management System}
+
 % Support for links in pdf files
 \usepackage[
 	pdftex,
@@ -67,6 +71,11 @@ Universitätsstraße 1\newline
 \title{Erstellung einer domänenspezifischen Sprache zur automatische Klassifizierung der Inhalte von Webseiten}
 \author{Tim Gremplewski\thanks{tim.gremplewski@gmail.com, Martrikel-Nr: 9514244}}
 \date{01. Februar 2018}
+
+\parindent0mm
+
+\newcommand{\editor}{Redakteur}
+\newcommand{\editors}{{\editor}e }
 
 \begin{document}
 	\maketitle
