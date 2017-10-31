@@ -1,6 +1,7 @@
 \chapter{Modernisierung des Internetauftrittes der \fernUni}
     \label{chapter:FernUniRelaunch}
     \section{Über die Modernisierung von Webseiten}
+        \label{section:aboutWebsiteRelaunches}
         Ein zeitgemäßer Internetauftritt mit aktuellen Inhalten
         ist ein wichtiger Bestandteil der Öffentlichkeitsarbeit jeder Organisation,
         da sie für viele Interessierte die erste Anlaufstelle zur Beschaffung von Informationen ist.
@@ -24,7 +25,8 @@
         Ein gebräuchlicher Titel dieser Rolle ist \textit{\editor},
         der auch im Verlauf dieser Arbeit verwendet wird.
 
-        \editors verwenden zur Pflege ihrer Inhalte üblicherweise ein \gls{cms}.
+        \editors verwenden zur Pflege ihrer Inhalte üblicherweise ein \gls{cms},
+        welches ihnen für diese Aufgabe zum Beispiel formularbasierte Eingabemasken bereitstellt.
         Eine abstrakte Beschreibung solcher Systeme liefert \cite[][Seite 5,6]{barker:webCMS}:
 
         \begin{quote}
@@ -81,7 +83,7 @@
         An der Universität arbeiten \editors mit dem \gls{cms} \textit{\imperia}
         der \textit{pirobase imperia GmbH}\footnote{https://www.pirobase-imperia.com}.
         Eine Ausnahme stellt allerdings die Fakultät für \gls{ksw} dar.
-        Hier ist das Open-Source-Produkt \textit{WordPress}\footnote{https://wordpress.org/} im Einsatz.
+        Hier ist das Open-Source-Produkt \textit{\wordpress}\footnote{https://wordpress.org/} im Einsatz.
         Für die Fakultät ist ein Vorteil dieser Abspaltung,
         dass sie frei über das Design ihrer Seiten bestimmen kann
         und deshalb schon jetzt ein responsives Design verwendet.
@@ -98,3 +100,60 @@
         Aus diesen Gründen sollen die Seiten der Fakultät \gls{ksw}
         in Zukunft das neue Design der \fernUni verwenden und ebenfalls
         über \imperia gepflegt werden.
+
+        Ihre vorhandenen Inhalte möchte die \fernUni nicht verwerfen, sondern übernehmen.
+        Für die Inhalte der Fakultät \gls{ksw}, die bisher in \wordpress gepflegt werden,
+        bedeutet dies, dass sie zu \imperia migriert werden müssen.
+
+        Vergleicht man die Eingabemasken beider Systeme, fällt auf,
+        dass sie unterschiedlichen Herangehensweisen folgen.
+        Eine Eingabemaske in \imperia besteht aus einem feingranularem Formular,
+        in dem verschiedene inhaltliche Elemente einer Seite in verschiedenen Formularfeldern
+        gespeichert sind.
+        In \wordpress hingegen besteht das Formular lediglich aus zwei Feldern:
+        Eines für den Titel der Seite und eines für den Inhalt der Seite.
+        Für eine Migration stehen generell zwei Möglichkeiten zur Auswahl,
+        um mit dieser Differenz umzugehen:
+
+        \begin{enumerate}
+            \item   Für die aus \wordpress stammenden Seiten werden in \imperia Formulare geschaffen,
+                    die ebenfalls nur Felder für den Titel und den Inhalt einer Seite enthalten.
+                    Die Inhalte können dann 1:1 übetragen werden.
+            \item   Die Inhalte der aus \wordpress stammenden Seiten werden vor der Migration strukturiert,
+                    sodass sie in die feingranularen Formulare in \imperia übertragen werden können.
+        \end{enumerate}
+
+        Beide Ansätze besitzen Vor- und Nachteile.
+        Die erste Methode ist vergleichsweise einfach zu realisieren,
+        hätte allerdings zur Folge, dass für die Inhalte der Fakultät \gls{ksw} Sonderbehandlungen
+        in \imperia geschaffen werden, da die restlichen Fakultäten ihre bekannten feingranularen
+        Formulare beibehalten möchten.
+        Das hieße zum Beispiel, dass die Fakultät \gls{ksw} andere Formulare für die Pflege aktueller
+        Nachrichten verwendet, als die restlichen Fakultäten.
+        Da das Design beider Seiten am Ende aber identisch sein soll, bedeuten unterschiedliche Formulare
+        auch Sonderbehandlungen in der Erzeugung der Seiten.
+        Solche Sonderbehandlungen erzeugen erhöhte Aufwände sowohl im initialen Modernisierungsprojekt,
+        als auch in der späteren Wartung.
+        Nicht auszuschließen ist außerdem, dass \editors der Fakultät \gls{ksw} aufgrund der groben Formularstruktur
+        weniger redaktionelle Möglichkeiten hätten, als die anderer Fakultäten.
+
+        Die Vor- und Nachteile der zweiten Methode sind komplementär zu denen der ersten Methode.
+        Das Resultat ihrer Umsetzung wären universitätsweit einheitliche Formulare,
+        ohne Sonderbehandlungen für die ehemaligen Seiten aus \wordpress.
+        Gleichzeitig ist die Strukturierung der Inhalte aber keine triviale Aufgabe.
+        Unter anderem stellen sich dabei die folgenden Fragen:
+
+        \begin{itemize}
+            \item Welche Arten von Seiten liegen vor (Aktuelle Nachrichten, Prüfungen, Module, etc.)?
+            \item Welche Inhalte besitzen diese Seitentypen?
+            \item Wie müssen diese Inhalte strukturiert werden?
+        \end{itemize}
+
+        Die Beantwortung dieser Fragen erfordert eine genaue Analyse der Seiten der Fakultät \gls{ksw}
+        und einen Vergleich mit den geplanten Seiten und Formularen in \imperia.
+        
+        Neben dieser konzeptionellen Herausforderung entstehen auch nennenswerte operative Aufwände bei der Durchführung.
+        Jede der über 4000 Seiten der Fakultät \gls{ksw} muss einzeln geöffnet,
+        ihre tatsächlichen Inhalte mit den neuen Strukturen abgeglichen
+        und schließlich in diese übertragen werden.
+        Ohne Automatismus ist diese Aufgabe sehr zeitaufwendig und anfällig für Fehler.
