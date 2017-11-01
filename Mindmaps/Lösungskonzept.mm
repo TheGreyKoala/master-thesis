@@ -66,8 +66,12 @@
 <hook NAME="AutomaticEdgeColor" COUNTER="4" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="System zur automatischen Klassifizierung" POSITION="right" ID="ID_1892970695" CREATED="1509290572883" MODIFIED="1509290585104">
 <edge COLOR="#ff00ff"/>
-<node TEXT="System klassifiziert" ID="ID_1304146761" CREATED="1509277397918" MODIFIED="1509291780121">
-<node TEXT="Seiten -&gt; Seitenklasse" ID="ID_624431466" CREATED="1509291781241" MODIFIED="1509294741467"/>
+<node TEXT="Klassen" ID="ID_1348701236" CREATED="1509545006604" MODIFIED="1509545020836">
+<node TEXT="System klassifiziert Seite auf verschiedenen Ebenen" ID="ID_1304146761" CREATED="1509277397918" MODIFIED="1509542394710">
+<node TEXT="Seiten -&gt; Seitenklasse" ID="ID_624431466" CREATED="1509291781241" MODIFIED="1509294741467">
+<node TEXT="Um Festzulegen, wonach auf einer Seite gesucht wird" ID="ID_1328875478" CREATED="1509551344751" MODIFIED="1509551356178"/>
+<node TEXT="Sinnvoll, da es viele Seiten eines Typs gibt (z. B. FAQ, siehe Analyse)" ID="ID_85893394" CREATED="1509551356335" MODIFIED="1509551568811"/>
+</node>
 <node TEXT="Inhalte -&gt; Inhaltsklasse" ID="ID_382022061" CREATED="1509291783478" MODIFIED="1509294750035"/>
 <node TEXT="Referenzen" ID="ID_647006925" CREATED="1509291785551" MODIFIED="1509295369512">
 <node TEXT="Referenzklasse" ID="ID_1081125176" CREATED="1509295370857" MODIFIED="1509295371625"/>
@@ -78,7 +82,10 @@
 <node TEXT="etc." ID="ID_1544311403" CREATED="1509277607514" MODIFIED="1509277608809"/>
 </node>
 </node>
-<node TEXT="Klassen bilden inhalte, nicht die Layout-Struktur wider" ID="ID_1197220545" CREATED="1509292075664" MODIFIED="1509292111395"/>
+<node TEXT="Klassen bilden inhalte, nicht die Layout-Struktur wider" ID="ID_1197220545" CREATED="1509292075664" MODIFIED="1509292111395">
+<node TEXT="Klasse spiegelt inhaltliche Bedeutung wider" ID="ID_1900587683" CREATED="1509542409964" MODIFIED="1509542440424"/>
+</node>
+</node>
 <node TEXT="Als Grundlage dient HTML" ID="ID_944609917" CREATED="1509291126756" MODIFIED="1509291135831">
 <node TEXT="Klassifizierung unabh&#xe4;ngig von Backend der Seite" ID="ID_1564715406" CREATED="1509291139241" MODIFIED="1509291181313"/>
 <node TEXT="Unabh&#xe4;ngig von WP-Plugins &amp; deren Markup" ID="ID_895226956" CREATED="1509291181576" MODIFIED="1509291201662"/>
@@ -135,6 +142,7 @@
 </node>
 </node>
 </node>
+<node TEXT="Browser-Automatisierung, um nicht-statische Seite zu h&#xe4;ndeln" ID="ID_1086636766" CREATED="1509550170868" MODIFIED="1509550317306"/>
 </node>
 <node TEXT="DSL zur Spezifikation von Klassen" POSITION="right" ID="ID_1420895483" CREATED="1509277431664" MODIFIED="1509295500776">
 <edge COLOR="#00ff00"/>
