@@ -73,3 +73,11 @@
     7.2 Einschränkungen der Lösung
     7.3 Erweiterungsmöglichkeiten / Ausblick
     7.4 Fazit
+
+- Einführung: 4
+- Problemanalyse: 10
+- Lösungskonzept: 15
+- Lösungsdetails: 15
+- Ergebnisse: 5
+- Diskussion: 5
+- Schluss: 6
