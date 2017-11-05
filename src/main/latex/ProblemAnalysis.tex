@@ -13,6 +13,7 @@
         %\end{figure}
     
     \section{Das World Wide Web}
+        \label{section:TheWWW}
         Zur Lösung der beschriebenen Problemstellung ist eine genauere
         Betrachtung ihrer Domäne notwendig.
         Das Problem wird dadurch in einen größeren Kontext gesetzt,
@@ -20,16 +21,8 @@
         einer geeigneten Lösung beiträgt.
         % TODO: Ref auf DDD?
 
-        Die in diesem Fall zu betrachtende Domäne ist das "`\gls{www}"',
-        welche das \gls{w3c} wie folgt definiert \cite{w3c:wwwArch}:
-
-        \begin{quote}
-            The \textit{\textbf{World Wide Web}} (\textit{\textbf{WWW}}, or simply \textit{\textbf{Web}})
-            is an information space in which the items of interest, referred to as resources,
-            are identified by global identifiers called Uniform Resource Identifiers (\textit{\textbf{URI}}).
-        \end{quote}
-
-        Diese Problemdomäne wird im Folgenden aus zwei Perspektiven betrachtet:
+        Die in diesem Fall zu betrachtende Domäne ist das "`\gls{www}"'.
+        Diese wird im Folgenden aus zwei Perspektiven betrachtet:
         Zunächst wird die Sicht eines Webseitenbesuchers auf das \gls{www} beschrieben.
         Anschließend stehen die konzeptionellen und technischen Grundlagen
         des \gls{www} im Vordergrund.
@@ -37,6 +30,7 @@
         um eine Lösung für die gegebene Problemstellung zu erarbeiten.
 
         \subsection{Das World Wide Web für Webseitenbesucher}
+            \label{section:enduserViewOnWWW}
             Die Sicht eines Webseitenbesuchers (im Folgenden auch "`Endnutzer"' genannt)
             auf das \gls{www} ist simpel und sollte von jedem Leser nachvollzogen werden können.
             Dennoch bietet sie wichtige Einblicke.
@@ -51,7 +45,7 @@
             zu einem unentbehrlichen Werkzeug wird.
             Browser existieren für verschiedene Endgeräte,
             wie PCs, Smartphones und Tablets.
-            Das heißt ein Webseitenbesucher ist an eine Form von Endgeräten gebunden.
+            Das heißt ein Webseitenbesucher ist nicht an eine Form von Endgeräten gebunden.
 
             \paragraph*{Bestandteile}
             Sieht sich ein Besucher eine Webseite im Browser an,
@@ -182,8 +176,8 @@
             Die Bezeichnungen der resultierenden Klassen finden sich häufig im Sprachgebrauch
             von Webseitenbesucher wieder.
 
-            Als \textit{Suchmaschinen} werden beispielsweise häufig die Seiten
-            \url{https://www.google.de} und \url{https://www.bing.com/} bezeichnet.
+            Die Seiten \url{https://www.google.de} und \url{https://www.bing.com/}
+            werden beispielsweise häufig als \textit{Suchmaschinen} bezeichnet.
             Andere geläufige Klassen sind:
 
             \begin{itemize}
@@ -204,3 +198,155 @@
             relevant.
 
         \subsection{Konzeptionelle und technische Grundlagen}
+            Nach der Sicht eines Endnutzers auf das \gls{www},
+            folgt in diesem Kapitel eine Erläuterung der Konzepte und Grundlagen,
+            auf denen es basiert.
+
+            \paragraph*{Definition des \glspl{w3c}}
+            Das \gls{w3c} definiert den Begriff "`World Wide Web"' in \cite{w3c:wwwArch} wie folgt:
+    
+            \begin{quote}
+                The \textit{\textbf{World Wide Web}} (\textit{\textbf{WWW}}, or simply \textit{\textbf{Web}})
+                is an information space in which the items of interest, referred to as resources,
+                are identified by global identifiers called Uniform Resource Identifiers (\textit{\textbf{URI}}).
+            \end{quote}
+
+            Darüber hinaus nennt \cite{w3c:wwwArch} die drei grundlegenden Komponenten des \gls{www}:
+
+            \begin{quote}
+                They are identification of resources,
+                representation of resource state, and the protocols
+                that support the interaction between agents and resources in the space.
+            \end{quote}
+
+            \paragraph*{\resources}
+            Aus der obigen Definition wird deutlich,
+            dass das \gls{www} nicht ausschließlich zur Nutzung von Webseiten
+            vorgesehen ist.
+            Stattdessen können über das \gls{www} jede Art von \resources bezogen werden.
+            Neben Webseiten gehören dazu unter anderem auch einfache Textdateien
+            und Binärdateien wie zum Beispiel PDFs, Audio- oder Videodateien.
+
+            \paragraph*{Identifizierung von \resources}
+            Die Beschreibung des \glspl{w3c} stellt außerdem klar,
+            dass \resources nicht ausschließlich über \glspl{url} angesprochen werden können.
+            Stattdessen geschieht dies über \glspl{uri}, die eine Obermenge von \glspl{url} darstellen
+            \cite[Kapitel 1.1.3, Seite 7]{rfc:3986}.
+            Jede \resource im \gls{www} wird also eindeutig über eine \gls{uri} identifiziert.
+
+            \paragraph*{Interaktion mit dem \gls{www}}
+            Wie in Kapitel \ref{section:enduserViewOnWWW} beschrieben ist für Endnutzer
+            der Browser das einzige Werkzeug, mit dem sie mit dem \gls{www}
+            interagieren können. Wie bereits klargestellt wurde,
+            können aus dem \gls{www} allerdings nicht nur Webseiten bezogen werden,
+            weshalb es naheliegend ist, dass neben Browsern noch weitere Werkzeuge existieren,
+            um \resources im \gls{www} anzusprechen.
+            Das \gls{w3c} bezeichnet jedes Werkzeug, das dazu in der Lage ist als
+            "`Web agent"' und beschreibt diese Rolle wie folgt:
+            "`A person or a piece of software acting on the information
+            space on behalf of a person, entity, or process."'
+            Eine Spezialisierung stellen die sogenannten "`User agents"' dar,
+            die das \gls{w3c} als "`One type of Web agent;
+            a piece of software acting on behalf of a person."' beschreibt.
+            Browser sind User agents, aber zum Beispiel auch Kommandozeilenprogramme
+            wie curl\footnote{https://curl.haxx.se/}.
+            Ihre persönliche Kennung halten User Agents zum Beispiel im
+            HTTP-Header "`User-Agent"' fest \cite[Kapitel 5.5.3, Seite 46]{rfc:7231}.
+
+            Der Prozess, bei dem ein Agent über eine \gls{uri} auf eine {\resource}
+            zugreift heißt "`Dereferencing the URI"' \cite[Kapitel 3.1]{w3c:wwwArch}.
+            Wie dieser Prozess aussieht hängt von der Funktion des User Agents und der \gls{uri} ab
+            \cite[Kapitel 3.1]{w3c:wwwArch}.
+            Die Funktion eines User Agents könnte beispielsweise das Abrufen einer
+            Repräsentation der {\resource} vorsehen, wohingegen ein anderer Agent
+            lediglich prüft, ob eine eben solche Repräsentation existiert.
+            Das Schema einer \gls{uri} beschreibt laut Spezifikation
+            lediglich, wie die folgende Kennung zu interpretieren ist
+            \cite[Kapitel 3.1, Seite 17]{rfc:3986}.
+            Viele Schemata sind allerdings nach Protokollen benannt,
+            weshalb sie in der Praxis häufig bestimmen,
+            wie User Agents auf eine {\resource} zugreifen können
+            \cite[Kapitel 3.1]{w3c:wwwArch}.
+            
+            Schemata, die im \gls{www} häufig Anwendung finden,
+            sind zum Beispiel
+            http\footnote{\url{https://tools.ietf.org/html/rfc7230\#section-2.7.1}},
+            https\footnote{\url{https://tools.ietf.org/html/rfc7230\#section-2.7.2}},
+            mailto\footnote{\url{https://tools.ietf.org/html/rfc6068}} und
+            data\footnote{\url{https://tools.ietf.org/html/rfc2397}}.
+            Für Webseiten sind dabei vor allem http und https
+            und die gleichnamigen Protokolle von Bedeutung,
+            da \glspl{url} von Webseiten diese vorrangig verwenden.
+
+            Wenn Browser oder ein anderer Agent eine Webseite aufruft,
+            bedeutet dies allgemein gesprochen, dass der Agent eine Repräsentation
+            einer {\resource} anfragt, die er über eine \gls{url} spezifiziert.
+            Konkret richtet er diese Anfrage an einen Server,
+            wozu er das Protokoll HTTP(S)\footnote{\url{https://tools.ietf.org/html/rfc7231}} und die Methode
+            GET\footnote{\url{https://tools.ietf.org/html/rfc7231\#section-4.3.1}} verwendet.
+
+            Falls der Server den \gls{url} der Anfrage auflösen kann,
+            antwortet er auf die Anfrage mit der Repräsentation der Webseite,
+            die im nächsten Abschnitt behandelt wird.
+            Der Browser übernimmt dann das Rendering der Seite und die Ausführung
+            von eingebetteten Skripten.
+
+            %TODO: Statische oder dynamische Antwort des Servers!!!
+
+            \paragraph*{Repräsentation einer Webseite}
+            Webseiten sind Dokumente, die die Auszeichnungssprache \gls{html} verwenden,
+            die aktuell in der Version 5 vorliegt \cite{w3c:html5}.
+            Bis zur Version 3.2 war \gls{html} eine Implementierung der Metasprache SGML \cite{w3c:html401}.
+            Zusammen mit der Version 4 wurde eine Ausprägung spezifiziert,
+            die \gls{html} in eine Implementierung der Sprache XML überführte,
+            die den Namen XHTML erhielt \cite{w3c:xhtml}.
+            \gls{html}5 definiert eine abstrakte Sprache
+            die sowohl mit \gls{html}- als auch mit XML-Syntax genutzt werden kann
+            \cite[Kapitel 1.6]{w3c:html5}.
+            Einem Agent kann über den MIME-Type mitgeteilt werden,
+            ob ein Dokument \gls{html}- oder XML-Syntax verwendet \cite[Kapitel 1.6]{w3c:html5}.
+            Diese Angabe ist wichtig, da XML-Syntax restriktiver als \gls{html}-Syntax ist.
+            Der \gls{html}-Syntax erfordert zum Beispiel nicht,
+            dass alle öffnenden Tags auch einen schließenden Gegenpart besitzen
+            \cite[Kapitel 3.2.3]{w3c:html5}.
+            
+            \gls{html}-Dokumente bestehen in beiden Syntaxvarianten aus verschachtelten
+            Nodes, die in 10 Kategorien eingeteilt werden \cite[Kapitel 4]{w3c:html5}.
+            Diese sind in Tabelle \ref{table:htmlElements} inkl. einiger Vertreter aufgelistet.
+
+            \begin{table}[h]
+                \centering
+                \begin{tabular}{|l|l|}
+                \hline
+                \textbf{Kategorie} & \textbf{Elemente (Auswahl)} \\
+                \hline
+                Das Wurzelelement & html \\
+                \hline
+                Metadaten des Dokumentes & head, title, style \\
+                \hline
+                Absätze & body, article, section \\
+                \hline
+                Gruppierungen & p, ul, div \\
+                \hline
+                Semantische Kennzeichnung von Text & a, strong, code \\
+                \hline
+                Kennzeichnung von Textänderungen & ins, del \\
+                \hline
+                Eingebetteter Inhalt & img, iframe, object \\
+                \hline
+                Tabellenelemente & table, tr, td \\
+                \hline
+                Formulare & form, input, button \\
+                \hline
+                Skripte & script, canvas \\
+                \hline
+                \end{tabular}
+                \caption{\gls{html} Elemente}
+                \label{table:htmlElements}
+            \end{table}
+
+            \gls{html}-Dateien können über verschiedene Elemente andere {\resources} des \gls{www} referenzieren.
+
+            % Wie sehen Attribute für Referenzen aus:
+            % https://www.w3.org/TR/html5/links.html#links
+            % https://www.w3.org/TR/html5/embedded-content-0.html#embedded-content-0
