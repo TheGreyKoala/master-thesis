@@ -223,16 +223,16 @@
             Aus der obigen Definition wird deutlich,
             dass das \gls{www} nicht ausschließlich zur Nutzung von Webseiten
             vorgesehen ist.
-            Stattdessen können über das \gls{www} jede Art von \resources bezogen werden.
+            Stattdessen können über das \gls{www} jede Art von {\resources} bezogen werden.
             Neben Webseiten gehören dazu unter anderem auch einfache Textdateien
             und Binärdateien wie zum Beispiel PDFs, Audio- oder Videodateien.
 
             \paragraph*{Identifizierung von \resources}
             Die Beschreibung des \glspl{w3c} stellt außerdem klar,
-            dass \resources nicht ausschließlich über \glspl{url} angesprochen werden können.
+            dass {\resources} nicht ausschließlich über \glspl{url} angesprochen werden können.
             Stattdessen geschieht dies über \glspl{uri}, die eine Obermenge von \glspl{url} darstellen
             \cite[Kapitel 1.1.3, Seite 7]{rfc:3986}.
-            Jede \resource im \gls{www} wird also eindeutig über eine \gls{uri} identifiziert.
+            Jede {\resource} im \gls{www} wird also eindeutig über eine \gls{uri} identifiziert.
 
             \paragraph*{Interaktion mit dem \gls{www}}
             Wie in Kapitel \ref{section:enduserViewOnWWW} beschrieben ist für Endnutzer
@@ -240,14 +240,14 @@
             interagieren können. Wie bereits klargestellt wurde,
             können aus dem \gls{www} allerdings nicht nur Webseiten bezogen werden,
             weshalb es naheliegend ist, dass neben Browsern noch weitere Werkzeuge existieren,
-            um \resources im \gls{www} anzusprechen.
-            Das \gls{w3c} bezeichnet jedes Werkzeug, das dazu in der Lage ist als
+            um {\resources} im \gls{www} anzusprechen.
+            Das \gls{w3c} bezeichnet jedes Werkzeug, das dazu in der Lage ist, als
             "`Web agent"' und beschreibt diese Rolle wie folgt:
             "`A person or a piece of software acting on the information
-            space on behalf of a person, entity, or process."'
+            space on behalf of a person, entity, or process."' \cite[Kapitel 6]{w3c:wwwArch}.
             Eine Spezialisierung stellen die sogenannten "`User agents"' dar,
             die das \gls{w3c} als "`One type of Web agent;
-            a piece of software acting on behalf of a person."' beschreibt.
+            a piece of software acting on behalf of a person."' beschreibt \cite[Kapitel 6]{w3c:wwwArch}.
             Browser sind User agents, aber zum Beispiel auch Kommandozeilenprogramme
             wie curl\footnote{https://curl.haxx.se/}.
             Ihre persönliche Kennung halten User Agents zum Beispiel im
@@ -278,7 +278,7 @@
             und die gleichnamigen Protokolle von Bedeutung,
             da \glspl{url} von Webseiten diese vorrangig verwenden.
 
-            Wenn Browser oder ein anderer Agent eine Webseite aufruft,
+            Wenn ein Browser oder ein anderer Agent eine Webseite aufruft,
             bedeutet dies allgemein gesprochen, dass der Agent eine Repräsentation
             einer {\resource} anfragt, die er über eine \gls{url} spezifiziert.
             Konkret richtet er diese Anfrage an einen Server,
@@ -296,7 +296,7 @@
             \paragraph*{Repräsentation einer Webseite}
             Webseiten sind Dokumente, die die Auszeichnungssprache \gls{html} verwenden,
             die aktuell in der Version 5 vorliegt \cite{w3c:html5}.
-            Bis zur Version 3.2 war \gls{html} eine Implementierung der Metasprache SGML \cite{w3c:html401}.
+            Bis zur Version 3.2 war \gls{html} eine Implementierung der Metasprache SGML \cite[Kapitel 3]{w3c:html401}.
             Zusammen mit der Version 4 wurde eine Ausprägung spezifiziert,
             die \gls{html} in eine Implementierung der Sprache XML überführte,
             die den Namen XHTML erhielt \cite{w3c:xhtml}.
@@ -345,8 +345,49 @@
                 \label{table:htmlElements}
             \end{table}
 
-            \gls{html}-Dateien können über verschiedene Elemente andere {\resources} des \gls{www} referenzieren.
+            Die verschiedenen Elemente geben ihren Inhalten eine semantische Bedeutung.
+            Text in einem h1 Element wird von einem Browser zum Beispiel in die Anzeige gerendert
+            \cite[Kapitel 4.3.6]{w3c:html5},
+            wohingegen er in einem script Tag als Code interpretiert und ausgeführt wird
+            \cite[Kapitel 4.11.1]{w3c:html5}.
+            
+            Eine Besonderheit von \gls{html} ist die Möglichkeit
+            über verschiedene Elemente andere {\resources} des \gls{www} zu referenzieren,
+            wodurch ein gerichtetes, potentiell zyklisches Netzwerk entsteht.
+            Beispiele für häufig in Webseiten referenzierte {\resources}
+            sind andere Webseiten, Skripte, CSS-Dateien, Bilder und Videos.
+            Zur Referenzierung dieser Beispiele dienen die \gls{html}-Elemente
+            a, script, link, img, und video,
+            die wiederum gleichzeitig auch die Semantik der Referenz festlegen.
+            Dadurch kann zum Beispiel ein Bild sowohl über das img
+            als auch das a Element referenziert werden.
+            Im ersten Fall wird ein Browser das Bild direkt in die Anzeige rendern,
+            wohingegen er im zweiten Fall nur einen klickbaren Link auf das Bild darstellt.
 
-            % Wie sehen Attribute für Referenzen aus:
-            % https://www.w3.org/TR/html5/links.html#links
-            % https://www.w3.org/TR/html5/embedded-content-0.html#embedded-content-0
+            \paragraph*{Trennung der Zuständigkeiten}
+            Die Trennung der Zuständigkeiten\footcite[vgl.][]{huersch:SeparationOfConcerns}
+            ist ein allgegenwärtiges Konzept der Informatik.
+            Im Sinne dieses Konzeptes existieren im Kontext von Webseiten
+            drei Belange, die es zu trennen gilt:
+
+            \begin{enumerate}
+                \item Struktur und Inhalt
+                \item Darstellung
+                \item Funktionalität
+            \end{enumerate}
+
+            Über ihre verschachtelten Elemente bestimmen \gls{html}-Dokumente die Struktur einer Seite.
+            Außerdem enthalten diese Elemente ihren Inhalt.
+            Das Aussehen einer Seite wird über \gls{css} festgelegt \cite{w3c:css}.
+            Dabei handelt es sich um "`[...] eine Sprache zur Beschreibung des Renderings
+            von strukturierten Dokumenten (wie HTML und XML) auf Bildschirmen, auf Papier,
+            in Sprache, etc."' \cite{w3c:css}.
+
+            % TODO: CSS-SELEKTOREN!
+
+            Ihre Funktionalität, um zum Beispiel mit dem Nutzer zu interagieren,
+            erhält eine Webseite durch JavaScript-Funktionen.
+
+
+            \paragraph*{Dynamische Inhalte}
+            \paragraph*{Personalisierter Inhalt}
