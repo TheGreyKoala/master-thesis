@@ -376,17 +376,34 @@
                 \item Funktionalität
             \end{enumerate}
 
-            Über ihre verschachtelten Elemente bestimmen \gls{html}-Dokumente die Struktur einer Seite.
-            Außerdem enthalten diese Elemente ihren Inhalt.
-            Das Aussehen einer Seite wird über \gls{css} festgelegt \cite{w3c:css}.
+            Der Inhalt einer Seite ist in den \gls{html}-Elementen enthalten,
+            deren Hierarchie darüber hinaus die Struktur der Seite bestimmt.
+            
+            Das Aussehen einer Seite wird hingegen über \gls{css} festgelegt \cite{w3c:css}.
             Dabei handelt es sich um "`[...] eine Sprache zur Beschreibung des Renderings
             von strukturierten Dokumenten (wie HTML und XML) auf Bildschirmen, auf Papier,
             in Sprache, etc."' \cite{w3c:css}.
-
-            % TODO: CSS-SELEKTOREN!
-
+            Zu diesem Zweck werden mit \gls{css} Regeln definiert,
+            die einer Menge von \gls{html}-Elementen Eigenschaften in der Darstellung (Styles) zuweisen
+            \cite{w3c:cssSyntax}.
+            Diese Menge von Elementen wird wiederum über Selektoren festgelegt,
+            mit denen sich verschiedene Eigenschaften der auszuwählenden Nodes beschreiben lassen
+            \cite{w3c:cssSelectors}.
+            Falls zwei Regeln dasselbe Element ansprechen,
+            werden die Styles beider Regeln zusammengefasst
+            \cite{w3c:cssCascading}.
+            Überschneidungen in den Styles werden in diesem Fall anhand der Selektoren der betroffenen Regeln aufgelöst.
+            Verschiedene Selektoren sprechen einzelne Elemente nämlich verschieden stark an.
+            Bezogen auf das betroffene Element lässt sich dadurch eine Priorität festlegen,
+            bei der eine Regel mit starkem Selektor Vorrang vor einer Regel mit schwachem Selektor hat
+            \cite{w3c:cssSelectors}. 
+            Wichtig zu beachten ist, dass \gls{css} die angewandten Styles eines Elementes auf alle Unterelemente vererbt.
+            Diese können Styles allerdings explizit überschreiben
+            \cite{w3c:cssCascading}.
+            
             Ihre Funktionalität, um zum Beispiel mit dem Nutzer zu interagieren,
             erhält eine Webseite durch JavaScript-Funktionen.
+            % JavaScript DOM API!
 
 
             \paragraph*{Dynamische Inhalte}
