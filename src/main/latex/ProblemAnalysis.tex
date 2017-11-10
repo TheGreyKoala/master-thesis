@@ -14,6 +14,7 @@
     
     \section{Das World Wide Web}
         \label{section:TheWWW}
+        % TODO Keine umfassende Betrachtung, da zu viel. Nur Aspekte, die für Arbeit wichtig.
         Zur Lösung der beschriebenen Problemstellung ist eine genauere
         Betrachtung ihrer Domäne notwendig.
         Das Problem wird dadurch in einen größeren Kontext gesetzt,
@@ -291,8 +292,6 @@
             Der Browser übernimmt dann das Rendering der Seite und die Ausführung
             von eingebetteten Skripten.
 
-            %TODO: Statische oder dynamische Antwort des Servers!!!
-
             \paragraph*{Repräsentation einer Webseite}
             Webseiten sind Dokumente, die die Auszeichnungssprache \gls{html} verwenden,
             die aktuell in der Version 5 vorliegt \cite{w3c:html5}.
@@ -401,10 +400,87 @@
             Diese können Styles allerdings explizit überschreiben
             \cite{w3c:cssCascading}.
             
-            Ihre Funktionalität, um zum Beispiel mit dem Nutzer zu interagieren,
-            erhält eine Webseite durch JavaScript-Funktionen.
-            % JavaScript DOM API!
+            Auf den verbliebenen Aspekt "`Funktionalität"' geht der folgende Abschnitt ein.
 
+            \paragraph*{Dynamische Webseiten}
+            Komplexe Webanwendungen sind auf die Möglichkeit angewiesen Geschäftslogik auszuführen.
+            Dafür kommen sowohl der Webserver als auch der User Agent infrage.
 
-            \paragraph*{Dynamische Inhalte}
+            Der Server kann zur Bearbeitung einer Anfrage mit dem Inhalt einer Datei auf seinem Dateisystem antworten.
+            Dies können zum Beispiel eine \gls{html}-Datei oder ein Bild sein.
+            In diesem Fall spricht man von statischen Inhalten.
+            Wie eingangs erwähnt ist es ist allerdings auch möglich,
+            dass eine Webanwendung serverseitig Geschäftslogik zur Bearbeitung einer Anfrage ausführt.
+            Die Antwort an den Client kann statisch oder
+            durch die Webanwendung generiert worden sein.
+            Im letzten Fall spricht man von dynamisch generierten bzw. erzeugten Inhalten.
+
+            Ein \gls{html}-Dokument kann in script-Elementen ebenfalls Logik enthalten
+            \cite[Kapitel 4.11]{w3c:html5},
+            zu deren Formulierung Entwickler häufig die Skriptsprache JavaScript verwenden,
+            wobei es sich um eine Implementierung des Sprachstandards ECMAScript handelt
+            \cite{ecma:ecmaScript}.
+            Nicht der Server, sondern der anfragende User Agent führt diese Logik aus.
+            Dabei handelt es sich generell um einen Browser.
+            Es existieren verschiedene Programmierschnittstellen,
+            die neben vielen anderen Funktionen, zum Beispiel die Möglichkeit bieten,
+            Elemente zu manipulieren, auf Nutzerinteraktion zu reagieren
+            oder asynchrone HTTP-Anfragen zu starten \cite[Kapitel 8]{whatwg:html}\cite{whatwg:xhr}.
+            Falls eine Webseite solche clientseitigen Mittel verwendet,
+            wird sie oft als dynamsiche Seite bezeichnet.
+            
+            Client- und serverseitige Programmteile funktionieren oftmals Hand in Hand,
+            wie das folgende Beispiel illustriert:
+            Ein Nutzer klickt auf eine Schaltfläche in einer Webseite.
+            Dadurch wird eine JavaScript-Funktion aktiviert,
+            die eine asynchrone HTTP-Anfrage an einen Webserver schickt.
+            Aufgrund dieser Anfrage führt der Server Geschäftslogik aus
+            und generiert auf Basis des Ergebnisses ein \gls{html}-Fragment,
+            welches er in seine Antwort schreibt.
+            Der Empfang der Antwort löst im Browser die Ausführung einer weiteren
+            JavaScript-Funktion aus, die das empfange \gls{html}-Fragment
+            an eine definierte Stelle der Webseite einfügt,
+            wodurch es dem Nutzer sichtbar wird.
+
+            Der konzeptionelle Ablauf in diesem Szenario sowie die verwendeten Mittel
+            werden unter dem Begriff \gls{ajax} zusammengefasst \cite{garrett:ajax}.
+
+            Die Konsequenz ist, dass Webseiten trotz eindeutiger \gls{url} nicht zwangsläufig
+            immer gleichbleibenden Inhalt besitzen.
+
             \paragraph*{Personalisierter Inhalt}
+            Der vorherige Abschnitt hat bereits verdeutlicht,
+            dass der Inhalt einer Webseite nicht für jeden Nutzer identisch sein muss.
+            Eine Ursache hierfür kann wie zuvor beschrieben die Interaktion mit
+            einer Webanwendung sein, die bei jedem Nutzer einen anderen Verlauf nimmt,
+            was zu unterschiedlichen Resultaten führt.
+            In dieser Tatsache gleichen Webanwendungen wiederum herkömmlichen Applikationen.
+
+            Kapitel \ref{section:enduserViewOnWWW} ist bereits auf die Mehrsprachigkeit
+            von Webseiten eingegangen, die eine Form der Personalisierung einer Webseite darstellen.
+            Die zu nutzende Sprache kann über die \gls{url} codiert werden,
+            wodurch die Seite nach der Definition des \glspl{w3c} allerdings zu einer eigenständigen {\resource} wird,
+            die eindeutig identifizert werden kann.
+            Aus dieser technischen Perspektive handelt es sich also nicht mehr um eine Variante einer Seite.
+            Webserver können aber auch den HTTP-Header Accept-Language auslesen,
+            um basierend auf diesem Wert die Seite in einer passenden Sprache zu generieren.
+            Gesetzt wird dieser Header vom User Agent,
+            wozu er zum Beispiel Benutzereinstellungen oder Informationen des Betriebssystems heranziehen kann
+            \cite[Kapitel 5.3.5, Seite 42]{rfc:7231}.
+
+            Aktuelle Marketingstrategien empfehlen Inhalte gezielt zu personalisieren,
+            um den Besucher differenzierter und dadurch besser anzusprechen.
+            Zu den hierfür genutzten Merkmalen des Nutzers zählen
+            \cite{narongsak:contentPers}:
+            
+            \begin{enumerate}
+                \item Die Identität des Nutzers
+                \item Der Klickpfad, dem ein Nutzer bis zur aktuellen Seite gefolgt ist
+                \item Der Standort des Nutzers
+                \item Der verwendete Browser
+                \item Das Art und Größe des verwendeten Endgeräts
+            \end{enumerate}
+
+            Durch die Nutzung solcher Informationen entstehen verschiedene Varianten einer Seite,
+            die alle durch denselben \gls{url} identifiziert, aber nicht gezielt und mit standardisierten Mitteln
+            angefragt werden können.
