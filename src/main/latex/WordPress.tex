@@ -1,0 +1,187 @@
+\section{\wordpress}
+    Das Open-Source-Projekt {\wordpress} startete 2003
+    mit dem Ziel eine Anwendung zur einfachen Pflege eines Weblogs
+    (kurz Blog) zu schaffen \cite{wordpress:About}.
+    Das Ergebnis ist die gleichnamige Software,
+    die noch immer von der Community weiterentwickelt wird
+    und von der Fakultät \gls{ksw} der {\fernUni} für ihren
+    Internetauftritt genutzt wird.
+
+    In diesem Kapitel werden grundlegende Konzepte dieses Systems vorgestellt.
+
+    \subsection{Weblog-Software}
+        \label{section:weblogSoftware}
+        {\wordpress} ist im Kern eine Software zur Pflege eines Blogs,
+        wobei es sich um eine spezielle Form einer Webseite handelt
+        \cite{wordpress:Blogging}:
+
+        \begin{quote}
+            "`Blog"' is an abbreviated version of "`weblog"',
+            which is a term used to describe websites that maintain
+            an ongoing chronicle of information.
+            A blog features diary-type commentary and links to articles
+            on other websites, usually presented as a list of entries in
+            reverse chronological order.
+            Blogs range from the personal to the political,
+            and can focus on one narrow subject or a whole range of subjects.
+        \end{quote}
+
+        Da Blogs eine spezielle Form von Webseiten sind,
+        kann man auch eine Anwendung zu ihrer Pflege als
+        spezielle Form eines \gls{cms} betrachten.
+        Diese Aussage trifft {\wordpress} auch über sich selbst
+        und vergleichbare Software \cite{wordpress:Blogging}:
+
+        \begin{quote}
+            Many blogging software programs are considered a specific type of CMS.
+            They provide the features required to create and maintain a blog,
+            and can make publishing on the internet as simple as writing an article,
+            giving it a title, and organizing it under (one or more) categories.
+        \end{quote}
+
+        Nicht zuletzt weil auch Privatpersonen eine Zielgruppe
+        solcher Anwendungen sind, vereinfachen sie demnach Blog-Einträge
+        auf die zwei elementaren Elemente Titel und Inhalt.
+        Mit dieser schwachen Strukturierung der Inhalte
+        unterscheidet sich {\wordpress} deutlich von {\imperia}
+        und seinen Dokumenten, die beliebig start strukturiert
+        werden können.
+
+        Aufgrund der Anpassbarkeit durch Themes\footnote{vgl. Kapitel \ref{section:wordpressTemplatesThemes}}
+        und Plugins\footnote{vgl. Kapitel \ref{section:wordpressPlugins}} sieht sich
+        {\wordpress} trotzdem als vollwertiges \gls{cms}
+        \cite{wordpress:About}.
+
+    \subsection{Dynamische Generierung}
+        Anders als {\imperia} ist {\wordpress} nicht nur das Redaktionssystem,
+        sondern gleichzeitig auch das ausliefernde System.
+        Verglichen mit der in Kapitel \ref{section:imperiaArch}
+        beschriebenen Aufgabenteilung übernimmt {\wordpress} selbst
+        also auch die Rolle des Zielsystems.
+
+        Inhalte genereirt {\wordpress} deshalb nicht in statische Dateien,
+        sondern erzeugt eine Webseite auf Anfrage dynamisch.
+
+    \subsection{Posts und Pages}
+        \label{section:wordpressPostsPages}
+        {\wordpress} erlaubt die Pflege von Inhalten in Posts
+        und in Pages \cite{wordpress:Pages}.
+
+        \paragraph*{Posts}
+        Blog-Einträge und somit die Kernkompetenz von
+        {\wordpress} werden über Posts abgebildet.
+        Wie in Kapitel \ref{section:weblogSoftware} beschrieben werden sie
+        auf der Webseite nach ihrem Erstellungszeitpunkt absteigend sortiert dargestellt
+        und besitzen zwei Felder, die mit redaktionellen Inhalten gefüllt werden können:
+        Titel und Inhalt \cite{wordpress:Posts}.
+        
+        Darüber Hinaus stehen dem Anwender aber noch weitere Optionen zur
+        Verfügung, wie die Zuweisung einer oder mehrerer Kategorien oder Tags.
+        Über "`Custom Fields"' kann er zusätzliche Informationen an einem Post
+        speichern, die zum Beispiel von Plugins\footnote{vgl. Kapitel \ref{section:wordpressPlugins}}
+        genutzt werden.
+        In der Praxis speichern sie Metadaten des Posts und dienen nicht zur Strukturierung
+        der Inhalte des Posts \cite{wordpress:Posts}.
+        Aufgrund der Tatsache, dass jeder Post über dieselben Custom Fields verfügt,
+        ist ihre Eignung dafür auch fraglich.
+
+        Posts können verschiedene Post Types besitzen,
+        die auch durch eigene Typen ergänzt werden können.
+        Die standardmäßigen Post Types in {\wordpress} sind
+        \cite{wordpress:PostTypes}:
+
+        \begin{itemize}
+            \item Post
+            \item Page
+            \item Attachment
+            \item Revision
+            \item Navigation Menu
+            \item Custom CSS
+            \item Changesets
+        \end{itemize}
+
+        Der Typ eines Posts ändert nichts an seinen redaktionellen Feldern.
+        Das heißt, es ist nicht möglich für einen eigenen neuen Post Type
+        neue Felder für die Strukturierung der Inhalte zu spezifizieren
+        \cite{wordpress:Posts, wordpress:PostTypes}.
+
+        \paragraph*{Pages}
+        Neben Posts kennt {\wordpress} auch das Konzept einer Page,
+        die sich in ihrem Zweck klar von einem Post unterscheidet
+        \cite{wordpress:Pages}:
+
+        \begin{quote}
+            In contrast, pages are generally for non-chronological,
+            hierarchical content: pages like "`About"' or "`Contact"'
+            would be common examples.
+            [...]
+            Pages live outside of the normal blog chronology,
+            and are often used to present timeless information about
+            yourself or your site -- information that is always relevant.
+            You can use Pages to organize and manage the structure of your website content.
+        \end{quote}
+
+        Aus diesem Grund besitzen Pages zwar ebenfalls einen Titel und Inhalt,
+        können aber lediglich mit Tags versehen werden.
+        Die Einordnung in eine Kategorie ist nicht möglich
+        \cite{wordpress:Pages}.
+
+        Technisch gesehen ist eine Page nur ein Post,
+        dessen Post Type "`Page"' ist.
+
+    \subsection{Vorlagen und Themes}
+        \label{section:wordpressTemplatesThemes}
+        Wie {\imperia} strebt auch {\wordpress} eine Trennung von
+        Inhalt und Layout an.
+        Inhalte werden dazu in
+        Posts und Pages\footnote{vgl. Kapitel \ref{section:wordpressPostsPages}}
+        unabhängig vom Layout der Webseite gespeichert.
+        Das Layout bestimmen Vorlagen und Themes.
+
+        \paragraph*{Vorlagen}
+        {\wordpress} nutzt Vorlagen, um Inhalte in eine Seite einzubinden
+        und ihr Aussehen festzulegen.
+        Dazu definieren sie das Gerüst der Webseite und enthalten Kommandos,
+        um Inhalte aus der Datenbank auszulesen.
+        Sie werden für eine konkrete Seite dynamisch von {\wordpress} generiert,
+        wodurch eine vollständige Webseite entsteht
+        \cite{wordpress:Templates}.
+
+        Vorlagen sind bei genauerem Hinsehen nichts anderes als PHP-Dateien,
+        die \gls{html}, allgemeinen PHP-Code und sogenannte
+        "`Template-Tags"' enthalten.
+        Dabei handelt es sich lediglich um Aufrufe von
+        {\wordpress} eigenen PHP-Funktionen,
+        um Inhalte aus der Datenbank abzufragen.
+        Während der Generierung -- technisch lediglich die Ausführung
+        des PHP-Codes -- können Vorlagen andere Vorlagen inkludieren,
+        wodurch wiederkehrende Elemente in eigene Vorlagen ausgelagert
+        werden können \cite{wordpress:TemplateFiles}.
+
+        Anhand des \glspl{url} der Anfrage und der darin enthaltenen
+        Kennung eines Posts oder einer Page,
+        entscheidet {\wordpress} welche Vorlage es zur Generierung der Seite nutzt
+        \cite{wordpress:TemplateHierarchy}.
+
+        \paragraph*{Themes}
+        Eine Sammlung aller {\resources}, die notwendig sind um
+        eine Webseite und ihr Layout umzusetzen,
+        wird im Kontext von {\wordpress} als "`Theme"' bezeichnet.
+        Ein Theme enthält demnach Vorlagen, Bilder und
+        JavaScript-, CSS-, oder PHP-Dateien.
+        Themes können {\resources} anderer Themes wiederverwenden oder überschreiben,
+        wodurch Anpassungen an einem vorhandenen Theme einfach umzusetzen sind
+        \cite{wordpress:Themes}.
+
+    \subsection{Plugins}
+        \label{section:wordpressPlugins}
+        Es ist möglich {\wordpress} über sein Plugin-System funktional
+        zu erweitern \cite{wordpress:Plugins}.
+        Nicht selten schreiben Erweiterung Anweisungen in den Inhalt
+        eines Beitrages, die sie zum Generierungszeitpunkt erkennen und auswerten.
+        Das heißt, dass diese Anweisungen in {\wordpress'} Datenbank stehen.
+
+        Ein Beispiel ist das Plugin
+        "`Form Maker"'\footnote{\url{https://wordpress.org/plugins/form-maker/}},
+        welches Anweisungen wie \texttt{[Form id="1"]} in den Inhalt eines Beitrages
+        einfügt, um ein zuvor konfiguriertes Formular an die entsprechende Stelle einzubinden.
