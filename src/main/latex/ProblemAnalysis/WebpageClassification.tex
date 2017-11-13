@@ -1,9 +1,132 @@
 \section{Klassifizierung der Inhalte einer Webseite}
-    %\url{http://www.fernuni-hagen.de/KSW/portale/babw/service/}
+    \label{section:WebpageClassification}
+    Kapitel \ref{chapter:FernUniRelaunch}
+    ist bereits auf das Vorhaben der {\fernUni}
+    eingegangen, die {\wordpress}-basierten Seiten der Fakultät
+    \gls{ksw} zu {\imperia} zu migrieren.
+    Ein Vergleich der in den Kapiteln
+    \ref{section:Imperia} und \ref{section:WordPress} vorgestellten
+    Datenstrukturen dieser Systeme verdeutlicht die Herausforderung bei diesem
+    Vorhaben.
+    {\wordpress} speichert die Inhalte einer Seite unstrukturiert in einem einzigen Feld,
+    wohingegen {\imperia} eine höhere Strukturierung der Inhalte vorsieht.
+    Eine Überführung der Inhalte in die feineren Strukturen von
+    {\imperia}, wie es die Universität beabsichtigt
+    \footnote{vgl. Kapitel \ref{section:fernUniChallenges}},
+    ist also nicht ohne Weiteres möglich.
 
-    %\begin{figure}
-    %    \centering
-    %    \includegraphics[width=\textwidth]{../resources/babw_service_faq.png}
-    %    \caption{FAQ Seite des Studienportals B.A. Bildungswissenschaft}
-    %    \label{image:BuildingBlocks}
-    %\end{figure}
+    Aus diesem Grund soll die Möglichkeit einer automatischen
+    Klassifizierung der Inhalte untersucht werden,
+    deren Ergebnis die beschriebene Migration vereinfachen würde.
+    Dieses Kapitel verfeinert diese Aufgabenstellung und klärt folgende Fragen:
+
+    \begin{enumerate}
+        \item Welche Elemente einer Webseite sind für eine Klassifizierung interessant?
+        \item Nach welchen Kriterien findet eine Klassifizierung statt?
+        \item Welche allgemeinen Anforderungen ergeben sich daraus?
+    \end{enumerate}
+
+    Die in den vorangegangenen Kapiteln gewonnenen Erkenntnisse ermöglichen
+    die Beantwortung dieser Fragen.
+    Zur Veranschaulichung wird unter anderem eine Seite der Fakultät \gls{ksw}
+    \footnote{\url{http://www.fernuni-hagen.de/KSW/portale/babw/service/}, Stand 01.02.2018}
+    herangezogen.
+    Abbildung \ref{image:BaBwFAQ} zeigt einen Ausschnitt dieser
+    Seite, der den Inhalt des Beitrages in {\wordpress} widerspiegelt.
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{../resources/babw_service_faq.png}
+        \caption{F.A.Q. Seite des Studienportals "`B.A. Bildungswissenschaft"'}
+        \label{image:BaBwFAQ}
+    \end{figure}
+
+    Diese Seite beinhaltet Anworten zu häufig gestellten Fragen
+    zum \gls{babw}.
+
+    \subsection{Relevante Entitäten}
+        Die Anforderung die Inhalte einer Seite zu klassifizieren
+        ist allgemein und lässt die Frage offen,
+        welche Bestandteile einer Seite hierfür von Bedeutung sind.
+        Dieser Frage soll sich über die konkrete Anforderung
+        der {\fernUni} genähert werden.
+
+        Würde man manuell eine aus {\wordpress} stammende Seite zu
+        {\imperia} migrieren, stellten sich mindestens drei Fragen:
+
+        \begin{enumerate}
+            \item   Auf welcher Vorlage soll die Seite basieren?
+                    Das heißt zu welcher Kategorie gehört sie?
+            \item   Mit welchen Inhalten sind die unterschiedlichen Felder
+                    des Formulares zu füllen?
+            \item   Welcher Bilder, Videos und Links auf andere Seiten existieren,
+                    und wie müssen sie in die neue Seite übernommen werden?
+        \end{enumerate}
+
+        Am leichtesten ist die zweite Frage zu beantworten.
+        Die Felder werden selbstverständlich mit dem Inhalt des Beitrages
+        aus {\wordpress} gefüllt.
+        Diese textuellen Inhalte müssen folglich einer Klassifizierung unterzogen werden.
+        
+        Im einfachen Fall basiert jede migrierte Seite in {\imperia} auf derselbe Vorlage.
+        Es ist allerdings nicht unwahrscheinlich,
+        dass verschiedene Layouts und damit verschiedene Vorlagen
+        notwendig werden.
+        Die Wahl der Vorlage wird dann auf der originalen Seite basieren,
+        weshalb auch die Klassifizierung einer Seite als Ganzes notwendig ist.
+        Jeder Klasse wird anschließend eine Kategorie in {\imperia}
+        zugewiesen, die wiederum die zu nutzende Vorlage bestimmt.
+        Eine Klassifizierung der gesamten Seite kann außerdem die
+        Klassifizierung der Inhalte in einen Kontext setzen.
+        Die Klasse "`Frage"' auf der F.A.Q-Seite des \gls{babw}
+        ist zum Beispiel aussagekräftiger, wenn bekannt ist,
+        dass die Seite zur Klasse "`F.A.Q."' gehört.
+
+        Die dritte Frage besteht aus zwei Teilen.
+        Der erste Teil fragt allgemein gesprochen nach einer Auflistung referenzierter {\resources},
+        deren Bereitstellung keine Herausforderung darstellt,
+        da sie direkt aus dem \gls{html}-Dokument hervorgeht.
+        Der zweite Teil zielt hingegen darauf ab,
+        wie sich die jeweilige {\resource} und die Referenz selbst einordnen lassen.
+        Bilder, Videos und Links werden in der neuen Seite selbstverständlich
+        unterschiedlich eingebunden.
+        Das Banner einer Seite -- technisch ebenfalls nur ein Bild --
+        besitzt womöglich ein dediziertes Eingabefeld,
+        weshalb auch innerhalb der Gruppe "`Bilder"' weiter unterteilt werden muss.
+        Das gilt zum Beispiel auch für Links.
+        Referenzen auf externe Seiten erhalten häufig ein anderes Layout als Links
+        auf Seiten innerhalb der eigenen Site.
+        Referenzen müssen demnach ebenfalls klassifiziert werden.
+
+        Zusammengefasst lassen sich also drei Entitäten ermitteln,
+        die für eine Klassifizierung relevant sind:
+        Die Seite als Ganzes, textueller Inhalt und Referenzen.
+
+    \subsection{Kriterium der Klassifizierung}
+        Die Wahl der Vorlage könnte auf dem Typ des Beitrages basieren,
+        also ob er ein Post oder eine Page ist.
+        In der Praxis wird diese Unterteilung aber nicht ausreichen,
+        da verschiedene Pages im Zielsystem verschiedene Layouts erhalten werden.
+
+    % Inhalte müssen strukturiert werden
+    % Genauere Betrachtung
+    % Basierend auf gewonnenen Erkenntnissen und Beispiel
+
+    % Was ist für die Migration notwendig?
+    % Auswahl eines Templates
+    % Füllen der Felder
+    % Referenzieren von Ressourcen
+    % --> Bsp.
+
+    % Wie kann der Inhalt klassifiziert werden? / Wie sollen die Klassen aussehen?
+    % Klasse spiegelt Node im HTML wieder
+    % Klasse spiegelt Layout-Element wieder
+    % Klasse spiegelt Inhalt wieder
+    % --> Bsp.
+
+    % Spezielle Anforderung bei WP: Plugin-Unabhängigkeit
+    % Man braucht eine Schnittstelle zur Abfrage
+
+    %
+
+    
