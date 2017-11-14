@@ -45,6 +45,7 @@
     zum \gls{babw}.
 
     \subsection{Relevante Entitäten}
+        \label{section:classificationEntities}
         Die Anforderung die Inhalte einer Seite zu klassifizieren
         ist allgemein und lässt die Frage offen,
         welche Bestandteile einer Seite hierfür von Bedeutung sind.
@@ -103,26 +104,71 @@
         Die Seite als Ganzes, textueller Inhalt und Referenzen.
 
     \subsection{Kriterium der Klassifizierung}
-        Die Wahl der Vorlage könnte auf dem Typ des Beitrages basieren,
+        Nachdem nun geklärt ist, welche Entitäten einer Webseite für
+        eine Klassifizierung relevant sind\footnote{vgl. Kapitel \ref{section:classificationEntities}},
+        widmet sich dieses Kapitel der Frage, nach welchen
+        Kriterien diese Einordnung erfolgen muss
+        und welche Bedeutung die resultierenden Klassen besitzen.
+
+        Die Klassifikation der Seite hat direkten Einfluss auf die Wahl der Vorlage im neuen \gls{cms}.
+        Die Klasse der Seite könnte auf dem Typ des Beitrages basieren,
         also ob er ein Post oder eine Page ist.
         In der Praxis wird diese Unterteilung aber nicht ausreichen,
         da verschiedene Pages im Zielsystem verschiedene Layouts erhalten werden.
+        Eine fachliche Unterteilung der Seiten anstatt einer technischen ist deshalb sinnvoller.
+        Für die F.A.Q.-Seite des \gls{babw} hieße das zum Beispiel,
+        dass sie als "`FAQSeite"' klassifiziert wird und nicht als "`Page"'.
+        Eine fachliche Unterscheidung nach inhaltlicher Bedeutung macht die
+        gewonnene Klassifikation außerdem unabhängiger vom konkreten
+        Migrationsvorhaben und somit für andere Anwendungsfälle nutzbar.
 
-    % Inhalte müssen strukturiert werden
-    % Genauere Betrachtung
-    % Basierend auf gewonnenen Erkenntnissen und Beispiel
+        Die Einteilung von Referenzen und textueller Inhalte kann ebenfalls
+        mit einer technischen oder fachlichen Ausrichtung erfolgen.
+        Technisch ließen sich Inhalte zum Beispiel anhand ihres \gls{html}-Elementes einteilen.
+        Es entstünden also Klassen wie "`p"', "`h1"' usw.
+        Auf der F.A.Q.-Seite des \gls{babw} fände sich der einleitende Text vor dem
+        ersten Fragenbereich in der Klasse "`p"' wieder.
+        Das gleiche gilt für den abschließenden Textabsatz nach dem letzten Fragenbereich.
+        Falls in denen neuen Formularen von {\imperia} zu diesen Absätzen
+        korrespondierende Felder existieren, kann ein Automatismus basierend auf dieser
+        Klassifikation nicht entscheiden, welches Feld mit welchem Inhalt zu füllen ist.
+        
+        Eine Einteilung nach Layoutelementen ist ebenso wenig hilfreich.
+        Im beschriebenen Fall hieße die Klasse dann nämlich nicht "`p"',
+        sondern "`Text"', was die Füllung der Felder nicht vereinfacht.
+        Ein weiteres Beispiel sind die aufklappbaren Elemente auf der Seite,
+        die sich nach diesem Konzept
+        der Klasse "`Accordion"'\footnote{vgl. \url{https://getbootstrap.com/docs/3.3/javascript/\#collapse-example-accordion}}
+        zuweisen ließen.
+        Die Information, dass Inhalte ein gewisses Layout verwenden,
+        ist unbrauchbar, wenn nicht gewährleistet ist,
+        dass alle diese Inhalte wieder dieses Layout verwenden werden.
 
-    % Was ist für die Migration notwendig?
-    % Auswahl eines Templates
-    % Füllen der Felder
-    % Referenzieren von Ressourcen
-    % --> Bsp.
+        Abhilfe bringt wiederum nur eine fachliche Klassifizierung,
+        bei der die inhaltliche Bedeutung im Vordergrund steht.
+        Das heißt anstelle von allgemeinen Klassen wie "`p"', "`Text"'
+        oder "`Accordion"', sind spezifischere fachliche Klassen wie
+        "`Einleitung"', "`Schluss"', "`FAQ-Themenbereich"', "`Frage"' und "`Antwort"'
+        notwendig.
+        Nur so lässt sich entscheiden, wie die Inhalte in das neue \gls{cms}
+        zu überführen sind.
 
-    % Wie kann der Inhalt klassifiziert werden? / Wie sollen die Klassen aussehen?
-    % Klasse spiegelt Node im HTML wieder
-    % Klasse spiegelt Layout-Element wieder
-    % Klasse spiegelt Inhalt wieder
-    % --> Bsp.
+        Diese Schlussfolgerung gilt auch für Referenzen.
+        Das Banner einer Seite kann nicht als "`img"'
+        oder als "`Carousel"'\footnote{vgl. \url{https://getbootstrap.com/docs/3.3/javascript/\#carousel}}
+        klassifiziert werden, weil immer die Möglichkeit besteht,
+        dass aufgrund dieser technischen Einteilung nicht klar wird,
+        wie die Inhalte der Seite zu übertragen sind.
+        Benötigt wird stattdessen die fachliche Information,
+        dass die referenzierte {\resource} das Banner der Seite darstellt,
+        weshalb die Referenz auch als "`Banner"' klassifiziert werden muss.
+
+
+    % Inhalte wiederholen sich!
+    % Und Inhalte besitzen Struktur und Assoziationen!
+    % Ich muss wissen, welches der n sich wiederholenden Elemente welche Sub-Elemente hat
+    % Bsp.: Welche Frage hat welche Antwort?
+    
 
     % Spezielle Anforderung bei WP: Plugin-Unabhängigkeit
     % Man braucht eine Schnittstelle zur Abfrage
