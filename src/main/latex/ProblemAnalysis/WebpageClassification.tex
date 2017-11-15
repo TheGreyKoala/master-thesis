@@ -104,6 +104,7 @@
         Die Seite als Ganzes, textueller Inhalt und Referenzen.
 
     \subsection{Kriterium der Klassifizierung}
+        \label{section:ClassificationCriteria}
         Nachdem nun geklärt ist, welche Entitäten einer Webseite für
         eine Klassifizierung relevant sind\footnote{vgl. Kapitel \ref{section:classificationEntities}},
         widmet sich dieses Kapitel der Frage, nach welchen
@@ -163,16 +164,78 @@
         dass die referenzierte {\resource} das Banner der Seite darstellt,
         weshalb die Referenz auch als "`Banner"' klassifiziert werden muss.
 
+    \subsection{Anforderungen}
+        Die vorliegenden Informationen erlauben
+        die Ableitung ausreichend konkreter Anforderungen,
+        um die Problemstellung zu formulieren, der sich diese Arbeit widmet.
 
-    % Inhalte wiederholen sich!
-    % Und Inhalte besitzen Struktur und Assoziationen!
-    % Ich muss wissen, welches der n sich wiederholenden Elemente welche Sub-Elemente hat
-    % Bsp.: Welche Frage hat welche Antwort?
-    
+        \paragraph*{Automatisierte fachliche Klassifizierung von Seiten, Inhalten und Referenzen}
+        Es ist ein System zu entwickeln, welches automatisiert Webseiten,
+        deren Inhalte und Referenzen auf andere {\resources} im \gls{www}
+        nach fachlichen und inhaltlichen Kriterien klassifiziert.
+        Eine Klassifikation ermöglicht im vorliegenden konkreten Fall
+        der {\fernUni} eine \gls{cms}-Migration von {\wordpress} zu {\imperia}.
+        Allgemein erlaubt sie die Verarbeitung und Analyse der Webseiten.
 
-    % Spezielle Anforderung bei WP: Plugin-Unabhängigkeit
-    % Man braucht eine Schnittstelle zur Abfrage
+        \paragraph*{Abbildung inhaltlicher Strukturen}
+        Eine fachliche Klassifizierung bedeutet nicht,
+        dass das Ergebnis aus einelementigen Klassen besteht.
+        Die F.A.Q.-Seite des \gls{babw} enthält mehrere aufklappbare
+        Themenbereiche (Inhaltliche Ausrichtung, Berufsfeldorientierung, etc.),
+        die jeweils als "`FAQ-Themenbereich"' klassifiziert werden können.
+        Des Weiteren enthält jeder Themenbereich mehrere Paare aus Frage und Antwort.
+        Aus der Klassifikation muss entsprechend hervorgehen,
+        welche Frage-Antwort-Paare zu welchem Themenbereich gehören,
+        da diese Zuordnung Nutzer der Klassifikation nicht sicher vornehmen kann.
+        Daraus ergibt sich folgende allgemeine Anforderung:
 
-    %
+        Eine Klassifikation muss die fachliche Struktur
+        und Hierarchie der Inhalte widerspiegeln,
+        um diese Zuordnung vor allem bei sich wiederholenden Strukturen
+        nicht zu verlieren.
+        Das heißt, besteht ein Inhalt $I$ fachlich aus den Inhalten $I_1 \ldots I_n$
+        und den Referenzen $R_1 \ldots R_m$,
+        muss die Klassifikation $I'$ von $I$ auch aus den Klassifikationen
+        $I'_1 \ldots I'_n$ und $R'_1 \ldots R'_m$ bestehen.
 
-    
+        \paragraph*{Allgemeine Klassendefinition}
+        Es muss möglich sein die fachlichen Klassen allgemein zu
+        spezifizieren, sodass eine beliebige Anzahl an gegebenen
+        Webseiten auf Basis dieser Spezifikation klassifiziert wird.
+        Die Syntax einer solchen Spezifikation soll auch von Nutzern ohne
+        Programmierkenntnisse verstanden werden können.
+
+        \paragraph*{Schnittstelle zum Starten einer Klassifizierung}      
+        Das System muss programmatisch angewiesen werden können,
+        eine oder mehrere gegebene Webseiten zu klassifizieren,
+        sodass ein Drittsystem die relevanten Webseiten auffinden
+        und weitergeben kann.
+        Der Aufwand einer manuellen Instrumentierung des Systems ist
+        vor allem bei vielen Webseiten nicht zu rechtfertigen.
+
+        \paragraph*{Schnitstelle zur Abfrage der Klassifikation}
+        Die Klassifikation muss über eine definierte allgemeine
+        Schnittstelle abrufbar sein, sodass Drittsysteme die Ergebnisse
+        nutzen können.
+        Im Fall der {\fernUni} könnte dies ein Werkzeug sein,
+        welches die Migration von {\wordpress} zu {\imperia}
+        durchführt und dafür auf die Klassifikation zurückgreift.
+
+        \paragraph*{Möglichkeit der Nachbesserung}
+        % TODO: Was ist die allgemeine Anforderung für:
+        % Seiten sollen als "veraltet" markiert werden können, um sie von der Migration auszuschließen.
+        Das System muss die Prüfung sowie die manuelle Nachbesserung
+        des Klassifizierungsergebnisses erlauben,
+        um Fehler zu erkennen und zu beheben.
+        Das entsprechende Werkzeug soll eine graphische Benutzeroberfläche
+        besitzen, um seine Nutzung möglichst einfach zu gestalten.
+
+        \paragraph*{Allgemeingültigkeit}
+        Trotz dem konkreten Anwendungsfall an der {\fernUni}
+        soll ein allgemein nutzbares System entstehen,
+        welches nicht auf die speziellen Anforderungen Dieser Universität
+        zugeschnitten ist.
+        Das bedeutet, dass eine Klassifizierung von Webseiten außerhalb
+        der {\fernUni} möglich sein muss.
+        Außerdem, dass das System nicht annehmen darf,
+        dass eine zu klassifizierende Webseite auf {\wordpress} basiert.
