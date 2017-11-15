@@ -14,8 +14,6 @@
     Zunächst wird die Sicht eines Webseitenbesuchers auf das \gls{www} beschrieben.
     Anschließend stehen die konzeptionellen und technischen Grundlagen
     des \gls{www} im Vordergrund.
-    Zusammen vermitteln diese Erläuterungen hinreichendes Wissen,
-    um eine Lösung für die gegebene Problemstellung zu erarbeiten.
 
     Die Erläuterungen umfassen bewusst nicht jeden einzelnen Aspekt der Domäne,
     sondern beschränken sich auf grundlegende und für diese Arbeit relevante Teile.
@@ -59,7 +57,7 @@
         Die Bibliothek Bootstrap\footnote{https://getbootstrap.com/}
         enthält zahlreiche solcher Komponenten.
         Beispielsweise bietet die Komponente "`Card"' die Möglichkeit
-        Inhalte in komplexe Behälter einzubetten \cite{bootstrap:Cards}.
+        Inhalte in kom\-plexe Behälter einzubetten \cite{bootstrap:Cards}.
         Ein anderes Beispiel ist die Komponente "`Carousel"',
         welche der Erstellung von Diashows dient \cite{bootstrap:Carousel}.
         Letztere und viele weitere bieten dem Nutzer
@@ -78,7 +76,7 @@
             \item Radiobuttons.
         \end{itemize}
 
-        Allen Elementen ist gemein, dass ihr Aussehen sich von
+        Allen Elementen ist gemein, dass sich ihr Aussehen
         zwischen verschiedenen Webseiten unterscheiden kann.
 
         \paragraph{Varianten}
@@ -251,6 +249,7 @@
         Die Funktion eines User Agents könnte beispielsweise das Abrufen einer
         Repräsentation der {\resource} vorsehen, wohingegen ein anderer Agent
         lediglich prüft, ob eine eben solche Repräsentation existiert.
+
         Das Schema einer \gls{uri} beschreibt laut Spezifikation
         lediglich, wie die folgende Kennung zu interpretieren ist
         \cite[Kapitel 3.1, Seite 17]{rfc:3986}.
@@ -401,7 +400,7 @@
         In diesem Fall spricht man von statischen Inhalten.
         Wie eingangs erwähnt ist es ist allerdings auch möglich,
         dass eine Webanwendung serverseitig Geschäftslogik zur Bearbeitung einer Anfrage ausführt.
-        Die Antwort an den Client kann statisch oder
+        Die Antwort an den Client kann in diesem Fall weiterhin statisch oder
         durch die Webanwendung generiert worden sein.
         Im letzten Fall spricht man von dynamisch generierten bzw. erzeugten Inhalten.
 
@@ -428,10 +427,9 @@
         und generiert auf Basis des Ergebnisses ein \gls{html}-Fragment,
         welches er in seine Antwort schreibt.
         Der Empfang der Antwort löst im Browser die Ausführung einer weiteren
-        JavaScript-Funktion aus, die das empfange \gls{html}-Fragment
+        JavaScript-Funktion aus, die das empfangene \gls{html}-Fragment
         an eine definierte Stelle der Webseite einfügt,
         wodurch es dem Nutzer sichtbar wird.
-
         Der konzeptionelle Ablauf in diesem Szenario sowie die verwendeten Mittel
         werden unter dem Begriff \gls{ajax} zusammengefasst \cite{garrett:ajax}.
 
@@ -441,7 +439,7 @@
         \paragraph*{Personalisierter Inhalt}
         Der vorherige Abschnitt hat bereits verdeutlicht,
         dass der Inhalt einer Webseite nicht für jeden Nutzer identisch sein muss.
-        Eine Ursache hierfür kann wie zuvor beschrieben die Interaktion mit
+        Eine Ursache hierfür kann wie beschrieben die Interaktion mit
         einer Webanwendung sein, die bei jedem Nutzer einen anderen Verlauf nimmt,
         was zu unterschiedlichen Resultaten führt.
         In dieser Tatsache gleichen Webanwendungen wiederum herkömmlichen Applikationen.

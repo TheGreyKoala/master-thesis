@@ -4,7 +4,7 @@
     mit dem Ziel eine Anwendung zur einfachen Pflege eines Weblogs
     (kurz Blog) zu schaffen \cite{wordpress:About}.
     Das Ergebnis ist die gleichnamige Software,
-    die noch immer von der Community weiterentwickelt wird
+    die noch immer von der Community weiterentwickelt
     und von der Fakultät \gls{ksw} der {\fernUni} für ihren
     Internetauftritt genutzt wird.
 
@@ -45,7 +45,7 @@
         auf die zwei elementaren Elemente Titel und Inhalt.
         Mit dieser schwachen Strukturierung der Inhalte
         unterscheidet sich {\wordpress} deutlich von {\imperia}
-        und seinen Dokumenten, die beliebig start strukturiert
+        und seinen Dokumenten, die beliebig stark strukturiert
         werden können.
 
         Aufgrund der Anpassbarkeit durch Themes\footnote{vgl. Kapitel \ref{section:wordpressTemplatesThemes}}
@@ -59,7 +59,6 @@
         Verglichen mit der in Kapitel \ref{section:imperiaArch}
         beschriebenen Aufgabenteilung übernimmt {\wordpress} selbst
         also auch die Rolle des Zielsystems.
-
         Inhalte genereirt {\wordpress} deshalb nicht in statische Dateien,
         sondern erzeugt eine Webseite auf Anfrage dynamisch.
 
@@ -144,8 +143,7 @@
         und ihr Aussehen festzulegen.
         Dazu definieren sie das Gerüst der Webseite und enthalten Kommandos,
         um Inhalte aus der Datenbank auszulesen.
-        Sie werden für eine konkrete Seite dynamisch von {\wordpress} generiert,
-        wodurch eine vollständige Webseite entsteht
+        Eine Webseite wird auf Basis einer Vorlagen dynamisch von {\wordpress} generiert
         \cite{wordpress:Templates}.
 
         Vorlagen sind bei genauerem Hinsehen nichts anderes als PHP-Dateien,
@@ -160,7 +158,7 @@
         werden können \cite{wordpress:TemplateFiles}.
 
         Anhand des \glspl{url} der Anfrage und der darin enthaltenen
-        Kennung eines Posts oder einer Page,
+        Kennung eines Posts oder einer Page
         entscheidet {\wordpress} welche Vorlage es zur Generierung der Seite nutzt
         \cite{wordpress:TemplateHierarchy}.
 
@@ -178,7 +176,7 @@
         \label{section:wordpressPlugins}
         Es ist möglich {\wordpress} über sein Plugin-System funktional
         zu erweitern \cite{wordpress:Plugins}.
-        Nicht selten schreiben Erweiterung Anweisungen in den Inhalt
+        Nicht selten schreiben Erweiterungen Anweisungen in den Inhalt
         eines Beitrages, die sie zum Generierungszeitpunkt erkennen und auswerten.
         Das heißt, dass diese Anweisungen in {\wordpress'} Datenbank stehen.
 
