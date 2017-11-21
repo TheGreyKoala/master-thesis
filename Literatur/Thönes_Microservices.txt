@@ -1,0 +1,12 @@
+@ARTICLE{7030212, 
+author={J. Thönes}, 
+journal={IEEE Software}, 
+title={Microservices}, 
+year={2015}, 
+volume={32}, 
+number={1}, 
+pages={116-116}, 
+keywords={Interviews;Service oriented architecture;Software architecture;Software engineering;SE Radio;architecture;enterprise service bus;http;microservice;service-oriented architecture;software engineering}, 
+doi={10.1109/MS.2015.11}, 
+ISSN={0740-7459}, 
+month={Jan},}

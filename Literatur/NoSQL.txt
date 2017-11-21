@@ -1,0 +1,4 @@
+NoSQL:
+- Meier, Andreas ; Kaufmann, Michael: SQL- & NoSQL-Datenbanken
+- Edlich, Stefan: NoSQL : Einstieg in die Welt nichtrelationaler Web-2.0-Datenbanken
+- Sadalage, Pramod J. ; Fowler, Martin: NoSQL distilled : a brief guide to the emerging world of polyglot persistence

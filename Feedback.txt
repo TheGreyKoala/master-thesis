@@ -1,0 +1,11 @@
+- Wenn Verweis innerhalb eines Satzes gemacht wird, lieber inkl. Autor referenzieren, für besseren Lesefluss
+- In der Einleitung schon das Ergebnis spoilern
+
+Beschreiben Sie zuerst, was sie gemacht haben. Gehen Sie dabei wie beim Programmieren vor:
+Definieren Sie erst die Konzepte und beschreiben Sie dann auf Basis dieser Definitionen den Transformationsprozess.
+Also z. B.: Was ist eine Klasse, was ist eine Seite, was ist ein Titel, was ist eine Annotation/ein Tag,
+was ist ein Template (ggf. für Imperia und WordPress getrennt), wie ist eine Imperia-Seite aufgebaut,
+wie ist eine Wordpress-Seite aufgebaut, wie/wo wird all das gespeichert usw.
+Wenn Sie die unterschiedlichen Ausgangslagen von Imperia und WordPress dargestellt haben, können Sie eine Transformation an einem Beispiel zunächst manuell vorführen.
+Dann können Sie dazu übergehen, welche Teile Sie davon automatisieren werden und welche nicht (und warum).
+Dann können Sie die Grundlagen der automatisierten Transformation definieren und danach den Transformationsprozess.
