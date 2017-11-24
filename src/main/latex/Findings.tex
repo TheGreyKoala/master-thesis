@@ -1,2 +1,18 @@
 \chapter{Ergebnisse}
     \label{chapter:Findings}
+    % http://www.fernuni-hagen.de/KSW/portale/babw/einstieg/lehrende-und-betreuende-im-b-a-bildungswissenschaft/
+    % Einfache Seite, wo Automatisierung viel bringt
+
+    % http://www.fernuni-hagen.de/KSW/portale/lehre/bachelor-und-master-studiengaenge/
+    % Da kann man gut Xpath nutzen:
+    % Studiengang (als Ganzes) über h5 Selektieren
+    % Name des Studienganges über XPath (self): .
+    % Text zum Studiengang über XPath (nächster div): following-sibling::div[1]/p[1]
+    % Hier sind inhaltliche Strukturen anders als HTML-Strukturen
+    % Kann umgangen werden, da Text über einen Node angesprochen werden kann
+
+    % http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/
+    % Neuer Artikel über hr
+    % Datum: following-sibling::p[@class='datum'][1]
+    % Heading: following-sibling::h4[@class='entry-title'][1]
+    % Text: Lässt sich über XPath oder CSS nicht auswählen. Man braucht "alle folgenden Nodes bis zum nächsten hr)
