@@ -3,12 +3,11 @@ scale 3840*2160
 skinparam componentStyle uml2
 
 actor Admin
-actor ExternalSystem
+actor "Classification Processing System" as classification_processing_system
 actor Reviewer
 
 ' External Components
 [Annotation Viewer] <<external component>> as annotation_viewer
-[Classification Processor] <<external component>> as classification_processor
 [WordPress] <<external component>> as wordpress
 [Web Page] <<external component>> as web_page
 
@@ -18,12 +17,11 @@ actor Reviewer
 [Classification Storage API] <<WCCS component>> as classification_storage_api
 [WordPress Crawler] <<WCCS component>> as wp_crawler
 
-Admin --> wp_crawler : Startet Klassifizierung mit
+Admin --> wp_crawler : Startet Klassifiziedrung mit
 annotation_viewer --> annotator_plugin : Verwendet
 annotation_viewer --> web_page : Zeigt Annotationen einer
-classification_processor -(0- classification_storage_api
+classification_processing_system -(0- classification_storage_api
 classification_service --> web_page : Klassifiziert
-ExternalSystem --> classification_processor : Verwendet
 Reviewer --> annotation_viewer : Verwendet
 web_page --> wordpress : Inhalte aus
 wp_crawler -(0- classification_service : Ruft auf
