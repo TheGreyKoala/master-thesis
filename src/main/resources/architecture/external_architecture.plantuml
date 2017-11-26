@@ -18,7 +18,7 @@ actor Reviewer
 [WordPress Crawler] <<WCCS component>> as wp_crawler
 
 Admin --> wp_crawler : Startet Klassifiziedrung mit
-annotation_viewer --> annotator_plugin : Verwendet
+annotation_viewer -(0- annotator_plugin : Verwendet
 annotation_viewer --> web_page : Zeigt Annotationen einer
 classification_processing_system -(0- classification_storage_api
 classification_service --> web_page : Klassifiziert
