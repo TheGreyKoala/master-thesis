@@ -2,7 +2,7 @@
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node TEXT="L&#xf6;sungskonzept" FOLDED="false" ID="ID_1633494956" CREATED="1509277072256" MODIFIED="1511640020409" STYLE="oval">
 <font SIZE="18"/>
-<hook NAME="MapStyle" zoom="1.21">
+<hook NAME="MapStyle">
     <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
@@ -63,7 +63,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="17" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="18" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Klassen, Features und Selektoren" POSITION="right" ID="ID_173345104" CREATED="1511462609605" MODIFIED="1511640010480" HGAP_QUANTITY="19.24999984353781 pt" VSHIFT_QUANTITY="-33.749998994171655 pt">
 <edge COLOR="#007c7c"/>
 </node>
@@ -93,6 +93,9 @@
 </node>
 <node TEXT="Werkzeug zum Auffinden der Seiten" POSITION="right" ID="ID_470335316" CREATED="1511645230365" MODIFIED="1511645268461">
 <edge COLOR="#00ffff"/>
+</node>
+<node TEXT="Architektur" POSITION="right" ID="ID_1267330844" CREATED="1511803877883" MODIFIED="1511803880870">
+<edge COLOR="#00007c"/>
 </node>
 </node>
 </map>
