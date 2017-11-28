@@ -1,0 +1,34 @@
+\chapter{Lösungsdetails}
+    \label{chapter:SolutionDetails}
+
+    % Spezifikation zur Beschreibung von REST Schnittstellen: https://www.openapis.org/
+
+    \section{Klassifizierungssystem}
+        % Attribute, denen URL stehen:
+        % https://www.w3.org/TR/html5/links.html#links
+        % https://www.w3.org/TR/html5/embedded-content-0.html#embedded-content-0
+
+        % picture tag erst definiert in http://www.w3.org/html/wg/drafts/html/master/
+
+    \section{Annotation Service}
+        \begin{table}[htb]
+            \centering
+            \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Endpunkt}     & /pages/\{pageId\}                                       \\ \hline
+            \textbf{Methode}      & GET                                                     \\ \hline
+            \textbf{Beschreibung} & Liefert Annotator Storage API version                   \\ \hline
+            \textbf{Status}       & 200                                                     \\ \hline
+            \textbf{Antwort}      & \{ ``name'': ``Annotator Store API'', ``version'': ``2.0.0'' \} \\ \hline
+            \end{tabular}
+            \caption{My caption}
+            \label{my-label}
+        \end{table}
+        % Schnittstellenbeschreibung:
+        % - Endpunkt
+        % - Methoden
+        % -- Input-Dokument
+        % -- Status Codes der Antwort
+        % -- Return Dokument für jede Antwort
+
+    \section{WordPress Crawler}
