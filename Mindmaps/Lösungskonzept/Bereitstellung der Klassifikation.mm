@@ -3,7 +3,7 @@
 <node TEXT="Bereitstellung der Klassifikation" FOLDED="false" ID="ID_190112469" CREATED="1511645175667" MODIFIED="1511645184471" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -63,7 +63,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="2" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="5" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="REST-API" POSITION="right" ID="ID_983603882" CREATED="1511644984065" MODIFIED="1511645194929">
 <edge COLOR="#ff0000"/>
 <node TEXT="URL einer klassifizierten Seite als Parameter" ID="ID_452017036" CREATED="1511644988279" MODIFIED="1511644999719"/>
@@ -78,6 +78,15 @@
 <node TEXT="Komplexere Anwendungsf&#xe4;lle" ID="ID_1747036986" CREATED="1511645091680" MODIFIED="1511645100342"/>
 <node TEXT="Analysen" ID="ID_1222566398" CREATED="1511645101649" MODIFIED="1511645114294"/>
 <node TEXT="Views" ID="ID_1154855191" CREATED="1511645114621" MODIFIED="1511645116502"/>
+</node>
+<node TEXT="TODO: Wie sieht eine Klassifikation aus?" POSITION="left" ID="ID_144657754" CREATED="1512066304488" MODIFIED="1512066315063">
+<edge COLOR="#00ff00"/>
+<node TEXT="PASSIERT DAS IN DIESEM KAPITEL?" ID="ID_1755990840" CREATED="1512066380560" MODIFIED="1512066387878"/>
+<node TEXT="Eine Klassifikation ist Seite mit Typinformationen, da sie auch Inhalte enth&#xe4;lt" ID="ID_403035391" CREATED="1512066479469" MODIFIED="1512066515751"/>
+<node TEXT="Deshalb auch /pages Endpunkt sinnvoll" ID="ID_790415476" CREATED="1512066524758" MODIFIED="1512066534182"/>
+</node>
+<node TEXT="URL der Seite ist Id" POSITION="left" ID="ID_789910504" CREATED="1512066315806" MODIFIED="1512066323966">
+<edge COLOR="#ff00ff"/>
 </node>
 </node>
 </map>

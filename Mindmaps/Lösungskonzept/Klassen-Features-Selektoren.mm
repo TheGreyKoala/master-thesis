@@ -88,8 +88,18 @@
 <node TEXT="Komplexe Strukturen, da Klasse des Features selbst Features hat" ID="ID_1850790067" CREATED="1511619952730" MODIFIED="1511635010070"/>
 <node TEXT="Referenz braucht keine Struktur, deshalb keine Features (Bsp., wie umgangen werden kann)" ID="ID_641000762" CREATED="1511619987257" MODIFIED="1511620012036"/>
 <node TEXT="M&#xe4;chtigkeit / Kardinalit&#xe4;t" ID="ID_1906649967" CREATED="1511635072198" MODIFIED="1511635202567">
-<node TEXT="Einelementig (skalar)" ID="ID_1888908745" CREATED="1511635205879" MODIFIED="1511635215846"/>
-<node TEXT="Mehrelementig" ID="ID_1251921880" CREATED="1511635218333" MODIFIED="1511635222446"/>
+<node TEXT="Einelementig (skalar)" ID="ID_1888908745" CREATED="1511635205879" MODIFIED="1511635215846">
+<node TEXT="Direkt &#xfc;ber Namen ansprechen" ID="ID_753033415" CREATED="1512063975112" MODIFIED="1512063981942"/>
+<node TEXT="Etwas einfacher handzuhaben, als einelementiges Array" ID="ID_48029143" CREATED="1512063982108" MODIFIED="1512064006013"/>
+</node>
+<node TEXT="Mehrelementig" ID="ID_1251921880" CREATED="1511635218333" MODIFIED="1511635222446">
+<node TEXT="Elemente wiederholen sich auf einer Seite" ID="ID_1771956659" CREATED="1512063936879" MODIFIED="1512063954790"/>
+<node TEXT="Als Liste / Array unter einem Namen ansprechen" ID="ID_1442893298" CREATED="1512063955068" MODIFIED="1512063971230"/>
+</node>
+<node TEXT="Unterschied dr&#xfc;ckt Intention besser aus" ID="ID_1747460639" CREATED="1512064018060" MODIFIED="1512064026925">
+<node TEXT="Einelementige Liste kann auf Fehler hindeuten" ID="ID_1621851815" CREATED="1512064037966" MODIFIED="1512064051932"/>
+<node TEXT="Genauso mehere Treffer f&#xfc;r skalares Feature" ID="ID_1874142515" CREATED="1512064052163" MODIFIED="1512064065028"/>
+</node>
 </node>
 <node TEXT="Mapping auf HTML-Nodes" ID="ID_1911529079" CREATED="1511635326189" MODIFIED="1511635332614">
 <node TEXT="Feature klassifiziert genau einen HTML-Node" ID="ID_784706237" CREATED="1511621453104" MODIFIED="1511635349421"/>

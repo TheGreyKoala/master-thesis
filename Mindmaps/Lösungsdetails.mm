@@ -63,7 +63,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="14" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="16" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Classification Service" POSITION="right" ID="ID_77727712" CREATED="1511455197738" MODIFIED="1511455203736">
 <edge COLOR="#ff0000"/>
 <node TEXT="Ermittlung des Page Types" ID="ID_1110373867" CREATED="1511455204002" MODIFIED="1511455214288">
@@ -86,6 +86,13 @@
 <node TEXT="Konfiguration im Request" ID="ID_1421706297" CREATED="1511805601501" MODIFIED="1511805609716"/>
 <node TEXT="Gr&#xf6;&#xdf;ere Request Dokumente" ID="ID_99810633" CREATED="1511805609915" MODIFIED="1511805623493"/>
 </node>
+</node>
+<node TEXT="Eindeutiger Node Selektor" ID="ID_1870824160" CREATED="1512064940559" MODIFIED="1512064951912">
+<node TEXT="Start und End Selektor" ID="ID_281625780" CREATED="1512064952145" MODIFIED="1512064961184"/>
+<node TEXT="Braucht man beide?" ID="ID_770038672" CREATED="1512064961359" MODIFIED="1512064968360"/>
+<node TEXT="F&#xfc;r Annotation braucht man auf jeden Fall end-Offset" ID="ID_1763695001" CREATED="1512064968599" MODIFIED="1512064992000"/>
+<node TEXT="Annotation kann prinzipiell auch &#xfc;ber mehrere Nodes gehen" ID="ID_724881533" CREATED="1512064992191" MODIFIED="1512065005800"/>
+<node TEXT="TODO ANTWORT WICHTIG F&#xdc;R ANNOTATION SERVICE" ID="ID_1500338812" CREATED="1512065028758" MODIFIED="1512065253207"/>
 </node>
 </node>
 <node TEXT="Selektoren" POSITION="right" ID="ID_768274685" CREATED="1511620873575" MODIFIED="1511620875847">
@@ -125,6 +132,10 @@
 <node TEXT="Annotation Service" POSITION="left" ID="ID_713351157" CREATED="1511887067959" MODIFIED="1511887074312">
 <edge COLOR="#00ff00"/>
 </node>
+<node TEXT="Annotator Plugin" POSITION="left" ID="ID_187701959" CREATED="1512065958093" MODIFIED="1512065963493">
+<edge COLOR="#ff00ff"/>
+<node TEXT="http://docs.annotatorjs.org/en/v1.2.x/hacking/plugin-development.html" ID="ID_240528258" CREATED="1512065993190" MODIFIED="1512065996526"/>
+</node>
 <node TEXT="Persistenz" POSITION="right" ID="ID_345400007" CREATED="1511455618483" MODIFIED="1511619131396">
 <edge COLOR="#0000ff"/>
 <node TEXT="Klasse der Seite" ID="ID_831709783" CREATED="1511455627334" MODIFIED="1511455642532"/>
@@ -140,6 +151,10 @@
 </node>
 <node TEXT="Hierarchie" ID="ID_1985304721" CREATED="1511455723904" MODIFIED="1511455730002"/>
 <node TEXT="Allgemeine Nutzung der Daten --&gt; Auch Grund f&#xfc;r Graph-DB, falls abstraktes JSON nicht reicht" ID="ID_691728655" CREATED="1511633579561" MODIFIED="1511633586952"/>
+</node>
+<node TEXT="Classification Storage API" POSITION="right" ID="ID_211892770" CREATED="1512066559829" MODIFIED="1512066567854">
+<edge COLOR="#00ffff"/>
+<node TEXT="TODO: Warum ist der Endpunkt /pages, obwohl wir Klassifikationen abfragen?, Siehe auch Konzeptkapitel" ID="ID_916136828" CREATED="1512066570050" MODIFIED="1512066692567"/>
 </node>
 </node>
 </map>

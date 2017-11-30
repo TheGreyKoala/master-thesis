@@ -97,12 +97,33 @@
 <node TEXT="Features der Klasse ermitteln" POSITION="right" ID="ID_682394820" CREATED="1511639591394" MODIFIED="1511640060439">
 <edge COLOR="#00ffff"/>
 <node TEXT="document ist Kontext" ID="ID_1766366566" CREATED="1511639600987" MODIFIED="1511639605874"/>
-<node TEXT="&#xdc;ber alle Features iterieren" ID="ID_1158277920" CREATED="1511639609778" MODIFIED="1511639620026"/>
+<node TEXT="&#xdc;ber alle Features iterieren" ID="ID_1158277920" CREATED="1511639609778" MODIFIED="1511639620026">
 <node TEXT="Nodes finden, die Selektor des Features entsprechen" ID="ID_853891200" CREATED="1511639628908" MODIFIED="1511639646986"/>
-<node TEXT="Klassifizierung f&#xfc;r jeden Node speichern" ID="ID_247503129" CREATED="1511639675225" MODIFIED="1511639688674"/>
-<node TEXT="Falls Content: Features der Klasse ermitteln" ID="ID_1170284172" CREATED="1511639688905" MODIFIED="1511639966296">
+<node TEXT="Klassifizierung speichern" ID="ID_247503129" CREATED="1511639675225" MODIFIED="1512063296510">
+<node TEXT="F&#xfc;r skalare Features nur den ersten Node" ID="ID_278285454" CREATED="1512063298616" MODIFIED="1512063308029"/>
+<node TEXT="Bei Listen f&#xfc;r alle" ID="ID_440511498" CREATED="1512063346908" MODIFIED="1512063354933"/>
+</node>
+<node TEXT="Falls Content" ID="ID_1170284172" CREATED="1511639688905" MODIFIED="1512063427988">
+<node ID="ID_1515935279" CREATED="1512063429137" MODIFIED="1512063429137"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Features der Klasse ermitteln
+    </p>
+  </body>
+</html>
+
+</richcontent>
+</node>
+<node TEXT="Rekursiver Aufruf" ID="ID_183388856" CREATED="1512063438459" MODIFIED="1512063474045">
+<node TEXT="F&#xfc;r alle Elemente bei Listen" ID="ID_640960908" CREATED="1512063474468" MODIFIED="1512063497820"/>
 <node TEXT="Node ist Kontext" ID="ID_965009986" CREATED="1511639717755" MODIFIED="1511639722633"/>
-<node TEXT="Rekursiv" ID="ID_801906543" CREATED="1511639723105" MODIFIED="1511639725137"/>
+</node>
+</node>
 </node>
 </node>
 <node TEXT="Sonderf&#xe4;lle" POSITION="right" ID="ID_1132396932" CREATED="1511886750679" MODIFIED="1511886755288">

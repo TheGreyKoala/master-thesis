@@ -1,0 +1,223 @@
+<map version="freeplane 1.6.0">
+<!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
+<node TEXT="Annotation Service" FOLDED="false" ID="ID_1012617488" CREATED="1512065865897" MODIFIED="1512065872270" STYLE="oval">
+<font SIZE="18"/>
+<hook NAME="MapStyle">
+    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+
+<map_styles>
+<stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
+<font SIZE="24"/>
+<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="default" ICON_SIZE="12.0 pt" COLOR="#000000" STYLE="fork">
+<font NAME="SansSerif" SIZE="10" BOLD="false" ITALIC="false"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.details"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.attributes">
+<font SIZE="9"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.note" COLOR="#000000" BACKGROUND_COLOR="#ffffff" TEXT_ALIGN="LEFT"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.floating">
+<edge STYLE="hide_edge"/>
+<cloud COLOR="#f0f0f0" SHAPE="ROUND_RECT"/>
+</stylenode>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="styles.topic" COLOR="#18898b" STYLE="fork">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.subtopic" COLOR="#cc3300" STYLE="fork">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.subsubtopic" COLOR="#669900">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.important">
+<icon BUILTIN="yes"/>
+</stylenode>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right" STYLE="bubble">
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000" STYLE="oval" SHAPE_HORIZONTAL_MARGIN="10.0 pt" SHAPE_VERTICAL_MARGIN="10.0 pt">
+<font SIZE="18"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,1" COLOR="#0033ff">
+<font SIZE="16"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,2" COLOR="#00b439">
+<font SIZE="14"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,3" COLOR="#990000">
+<font SIZE="12"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,4" COLOR="#111111">
+<font SIZE="10"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,5"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,6"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,7"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,8"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,9"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,10"/>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,11"/>
+</stylenode>
+</stylenode>
+</map_styles>
+</hook>
+<hook NAME="AutomaticEdgeColor" COUNTER="5" RULE="ON_BRANCH_CREATION"/>
+<node TEXT="Endpunkte" POSITION="right" ID="ID_703909475" CREATED="1512060666757" MODIFIED="1512065893455">
+<edge COLOR="#00ff00"/>
+<node TEXT="GET /pages/{pageId}" ID="ID_1946091033" CREATED="1512060670639" MODIFIED="1512060706853">
+<node TEXT="http://docs.annotatorjs.org/en/v1.2.x/storage.html#root" ID="ID_1146541721" CREATED="1512060753366" MODIFIED="1512060754582"/>
+<node TEXT="Status Code 200" ID="ID_1494942385" CREATED="1512060874360" MODIFIED="1512060879722"/>
+<node TEXT="Erforderliche Meta-Daten des Stores" ID="ID_648591307" CREATED="1512060761748" MODIFIED="1512060768911"/>
+<node TEXT="JSON-Dokument" ID="ID_1260604072" CREATED="1512064657715" MODIFIED="1512064661052"/>
+</node>
+<node TEXT="GET /pages/{pageId}/annotations" ID="ID_1779574997" CREATED="1512061158954" MODIFIED="1512061172907">
+<node TEXT="Status Code 200" ID="ID_23272655" CREATED="1512061177780" MODIFIED="1512061182987"/>
+<node TEXT="Liefert alle Annotationen einer Seite" ID="ID_1092716227" CREATED="1512061185394" MODIFIED="1512061195347"/>
+<node TEXT="http://docs.annotatorjs.org/en/v1.2.x/storage.html#index" ID="ID_793604066" CREATED="1512061208098" MODIFIED="1512061209018"/>
+<node TEXT="JSON-Array von Annotationen" ID="ID_1555145629" CREATED="1512064681938" MODIFIED="1512064694316"/>
+</node>
+<node TEXT="/pages/{pageId}/annotations/{annotationId}" ID="ID_416453134" CREATED="1512060820382" MODIFIED="1512060859185">
+<node TEXT="GET" ID="ID_231475705" CREATED="1512060861706" MODIFIED="1512060864713">
+<node TEXT="Status Code 200" ID="ID_732996115" CREATED="1512060925931" MODIFIED="1512060931826"/>
+<node TEXT="Gibt genau eine Annotation der Seite zur&#xfc;ck" ID="ID_287587167" CREATED="1512060932233" MODIFIED="1512060993460"/>
+<node TEXT="http://docs.annotatorjs.org/en/v1.2.x/storage.html#read" ID="ID_1242738566" CREATED="1512061079826" MODIFIED="1512061080835"/>
+<node TEXT="Annotation als JSON" ID="ID_991923211" CREATED="1512064702714" MODIFIED="1512064709020"/>
+</node>
+<node TEXT="PUT" ID="ID_1448785775" CREATED="1512060865064" MODIFIED="1512060866721">
+<node TEXT="Aktualisiert genau eine Annotation" ID="ID_1337805204" CREATED="1512060976292" MODIFIED="1512060985699"/>
+<node TEXT="Status Code 300" ID="ID_914372083" CREATED="1512061002658" MODIFIED="1512061007915"/>
+<node TEXT="Pfad zur Annotation in Location Header" ID="ID_1680874956" CREATED="1512061012386" MODIFIED="1512061045323"/>
+<node TEXT="http://docs.annotatorjs.org/en/v1.2.x/storage.html#update" ID="ID_633295652" CREATED="1512061152146" MODIFIED="1512061153012"/>
+<node TEXT="Kein Body in Antwort" ID="ID_1465418419" CREATED="1512064715882" MODIFIED="1512064720987"/>
+</node>
+</node>
+</node>
+<node TEXT="Algorithmus" POSITION="right" ID="ID_1011317734" CREATED="1512061924877" MODIFIED="1512065893461">
+<edge COLOR="#ff00ff"/>
+<node TEXT="Alle Annotationen lesen" ID="ID_1427326807" CREATED="1512066035520" MODIFIED="1512066051502">
+<node TEXT="Seite anhand Id von Classification Storage API holen" ID="ID_1284124014" CREATED="1512066187838" MODIFIED="1512066210927"/>
+<node TEXT="Mit Page starten" ID="ID_1388242742" CREATED="1512062150655" MODIFIED="1512062161214"/>
+<node TEXT="Annotation f&#xfc;r alle Referenzen anlegen" ID="ID_1789646537" CREATED="1512062161845" MODIFIED="1512062169887"/>
+<node TEXT="Rekursiv alle Contents durchlaufen" ID="ID_1377723176" CREATED="1512062170325" MODIFIED="1512062453743">
+<node TEXT="Annotation f&#xfc;r alle Referenzen anlegen" ID="ID_54180890" CREATED="1512062188536" MODIFIED="1512062200239"/>
+<node TEXT="Falls keine eigenen Contents: Annotation f&#xfc;r Content anlegen" ID="ID_470269533" CREATED="1512062226413" MODIFIED="1512062494679"/>
+</node>
+<node TEXT="Herausforderung" ID="ID_1781321888" CREATED="1512062360485" MODIFIED="1512062363950">
+<node TEXT="Annotation braucht Id" ID="ID_330840989" CREATED="1512062365006" MODIFIED="1512062370806"/>
+<node TEXT="Kein Problem f&#xfc;rs Lesen aller Annotationen" ID="ID_912481191" CREATED="1512062403164" MODIFIED="1512062627541"/>
+<node TEXT="Beim Lesen &amp; Schreiben einer Annotation relevant" ID="ID_284622421" CREATED="1512062629259" MODIFIED="1512062659645">
+<node TEXT="ID muss auf Feature mappen" ID="ID_1406662718" CREATED="1512062434990" MODIFIED="1512062443742">
+<node TEXT="Welche Annotation wird angefragt" ID="ID_522466468" CREATED="1512062502500" MODIFIED="1512062692156"/>
+<node TEXT="Welche Annotation wurde bearbeitet" ID="ID_1206704638" CREATED="1512062692347" MODIFIED="1512062699260"/>
+</node>
+<node TEXT="Service sollte keinen State haben" ID="ID_1655034779" CREATED="1512062701738" MODIFIED="1512062723492">
+<node TEXT="Wenn Serivce neugestartet wird, ist Map weg" ID="ID_1203447721" CREATED="1512062731218" MODIFIED="1512062751715"/>
+<node TEXT="Ids nicht global ablegen" ID="ID_548541940" CREATED="1512062723756" MODIFIED="1512062781147"/>
+</node>
+<node TEXT="Globale Ablage nicht n&#xf6;tig, wenn Id deterministisch" ID="ID_1488061532" CREATED="1512062829753" MODIFIED="1512062850259"/>
+</node>
+<node TEXT="Berechnung der Id" ID="ID_1495423857" CREATED="1512062868881" MODIFIED="1512062873466">
+<node TEXT="Namen aller Features des Vaterpfades" ID="ID_1238865159" CREATED="1512062879675" MODIFIED="1512062947881"/>
+<node TEXT="Durch Doppelpunkt separiert" ID="ID_7478266" CREATED="1512062948440" MODIFIED="1512062959746"/>
+<node TEXT="Bei Listen auch Index als Element (z. B. myFeature:3:subFeature)" ID="ID_641850638" CREATED="1512062961048" MODIFIED="1512063038354"/>
+<node TEXT="Base64 codiert" ID="ID_354297590" CREATED="1512063054471" MODIFIED="1512063058328"/>
+</node>
+</node>
+<node TEXT="Implementiert in AnnotationsAssembler.js" ID="ID_803503467" CREATED="1512062257157" MODIFIED="1512062339950"/>
+</node>
+<node TEXT="Eine Annotation lesen" ID="ID_643004455" CREATED="1512066060469" MODIFIED="1512066066262">
+<node TEXT="Alle Annotationen ermitteln" ID="ID_1468905907" CREATED="1512066066775" MODIFIED="1512066127310">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="200" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_1427326807" STARTINCLINATION="-187;-9;" ENDINCLINATION="-19;56;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
+</node>
+<node TEXT="Liste anhand Id filtern" ID="ID_1025474207" CREATED="1512066075629" MODIFIED="1512066087807"/>
+<node TEXT="Kann optimiert werden" ID="ID_1279960688" CREATED="1512066088037" MODIFIED="1512066092590"/>
+<node TEXT="Implementiert in page.js" ID="ID_1674645439" CREATED="1512067040155" MODIFIED="1512067045220"/>
+</node>
+<node TEXT="Annotation schreiben" ID="ID_407118214" CREATED="1512066103829" MODIFIED="1512066134319">
+<node TEXT="Seite anhand Id von Classification Storage API holen" ID="ID_806643760" CREATED="1512066187838" MODIFIED="1512066210927"/>
+<node TEXT="Id Base64 dekodieren" ID="ID_406578586" CREATED="1512066725652" MODIFIED="1512066733854"/>
+<node TEXT="Id splitten anhand Doppelpunkt und Teile in Array speichern" ID="ID_800849503" CREATED="1512066712172" MODIFIED="1512066805326"/>
+<node TEXT="Mit Page als Parent starten" ID="ID_874174238" CREATED="1512066756412" MODIFIED="1512066835509"/>
+<node TEXT="Erstes Element des Arrays nehmen" ID="ID_897182651" CREATED="1512066806676" MODIFIED="1512066817902"/>
+<node TEXT="Page hat Eigenschaft mit diesem Namen" ID="ID_1612133667" CREATED="1512066818100" MODIFIED="1512066825245"/>
+<node TEXT="Parent ist Eigenschaft der Page mit diesem Namen" ID="ID_1414649333" CREATED="1512066836684" MODIFIED="1512066850677"/>
+<node TEXT="So lange wiederholen, bis Array leer" ID="ID_1205155515" CREATED="1512066850876" MODIFIED="1512066859749"/>
+<node TEXT="Keine Unterscheidung f&#xfc;r Array-Indexe bei Listen" ID="ID_620799917" CREATED="1512066859988" MODIFIED="1512066875205"/>
+<node TEXT="Am Ende ist Parent das zu bearbeitende Objekt" ID="ID_915552819" CREATED="1512066878635" MODIFIED="1512066890661"/>
+<node TEXT="Klasse dieses Features auf Klasse in der Input-Annotation setzen" ID="ID_491611283" CREATED="1512066890876" MODIFIED="1512066911365"/>
+<node TEXT="Page speichern" ID="ID_1929838965" CREATED="1512066911708" MODIFIED="1512066916101"/>
+<node TEXT="Implementiert in AnnotationRepository.storeAnnotation" ID="ID_1893389814" CREATED="1512067005900" MODIFIED="1512067035076"/>
+</node>
+</node>
+<node TEXT="Technologien" POSITION="right" ID="ID_1933120679" CREATED="1512060895505" MODIFIED="1512065893463">
+<edge COLOR="#00ffff"/>
+<node TEXT="Node JS" ID="ID_546059672" CREATED="1512061266020" MODIFIED="1512061268778"/>
+<node TEXT="JavaScript" ID="ID_1940496697" CREATED="1512061269193" MODIFIED="1512061271459"/>
+<node TEXT="express" ID="ID_1520131957" CREATED="1512061281553" MODIFIED="1512061284274">
+<node TEXT="express" ID="ID_743174131" CREATED="1512061775278" MODIFIED="1512061778861"/>
+<node TEXT="body-parser" ID="ID_990224127" CREATED="1512061779356" MODIFIED="1512061781813"/>
+<node TEXT="cookie-parser" ID="ID_912566751" CREATED="1512061782252" MODIFIED="1512061788181"/>
+<node TEXT="morgan" ID="ID_756646820" CREATED="1512061788364" MODIFIED="1512061790205"/>
+</node>
+<node TEXT="Winston" ID="ID_162626487" CREATED="1512061285337" MODIFIED="1512065808533">
+<node TEXT="https://github.com/winstonjs/winston" ID="ID_905705742" CREATED="1512065801462" MODIFIED="1512065803030"/>
+<node TEXT="Logging" ID="ID_1573855341" CREATED="1512065809492" MODIFIED="1512065812133"/>
+</node>
+<node TEXT="Unirest" ID="ID_174815130" CREATED="1512061795372" MODIFIED="1512065815639">
+<node TEXT="http://unirest.io/nodejs.html" ID="ID_771905830" CREATED="1512065840164" MODIFIED="1512065841117"/>
+<node TEXT="HTTP Requests" ID="ID_591588416" CREATED="1512065816679" MODIFIED="1512065820469"/>
+</node>
+</node>
+<node TEXT="Aufgabe" POSITION="left" ID="ID_780734747" CREATED="1512061841028" MODIFIED="1512065893438">
+<edge COLOR="#ff0000"/>
+<node TEXT="Service, um Annotationen einer Seite zug&#xe4;nglich zu machen" ID="ID_466595693" CREATED="1512061847332" MODIFIED="1512061868342"/>
+<node TEXT="Implementiert Annotator Storage API (nicht vollst&#xe4;ndig)" ID="ID_231165397" CREATED="1512060518954" MODIFIED="1512060643801">
+<node TEXT="Allerdings mit anderen Endpunkten, sodass generischer" ID="ID_345039652" CREATED="1512060532664" MODIFIED="1512060548459"/>
+<node TEXT="Alle Annotationen einer Seite lesen" ID="ID_755205100" CREATED="1512060563369" MODIFIED="1512060632705"/>
+<node TEXT="Spezielle Annotation einer Seite" ID="ID_1906310103" CREATED="1512060645173" MODIFIED="1512060656871">
+<node TEXT="Lesen" ID="ID_567676766" CREATED="1512060657119" MODIFIED="1512060658438"/>
+<node TEXT="Aktualisieren" ID="ID_1912081598" CREATED="1512060658581" MODIFIED="1512060662134"/>
+</node>
+<node TEXT="Vorhandene Implementierungen" ID="ID_1679047704" CREATED="1512060788422" MODIFIED="1512060795343">
+<node TEXT="Nicht genutzt" ID="ID_1543165565" CREATED="1512060810025" MODIFIED="1512060812664"/>
+<node TEXT="Warum?" ID="ID_271763606" CREATED="1512060812870" MODIFIED="1512060814968"/>
+</node>
+</node>
+</node>
+<node TEXT="Annotation" POSITION="left" ID="ID_1341798748" CREATED="1512062372053" MODIFIED="1512065893448">
+<edge COLOR="#0000ff"/>
+<node TEXT="http://docs.annotatorjs.org/en/v1.2.x/annotation-format.html#annotation-format" ID="ID_760945325" CREATED="1512064735636" MODIFIED="1512064736835"/>
+<node TEXT="id" ID="ID_1828682410" CREATED="1512064764898" MODIFIED="1512064766491"/>
+<node TEXT="annotator_schema_version: v1.0" ID="ID_1409315965" CREATED="1512064768569" MODIFIED="1512064781779"/>
+<node TEXT="text" ID="ID_1675394977" CREATED="1512064784633" MODIFIED="1512064789474">
+<node TEXT="(Inhalt der Annotation)" ID="ID_1417857751" CREATED="1512064835744" MODIFIED="1512064852050"/>
+<node TEXT="Name des Features" ID="ID_1554985686" CREATED="1512064790588" MODIFIED="1512064823531"/>
+<node TEXT="Doppelpunkt" ID="ID_632699706" CREATED="1512064824161" MODIFIED="1512064827274"/>
+<node TEXT="Klasse des Features" ID="ID_1955641163" CREATED="1512064827608" MODIFIED="1512064828682"/>
+</node>
+<node TEXT="ranges" ID="ID_983914542" CREATED="1512064857816" MODIFIED="1512064876329">
+<node TEXT="Genau eine, da nur ein Node" ID="ID_1201499120" CREATED="1512064876658" MODIFIED="1512064886225"/>
+<node TEXT="Werte des Selektors" ID="ID_290039114" CREATED="1512064894143" MODIFIED="1512064905065"/>
+</node>
+<node TEXT="user" ID="ID_470081758" CREATED="1512065295699" MODIFIED="1512065296988">
+<node TEXT="wccs" ID="ID_501554429" CREATED="1512065297925" MODIFIED="1512065299524"/>
+<node TEXT="Annotation geh&#xf6;rt wccs" ID="ID_105543205" CREATED="1512065299979" MODIFIED="1512065306948"/>
+</node>
+<node TEXT="permissions" ID="ID_945859753" CREATED="1512065058806" MODIFIED="1512065061391">
+<node TEXT="admin-Rolle" ID="ID_1800786748" CREATED="1512065061824" MODIFIED="1512065073575">
+<node TEXT="User &quot;wccs&quot;" ID="ID_610950645" CREATED="1512065073951" MODIFIED="1512065078903"/>
+<node TEXT="TODO: WAS HAT DAS GENAU F&#xdc;R AUSWIRKUNGEN" ID="ID_1091245767" CREATED="1512065218764" MODIFIED="1512065232277"/>
+</node>
+</node>
+<node TEXT="Zus&#xe4;tzliche Eingenschaft &quot;wccs&quot;" ID="ID_1363416426" CREATED="1512065315442" MODIFIED="1512065328572">
+<node TEXT="featureKind" ID="ID_522581451" CREATED="1512065332212" MODIFIED="1512065336755">
+<node TEXT="Content --&gt; TODO: Das ist noch property in der Impl." ID="ID_569384058" CREATED="1512065340878" MODIFIED="1512065455539"/>
+<node TEXT="Reference" ID="ID_591143851" CREATED="1512065343226" MODIFIED="1512065345620"/>
+</node>
+<node TEXT="class" ID="ID_1392834251" CREATED="1512065337218" MODIFIED="1512065339956"/>
+</node>
+</node>
+</node>
+</map>
