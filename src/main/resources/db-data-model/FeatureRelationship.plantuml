@@ -1,0 +1,16 @@
+@startuml
+hide circle
+hide empty methods
+
+class FeatureRelationship {
+    name : String
+    isCollection : boolean
+    selectorType : String 
+    startSelectorType : String
+    startSelectorValue : String
+    startSelectorOffset : int
+    endSelectorType : String
+    endSelectorValue : String
+    endSelectorOffset : int
+}
+@enduml

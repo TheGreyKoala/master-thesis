@@ -1,0 +1,15 @@
+@startuml
+!include content-owner-relationships.plantuml
+!include Content.plantuml
+!include FeatureRelationship.plantuml
+!include Page.plantuml
+
+scale 3840*2160
+hide circle
+hide empty methods
+left to right direction
+skinparam linetype ortho
+
+FeatureRelationship .. (Content, Content)
+FeatureRelationship .. (Page, Content)
+@enduml

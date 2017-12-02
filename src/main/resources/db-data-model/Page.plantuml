@@ -1,0 +1,9 @@
+@startuml
+hide circle
+hide empty methods
+
+class Page {
+    url : String
+    class : String
+}
+@enduml

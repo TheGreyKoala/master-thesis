@@ -1,0 +1,8 @@
+@startuml
+!include Content.plantuml
+!include Page.plantuml
+!include Resource.plantuml
+
+Content --> Resource : References
+Page --> Resource : References
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+!include resource-referencer-relationships.plantuml
+!include Content.plantuml
+!include Page.plantuml
+!include Resource.plantuml
+
+scale 3840*2160
+hide circle
+hide empty methods
+left to right direction
+skinparam linetype ortho
+
+class ReferenceRelationship {
+    class : String
+}
+
+(Content, Resource) .. ReferenceRelationship
+(Page, Resource) .. ReferenceRelationship
+FeatureRelationship <|-- ReferenceRelationship
+@enduml

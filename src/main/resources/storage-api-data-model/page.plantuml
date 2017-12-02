@@ -1,0 +1,59 @@
+@startuml
+scale 3840*2160
+hide circle
+hide empty methods
+
+class Content {
+    content : String
+}
+
+class Feature {
+    name : String
+    class : String
+    selector : Selector
+}
+
+class FeatureCabable {
+    contents : List<Content>
+    references : List<Reference>
+}
+
+class Page {
+    url : String
+    class : String
+    status : String = "Classified"
+}
+
+class RangeSelector {
+    type = "RangeSelector"
+    startSelector : Selector
+    endSelector : Selector
+}
+
+class Reference {
+    destination : String
+}
+
+class Selector {
+    type : String
+}
+
+class XPathSelector {
+    type = "XPathSelector"
+    value : String
+    offset : int
+}
+
+Feature <|-- Content
+Feature <|-- Reference
+Feature "1" --> "1" Selector : Has
+
+FeatureCabable <|-- Content
+FeatureCabable <|-- Page
+FeatureCabable "1" --> "0..n" Feature : Has
+
+RangeSelector "0..n" --> "2" Selector : Uses
+
+Selector <|-- RangeSelector
+Selector <|-- XPathSelector
+@enduml

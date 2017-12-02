@@ -1,0 +1,9 @@
+@startuml
+hide circle
+hide empty methods
+
+class Content {
+    checksum : String
+    class : String
+}
+@enduml

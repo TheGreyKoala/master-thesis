@@ -1,0 +1,7 @@
+@startuml
+!include Content.plantuml
+!include Page.plantuml
+
+Content --> Content : Owns
+Page --> Content : Owns
+@enduml

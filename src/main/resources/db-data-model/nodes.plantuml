@@ -1,0 +1,23 @@
+@startuml
+!include content-owner-relationships.plantuml
+!include resource-referencer-relationships.plantuml
+!include Content.plantuml
+!include Page.plantuml
+!include Resource.plantuml
+
+scale 3840*2160
+left to right direction
+hide circle
+hide empty methods
+
+class Site {
+    id : String
+}
+
+class Text {
+    value : String
+}
+
+Content --> Text : Reads
+Site --> Page : Owns
+@enduml
