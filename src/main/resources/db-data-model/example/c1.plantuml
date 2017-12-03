@@ -1,0 +1,6 @@
+@startuml
+object "c1 :Content" as pageHeading {
+    checksum = "4711"
+    class = "PageHeading"
+}
+@enduml

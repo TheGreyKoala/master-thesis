@@ -1,0 +1,5 @@
+@startuml
+object "r2 : Resource" as otherPage {
+    url = "[...]/lehrende-und-betreuende-\nim-b-a-bildungswissenschaft/"
+}
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+object "p : Page" as page {
+    url = "[...]/einstieg/"
+    class = "GettingStarted"
+}
+@enduml

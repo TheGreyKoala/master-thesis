@@ -1,0 +1,6 @@
+@startuml
+object "c3 :Content" as generalInformation {
+    checksum = "4713"
+    class = "GeneralInformation"
+}
+@enduml

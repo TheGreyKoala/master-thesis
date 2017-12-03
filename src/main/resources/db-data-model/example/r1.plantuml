@@ -1,0 +1,5 @@
+@startuml
+object "r1 : Resource" as image {
+    url = "[...]/UL2A3522-300x180.jpg"
+}
+@enduml

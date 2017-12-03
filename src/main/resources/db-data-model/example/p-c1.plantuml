@@ -1,0 +1,24 @@
+@startuml
+!include p.plantuml
+!include c1.plantuml
+
+scale 3840*2160
+hide circle
+hide empty methods
+left to right direction
+
+object "rel1 : FeatureRelationship" as rel1 {
+    name = "heading"
+    isCollection = false
+    selectorType = "RangeSelector"
+    startSelectorType = "XPathSelector"
+    startSelectorValue = "/html/body/[...]/h3"
+    startSelectorOffset = 0
+    endSelectorType = "XPathSelector"
+    endSelectorValue = "/html/body/[...]/h3"
+    endSelectorOffset = 8
+}
+
+page --> pageHeading : Owns
+(page, pageHeading) .. rel1
+@enduml

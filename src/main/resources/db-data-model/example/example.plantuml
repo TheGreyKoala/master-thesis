@@ -1,0 +1,42 @@
+@startuml
+!include p.plantuml
+!include c1.plantuml
+!include c2.plantuml
+!include c3.plantuml
+!include c4.plantuml
+!include c5.plantuml
+!include r1.plantuml
+!include r2.plantuml
+
+scale 3840*2160
+left to right direction
+skinparam linetype ortho
+
+object "c1_text :Text" as pageHeadingText {
+    value = "Einstieg"
+}
+
+object "c2_text :Text" as introductionText {
+    value = "Lebenslanges Lernen [...]"
+}
+
+object "c4_text : Text" as generalInformationHeadingText {
+    value = "Disziplinäre Bezüge"
+}
+
+object "c5_text : Text" as generalInformationContentText {
+    value = "Im [...]"
+}
+
+introduction --> introductionText : rel5 : Reads
+page --> introduction : rel2 : Owns
+page --> pageHeading : rel1 : Owns
+page --> generalInformation :rel3 : Owns
+pageHeading --> pageHeadingText : rel4 : Reads
+generalInformation --> generalInformationContent : rel7 : Owns
+generalInformation --> generalInformationHeading : rel6 : Owns
+generalInformationContent --> image : rel9 : References
+generalInformationContent --> generalInformationContentText : rel11 : Reads
+generalInformationContent --> otherPage : rel10 : References
+generalInformationHeading --> generalInformationHeadingText : rel8 : Reads
+@enduml

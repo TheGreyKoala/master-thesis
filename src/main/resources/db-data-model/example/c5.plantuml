@@ -1,0 +1,6 @@
+@startuml
+object "c5 : Content" as generalInformationContent {
+    checksum = "4715"
+    class = "Paragraph"
+}
+@enduml

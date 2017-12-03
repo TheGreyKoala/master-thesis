@@ -1,0 +1,6 @@
+@startuml
+object "c4 : Content" as generalInformationHeading {
+    checksum = "4714"
+    class = "SectionHeading"
+}
+@enduml

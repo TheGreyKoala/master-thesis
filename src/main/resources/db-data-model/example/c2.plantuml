@@ -1,0 +1,6 @@
+@startuml
+object "c2 :Content" as introduction {
+    checksum = "4712"
+    class = "Introduction"
+}
+@enduml
