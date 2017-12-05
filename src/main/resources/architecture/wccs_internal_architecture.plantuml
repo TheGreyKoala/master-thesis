@@ -16,6 +16,7 @@ Admin --> web_app : Prüft Klassifikation mit
 Admin --> dsl : Konfiguriert Klassifizierung mit
 annotation_service -(0- classification_storage_api
 annotator_plugin -(0- annotation_service : Integriert WCCS in Annotator
+annotator_plugin -(0- classification_service
 classification_service -(0- classification_storage_api
 classification_storage_api -(0- classification_storage
 dsl --> classification_service : Erzeugt Konfiguration für

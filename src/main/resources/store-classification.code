@@ -21,13 +21,14 @@ function content(contentFeature : Content) {
         contentFeature.contents.forEach(c -> content(c))
         contentFeature.references.forEach(r -> reference(r))
 
-        textNode(contentFeature)
+        t = textNode(contentFeature)
         contentNode(contentFeature)
 
         contentFeature.contents.forEach(c -> contentRelationship(contentFeature, c))
         contentFeature.references.forEach(r -> referenceRelationship(contentFeature, r))
+        textRelationship(contentFeature, t)
     else
-        contentFeature.forEach(c -> createContent(c))
+        contentFeature.forEach(c -> content(c))
 }
 
 function reference(referenceFeature : Reference) {
