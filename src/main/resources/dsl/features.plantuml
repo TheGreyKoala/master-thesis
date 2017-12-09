@@ -1,0 +1,18 @@
+@startuml
+hide circle
+hide empty methods
+scale 3840*2160
+
+class CollectionFeature
+class Feature {
+    name: String
+    class: FeatureClass
+    selector: FeatureSelector
+}
+class ScalarFeature
+
+Feature <|-- CollectionFeature
+Feature "0..n" -- "1" FeatureClass : > hat
+Feature "0..n" -- "0..1" FeatureSelector : > hat
+Feature <|-- ScalarFeature
+@enduml

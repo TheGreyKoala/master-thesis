@@ -1,0 +1,15 @@
+== Testen
+
+[[testing]]
+.Testen von DSLs
+image::mindmaps/testing/testing.svg[Testen von DSLs, 100%]
+
+include::Syntax.adoc[]
+
+include::Constraints.adoc[]
+
+include::Semantik.adoc[]
+
+include::EditorServices.adoc[]
+
+include::AngemessenheitDerSprache.adoc[]

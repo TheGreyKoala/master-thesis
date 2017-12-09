@@ -1,0 +1,5 @@
+=== Pretty Printing
+
+[[pretty-printing]]
+.Pretty Printing
+image::mindmaps/ide-services/pretty-printing.svg[Pretty Printing, 100%]

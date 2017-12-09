@@ -1,0 +1,21 @@
+=== Language Modularity
+
+[[language-modularity]]
+.Language Modularity
+image::mindmaps/design-dimensions/language-modularity/language-modularity.svg[Language Modularity, 100%]
+
+[[composition-techniques]]
+.Composition Techniques
+image::composition-techniques.png[Composition Techniques, 100%]
+
+[[composition-techniques-relationships]]
+.Beziehungen zwischen Fragmenten & Sprachen in den vier Kompositionstechniken
+image::composition-techniques-relationships.png[Beziehungen zwischen Fragmenten & Sprachen in den vier Kompositionstechniken, 100%]
+
+include::LanguageReferencing.adoc[]
+
+include::LanguageExtension.adoc[]
+
+include::LanguageReuse.adoc[]
+
+include::LanguageEmbedding.adoc[]

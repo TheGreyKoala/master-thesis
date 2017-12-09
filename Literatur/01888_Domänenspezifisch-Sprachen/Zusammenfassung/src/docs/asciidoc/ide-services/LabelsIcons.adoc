@@ -1,0 +1,5 @@
+=== Labels & Icons
+
+[[labels-icons]]
+.Labels & Icons
+image::mindmaps/ide-services/labels-icons.svg[Labels & Icons, 100%]

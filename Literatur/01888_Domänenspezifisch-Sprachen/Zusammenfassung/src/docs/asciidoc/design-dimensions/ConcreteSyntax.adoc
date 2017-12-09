@@ -1,0 +1,5 @@
+=== Concrete Syntax
+
+[[concrete-syntax]]
+.Concrete Syntax
+image::mindmaps/design-dimensions/concrete-syntax.svg[Concrete Syntax, 100%]

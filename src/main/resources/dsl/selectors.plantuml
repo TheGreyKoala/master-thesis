@@ -1,0 +1,30 @@
+@startuml
+hide circle
+hide empty methods
+left to right direction
+scale 3840*2160
+
+class ContentSelector
+class CssSelector
+class FeatureSelector
+class PageSelector
+class ReferenceSelector
+class Selector {
+    value: String
+}
+class UrlPatternSelector
+class XPathSelector
+
+ContentSelector <|-- CssSelector
+ContentSelector <|-- XPathSelector
+FeatureSelector <|-- ContentSelector
+FeatureSelector <|-- ReferenceSelector
+
+PageSelector <|-- UrlPatternSelector
+ReferenceSelector <|-- CssSelector
+ReferenceSelector <|-- UrlPatternSelector
+ReferenceSelector <|-- XPathSelector
+
+Selector <|-- PageSelector
+Selector <|-- FeatureSelector
+@enduml

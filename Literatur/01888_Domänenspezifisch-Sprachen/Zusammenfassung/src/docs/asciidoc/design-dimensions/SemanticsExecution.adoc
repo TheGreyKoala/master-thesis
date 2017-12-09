@@ -1,0 +1,9 @@
+=== Semantics & Execution
+
+[[semantics-execution]]
+.Semantics & Execution
+image::mindmaps/design-dimensions/semantics-execution.svg[Semantics & Execution, 100%]
+
+[[formal-definition-execution-semantics]]
+.Formale Definition: Execution Semantics
+image::formal-definition-execution-semantics.png[Formale Definition: Execution Semantics, 100%]

@@ -1,0 +1,13 @@
+=== Seperation of Concerns
+
+[[seperation-of-concerns]]
+.Seperation of Concerns
+image::mindmaps/design-dimensions/seperation-of-concerns.svg[Seperation of Concerns, 100%]
+
+[[domain-concerns]]
+.Domäne mit verschiedenen Concerns
+image::domain-concerns.png[Domäne mit verschiedenen Concerns, 100%]
+
+[[seperation-of-concerns-approaches]]
+.Ansätze zur Handhabung verschiedener Domain Concerns
+image::seperation-of-concerns-approaches.png[Ansätze zur Handhabung verschiedener Domain Concerns, 100%]

@@ -1,0 +1,89 @@
+Kurseinheit 1
+	- Execution Engine Effizienz (Seite 29 unten)
+	- Kommentar am Rand S. 30
+	- Kapitel 2.3
+	- Kapitel 2.4
+	- Kapitel 2.6 ganz am Ende: Is it worth it
+	- Kapitel 2.7
+	- Leittext
+		- Kapitel 1.1 (Softwaresprachen)
+		- Kapitel 1.2 (Syntax und Semantik)
+		- Kapitel 1.4 (Prolog)
+		- Kapitel 1.5 (Logische Interpretation von Prolog-Programmen)
+- Kurseinheit 2
+	- Expressivity ab Kapitel 4.1.1 (Seite 72)
+		--> S. 77 Comparing
+	- Semantics and Execution ab Kapitel 4.3.1 (Seite 83)
+!		--> S. 87f Varianten
+		--> S. 89 Multi-Stage Transformation + Gründe
+!	- Seperation of Concerns ab Kapitel 4.4.1 (Seite 104) (lesen)
+		--> VIEWPOINTS siehe auch Language Referencing!!
+		--> Progressive Refinement nutzt auch Language Referencing
+	- Completeness ab Kapitel 4.5.1 (Seite 112)
+		--> Compensating Incompleteness
+	- Concrete Syntax ab Kapitel 4.7.1 (Seite 133)
+		--> Design Concerns & Classes (4.7.2)
+	- Kapitel 5.2.6, Seite 158, ab Mitte: Model Checking
+!	- Kapitel 6 (Seite 161) (lesen)
+	- Leittext
+		- Außer Kapitel 2.2
+- Kurseinheit 3
+	- Kapitel 7.1.1
+!		- Ab ersten schwarzen Bullet (Seite 180 unten) Lesen
+	- Kapitel 7.3.1
+		- MPS Strategien (ab S.190 unten)
+?	- Ab Kapitel 7.4
+	- Leittext
+		- Kapitel 3.2
+- Kurseinheit 4
+	- Kapitel 8.1
+	- Kapitel 8.2
+	- Kapitel 8.3
+	- Kapitel 9.1
+	- Kapitel 9.2
+	- Kapitel 9.3
+	- Kapitel 10.2.1
+		- Beispiel
+	- Kapitel 10.2.2
+		- Beispiel
+	- Kapitel 10.3
+	- Kapitel 10.4
+	- Kapitel 10.5
+	- Ausführen in Musterlösung
+		- Lösungsvorschlag zu Aufgabe 1
+- Kurseinheit 5
+	- Kapitel 11.1
+		- Umsetzung des Hybriden Ansatzes in MPS & Spoofax (ab S. 273 Mitte)
+	- Kapitel 11.2 - 11.4 (Beispiele)
+	- Kapitel 12.1 - 12.3 (Beispiele)
+	- Leittext
+- Kurseinheit 6
+	- Kapitel 13.1 ab "Customizing Code Completion for a Reference in Xtext"
+	- Kapitel 13.2 ab "An Example with MPS"
+	- Kapitel 13.3 ab "Customizing the Target with Xtext"
+	- Kapitel 13.4 ab "Pretty-Printing in MPS"
+	- Kapitel 13.5 ab "Quick Fixes in Xtext"
+	- Kapitel 13.6 ab "Renaming in Xtext"
+	- Kapitel 13.7 ab "Labels and Icons in Xtext"
+	- Kapitel 13.8 ab "Customizing the Structure in Xtext"
+	- Kapitel 13.9 ab "Folding in Xtext"
+	- Kapitel 13.10 ab "Xtext"
+	- Kapitel 13.11 ab "MPS"
+	- Leittext
+- Kurseinheit 7
+	- Kapitel 14.1 ab "An Example with Xtext"
+	- Kapitel 14.2 ab "An Example with Xtext"
+	- Kapitel 14.3
+		- Testing an Interpreter with Xtext
+		- Testing a Generator with MPS
+		- Testing Interpreters and Generators with Spoofax
+		- Structural Testing ab "Model-to-model transformations" (S. 356 oben)
+!	- Kapitel 14.4 (lesen)
+	- Kapitel 14.5 ab "An Example with MPS"
+	- Kapitel 15.1.1 ab "Xtext"
+	- Kapitel 15.1.2 ab "Xtext"
+	- Kapitel 15.1.3 ab "Xtext"
+	- Kapitel 15.2.1 ab Inline Reporting Expressions
+	- Kapitel 15.2.4
+	- Kapitel 15.2.5
+	- Kapitel 15.2.6

@@ -1,0 +1,15 @@
+=== Interpreter
+
+[[interpreter]]
+.Interpreter
+image::mindmaps/interpreter/interpreter.svg[Interpreter, 100%]
+
+* Keine Zwischenartefakte wie bei <<transformation-generation>>.
+
+include::Expressions.adoc[]
+
+include::Statements.adoc[]
+
+include::Environments.adoc[]
+
+include::CallStacks.adoc[]

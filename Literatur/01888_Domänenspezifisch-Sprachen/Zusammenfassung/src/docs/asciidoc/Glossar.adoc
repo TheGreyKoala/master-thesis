@@ -1,0 +1,23 @@
+[glossary]
+== Glossar
+
+[glossary]
+Abstract Syntax Tree (AST):: Abstrakter Syntax, der als Baum gespeichert wird
+Correct-by-construction:: Sprache erlaubt nur die Erstellung korrekter Programme
+Language::
+	* Definiert eine Struktur und eine Notation mit der Programme ausgedrückt bzw. codiert werden können.
+	* Menge an Language Concepts und deren Beziehungen.
+Language Concept:: Beschreibt alle Aspekte eines Elementes einer Sprache. Dazu gehören
+	* Konkreter und abstrakter Syntax
+	* Type System Regeln und Constraints
+	* Einige Semantik-Definitionen
+	In einer Grammatik wird ein Language Concept durch ein Nichtterminal dargestellt.
+Linguistic Abstractions:: Sprache enthält Konzepte für die in der Domäne relevanten Abstraktionen.
+Metaprogrammierung:: Programme, die sich selbst und andere Programme zur Ein- und Ausgabe benutzen
+Model (ausführbar):: (Abstraktes) Programm / Code
+Nichtterminalsymbole:: Innere Knoten eines Syntaxbaumes
+Program:: Konzeptionelle Darstellung einer Berechnung, die auf einem universellen Computer ausgeführt werden kann.
+Programming language:: General-purpose languages (GPL)
+Semantics:: Execution Semantics
+Terminalsymbole:: Wörter eines Satzes
+Unassigned Rule Call:: Grammatikregel, die lediglich an andere Regeln weiterleitet

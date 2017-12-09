@@ -1,0 +1,9 @@
+==== Projectional Editors
+
+[[projectional-editors]]
+.Projectional Editors
+image::mindmaps/projectionaleditors.svg[Projectional Editors, 100%]
+
+[[user-interaction-projectional-editors]]
+.Benutzerinteraktionen in Projectional Editors
+image::user-interaction-projectional-editors.png[Benutzerinteraktionen in Projectional Editors, 100%]

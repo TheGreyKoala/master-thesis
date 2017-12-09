@@ -1,0 +1,19 @@
+== Design Dimensionen
+
+[[designdimensions]]
+.Design Dimensionen
+image::mindmaps/design-dimensions/designdimensions.svg[Design Dimensionen, 100%]
+
+include::Expressivity.adoc[]
+
+include::Coverage.adoc[]
+
+include::SemanticsExecution.adoc[]
+
+include::SeperationOfConcerns.adoc[]
+
+include::Completeness.adoc[]
+
+include::language-modularity/LanguageModularity.adoc[]
+
+include::ConcreteSyntax.adoc[]

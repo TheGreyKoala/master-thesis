@@ -1,0 +1,5 @@
+=== DSL Definition
+
+[[definition_debugging]]
+.DSL Definition debuggen
+image::mindmaps/debugging/definition.svg[DSL Definition debuggen, 100%]

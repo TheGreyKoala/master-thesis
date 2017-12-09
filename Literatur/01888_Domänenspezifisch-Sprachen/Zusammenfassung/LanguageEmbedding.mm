@@ -1,0 +1,166 @@
+<map version="freeplane 1.3.0">
+<!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
+<node TEXT="Language Embedding" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1460636344450"><hook NAME="MapStyle" zoom="1.003">
+
+<map_styles>
+<stylenode LOCALIZED_TEXT="styles.root_node">
+<stylenode LOCALIZED_TEXT="styles.predefined" POSITION="right">
+<stylenode LOCALIZED_TEXT="default" MAX_WIDTH="600" COLOR="#000000" STYLE="as_parent">
+<font NAME="SansSerif" SIZE="10" BOLD="false" ITALIC="false"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="defaultstyle.details"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.note"/>
+<stylenode LOCALIZED_TEXT="defaultstyle.floating">
+<edge STYLE="hide_edge"/>
+<cloud COLOR="#f0f0f0" SHAPE="ROUND_RECT"/>
+</stylenode>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.user-defined" POSITION="right">
+<stylenode LOCALIZED_TEXT="styles.topic" COLOR="#18898b" STYLE="fork">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.subtopic" COLOR="#cc3300" STYLE="fork">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.subsubtopic" COLOR="#669900">
+<font NAME="Liberation Sans" SIZE="10" BOLD="true"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.important">
+<icon BUILTIN="yes"/>
+</stylenode>
+</stylenode>
+<stylenode LOCALIZED_TEXT="styles.AutomaticLayout" POSITION="right">
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level.root" COLOR="#000000">
+<font SIZE="18"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,1" COLOR="#0033ff">
+<font SIZE="16"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,2" COLOR="#00b439">
+<font SIZE="14"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,3" COLOR="#990000">
+<font SIZE="12"/>
+</stylenode>
+<stylenode LOCALIZED_TEXT="AutomaticLayout.level,4" COLOR="#111111">
+<font SIZE="10"/>
+</stylenode>
+</stylenode>
+</stylenode>
+</map_styles>
+</hook>
+<hook NAME="AutomaticEdgeColor" COUNTER="11"/>
+<node TEXT="Idee" POSITION="right" ID="ID_115633705" CREATED="1460555333809" MODIFIED="1460555409797" VSHIFT="-70">
+<edge COLOR="#00007c"/>
+<node TEXT="Heterogene Fragmente mit unabh&#xe4;ngigen Sprachen" ID="ID_727169524" CREATED="1460552961267" MODIFIED="1460555389663" VSHIFT="-30"/>
+<node TEXT="Konzepte einer Sprache in Fragment einer anderen einbetten" ID="ID_227201498" CREATED="1460553109412" MODIFIED="1460555385661"/>
+<node TEXT="Syntaktische Komposition von unabh&#xe4;ngig entwickelten Sprachen" ID="ID_1653093992" CREATED="1460554150954" MODIFIED="1460555391125" VSHIFT="30"/>
+</node>
+<node TEXT="Interessant f&#xfc;r" POSITION="right" ID="ID_1798807255" CREATED="1460536948145" MODIFIED="1460555404139" VSHIFT="-70">
+<edge COLOR="#0000ff"/>
+<node TEXT="Expression Languages" ID="ID_1644274759" CREATED="1460536960321" MODIFIED="1460555223207" VSHIFT="-20"/>
+<node TEXT="Query Languages" ID="ID_919641590" CREATED="1460536966193" MODIFIED="1460555225276" VSHIFT="20"/>
+</node>
+<node TEXT="Realisierung &#xfc;ber Adapter Language" POSITION="right" ID="ID_91927151" CREATED="1460553263933" MODIFIED="1460555401197" VSHIFT="-50">
+<edge COLOR="#007c00"/>
+</node>
+<node TEXT="Embedding Meta Data" POSITION="left" ID="ID_546894413" CREATED="1460554844790" MODIFIED="1460555501567">
+<edge COLOR="#7c0000"/>
+<node TEXT="Spezialfall" ID="ID_129811280" CREATED="1460554871383" MODIFIED="1460555436826" VSHIFT="-80"/>
+<node TEXT="Metadaten" ID="ID_445721648" CREATED="1460554889735" MODIFIED="1460555501566" VSHIFT="-100">
+<node TEXT="Programmelemente" ID="ID_1072543859" CREATED="1460554892758" MODIFIED="1460555423037" VSHIFT="-20"/>
+<node TEXT="Nicht unbedingt in Semantik des Programms" ID="ID_218680248" CREATED="1460554903455" MODIFIED="1460555424845" VSHIFT="-20"/>
+<node TEXT="Nicht durch Primary Model Processor behandelt" ID="ID_1240376168" CREATED="1460554926056" MODIFIED="1460554940531"/>
+<node TEXT="Muss fest zu Programmelement geh&#xf6;ren" ID="ID_500064317" CREATED="1460554949359" MODIFIED="1460555427613" VSHIFT="20"/>
+<node TEXT="M&#xfc;ssen aus User Sicht in Programm eingebettet sein" ID="ID_905396013" CREATED="1460554975271" MODIFIED="1460555429021" VSHIFT="20"/>
+</node>
+<node TEXT="Warum Embedding" ID="ID_1211251162" CREATED="1460554996943" MODIFIED="1460555480006" VSHIFT="-50">
+<node TEXT="Keine Abh&#xe4;ngigkeit zu spezieller Sprache" ID="ID_1416784291" CREATED="1460555001663" MODIFIED="1460555456113" VSHIFT="-20"/>
+<node TEXT="Metadaten in jeder Sprache" ID="ID_665242660" CREATED="1460555013095" MODIFIED="1460555458118" VSHIFT="20"/>
+</node>
+<node TEXT="Beispiele" ID="ID_1938865530" CREATED="1460555024159" MODIFIED="1460555488139" VSHIFT="-50">
+<node TEXT="Dokumentation" ID="ID_1747955123" CREATED="1460555026375" MODIFIED="1460555460275" VSHIFT="-20"/>
+<node TEXT="Traces" ID="ID_1744300608" CREATED="1460555037407" MODIFIED="1460555039244"/>
+<node TEXT="Presence Conditions" ID="ID_1576645214" CREATED="1460555048087" MODIFIED="1460555462957" VSHIFT="20"/>
+</node>
+<node TEXT="Projectional Editors" ID="ID_394054017" CREATED="1460555071911" MODIFIED="1460555492579" VSHIFT="40">
+<node TEXT="Metadaten gespeichert in AST" ID="ID_1288303017" CREATED="1460555076360" MODIFIED="1460555465196" VSHIFT="-20"/>
+<node TEXT="Optional angezeigt" ID="ID_440258704" CREATED="1460555091256" MODIFIED="1460555467213" VSHIFT="20"/>
+</node>
+<node TEXT="Parser Based Editors" ID="ID_331632611" CREATED="1460555097800" MODIFIED="1460555474962" VSHIFT="80">
+<node TEXT="Metadaten in seperaten Dateien gespeichert" ID="ID_1574368372" CREATED="1460555105920" MODIFIED="1460555468485" VSHIFT="-20"/>
+<node TEXT="Zeiger zur Referenzierung" ID="ID_378384600" CREATED="1460555118696" MODIFIED="1460555129908"/>
+<node TEXT="Im Hover oder neben Element gezeigt" ID="ID_1043661954" CREATED="1460555136624" MODIFIED="1460555472413" VSHIFT="20"/>
+</node>
+</node>
+<node TEXT="Konzept eines Kind-Elementes" POSITION="right" ID="ID_1555886280" CREATED="1460553297917" MODIFIED="1460555413096" VSHIFT="70">
+<edge COLOR="#7c007c"/>
+<node TEXT="Aus eigener Sprache" ID="ID_415812352" CREATED="1460553308773" MODIFIED="1460555295504" VSHIFT="-20">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="80" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_1780294003" MIDDLE_LABEL="oder" STARTINCLINATION="46;0;" ENDINCLINATION="46;0;" STARTARROW="DEFAULT" ENDARROW="DEFAULT"/>
+</node>
+<node TEXT="Aus eingebetteter Sprache" ID="ID_1780294003" CREATED="1460553313325" MODIFIED="1460555293892" VSHIFT="20"/>
+</node>
+<node TEXT="Meist kein eigener Generator" POSITION="right" ID="ID_303203614" CREATED="1460633946404" MODIFIED="1460633979386" VSHIFT="30">
+<edge COLOR="#007c00"/>
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="80" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_397001245" STARTINCLINATION="125;0;" ENDINCLINATION="125;0;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
+</node>
+<node TEXT="Zweck der Sprache ist eingebettet zu werden" POSITION="right" ID="ID_397001245" CREATED="1460633952693" MODIFIED="1460633976188" VSHIFT="30">
+<edge COLOR="#7c007c"/>
+</node>
+<node TEXT="Herausforderungen" POSITION="right" ID="ID_1340333363" CREATED="1460636134000" MODIFIED="1460636272319" VSHIFT="70">
+<edge COLOR="#007c7c"/>
+<node TEXT="Syntax" ID="ID_661684237" CREATED="1460636139521" MODIFIED="1460636272318" VSHIFT="-30">
+<node TEXT="Erfordert modularen CS Definition" ID="ID_1062897830" CREATED="1460628838558" MODIFIED="1460636237019" VSHIFT="-20"/>
+<node TEXT="Sprachen werden vermischt" ID="ID_577730563" CREATED="1460628858478" MODIFIED="1460636239507" VSHIFT="-20"/>
+<node TEXT="Ggf. problematisch" ID="ID_1201712057" CREATED="1460628874350" MODIFIED="1460636241339" VSHIFT="-20"/>
+<node TEXT="Kombinierte Grammatik ggf. nicht parsbar" ID="ID_1002559431" CREATED="1460628888646" MODIFIED="1460636248341" VSHIFT="-10">
+<node TEXT="Nicht alle Parser-Technologien betroffen" ID="ID_1672041645" CREATED="1460628905310" MODIFIED="1460636244656" HGAP="19" VSHIFT="-10"/>
+<node TEXT="Kein Problem in Projectional Editors" ID="ID_1205269261" CREATED="1460628914870" MODIFIED="1460636246165" VSHIFT="10"/>
+</node>
+<node TEXT="Wie bei Extension" ID="ID_1748130388" CREATED="1460636169041" MODIFIED="1460636249901" VSHIFT="10"/>
+</node>
+<node TEXT="Type System" ID="ID_678858173" CREATED="1460636141673" MODIFIED="1460636270046" VSHIFT="40">
+<node TEXT="Relevante Type System Rules in Adapter Language" ID="ID_1040320796" CREATED="1460629361296" MODIFIED="1460636270045" VSHIFT="-30"/>
+<node TEXT="Beide Sprachen m&#xfc;ssen Erweiterung des Type Systems erlauben" ID="ID_141054668" CREATED="1460629376160" MODIFIED="1460636263891" VSHIFT="-20"/>
+<node TEXT="Wie bei Reuse" ID="ID_1043087462" CREATED="1460636184409" MODIFIED="1460636264770" VSHIFT="10"/>
+<node TEXT="Erweiterung des Type Systems auch bei Extension" ID="ID_469597856" CREATED="1460636188313" MODIFIED="1460636266309" VSHIFT="30"/>
+</node>
+<node TEXT="Transformation" ID="ID_777781504" CREATED="1460636144193" MODIFIED="1460636304004" VSHIFT="60">
+<node TEXT="Generator f&#xfc;r Embedded Langauge vorhanden" ID="ID_26292243" CREATED="1460634052285" MODIFIED="1460636297149" HGAP="30" VSHIFT="-50">
+<node TEXT="Generiert f&#xfc;r gleiche Target Langauge wie Host Language" ID="ID_1998184799" CREATED="1460634234070" MODIFIED="1460636281870" VSHIFT="-20"/>
+<node TEXT="Generator f&#xfc;r Adapter Language kann koordinieren" ID="ID_1396468587" CREATED="1460634296230" MODIFIED="1460634308123"/>
+<node TEXT="Ansonsten" ID="ID_1442070923" CREATED="1460634318175" MODIFIED="1460636285085" VSHIFT="20">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="80" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_96351307" STARTINCLINATION="-281;0;" ENDINCLINATION="-52;-1;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
+</node>
+</node>
+<node TEXT="Kein Generator f&#xfc;r Embedded Language vorhanden" ID="ID_1197406492" CREATED="1460634065213" MODIFIED="1460636304003" VSHIFT="-50">
+<node TEXT="Wahrscheinlicher" ID="ID_1138618778" CREATED="1460634074973" MODIFIED="1460636299136" VSHIFT="-40"/>
+<node TEXT="Passender Generator muss entwickelt werden" ID="ID_96351307" CREATED="1460634091013" MODIFIED="1460634104026"/>
+<node TEXT="Generiert" ID="ID_1185474971" CREATED="1460634118581" MODIFIED="1460634189282" VSHIFT="60">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="80" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_96351307" STARTINCLINATION="3;-9;" ENDINCLINATION="-75;37;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
+<node TEXT="Host Language Code" ID="ID_1313634923" CREATED="1460634127422" MODIFIED="1460634151866" VSHIFT="-20">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="80" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_806524476" MIDDLE_LABEL="oder" STARTINCLINATION="40;0;" ENDINCLINATION="40;0;" STARTARROW="DEFAULT" ENDARROW="DEFAULT"/>
+</node>
+<node TEXT="Target Language Code" ID="ID_806524476" CREATED="1460634132670" MODIFIED="1460634154202" VSHIFT="20"/>
+</node>
+</node>
+<node TEXT="Semantic Interactions m&#xf6;glich" ID="ID_9175440" CREATED="1460634420295" MODIFIED="1460634454482"/>
+</node>
+</node>
+<node TEXT="Szenario" POSITION="left" ID="ID_1461690743" CREATED="1460554513804" MODIFIED="1460636344450" VSHIFT="105">
+<edge COLOR="#00ff00"/>
+<node TEXT="Host Language muss Konzepte der Embedded Language enthalten" ID="ID_943702526" CREATED="1460554458196" MODIFIED="1460555232728" VSHIFT="-20"/>
+<node TEXT="Konzept muss in diesem Fragment sein, nicht in einem anderen" ID="ID_1947347909" CREATED="1460554764782" MODIFIED="1460555259261" VSHIFT="-20">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="80" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_943702526" STARTINCLINATION="139;0;" ENDINCLINATION="139;0;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
+</node>
+<node TEXT="Abh&#xe4;ngigkeit aber nicht m&#xf6;glich / gew&#xfc;nscht" ID="ID_1772228718" CREATED="1460554479740" MODIFIED="1460555262687" VSHIFT="-20"/>
+<node TEXT="Embedded Language darf auch nichts von Host Language wissen" ID="ID_194726605" CREATED="1460554495276" MODIFIED="1460555264897" VSHIFT="10"/>
+<node TEXT="Z.B., wenn Bedingungen in Host-Language durch beliebige andere Sprache ausgedr&#xfc;ckt werden sollen" ID="ID_317578407" CREATED="1460554532356" MODIFIED="1460555266653" VSHIFT="30"/>
+</node>
+<node TEXT="Eingebettete Sprache" POSITION="left" ID="ID_872764175" CREATED="1460554686261" MODIFIED="1460636342309" HGAP="21" VSHIFT="196">
+<edge COLOR="#00ffff"/>
+<node TEXT="Ggf. erweitern, um in Host-Language gut genutzt zu werden" ID="ID_875237041" CREATED="1460554692829" MODIFIED="1460555309169" VSHIFT="-20"/>
+<node TEXT="Ggf. Einschr&#xe4;nkung der Features (siehe Extension)" ID="ID_162274243" CREATED="1460554714277" MODIFIED="1460555310621" VSHIFT="20"/>
+</node>
+</node>
+</map>

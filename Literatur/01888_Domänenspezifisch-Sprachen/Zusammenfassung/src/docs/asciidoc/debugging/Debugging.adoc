@@ -1,0 +1,9 @@
+== Debuggen
+
+[[debugging]]
+.Debuggen
+image::mindmaps/debugging/debugging.svg[Debuggen, 100%]
+
+include::DslDefinition.adoc[]
+
+include::DslProgramme.adoc[]

@@ -1,0 +1,5 @@
+==== Call Stacks
+
+[[call-stacks]]
+.Call Stacks
+image::mindmaps/interpreter/call-stacks.svg[Call Stacks, 100%]

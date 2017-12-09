@@ -1,0 +1,5 @@
+=== Visualizations
+
+[[visualizations]]
+.Visualizations
+image::mindmaps/ide-services/visualizations.svg[Visualizations, 100%]

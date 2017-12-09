@@ -63,7 +63,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="24" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="25" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Aufgabe" POSITION="left" ID="ID_882920301" CREATED="1512494153610" MODIFIED="1512494155713">
 <edge COLOR="#ff0000"/>
 <node TEXT="Klassifizierung einer Seite durchf&#xfc;hren" ID="ID_1458966839" CREATED="1512494166409" MODIFIED="1512494177136"/>
@@ -336,25 +336,69 @@
 </node>
 </node>
 <node TEXT="Regex auf URL in diesen Attributen ausf&#xfc;hren" ID="ID_523594888" CREATED="1512498846082" MODIFIED="1512498864451"/>
-<node TEXT="Nodes mit matches sammeln" ID="ID_1067041641" CREATED="1512498864626" MODIFIED="1512498872251"/>
+<node TEXT="Nodes mit Matches sammeln" ID="ID_1067041641" CREATED="1512498864626" MODIFIED="1512751292052"/>
 </node>
 </node>
 <node TEXT="F&#xfc;r Leafs soll Text gespeichert werden (siehe Konzept)" POSITION="right" ID="ID_760298305" CREATED="1512670823347" MODIFIED="1512670899412">
 <edge COLOR="#007c7c"/>
 <node TEXT="Muss neben Klasse auch ermittelt werden" ID="ID_389217021" CREATED="1512670847502" MODIFIED="1512670855276"/>
-<node TEXT="innerText vs. textContent" ID="ID_1152575837" CREATED="1512670018408" MODIFIED="1512670864206"/>
+<node TEXT="innerText vs. textContent" ID="ID_1152575837" CREATED="1512670018408" MODIFIED="1512670864206">
+<node TEXT="innerText" ID="ID_1697678860" CREATED="1512751356215" MODIFIED="1512751358555">
+<node TEXT="Gibt gerenderten Text eines Nodes" ID="ID_453618931" CREATED="1512751359256" MODIFIED="1512751367353"/>
+<node TEXT="L&#xe4;sst versteckten Text weg" ID="ID_894786365" CREATED="1512751766517" MODIFIED="1512751779128"/>
+<node TEXT="Was der Nutzer sieht" ID="ID_1352076087" CREATED="1512751779437" MODIFIED="1512751784071"/>
+<node TEXT="https://html.spec.whatwg.org/#the-innertext-idl-attribute" ID="ID_317593547" CREATED="1512751367894" MODIFIED="1512752422544"/>
+</node>
+<node TEXT="textContent" ID="ID_1261660909" CREATED="1512751377614" MODIFIED="1512751380881">
+<node TEXT="Liefert den blanken Text" ID="ID_641949952" CREATED="1512751655416" MODIFIED="1512751661849"/>
+<node TEXT="Auch script, style &amp; Zeilenumbr&#xfc;che im Quelltext" ID="ID_1243032619" CREATED="1512751795469" MODIFIED="1512751816471"/>
+</node>
+</node>
 <node TEXT="innerText" ID="ID_684124886" CREATED="1512668211376" MODIFIED="1512670873569">
 <node TEXT="ElementHandle hat das nicht" ID="ID_150855721" CREATED="1512668214745" MODIFIED="1512668222425"/>
 <node TEXT="Muss ebenfalls &#xfc;ber page.evaluate umgesetzt werden" ID="ID_1228740595" CREATED="1512668222992" MODIFIED="1512668242273"/>
-<node TEXT="NodeWrapper braucht passende Methode" ID="ID_326407399" CREATED="1512668311831" MODIFIED="1512668320353"/>
+<node TEXT="NodeWrapper braucht passende Methode: innerTextAndXPath" ID="ID_326407399" CREATED="1512668311831" MODIFIED="1512752150496"/>
 <node TEXT="Wird fr&#xfc;hestens auf 2. Ebene aufgerufen (auf ElementHandle)" ID="ID_1768388495" CREATED="1512668333687" MODIFIED="1512668348473"/>
-<node TEXT="innerText aller Nodes sammeln und in SerializedNode speichern" ID="ID_1918829318" CREATED="1512668985804" MODIFIED="1512668998934"/>
-<node TEXT="Au&#xdf;erdem xPath und destination in SerializedNode" ID="ID_1157955559" CREATED="1512669139811" MODIFIED="1512669148828"/>
-<node TEXT="Eltern des selektierten Nodes m&#xfc;ssen sichtbar sein (NodeWrapper #21)" ID="ID_1683195218" CREATED="1512497168341" MODIFIED="1512497197207"/>
+<node TEXT="innerText des Nodes zur&#xfc;ckgeben" ID="ID_1918829318" CREATED="1512668985804" MODIFIED="1512752192064"/>
+<node TEXT="Sonderfall: Element ist nicht sichtbar" ID="ID_1683195218" CREATED="1512497168341" MODIFIED="1512752276800">
+<node TEXT="&quot;If this element is not being rendered, or if the user agent is a non-CSS user agent, then return the same value as the textContent IDL attribute on this element.&quot;" ID="ID_1704739691" CREATED="1512752392758" MODIFIED="1512752429086">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="200" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_317593547" STARTINCLINATION="235;0;" ENDINCLINATION="235;0;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
+</node>
+<node TEXT="Attribute auf &quot;initial&quot; setzen" ID="ID_1128292037" CREATED="1512752457211" MODIFIED="1512752467094">
+<node TEXT="display" ID="ID_625218645" CREATED="1512752467526" MODIFIED="1512752471206"/>
+<node TEXT="visibility" ID="ID_1635284549" CREATED="1512752471451" MODIFIED="1512752476142"/>
+</node>
+<node TEXT="Attribute bei allen V&#xe4;tern bis document.body so setzen" ID="ID_1379451071" CREATED="1512752962410" MODIFIED="1512752982693"/>
+<node TEXT="Originalen Werte merken in Stack" ID="ID_1924281366" CREATED="1512752986594" MODIFIED="1512753000724"/>
+<node TEXT="innerText abfragen" ID="ID_820176016" CREATED="1512753003746" MODIFIED="1512753012172"/>
+<node TEXT="Attribute wieder auf originalen Wert setzen" ID="ID_242063870" CREATED="1512753013282" MODIFIED="1512753049980"/>
+<node TEXT="Wenn Element sichtbar, dann richtiger Text" ID="ID_1109691132" CREATED="1512753050210" MODIFIED="1512753059980"/>
+<node TEXT="Ansonsten ist das Element vllt nicht dazu gedacht sichtbar zu sein und es liegt ein Fehler vor." ID="ID_528370417" CREATED="1512753060154" MODIFIED="1512753077980"/>
+</node>
 </node>
 </node>
 <node TEXT="Baut Page zusammen nach Schnittstelle von Storage API" POSITION="right" ID="ID_637241889" CREATED="1512670900402" MODIFIED="1512670917188">
 <edge COLOR="#ff0000"/>
+<node TEXT="Dazu muss ein eindeutiger Selektor f&#xfc;r jedes Feature ermittelt werden" ID="ID_1178151129" CREATED="1512753116788" MODIFIED="1512753148166"/>
+<node TEXT="Wird sp&#xe4;ter von Annotator genutzt, um Node hervorzuheben" ID="ID_16754512" CREATED="1512753150937" MODIFIED="1512753166188"/>
+<node TEXT="Service orientiert sich deshalb an Annotators" ID="ID_1745923011" CREATED="1512753167394" MODIFIED="1512753187276">
+<node TEXT="Format" ID="ID_886158542" CREATED="1512753188028" MODIFIED="1512753189724">
+<node TEXT="Start XPath" ID="ID_1904227275" CREATED="1512753217724" MODIFIED="1512753222780"/>
+<node TEXT="Start Offset" ID="ID_1696749953" CREATED="1512753222945" MODIFIED="1512753225884"/>
+<node TEXT="End XPath" ID="ID_237077435" CREATED="1512753226050" MODIFIED="1512753231196"/>
+<node TEXT="End Offset" ID="ID_116240268" CREATED="1512753232177" MODIFIED="1512753235340"/>
+</node>
+<node TEXT="Algorithmus" ID="ID_1728509209" CREATED="1512753189921" MODIFIED="1512753193372">
+<node TEXT="Vaterkette hocharbeiten" ID="ID_1021129586" CREATED="1512753362388" MODIFIED="1512753377651"/>
+<node TEXT="Nodenamen durch / getrennt aneinander reihen" ID="ID_973727437" CREATED="1512753377825" MODIFIED="1512753387668"/>
+<node TEXT="Nodename nicht eindeutig alleine" ID="ID_996387866" CREATED="1512753405129" MODIFIED="1512753412843"/>
+<node TEXT="Deshalb Position jedes Nodes im Vaterknoten als Index" ID="ID_647089433" CREATED="1512753387841" MODIFIED="1512753425363"/>
+<node TEXT="Bsp.: /html[1]/body[1]/div[1]/header[1]" ID="ID_1525405444" CREATED="1512753461361" MODIFIED="1512753465444"/>
+<node TEXT="Start &amp; End XPath gleich, da genau ein Node selektiert" ID="ID_563241387" CREATED="1512753465865" MODIFIED="1512753486180"/>
+<node TEXT="Startoffset 0" ID="ID_1564496624" CREATED="1512753489289" MODIFIED="1512753495563"/>
+<node TEXT="Endoffset: L&#xe4;nge des innerText" ID="ID_171846340" CREATED="1512753495729" MODIFIED="1512753506499"/>
+</node>
+</node>
 </node>
 <node TEXT="Ausf&#xfc;hrung nicht seriell, sondern verzahnt" POSITION="right" ID="ID_589529757" CREATED="1512672106969" MODIFIED="1512672116891">
 <edge COLOR="#0000ff"/>
@@ -363,7 +407,28 @@
 <node TEXT="&#xd6;ffnet neue Page im Browser" ID="ID_1143141609" CREATED="1512672142800" MODIFIED="1512672148810"/>
 <node TEXT="Bei vielen Requests explodiert die Zahl der offenen Pages" ID="ID_355081032" CREATED="1512672148976" MODIFIED="1512672161410"/>
 <node TEXT="Service friert ein" ID="ID_1995821426" CREATED="1512672161576" MODIFIED="1512672170250"/>
-<node TEXT="Limitierung der gleichzeitig offenen Seiten" ID="ID_909090177" CREATED="1512495948341" MODIFIED="1512672130396"/>
+<node TEXT="Limitierung der gleichzeitig offenen Seiten" ID="ID_909090177" CREATED="1512495948341" MODIFIED="1512672130396">
+<node TEXT="Maximale Anzahl an Pages" ID="ID_1364109364" CREATED="1512753642132" MODIFIED="1512753655660"/>
+<node TEXT="Werden in einem Pool verwaltet" ID="ID_1334032145" CREATED="1512753655849" MODIFIED="1512753667940"/>
+<node TEXT="Seiten m&#xfc;ssen angefragt werden, nicht direkt &#xfc;ber Browser erstellen" ID="ID_1538388822" CREATED="1512753669297" MODIFIED="1512753687459"/>
+<node TEXT="Seiten m&#xfc;sen freigegeben werden, sobald Arbeit beendet" ID="ID_664421855" CREATED="1512753687632" MODIFIED="1512753701659"/>
+<node TEXT="Ausf&#xfc;hrung gestoppt, bis Page im Pool verf&#xfc;gbar" ID="ID_1359778742" CREATED="1512753816360" MODIFIED="1512753859747"/>
+<node TEXT="Beliebig viele Requests k&#xf6;nnen sich in die Warteschlange stellen" ID="ID_1603241349" CREATED="1512753869064" MODIFIED="1512753884307"/>
+<node TEXT="Kein Problem dank Nodes Single-Thread-Konzept" ID="ID_1505470700" CREATED="1512753884496" MODIFIED="1512753898203"/>
+</node>
+</node>
+<node TEXT="Konfiguration" POSITION="left" ID="ID_1077733629" CREATED="1511805564900" MODIFIED="1512754126696">
+<edge COLOR="#00ff00"/>
+<node TEXT="Aktuell" ID="ID_954146526" CREATED="1511805567974" MODIFIED="1511805633725">
+<node TEXT="Beim Start geladen" ID="ID_515232271" CREATED="1511805634013" MODIFIED="1511805644540"/>
+<node TEXT="Sinnvoll, damit Client Konfig nicht kennen muss" ID="ID_1887905" CREATED="1511805644907" MODIFIED="1511805680260">
+<node TEXT="Ggf. verschiedene Abteilungen" ID="ID_853665437" CREATED="1511805681349" MODIFIED="1511805688908"/>
+</node>
+</node>
+<node TEXT="M&#xf6;gliche Erweiterung" ID="ID_1032357286" CREATED="1511805542724" MODIFIED="1511805601237">
+<node TEXT="Konfiguration im Request" ID="ID_1421706297" CREATED="1511805601501" MODIFIED="1511805609716"/>
+<node TEXT="Gr&#xf6;&#xdf;ere Request Dokumente" ID="ID_99810633" CREATED="1511805609915" MODIFIED="1511805623493"/>
+</node>
 </node>
 </node>
 </map>

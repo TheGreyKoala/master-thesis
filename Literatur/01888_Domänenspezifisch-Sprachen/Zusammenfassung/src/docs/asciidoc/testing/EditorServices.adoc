@@ -1,0 +1,5 @@
+=== Editor Services
+
+[[editor-services]]
+.Editor Services testen
+image::mindmaps/testing/editor-services.svg[Editor Services testen, 100%]

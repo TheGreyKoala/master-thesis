@@ -1,0 +1,34 @@
+Aufgabe 1: Addition von succ-Termen in Prolog
+OK
+
+Aufgabe 2: DSL-Beispiele
+a) OK. Weitere Beispiele für domain-spezifische Sprachen:
+- BNF / EBNF - Backus-Naur Form / (Extended) Backus-Naur Form
+	Eine DSL zur Beschreibung von Grammatiken
+- SQL – Structured Query Language
+	Eine DSL zur Definition von Datenbankabfragen und zur Manipulation von Daten in relationalen Datenbanken
+- Reguläre Ausdrücke
+	Eine DSL zur Verarbeitung von Texten oder Daten. Eine zentrale Anwendung regulärer Ausdrücke besteht im Auffinden eines Textteiles anhand eines vorgegebenen Musters in einem Eingabetext.
+- LINQ, Ant, Make, Hibernate Query Language
+
+b) OK
+
+Aufgabe 3: Vor- und Nachteile von DSLs
+a) OK	
+b) OK
+
+Aufgabe 4: Interne und externe DSL
+OK. Jedoch nicht ausführlich genug.
+Eine interne DSL ist in eine GPL-Programmiersprache (Hostsprache) eingebettet und kann ihre Funktionalitäten und Konstrukte nutzen; insbesondere wird kein eigener Compiler oder Interpreter entwickelt. Programme einer internen DSL sind immer auch gültige Programme ihrer Hostsprache. Es wird allerdings nur eine Teilmenge der Sprachmöglichkeiten ausgenutzt, nämlich jene, die für den zu behandelnden Teilaspekt des Gesamtsystems von Interesse sind. Da die existierende Werkzeugpalette wiederverwendet werden kann, setzt sich die Zielgruppe in der Regel aus Entwicklern zusammen, die auch die Hostsprache beherrschen.
+Die Implementierung der DSL basiert üblicherweise auf Metaprogrammierung. Metaprogramme sind Programme, die sich selbst und andere Programme zur Ein- und Ausgabe benutzen. In dieser Hinsicht ist JAVA als Hostsprache eher schwach, da das Erstellen einer eigenen Syntax über die bekannten Konstrukte hinaus nicht möglich ist. Um dennoch die Lesbarkeit von JAVA-Quelltext zu verbessern (Reduzierung des sog. syntactic noise), bieten sich Muster wie beispielsweise fluent interfaces an, bei der Methodenaufrufe so verkettet werden, dass sie dem natürlichen Sprachfluss folgen.
+Während die Hostsprache meist durch ein umfangreiches Werkzeugangebot unterstützt wird, ist die IDE-Integration der internen DSL meist nicht vorhanden.
+Beispiele: Rails als interne DSL von Ruby, Lisp.
+
+Eine externe DSL ist eine eigenständige Programmiersprache, bei der die Syntax von Grund auf frei definiert werden kann und die somit die Domäne auf einfachste Weise optimal beschreibt. Aufgrund des hohen Abstraktionsgrades gibt es kaum Unterstützung durch Werkzeuge der Zielsprache. Dafür können externe DSLs mit eigens dafür vorgesehenen Entwicklungswerkzeugen erstellt werden, die diese Lücke schließen. Die Entwicklung einer externen DSL erfordert allerdings auch zusätzliche Arbeitsschritte wie beispielsweise das Erstellen einer Grammatik und eines Generators.
+Beispiel: SQL
+
+Aufgabe 5: Konkrete und abstrakte Syntax
+OK
+
+Aufgabe 6: Eine DSL aus Ihrem Umfeld(freiwillig)
+Lösung nicht vorhanden.

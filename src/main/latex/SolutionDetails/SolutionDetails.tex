@@ -3,48 +3,31 @@
 
     % Spezifikation zur Beschreibung von REST Schnittstellen: https://www.openapis.org/
 
+    \section{Sprache zur Klassendefinition}
+        \subsection{Sprachkonzepte}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{../resources/dsl/classes.png}
+                \caption{Klassen in der DSL}
+                \label{image:dslClasses}
+            \end{figure}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{../resources/dsl/features.png}
+                \caption{Features in der DSL}
+                \label{image:dslFeatures}
+            \end{figure}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{../resources/dsl/selectors.png}
+                \caption{Selektoren in der DSL}
+                \label{image:dslSelektoren}
+            \end{figure}
+            
+
     \section{Klassifizierungssystem}
-
-    \section{Annotation Service}
-        \begin{table}[htb]
-            \centering
-            \begin{tabular}{|l|l|}
-            \hline
-            \textbf{Endpunkt}     & /pages/\{pageId\}\\
-            \hline
-            \textbf{Methode}      & GET\\
-            \hline
-            \textbf{Beschreibung} & Liefert Annotator Storage API version\\
-            \hline
-            \textbf{Status}       & 200\\
-            \hline
-            \textbf{Antwort}      & \{ ``name'': ``Annotator Store API'', ``version'': ``2.0.0'' \}\\
-            \hline
-            & \\
-            \hline
-            \textbf{Endpunkt}     & /pages/\{pageId\}/annotations\\
-            \hline
-            \textbf{Methode}      & GET\\
-            \hline
-            \textbf{Beschreibung} & Liefert alle Annotationen einer Seite\\
-            \hline
-            \textbf{Status}       & 200\\
-            \hline
-            \textbf{Antwort}      & \{ ``name'': ``Annotator Store API'', ``version'': ``2.0.0'' \}\\
-            \hline
-            \end{tabular}
-            \caption{My caption}
-            \label{my-label}
-        \end{table}
-        % Schnittstellenbeschreibung:
-        % - Endpunkt
-        % - Methoden
-        % -- Input-Dokument
-        % -- Status Codes der Antwort
-        % -- Return Dokument für jede Antwort
-
-    \section{WordPress Crawler}
-
     \section{Persistenz}
         \subsection{Classification Storage}
             Es wird eine Graphdatenbank verwendet!
@@ -109,3 +92,47 @@
         
         \subsection{Algorithmus zum (initialen) ANLEGEN}
             \lstinputlisting[label=listing:storeClassification,caption=Algorithmus zum Speichern]{../resources/store-classification.code}
+
+    \section{Annotation Service}
+        \begin{table}[htb]
+            \centering
+            \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Endpunkt}     & /pages/\{pageId\}\\
+            \hline
+            \textbf{Methode}      & GET\\
+            \hline
+            \textbf{Beschreibung} & Liefert Annotator Storage API version\\
+            \hline
+            \textbf{Status}       & 200\\
+            \hline
+            \textbf{Antwort}      & \{ ``name'': ``Annotator Store API'', ``version'': ``2.0.0'' \}\\
+            \hline
+            & \\
+            \hline
+            \textbf{Endpunkt}     & /pages/\{pageId\}/annotations\\
+            \hline
+            \textbf{Methode}      & GET\\
+            \hline
+            \textbf{Beschreibung} & Liefert alle Annotationen einer Seite\\
+            \hline
+            \textbf{Status}       & 200\\
+            \hline
+            \textbf{Antwort}      & \{ ``name'': ``Annotator Store API'', ``version'': ``2.0.0'' \}\\
+            \hline
+            \end{tabular}
+            \caption{My caption}
+            \label{my-label}
+        \end{table}
+        % Schnittstellenbeschreibung:
+        % - Endpunkt
+        % - Methoden
+        % -- Input-Dokument
+        % -- Status Codes der Antwort
+        % -- Return Dokument für jede Antwort
+
+    \section{Annotator Plugin}
+    \section{Webanwendung}
+    \section{WordPress Crawler}
+
+    

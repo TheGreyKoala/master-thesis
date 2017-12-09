@@ -1,0 +1,5 @@
+=== Diff & Merge
+
+[[diff-merge]]
+.Diff & Merge
+image::mindmaps/ide-services/diff-merge.svg[Diff & Merge, 100%]

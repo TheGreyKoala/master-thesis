@@ -1,0 +1,5 @@
+=== Go-To-Definition & Find References
+
+[[go-to-definition-find-references]]
+.Go-To-Definition & Find References
+image::mindmaps/ide-services/go-to-definition-find-references.svg[Go-To-Definition & Find References, 100%]

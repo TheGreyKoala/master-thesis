@@ -1,0 +1,5 @@
+=== Tooltips & Hover
+
+[[tooltips-hover]]
+.Tooltips & Hover
+image::mindmaps/ide-services/tooltips-hover.svg[Tooltips & Hover, 100%]

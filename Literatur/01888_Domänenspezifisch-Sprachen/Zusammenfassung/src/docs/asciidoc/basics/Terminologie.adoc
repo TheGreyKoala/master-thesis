@@ -1,0 +1,11 @@
+=== Terminologie
+
+[[terminology]]
+.Terminologie
+image::mindmaps/terminology.svg[Terminologie, 100%]
+
+* Abstraction
+** Artefakte a1 und a2
+** a1 ist abstrakter als a2, wenn es Details von a2 weglässt, aber die wichtigen Merkmale beibehält
+** a1 enthält die Abstraktionen, die nötig sind, um a2 mit a1 zu approzimieren
+** Abstraction und Model können so synonym angesehen werden -> Beides sind Vereinfachungen der Realität für einen bestimmten Zweck

@@ -1,0 +1,6 @@
+==== Multi-staged Transformation
+
+[[multi-staged-transformation]]
+.Multi-staged Transformation
+image::mindmaps/transformation-generation/multi-staged-transformation.svg[Multi-staged Transformation, 100%]
+

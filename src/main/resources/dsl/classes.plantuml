@@ -1,0 +1,39 @@
+@startuml
+hide circle
+hide empty methods
+scale 3840*2160
+
+class Class {
+    name: String
+    selector: Selector
+}
+
+class ContentClass {
+    selector: ContentSelector
+}
+
+class FeatureClass {
+    selector: FeatureSelector
+}
+
+class FeatureCapableClass {
+    features: List<Feature>
+}
+
+class PageClass {
+    selector: PageSelector
+}
+
+class ReferenceClass {
+    selector: ReferenceSelector
+}
+
+Class <|-- FeatureClass
+Class <|-- FeatureCapableClass
+Class "0..1" -- "0..1" Selector : > hat
+FeatureCapableClass <|-- ContentClass
+FeatureCapableClass "1" -- "0..n" Feature : > hat
+FeatureCapableClass <|-- PageClass
+FeatureClass <|-- ContentClass
+FeatureClass <|-- ReferenceClass
+@enduml

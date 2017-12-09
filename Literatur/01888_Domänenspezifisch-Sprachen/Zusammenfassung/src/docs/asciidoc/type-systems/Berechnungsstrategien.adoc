@@ -1,0 +1,13 @@
+=== Berechnungsstrategien
+
+[[calculation-strategies]]
+.Berechnungsstrategien
+image::mindmaps/type-systems/calculation-strategies.svg[Berechnungsstrategien, 100%]
+
+[[pattern-matching-table]]
+.Pattern Matching Tabelle
+image::pattern-matching-table.png[Pattern Matching Tabelle, 100%]
+
+[[pattern-matching-table-short]]
+.Verkürzte Pattern Matching Tabelle mit generischem Typ
+image::pattern-matching-table-short.png[Verkürzte Pattern Matching Tabelle mit generischem Typ, 100%]
