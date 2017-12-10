@@ -1,0 +1,58 @@
+ClassificationModel:
+	(classes+=Class)*;
+
+Class:
+	FeatureCapableClass | ReferenceClass;
+
+FeatureCapableClass:
+	ContentClass | PageClass;
+
+ContentClass:
+	'content' 'class' name=ID
+	('is' 'recognized' 'by' selector=ContentSelector)?
+	('classifies' (features+=Feature)+)?;
+
+PageClass:
+	'page' 'class' name=ID
+	'is' 'recognized' 'by' selector=PageSelector
+	('classifies' (features+=Feature)+)?;
+
+ReferenceClass:
+	'reference' 'class' name=ID
+	('is' 'recognized' 'by' selector=ReferenceSelector)?;
+
+ContentSelector:
+	CssSelector | XPathSelector;
+
+PageSelector:
+	UrlPatternSelector;
+
+ReferenceSelector:
+	CssSelector | UrlPatternSelector | XPathSelector;
+
+CssSelector:
+	'css' definition=SELECTOR_VALUE;
+
+UrlPatternSelector:
+	'url' 'pattern' definition=SELECTOR_VALUE;
+
+XPathSelector:
+	'xpath' definition=SELECTOR_VALUE;
+
+terminal SELECTOR_VALUE:
+	'«' (!('\b' | '\f' | '\n' | '\r' | '\t' ))+ '»';
+
+Feature:
+	ScalarFeature | CollectionFeature;	
+
+ScalarFeature:
+	name=ID 'as' featureClass=[FeatureClass] ('by' selector=(FeatureSelector))?;	
+
+CollectionFeature:
+	name=ID 'as' 'many' featureClass=[FeatureClass] ('each' 'by' selector=(FeatureSelector))?;
+
+FeatureClass:
+	ContentClass | ReferenceClass;
+
+FeatureSelector:
+	CssSelector | UrlPatternSelector | XPathSelector;

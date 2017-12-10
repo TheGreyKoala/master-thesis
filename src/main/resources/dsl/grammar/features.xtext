@@ -1,0 +1,14 @@
+Feature:
+	ScalarFeature | CollectionFeature;	
+
+ScalarFeature:
+	name=ID 'as' featureClass=[FeatureClass] ('by' selector=(FeatureSelector))?;	
+
+CollectionFeature:
+	name=ID 'as' 'many' featureClass=[FeatureClass] ('each' 'by' selector=(FeatureSelector))?;
+
+FeatureClass:
+	ContentClass | ReferenceClass;
+
+FeatureSelector:
+	CssSelector | UrlPatternSelector | XPathSelector;

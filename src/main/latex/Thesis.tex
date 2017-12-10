@@ -17,8 +17,10 @@
 \usepackage[backend=biber,style=numeric-comp]{biblatex}
 \addbibresource{../resources/literature.bib}
 
-\usepackage{listings}
+% Trademark symbol
+\usepackage{textcomp}
 
+\usepackage{listings}
 \usepackage{subcaption}
 
 \lstset {
@@ -33,15 +35,15 @@
 	captionpos = b,
 	breaklines = true,
 	numbers = left,
-	breakatwhitespace = true
+	breakatwhitespace = true,
+	inputencoding=utf8,
+	literate={«}{{\flqq}}1 {»}{{\frqq}}1,
+	upquote=true
 }
 
 \usepackage{graphicx}
 \usepackage[margin=2.5cm]{geometry}
 %\usepackage{lmodern}
-
-% Trademark symbol
-\usepackage{textcomp}
 
 \usepackage[acronym]{glossaries}
 \makeglossaries

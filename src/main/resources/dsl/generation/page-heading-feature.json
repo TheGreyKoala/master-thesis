@@ -1,0 +1,9 @@
+"pageHeading": {
+    "name": "pageHeading",
+    "type": "PageHeading",
+    "isCollection": false,
+    "selector": {
+        "type": "CssSelector",
+        "value": "#content h3"
+    }
+}

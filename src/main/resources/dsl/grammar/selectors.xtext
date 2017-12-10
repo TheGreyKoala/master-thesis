@@ -1,0 +1,20 @@
+ContentSelector:
+	CssSelector | XPathSelector;
+
+PageSelector:
+	UrlPatternSelector;
+
+ReferenceSelector:
+	CssSelector | UrlPatternSelector | XPathSelector;
+
+CssSelector:
+	'css' definition=SELECTOR_VALUE;
+
+UrlPatternSelector:
+	'url' 'pattern' definition=SELECTOR_VALUE;
+
+XPathSelector:
+	'xpath' definition=SELECTOR_VALUE;
+
+terminal SELECTOR_VALUE:
+	'«' (!('\b' | '\f' | '\n' | '\r' | '\t' ))+ '»';

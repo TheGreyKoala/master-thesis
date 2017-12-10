@@ -9,10 +9,17 @@
         \label{image:wccsExternalArchitecture}
     \end{figure}
 
-\chapter{Modell der DSL}
-    \begin{figure}[htb]
-        \centering
-        \includegraphics[width=\textwidth]{../resources/dsl/model.png}
-        \caption{Modell der DSL}
-        \label{image:dslCompleteModel}
-    \end{figure}
+\chapter{DSL}
+    \section{Modell}
+        \begin{figure}[htb]
+            \centering
+            \includegraphics[width=\textwidth]{../resources/dsl/model.png}
+            \caption{Modell der DSL}
+            \label{image:dslCompleteModel}
+        \end{figure}
+    
+    \section{Grammatik}
+        \lstinputlisting[label=listing:dlsGrammar,caption=Grammatik der DSL]{../resources/dsl/grammar/grammar.xtext}
+
+    \section{Transformation}
+    \lstinputlisting[label=listing:dlsGenerationComplete,caption=Vollständiges Generat]{../resources/dsl/generation/complete.js}

@@ -1,0 +1,22 @@
+ClassificationModel:
+	(classes+=Class)*;
+
+Class:
+	FeatureCapableClass | ReferenceClass;
+
+FeatureCapableClass:
+	ContentClass | PageClass;
+
+ContentClass:
+	'content' 'class' name=ID
+	('is' 'recognized' 'by' selector=ContentSelector)?
+	('classifies' (features+=Feature)+)?;
+
+PageClass:
+	'page' 'class' name=ID
+	'is' 'recognized' 'by' selector=PageSelector
+	('classifies' (features+=Feature)+)?;
+
+ReferenceClass:
+	'reference' 'class' name=ID
+	('is' 'recognized' 'by' selector=ReferenceSelector)?;

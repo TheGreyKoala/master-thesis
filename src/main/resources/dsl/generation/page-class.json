@@ -1,0 +1,9 @@
+"Service": {
+    "name": "Service",
+    "selector": {
+        "type": "UrlPatternSelector",
+        "value": "\\\/service\\\/?$"
+    },
+    "contents": { },
+    "references": { }
+}
