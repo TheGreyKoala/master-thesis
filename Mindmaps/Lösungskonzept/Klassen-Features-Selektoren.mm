@@ -175,12 +175,13 @@
 </node>
 <node TEXT="Klassen" POSITION="left" ID="ID_332162373" CREATED="1511634540207" MODIFIED="1511634556760" HGAP_QUANTITY="18.499999865889553 pt" VSHIFT_QUANTITY="-47.24999859184031 pt">
 <edge COLOR="#007c00"/>
-<node TEXT="Einmalige Beschreibung einer Struktur" ID="ID_327237748" CREATED="1511634288063" MODIFIED="1511634548101"/>
-<node TEXT="Anwendung auf beliebig viele Seiten" ID="ID_450029711" CREATED="1511634493579" MODIFIED="1511634548105"/>
-<node TEXT="Kann alles darstellen" ID="ID_1508659826" CREATED="1511619408739" MODIFIED="1511634548109">
-<node TEXT="Fachliche Dinge" ID="ID_379016292" CREATED="1511619426795" MODIFIED="1511619430466"/>
-<node TEXT="Technische Dinge" ID="ID_13283653" CREATED="1511619435225" MODIFIED="1511619439643"/>
+<node TEXT="In der Mathematik" ID="ID_1632852710" CREATED="1513016765026" MODIFIED="1513016769748">
+<node TEXT="Menge aller Objekten, die eine Aussage erf&#xfc;llen" ID="ID_1696053042" CREATED="1513016770006" MODIFIED="1513017650427"/>
+<node TEXT="Kann eindeutig gebildet werden" ID="ID_731132706" CREATED="1513017650855" MODIFIED="1513017656297"/>
+<node TEXT="Arnold Oberschelp: Allgemeine Mengenlehre. BI-Wissenschafts-Verlag, Mannheim u. a. 1994, ISBN 3-411-17271-1." ID="ID_481037729" CREATED="1513017532744" MODIFIED="1513017533875"/>
 </node>
+<node TEXT="Definition stimmt, wird aber weiter verfeinert" ID="ID_84436150" CREATED="1513018520560" MODIFIED="1513018529018"/>
+<node TEXT="Konkrete Anwendung in Dom&#xe4;ne Webseiten" ID="ID_1870061334" CREATED="1513018084596" MODIFIED="1513018097029"/>
 <node TEXT="3 Arten von Klassen" ID="ID_1116984809" CREATED="1511619464849" MODIFIED="1511634548113">
 <node TEXT="Page Class" ID="ID_1263385374" CREATED="1511619471268" MODIFIED="1511619476042">
 <node TEXT="Klassifizieren ganze Seiten" ID="ID_1111737931" CREATED="1511634108024" MODIFIED="1511634116768"/>
@@ -192,7 +193,18 @@
 <node TEXT="Klassifizieren Referenzen auf Ressourcen" ID="ID_163861284" CREATED="1511634164704" MODIFIED="1511634173982"/>
 </node>
 </node>
+<node TEXT="Merkmale" ID="ID_1350066511" CREATED="1513018763709" MODIFIED="1513018766654">
 <node TEXT="Eindeutiger Name" ID="ID_1492912018" CREATED="1511619448553" MODIFIED="1511634548118"/>
+<node TEXT="Neben Aussage, die Klasse definiert (hier Selektor, siehe sp&#xe4;ter) au&#xdf;erdem Beschreibung einer Struktur" ID="ID_36507243" CREATED="1513018619399" MODIFIED="1513018654961"/>
+<node TEXT="Klasse hat Eigenschaft (Features), die selbst einer Klasse zugeordnet wird" ID="ID_402037265" CREATED="1513017787278" MODIFIED="1513017986527"/>
+</node>
+<node TEXT="Es wird versucht Eigenschaften des klassifizierten Objektes gem&#xe4;&#xdf; der Struktur der Klasse zu klassifizieren" ID="ID_1881903699" CREATED="1513017893077" MODIFIED="1513018015416"/>
+<node TEXT="Resultat ist hierarchische Klassifikation" ID="ID_347296300" CREATED="1513018722614" MODIFIED="1513018738191"/>
+<node TEXT="Einmalige Definition einer Klasse" ID="ID_1267234029" CREATED="1513018123027" MODIFIED="1513018129989"/>
+<node TEXT="Verwendung an vielen Stellen" ID="ID_1092509657" CREATED="1513018907842" MODIFIED="1513018916820">
+<node TEXT="Zur Klassifikation beliebig vieler Seiten" ID="ID_250474557" CREATED="1513018918143" MODIFIED="1513018928739"/>
+<node TEXT="Als Klasse f&#xfc;r beliebige Features" ID="ID_1150200036" CREATED="1513018928946" MODIFIED="1513018942627"/>
+</node>
 </node>
 </node>
 </map>
