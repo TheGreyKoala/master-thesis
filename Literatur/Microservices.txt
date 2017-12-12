@@ -1,9 +1,15 @@
 Sam Newman:
 - https://books.google.de/books?hl=de&lr=&id=jjl4BgAAQBAJ&oi=fnd&pg=PP1&dq=microservices&ots=_AHM-nc_nM&sig=UStWmVB6nvBLaYGnJOHe9MdP0m8#v=onepage&q=microservices&f=false
+
 - https://books.google.de/books?id=-OQVCgAAQBAJ&printsec=frontcover&dq=microservices&hl=de&sa=X&ved=0ahUKEwii3r3kxMPXAhVqAsAKHQiAB-4Q6AEILzAB#v=onepage&q=microservices&f=false
+-- Kapitel 1 (Microservices, Seite 21-34)
+-- Kapitel 3.2 (Wodurch zeichnet sich ein guter Microservice aus?, 56-57)
+--> Das ist nur die Übersetzung vom oberen!!!
 
 Wolff:
 - https://books.google.de/books?id=CjdODAAAQBAJ&printsec=frontcover&dq=microservices&hl=de&sa=X&ved=0ahUKEwii3r3kxMPXAhVqAsAKHQiAB-4Q6AEIKTAA#v=onepage&q=microservices&f=false
+-- Kapitel 5 (Gründe für Microservices, Seite 59-72)
+-- Kapitel 6 (Herausforderungen bei Microservices, Seite 73-82)
 
 Fowler:
 - https://martinfowler.com/articles/microservices.html

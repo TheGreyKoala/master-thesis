@@ -1,4 +1,19 @@
 NoSQL:
 - Meier, Andreas ; Kaufmann, Michael: SQL- & NoSQL-Datenbanken
+
 - Edlich, Stefan: NoSQL : Einstieg in die Welt nichtrelationaler Web-2.0-Datenbanken
+-- Kapitel 1.2 (Definition und Diskussion, Seite 2-5)
+-- Kapitel 1.3 (Kategorisierung von NoSQL-Systemen, Seite 5-9)
+-- Kapitel 3 (Wide Column Stores, Seite 63-64)
+-- Kapitel 4 (Document Stores, Seite 117)
+-- Kapitel 5 (Key/Value-Datenbanken, Seite 151)
+-- Kapitel 6 (Graphdatenbanken, Seite 207-209)
+-- Kapitel 9 (Orientierung im Datenbankraum, Seite 371-)
+
 - Sadalage, Pramod J. ; Fowler, Martin: NoSQL distilled : a brief guide to the emerging world of polyglot persistence
+-- Kapitel 1 (Why NoSQL, Seite 5-12)
+-- Kapitel 8 (Key-Value, Seite 81-88)
+-- Kapitel 9 (Document Databases, Seite 89-98)
+-- Kapitel 10 (Column-Family Stores, Seite 99-109)
+-- Kapitel 11 (Graph Databases, Seite 111)
+-- Kapitel 15 (Choosing Your Database, Seite 147)
