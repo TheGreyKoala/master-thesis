@@ -3,7 +3,7 @@
 <node TEXT="Architektur" FOLDED="false" ID="ID_112313344" CREATED="1511803887451" MODIFIED="1511803891586" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -112,7 +112,9 @@
 <node TEXT="Fachliche Schnittstelle" ID="ID_171902959" CREATED="1511804768843" MODIFIED="1511804775355"/>
 <node TEXT="&#xdc;bersetzt fachliche Anfragen in DB-Anfragen" ID="ID_526483972" CREATED="1511804775545" MODIFIED="1511804788139"/>
 <node TEXT="Verwendet also Classification Storage" ID="ID_695718710" CREATED="1511804810265" MODIFIED="1511804824258"/>
-<node TEXT="REST-Schnittstelle" ID="ID_632871863" CREATED="1511804795097" MODIFIED="1511804800634"/>
+<node TEXT="REST-Schnittstelle" ID="ID_632871863" CREATED="1511804795097" MODIFIED="1511804800634">
+<node TEXT="Genaue Endpunkte sp&#xe4;ter" ID="ID_1213156097" CREATED="1513273391497" MODIFIED="1513273396671"/>
+</node>
 </node>
 <node TEXT="Classification Service" ID="ID_1946142563" CREATED="1511804873457" MODIFIED="1511805026258">
 <node TEXT="F&#xfc;hrt Klassifizierung durch" ID="ID_207516541" CREATED="1511804879651" MODIFIED="1511804887355"/>

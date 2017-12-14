@@ -1,3 +1,14 @@
 - Klassen werden in DSL definiert.
 -- Ich mache eine Klasse nicht nur bekannt (Deklaration), sondern beschreibe auch, woraus sie besteht
 -- Muss in DSL in den Namen der Regeln angepasst werden
+
+- Grundlagen zu Microservices
+- Grundlagen zu DSLs
+- Grundlagen zu Graphdatenbanken
+
+- Spezifikation der APIs erstellen und in Anhang?
+- Ganzes System nochmal durchtesten
+- Auslieferung zusammenpacken
+-- Wie funktioniert das mit Xtext?
+-- Versionsnummern
+-- Namen der Services etc.

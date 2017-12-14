@@ -3,7 +3,7 @@
 <node TEXT="Persistenz" FOLDED="false" ID="ID_1200337996" CREATED="1511641979418" MODIFIED="1511641984508" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -63,7 +63,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="3" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="4" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Klassifikation einer Seite" POSITION="right" ID="ID_724354260" CREATED="1511641462814" MODIFIED="1511641995223">
 <edge COLOR="#ff0000"/>
 </node>
@@ -78,6 +78,8 @@
 <edge COLOR="#00ff00"/>
 <node TEXT="Name" ID="ID_162347437" CREATED="1511641561273" MODIFIED="1511641565207"/>
 <node TEXT="Klasse" ID="ID_1936993195" CREATED="1511641566110" MODIFIED="1511641570910"/>
+<node TEXT="Kardinalit&#xe4;t" ID="ID_715594568" CREATED="1513272532235" MODIFIED="1513272536308"/>
+<node TEXT="F&#xfc;r jedes Element" ID="ID_1078372856" CREATED="1513272554282" MODIFIED="1513272561812">
 <node TEXT="Eindeutiger Selektor des HTML-Nodes" ID="ID_1149111942" CREATED="1511641574981" MODIFIED="1511641587295"/>
 <node TEXT="Content" ID="ID_11671111" CREATED="1511641645445" MODIFIED="1511641649526">
 <node TEXT="Falls Leaf: Textueller Inhalt des Nodes (deep)" ID="ID_648128152" CREATED="1511641717383" MODIFIED="1511641995285">
@@ -91,12 +93,10 @@
 <node TEXT="Reference" ID="ID_403802392" CREATED="1511641649709" MODIFIED="1511641652502">
 <node TEXT="URL der referenzierten Ressource" ID="ID_1976188100" CREATED="1511641654944" MODIFIED="1511641663902"/>
 </node>
-<node TEXT="F&#xfc;r jedes Element in Mehrelementige Features" ID="ID_193285810" CREATED="1511641896523" MODIFIED="1511641928172">
-<node TEXT="Selektor" ID="ID_576604734" CREATED="1511641928749" MODIFIED="1511641936652"/>
-<node TEXT="Textueller Inhalt" ID="ID_569883397" CREATED="1511641938235" MODIFIED="1511641942036"/>
-<node TEXT="Features" ID="ID_1798647307" CREATED="1511641942203" MODIFIED="1511641947212"/>
-<node TEXT="URL" ID="ID_1220449122" CREATED="1511641947427" MODIFIED="1511641949060"/>
 </node>
+</node>
+<node TEXT="Konkretes Datenmodell sp&#xe4;ter" POSITION="right" ID="ID_730256903" CREATED="1513272611547" MODIFIED="1513272617211">
+<edge COLOR="#ff00ff"/>
 </node>
 </node>
 </map>

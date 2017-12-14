@@ -3,7 +3,7 @@
 <node TEXT="DSL" FOLDED="false" ID="ID_1448098938" CREATED="1511636549498" MODIFIED="1511636553378" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -63,9 +63,15 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="4" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="8" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="&#xdc;bersetzt zu Konfigurationsdatei f&#xfc;r Klassifizierungssystem" POSITION="right" ID="ID_1793652967" CREATED="1509278142880" MODIFIED="1511637069319">
 <edge COLOR="#00ff00"/>
+</node>
+<node TEXT="Kein ausf&#xfc;hrbares Programm weil" POSITION="right" ID="ID_147668412" CREATED="1513269663168" MODIFIED="1513269698877">
+<edge COLOR="#00007c"/>
+<node TEXT="Algorithmus l&#xe4;sst sich allgemein formulieren und ist unabh&#xe4;ngig von konkreter Konfiguration" ID="ID_1995096443" CREATED="1513269700736" MODIFIED="1513269748381"/>
+<node TEXT="Generat unn&#xf6;tig komplex" ID="ID_467313367" CREATED="1513269771795" MODIFIED="1513269784860"/>
+<node TEXT="Passt nicht zur Microservice-Architektur" ID="ID_1486432098" CREATED="1513269797410" MODIFIED="1513269809644"/>
 </node>
 <node TEXT="Vorteile" POSITION="right" ID="ID_1055148581" CREATED="1509295087977" MODIFIED="1511636566380">
 <edge COLOR="#ff00ff"/>
@@ -79,7 +85,7 @@
 <node TEXT="Verf&#xfc;gbare Selektoren festgelegt" ID="ID_714496491" CREATED="1509295912646" MODIFIED="1509295930845"/>
 <node TEXT="Richtige Selektoren f&#xfc;r Klassenarten" ID="ID_1765209" CREATED="1509295624660" MODIFIED="1509295637397"/>
 <node TEXT="Semantische Pr&#xfc;fung der Konfiguration" ID="ID_1058906873" CREATED="1509295272481" MODIFIED="1509295293423">
-<node TEXT="Jede Klasse hat einen Selektor" ID="ID_1562796100" CREATED="1509295951078" MODIFIED="1509295960444"/>
+<node TEXT="Jedes Feature hat einen Selektor" ID="ID_1562796100" CREATED="1509295951078" MODIFIED="1513269930508"/>
 </node>
 </node>
 <node TEXT="Leichtere Wiederverwendbarkeit" ID="ID_977794935" CREATED="1509296219672" MODIFIED="1509296226845">
@@ -90,6 +96,12 @@
 <node TEXT="Verschiedene Ergebnisse f&#xfc;r verschiedene Backend-Systeme denkbar" ID="ID_532179009" CREATED="1509295750432" MODIFIED="1509295774881"/>
 <node TEXT="Technisches Format der Konfiguration kann leicht ver&#xe4;ndert werden" ID="ID_1309575314" CREATED="1509295782244" MODIFIED="1509295798383"/>
 </node>
+</node>
+<node TEXT="Web Content Class Definition Language" POSITION="left" ID="ID_392923489" CREATED="1513270044769" MODIFIED="1513270059634">
+<edge COLOR="#007c00"/>
+</node>
+<node TEXT="Zur Definition von Klassen" POSITION="left" ID="ID_1370318733" CREATED="1513269550517" MODIFIED="1513269613758">
+<edge COLOR="#7c0000"/>
 </node>
 <node TEXT="Sprachfeatures" POSITION="left" ID="ID_1226101917" CREATED="1509293323967" MODIFIED="1511636991950">
 <edge COLOR="#ff0000"/>
@@ -118,6 +130,7 @@
 <node TEXT="Selektoren" ID="ID_1008777071" CREATED="1509293364577" MODIFIED="1511636729020">
 <node TEXT="Typ" ID="ID_974917380" CREATED="1509295465295" MODIFIED="1509295470919"/>
 <node TEXT="Wert" ID="ID_1448720436" CREATED="1509295466849" MODIFIED="1509295469121"/>
+<node TEXT="Konkrete Selektoren in Kapitel Klassifizierung" ID="ID_1567107573" CREATED="1513270613462" MODIFIED="1513270614527"/>
 </node>
 </node>
 </node>

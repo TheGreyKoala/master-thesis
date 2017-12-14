@@ -3,7 +3,7 @@
 <node TEXT="Visualisierung, Nachbesserung, Pr&#xfc;fung" FOLDED="false" ID="ID_862553507" CREATED="1511644902609" MODIFIED="1511644913128" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -81,11 +81,18 @@
 <node TEXT="(Keine Neu-Klassifizierung der Sub-Features)" ID="ID_1110662707" CREATED="1511642762549" MODIFIED="1511643888903">
 <node TEXT="Es wird nur genau dieses eine Feature bearbeitet" ID="ID_1810560022" CREATED="1511642839085" MODIFIED="1511642857829"/>
 <node TEXT="Sub-Features bleiben bestehen" ID="ID_671476359" CREATED="1511642867973" MODIFIED="1511642876062"/>
+<node TEXT="Wieso nicht?" ID="ID_968754714" CREATED="1513272777090" MODIFIED="1513272782387"/>
 </node>
 </node>
 <node TEXT="Bereitstellung eines entsprechenden Tools" POSITION="right" ID="ID_1415677707" CREATED="1511644389218" MODIFIED="1511644932162">
 <edge COLOR="#00ff00"/>
 <node TEXT="Plugin f&#xfc;r Annotator" ID="ID_1653079485" CREATED="1511644425476" MODIFIED="1511644432851"/>
+<node TEXT="Warum Annotator" ID="ID_584262642" CREATED="1513272841018" MODIFIED="1513272844602">
+<node TEXT="OpenSource" ID="ID_1109202994" CREATED="1513272845204" MODIFIED="1513272849378"/>
+<node TEXT="On Premises" ID="ID_1000589580" CREATED="1513272849602" MODIFIED="1513272853434"/>
+<node TEXT="Plugin System" ID="ID_655730834" CREATED="1513272853657" MODIFIED="1513272857330"/>
+<node TEXT="Kein anderes Tool gefunden, dass das alles kann" ID="ID_195241353" CREATED="1513272857514" MODIFIED="1513272866850"/>
+</node>
 <node TEXT="Einbindung" ID="ID_643859556" CREATED="1511644437930" MODIFIED="1511644441435">
 <node TEXT="Erg&#xe4;nzung der Seite um entsprechende Funktionalit&#xe4;t" ID="ID_1612716015" CREATED="1511644337686" MODIFIED="1511644354627">
 <node TEXT="WP-Vorlagen bearbeiten" ID="ID_1074710143" CREATED="1511644358638" MODIFIED="1511644365075"/>
