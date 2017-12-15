@@ -4,12 +4,12 @@ hide empty methods
 left to right direction
 scale 3840*2160
 
-class ContentSelector
+abstract class ContentSelector
 class CssSelector
-class FeatureSelector
-class PageSelector
-class ReferenceSelector
-class Selector {
+abstract class FeatureSelector
+abstract class PageSelector
+abstract class ReferenceSelector
+abstract class Selector {
     value: String
 }
 class UrlPatternSelector

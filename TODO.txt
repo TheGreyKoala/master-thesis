@@ -4,6 +4,7 @@
 
 - Grundlagen zu Microservices
 - Grundlagen zu DSLs
+- Grundlagen zu Xtext
 - Grundlagen zu Graphdatenbanken
 
 - Spezifikation der APIs erstellen und in Anhang?

@@ -1,7 +1,7 @@
-page class Service is recognized by url pattern « \/service\/?$ »
-    classifies
-        pageHeading as PageHeading by css « #content h3 »
-        images as many Image each by css « #content img »
+page class Service
+    is recognized by url pattern « \/service\/?$ »
+    classifies pageHeading as PageHeading by css « #content h3 »
+               images as many Image each by css « #content img »
 
 content class PageHeading
 reference class Image is recognized by css « img »

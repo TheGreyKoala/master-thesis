@@ -20,8 +20,9 @@
 % Trademark symbol
 \usepackage{textcomp}
 
-\usepackage{listings}
+\usepackage{listingsutf8}
 \usepackage{subcaption}
+\usepackage{color}
 
 \lstset {
 	language = Java,
@@ -36,9 +37,48 @@
 	breaklines = true,
 	numbers = left,
 	breakatwhitespace = true,
-	inputencoding=utf8,
-	literate={«}{{\flqq}}1 {»}{{\frqq}}1,
-	upquote=true
+	upquote=true,
+	keywordstyle=\color{blue}
+}
+
+\lstdefinelanguage{wccdl}{
+	morekeywords={
+		as,
+		by,
+		class,
+		classifies,
+		content,
+		css,
+		each,
+		is,
+		many,
+		page,
+		pattern,
+		recognized,
+		reference,
+		url,
+		xpath
+	},
+	morestring=[s]{^^ab}{^^bb},
+	sensitive=true
+}
+
+\lstset {
+	language = wccdl,
+	basicstyle = \ttfamily\small,
+	numberstyle = \footnotesize,
+	showspaces = false,
+	showtabs = false,
+	showstringspaces = false,
+	frame = single,
+	tabsize = 4,
+	captionpos = b,
+	breaklines = true,
+	numbers = left,
+	breakatwhitespace = true,
+	upquote=true,
+	keywordstyle=\color{blue},
+	stringstyle=\color{green}
 }
 
 \usepackage{graphicx}

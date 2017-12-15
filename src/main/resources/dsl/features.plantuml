@@ -4,12 +4,15 @@ hide empty methods
 scale 3840*2160
 
 class CollectionFeature
-class Feature {
+abstract class Feature {
     name: String
     class: FeatureClass
     selector: FeatureSelector
 }
 class ScalarFeature
+
+abstract class FeatureClass
+abstract class FeatureSelector
 
 Feature <|-- CollectionFeature
 Feature "0..n" -- "1" FeatureClass : > hat

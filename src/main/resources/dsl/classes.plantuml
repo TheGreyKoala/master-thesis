@@ -3,20 +3,24 @@ hide circle
 hide empty methods
 scale 3840*2160
 
-class Class {
+abstract class Class {
     name: String
     selector: Selector
+}
+
+abstract class ClassificationModel {
+    classes: List<Class>
 }
 
 class ContentClass {
     selector: ContentSelector
 }
 
-class FeatureClass {
+abstract class FeatureClass {
     selector: FeatureSelector
 }
 
-class FeatureCapableClass {
+abstract class FeatureCapableClass {
     features: List<Feature>
 }
 
@@ -28,9 +32,13 @@ class ReferenceClass {
     selector: ReferenceSelector
 }
 
+abstract class Selector
+abstract class Feature
+
 Class <|-- FeatureClass
 Class <|-- FeatureCapableClass
 Class "0..1" -- "0..1" Selector : > hat
+ClassificationModel "1" -- "0..n" Class : > enthält
 FeatureCapableClass <|-- ContentClass
 FeatureCapableClass "1" -- "0..n" Feature : > hat
 FeatureCapableClass <|-- PageClass
