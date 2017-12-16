@@ -2,20 +2,21 @@
 scale 3840*2160
 hide circle
 hide empty methods
+skinparam linetype ortho
 
 class Content {
     content : String
 }
 
-class Feature {
+abstract class Feature {
     name : String
     class : String
     selector : Selector
 }
 
-class FeatureCabable {
-    contents : List<Content>
-    references : List<Reference>
+abstract class FeatureCabable {
+    contents : List<Content | List<Content>>
+    references : List<Reference | List<Reference>>
 }
 
 class Page {
@@ -34,7 +35,7 @@ class Reference {
     destination : String
 }
 
-class Selector {
+abstract class Selector {
     type : String
 }
 
@@ -44,16 +45,14 @@ class XPathSelector {
     offset : int
 }
 
+Content --|> FeatureCabable
 Feature <|-- Content
 Feature <|-- Reference
-Feature "1" --> "1" Selector : Has
-
-FeatureCabable <|-- Content
-FeatureCabable <|-- Page
-FeatureCabable "1" --> "0..n" Feature : Has
-
-RangeSelector "0..n" --> "2" Selector : Uses
-
+Feature "1" --> "1" Selector : > Has
+FeatureCabable "1" --> "0..n" Content : > Has
+Page --|> FeatureCabable
+Reference "0..n" <-- "1" FeatureCabable : < Has
+RangeSelector "0..n" --> "2" Selector : > Uses
 Selector <|-- RangeSelector
 Selector <|-- XPathSelector
 @enduml

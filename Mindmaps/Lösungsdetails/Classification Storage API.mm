@@ -3,7 +3,7 @@
 <node TEXT="Classification Storage API" FOLDED="false" ID="ID_1571027136" CREATED="1513435725460" MODIFIED="1513435732985" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -393,9 +393,8 @@
 <node TEXT="URL technisch ausreichend" ID="ID_1448731844" CREATED="1512223181767" MODIFIED="1512223186792"/>
 </node>
 </node>
-<node TEXT="Page" POSITION="left" ID="ID_386530920" CREATED="1512222648099" MODIFIED="1513435748256">
+<node TEXT="Page" FOLDED="true" POSITION="left" ID="ID_386530920" CREATED="1512222648099" MODIFIED="1513435748256">
 <edge COLOR="#00ff00"/>
-<node TEXT="Die Id einer Page ist ihre URL" ID="ID_308211519" CREATED="1512222815476" MODIFIED="1512222825291"/>
 <node TEXT="Bsp. JSON" ID="ID_823295718" CREATED="1512228579488" MODIFIED="1512228583353"/>
 <node TEXT="Eine Klassifikation ist Seite mit Typinformationen, da sie auch Inhalte enth&#xe4;lt" ID="ID_403035391" CREATED="1512066479469" MODIFIED="1512066515751"/>
 <node TEXT="Deshalb auch /pages Endpunkt sinnvoll" ID="ID_790415476" CREATED="1512066524758" MODIFIED="1512066534182"/>

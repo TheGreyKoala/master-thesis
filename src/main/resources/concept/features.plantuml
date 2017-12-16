@@ -7,9 +7,6 @@ left to right direction
 scale 3840*2160
 
 abstract class Feature {
-    name : String
-    class : Class
-    selector : Selector
 }
 
 class Content<T extends ContentClass> {
@@ -21,7 +18,9 @@ class Reference<T extends ReferenceClass> {
 }
 
 abstract class ScalarFeature {
-
+    name : String
+    class : Class
+    selector : Selector
 }
 
 class CollectionFeature<T extends ScalarFeature> {
