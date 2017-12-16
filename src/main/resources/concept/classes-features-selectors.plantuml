@@ -1,0 +1,8 @@
+@startuml
+!include classes.plantuml
+!include features.plantuml
+
+skinparam linetype splines
+top to bottom direction
+scale 3840*2160
+@enduml

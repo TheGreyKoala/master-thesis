@@ -72,6 +72,10 @@
 <node TEXT="Bestimmen Struktur / Hierarchie der Klassifikation" ID="ID_1249272294" CREATED="1511634741307" MODIFIED="1511635520005"/>
 <node TEXT="Nicht zu Verwechseln mit Hierarchie der Klassen (Vererbung)" ID="ID_1492436782" CREATED="1511635520459" MODIFIED="1511635536235"/>
 </node>
+<node TEXT="Zwei Arten" ID="ID_656721355" CREATED="1513447083461" MODIFIED="1513447087678">
+<node TEXT="Content Feature" ID="ID_722605763" CREATED="1513447087967" MODIFIED="1513447092286"/>
+<node TEXT="Reference Feature" ID="ID_1605763888" CREATED="1513447092453" MODIFIED="1513447096518"/>
+</node>
 <node TEXT="Besitzen" ID="ID_1962824190" CREATED="1511634794292" MODIFIED="1511634797405">
 <node TEXT="Lokal eindeutigen Namen" ID="ID_1501922832" CREATED="1511634799879" MODIFIED="1511634807069"/>
 <node TEXT="Klasse" ID="ID_1991308090" CREATED="1511634809339" MODIFIED="1511634816405">
@@ -153,6 +157,8 @@
 <node TEXT="Eindeutiger Name" ID="ID_1492912018" CREATED="1511619448553" MODIFIED="1511634548118"/>
 <node TEXT="Neben Aussage, die Klasse definiert (hier Selektor, siehe sp&#xe4;ter) au&#xdf;erdem Beschreibung einer Struktur" ID="ID_36507243" CREATED="1513018619399" MODIFIED="1513018654961"/>
 <node TEXT="Klasse hat Eigenschaft (Features), die selbst einer Klasse zugeordnet wird" ID="ID_402037265" CREATED="1513017787278" MODIFIED="1513017986527"/>
+<node TEXT="Spezifiziert, wie klassifiziertes Element strukturiert werden soll" ID="ID_1798110474" CREATED="1513444682329" MODIFIED="1513444707098"/>
+<node TEXT="ES HAT KEINE FEATURES, ES SPEZIFIZIERT FEATURES DES KLASSIFIZIERTEN ELEMENTES" ID="ID_1503157450" CREATED="1513444708824" MODIFIED="1513444726460"/>
 </node>
 <node TEXT="Es wird versucht Eigenschaften des klassifizierten Objektes gem&#xe4;&#xdf; der Struktur der Klasse zu klassifizieren" ID="ID_1881903699" CREATED="1513017893077" MODIFIED="1513018015416"/>
 <node TEXT="Resultat ist hierarchische Klassifikation" ID="ID_347296300" CREATED="1513018722614" MODIFIED="1513018738191"/>

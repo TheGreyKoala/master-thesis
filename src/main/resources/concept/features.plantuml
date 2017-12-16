@@ -1,0 +1,37 @@
+@startuml
+!include Selector.plantuml
+hide circle
+hide empty methods
+skinparam linetype ortho
+left to right direction
+scale 3840*2160
+
+abstract class Feature {
+    name : String
+    class : Class
+    selector : Selector
+}
+
+class Content<T extends ContentClass> {
+    class : ContentClass = T
+}
+
+class Reference<T extends ReferenceClass> {
+    class : ReferenceClass = T
+}
+
+abstract class ScalarFeature {
+
+}
+
+class CollectionFeature<T extends ScalarFeature> {
+    items : List<T>
+}
+
+ScalarFeature "0..1" -- "1" CollectionFeature : < contains
+Feature <|-- CollectionFeature
+Feature <|-- ScalarFeature
+ScalarFeature <|-- Content
+ScalarFeature <|-- Reference
+Selector "0..1" -- "0..n" Feature : < has
+@enduml

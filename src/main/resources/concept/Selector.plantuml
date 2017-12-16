@@ -1,0 +1,7 @@
+@startuml
+hide circle
+hide empty methods
+scale 3840*2160
+
+abstract class Selector
+@enduml

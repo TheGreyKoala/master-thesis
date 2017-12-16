@@ -63,7 +63,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="18" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="19" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Class Definition Language" POSITION="left" ID="ID_1743385337" CREATED="1511807804548" MODIFIED="1511807810749">
 <edge COLOR="#7c7c00"/>
 </node>
@@ -72,6 +72,9 @@
 </node>
 <node TEXT="Persistenz" POSITION="left" ID="ID_345400007" CREATED="1511455618483" MODIFIED="1512810962395" HGAP_QUANTITY="18.499999865889553 pt" VSHIFT_QUANTITY="-5.999999821186069 pt">
 <edge COLOR="#0000ff"/>
+</node>
+<node TEXT="Classification Storage API" POSITION="left" ID="ID_151152372" CREATED="1513435712279" MODIFIED="1513435720130">
+<edge COLOR="#007c00"/>
 </node>
 <node TEXT="Annotation Service" POSITION="left" ID="ID_713351157" CREATED="1511887067959" MODIFIED="1511887074312">
 <edge COLOR="#00ff00"/>

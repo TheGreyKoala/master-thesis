@@ -7,9 +7,25 @@
 - Grundlagen zu Xtext
 - Grundlagen zu Graphdatenbanken
 
+- GENERIERUNG SOLL JSON ERSTELLEN! REQUIRE FUNKTION KANN JSON EINLESEN!
+- Generiertes JSON muss überarbeiet werden, sodass es nicht mehr "type" enhält
+
 - Spezifikation der APIs erstellen und in Anhang?
+- JSON-Schema für DSL Generat & Page Objekt?
 - Ganzes System nochmal durchtesten
 - Auslieferung zusammenpacken
 -- Wie funktioniert das mit Xtext?
 -- Versionsnummern
 -- Namen der Services etc.
+
+
+- Selektor eines Features in Beziehung zu speichern, trägt nicht zur Wiederverwendbarkeit Beziehung
+-- Selektor ist immer absolut. Er enthält kompletten Pfad seines Parent Features.
+-- Wenn ein Feature x zwei eingehende Kanten hat, dann heißt das, dass die Seiten ab hier identisch sind. Inkl. der _absoluten_ Selektoren der Child Features.
+-- D.h. aber auch, dass Selektoren in eingehenden Kanten von x identisch sein müssen.
+-- Andernfalls wären die absoluten Selektoren der Child Features nicht identisch.
+-- Selektoren von Features müssen relativ zum Parent Feature sein.
+-- Falls x zwei eingehende Kanten hat, dann heißt das:
+--- x ist in beiden Seiten an exakt der gleichen Stelle (xpath) zu finden
+--- Die anderen Kinder seiner Parent Features unterscheiden sich oder x ist ein mal ein ScalarFeature und ein mal ein CollectionFeature.
+--- Sonst wären auch Parent Features identisch

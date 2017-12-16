@@ -1,6 +1,6 @@
 "pageHeading": {
     "name": "pageHeading",
-    "type": "PageHeading",
+    "class": "PageHeading",
     "isCollection": false,
     "selector": {
         "type": "CssSelector",

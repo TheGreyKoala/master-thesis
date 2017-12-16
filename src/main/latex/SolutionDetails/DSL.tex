@@ -1,4 +1,7 @@
 \section{Sprache zur Klassendefinition}
+    \subsection{Domänenspezifische Sprachen}
+    \subsection{Xtext}
+
     \subsection{Sprachkonzepte}
         \begin{figure}[htb]
             \centering
@@ -20,6 +23,15 @@
             \caption{Selektoren in der DSL}
             \label{image:dslSelektoren}
         \end{figure}
+
+    \subsection{Strukturelles Design}
+    \subsection{Statische Semantik}
+    \subsection{Dynamische Semantik}
+    \subsection{Generierung}
+        Transformation vs. Generierung?
+        \lstinputlisting[label=listing:dlsGenerationGlobal,caption=Erste Ebene]{../resources/dsl/generation/global.json}
+        \lstinputlisting[label=listing:dlsGenerationPageClass,caption=Page Class]{../resources/dsl/generation/page-class.json}
+        \lstinputlisting[label=listing:dlsGenerationFeature,caption=Feature]{../resources/dsl/generation/page-heading-feature.json}
 
     \subsection{Konkrete Syntax und deren Grammatik}
         \lstinputlisting[
@@ -43,7 +55,4 @@
             language=wccdl,
             inputencoding=utf8/latin1]{../resources/dsl/grammar/features.xtext}
 
-    \subsection{Transformation}
-        \lstinputlisting[label=listing:dlsGenerationGlobal,caption=Erste Ebene]{../resources/dsl/generation/global.json}
-        \lstinputlisting[label=listing:dlsGenerationPageClass,caption=Page Class]{../resources/dsl/generation/page-class.json}
-        \lstinputlisting[label=listing:dlsGenerationFeature,caption=Feature]{../resources/dsl/generation/page-heading-feature.json}
+    \subsection{IDE Features}
