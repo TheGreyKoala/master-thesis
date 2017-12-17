@@ -1,32 +1,31 @@
-- Klassen werden in DSL definiert.
--- Ich mache eine Klasse nicht nur bekannt (Deklaration), sondern beschreibe auch, woraus sie besteht
-!-- Muss in DSL in den Namen der Regeln angepasst werden
-
 !- Grundlagen zu Microservices
 !- Grundlagen zu DSLs
 !- Grundlagen zu Xtext
 !- Grundlagen zu Graphdatenbanken
-
-!- GENERIERUNG SOLL JSON ERSTELLEN! REQUIRE FUNKTION KANN JSON EINLESEN!
-!- Generiertes JSON muss überarbeiet werden, sodass es nicht mehr "type" enhält
-
 ?- Spezifikation der APIs erstellen und in Anhang
 ?- JSON-Schema für DSL Generat & Page Objekt?
+
 !- Ganzes System nochmal durchtesten
 !- Auslieferung zusammenpacken
 !-- Wie funktioniert das mit Xtext?
 !-- Versionsnummern
 ?-- Namen der Services etc.
 
-- Classification Storage APIs
--- Es wird POST auf /sites/{id}/pages zum Schreiben verwendet
--- Das ist falsch, weil wir eine ID vorgeben wollen und Requests idempotent sein sollen
--- POST ist nicht idempotent sondern soll _immer_ anlegen
-!-- Muss umgestellt werden auf PUT /sites/{id}/pages/{page-id}
-
+- Classification Storage API
+!-- Es wird POST auf /sites/{id}/pages zum Schreiben verwendet
+---- Das ist falsch, weil wir eine ID vorgeben wollen und Requests idempotent sein sollen
+---- POST ist nicht idempotent sondern soll _immer_ anlegen
+---- Muss umgestellt werden auf PUT /sites/{id}/pages/{page-id}
+!- Page Objekte haben noch types
 !- Neo4J Passwort ist hart codiert
-!- Volume fü Neo4J
-!- Konfigurationsdatei für Classification Service hat doofen Namen
+!- Labels und Properties in der DB heißen noch falsch
+
+- Classification Service
+!- Konfigurationsdatei hat doofen Namen
+
+- Storage
+!- Volume für Neo4J
+!- Indexe auf neue Namen, sobald in Storage API gefixt
 
 - Selektor eines Features in Beziehung zu speichern, trägt nicht zur Wiederverwendbarkeit Beziehung
 -- Selektor ist immer absolut. Er enthält kompletten Pfad seines Parent Features.
@@ -39,7 +38,6 @@
 --- Die anderen Kinder seiner Parent Features unterscheiden sich oder x ist ein mal ein ScalarFeature und ein mal ein CollectionFeature.
 --- Sonst wären auch Parent Features identisch
 
-
 - Graphdatenbank macht auch Probleme
 -- Beim Schreiben einer Seite müssen immer viele Nodes betroffen und es ist schwer festzustellen, was angepasst und gelöscht werden muss*
 -- Lesen einer Seite kompliziert
@@ -48,3 +46,14 @@
 --> Wäre nur in Document Store (z. B. Mongo anders)
 * Das übernehmen sonst z. B. OR-Mapper
 --> Es ist schwierig, weil die Operationen, die vom alten zum neuen führen (Diff) manuell ermittelt werden müssen
+
+
+Done oder nicht mehr nachvollziehbar:
+=====================================
+- Klassen werden in DSL definiert.
+-- Ich mache eine Klasse nicht nur bekannt (Deklaration), sondern beschreibe auch, woraus sie besteht
+?-- Muss in DSL in den Namen der Regeln angepasst werden
+
+x GENERIERUNG SOLL JSON ERSTELLEN! REQUIRE FUNKTION KANN JSON EINLESEN!
+x Generiertes JSON muss überarbeiet werden, sodass es nicht mehr "type" enhält
+x Feste Versionsnummern für verwendete Images
