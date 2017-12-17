@@ -64,8 +64,9 @@
 </map_styles>
 </hook>
 <hook NAME="AutomaticEdgeColor" COUNTER="26" RULE="ON_BRANCH_CREATION"/>
-<node TEXT="Funktions- &amp; Schnittstellenbeschreibung (Aufgaben)" FOLDED="true" POSITION="left" ID="ID_882920301" CREATED="1512494153610" MODIFIED="1513434335867">
+<node TEXT="Funktions- &amp; Schnittstellenbeschreibung (Aufgaben)" POSITION="left" ID="ID_882920301" CREATED="1512494153610" MODIFIED="1513434335867">
 <edge COLOR="#ff0000"/>
+<node TEXT="Port 44284" ID="ID_1179861281" CREATED="1513520071137" MODIFIED="1513520074585"/>
 <node TEXT="Klassifizierung einer Seite durchf&#xfc;hren &amp; Ergebnis speichern" ID="ID_1458966839" CREATED="1512494166409" MODIFIED="1513434374938">
 <node TEXT="POST /classifications" ID="ID_1710484025" CREATED="1512494382544" MODIFIED="1512494587790">
 <node TEXT="Status 202" ID="ID_834263547" CREATED="1512494594398" MODIFIED="1512494604053"/>
@@ -92,7 +93,7 @@
 </node>
 </node>
 </node>
-<node TEXT="Klassifizierung" POSITION="right" ID="ID_261956992" CREATED="1513434472947" MODIFIED="1513434477337">
+<node TEXT="Klassifizierung" FOLDED="true" POSITION="right" ID="ID_261956992" CREATED="1513434472947" MODIFIED="1513434477337">
 <edge COLOR="#ff00ff"/>
 <node TEXT="Browserautomatisierung" FOLDED="true" ID="ID_1014543470" CREATED="1512495768110" MODIFIED="1513434492088">
 <node TEXT="Selektoren arbeiten auf DOM der Seite (Auswertung von CSS &amp; XPath)" ID="ID_1692988316" CREATED="1512495307993" MODIFIED="1512495787689"/>

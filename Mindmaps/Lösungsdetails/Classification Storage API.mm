@@ -100,7 +100,7 @@
 <node TEXT="rel2" ID="ID_1535793075" CREATED="1512309093888" MODIFIED="1512309095170"/>
 <node TEXT="rel3" ID="ID_451525264" CREATED="1512309095912" MODIFIED="1512309097138"/>
 </node>
-<node TEXT="Resource kann von vielen Nodes referenziert werden" FOLDED="true" ID="ID_881240945" CREATED="1512311426599" MODIFIED="1512311490538">
+<node TEXT="Resource kann von vielen Nodes referenziert werden" ID="ID_881240945" CREATED="1512311426599" MODIFIED="1512311490538">
 <node TEXT="resourceNode darf Node nur anlegen, wenn noch nicht vorhanden" ID="ID_470732710" CREATED="1512311515966" MODIFIED="1512311563424"/>
 <node TEXT="referenceRelationship muss Beziehungen zu entsprechenden Node machen" ID="ID_1974476633" CREATED="1512311566710" MODIFIED="1512311594594"/>
 <node TEXT="M&#xf6;glich, dank Unique Key Constraint auf :Resource(url)" ID="ID_311257113" CREATED="1512311597982" MODIFIED="1512311821877"/>
@@ -117,11 +117,13 @@
 <node TEXT="Selektor" ID="ID_1330712492" CREATED="1512312155708" MODIFIED="1512312158764"/>
 <node TEXT="Klasse" ID="ID_1512548323" CREATED="1512312158938" MODIFIED="1512312161300"/>
 <node TEXT="Text" ID="ID_1348378898" CREATED="1512312161490" MODIFIED="1512312164228"/>
+<node TEXT="isCollection" ID="ID_934430566" CREATED="1513505022585" MODIFIED="1513505025494"/>
 </node>
 <node TEXT="Ver&#xe4;ndertes Reference Feature" ID="ID_326242965" CREATED="1512312202490" MODIFIED="1512312209675">
 <node TEXT="Selektor" ID="ID_1856024108" CREATED="1512312209933" MODIFIED="1512312211875"/>
 <node TEXT="Klasse" ID="ID_1812117599" CREATED="1512312212033" MODIFIED="1512312214292"/>
 <node TEXT="Ziel (Resource)" ID="ID_1577544780" CREATED="1512312214490" MODIFIED="1512312222748"/>
+<node TEXT="isCollection" ID="ID_72350132" CREATED="1513505032463" MODIFIED="1513505035665"/>
 </node>
 <node TEXT="Feature auf Ebene n gel&#xf6;scht" ID="ID_1271262960" CREATED="1512311926539" MODIFIED="1512312237212"/>
 </node>
@@ -131,13 +133,24 @@
 <node TEXT="Alle alten Nodes l&#xf6;schen" ID="ID_240278075" CREATED="1512297661778" MODIFIED="1512297666981"/>
 <node TEXT="Sehr viel IO" ID="ID_911726593" CREATED="1512297667130" MODIFIED="1512297672493"/>
 </node>
-<node TEXT="Vorhandenen Graphen anpassen" ID="ID_346731932" CREATED="1512297264485" MODIFIED="1512312281404">
-<node TEXT="Das macht die Implementierung" ID="ID_1407126715" CREATED="1512491537798" MODIFIED="1512491544905"/>
+<node TEXT="Vorhandenen Graphen anpassen" ID="ID_346731932" CREATED="1512297264485" MODIFIED="1512312281404"/>
+</node>
+<node TEXT="Herausforderung" FOLDED="true" ID="ID_1193429929" CREATED="1513511041779" MODIFIED="1513511045748">
+<node TEXT="Neue Page wird als Ganzes &#xfc;bermittelt" ID="ID_819969273" CREATED="1513511048726" MODIFIED="1513511061221"/>
+<node TEXT="Viele Nodes &amp; Beziehungen m&#xfc;ssen ggf. angelegt / ver&#xe4;ndert / gel&#xf6;scht werden" ID="ID_1164792288" CREATED="1513511529812" MODIFIED="1513511552693"/>
+<node TEXT="OR-Mapper tracken sonst Aktionen z. B. auf Collections" ID="ID_1285002504" CREATED="1513511790946" MODIFIED="1513511803739"/>
+<node TEXT="Schritte, um Seite zu aktualisieren m&#xfc;ssen selbst ermittelt werden" ID="ID_1125218992" CREATED="1513511061603" MODIFIED="1513511076269"/>
+<node TEXT="D.h. Object-Graph-Mapping muss manuell durchgef&#xfc;hrt werden" ID="ID_1217202436" CREATED="1513511076499" MODIFIED="1513511277853"/>
+</node>
+<node TEXT="Implementierung" ID="ID_288257808" CREATED="1513505210119" MODIFIED="1513505237560">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="200" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_346731932" STARTINCLINATION="-65;-131;" ENDINCLINATION="-181;42;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
 <node TEXT="Algorithmus versucht nicht Diff zu ermitteln &amp; passende Statements zu generieren" ID="ID_624932762" CREATED="1512312976956" MODIFIED="1512313156469"/>
-<node TEXT="Sondern" ID="ID_169034053" CREATED="1512313062916" MODIFIED="1512313067990">
+<node TEXT="Sondern" FOLDED="true" ID="ID_169034053" CREATED="1512313062916" MODIFIED="1512313067990">
 <node TEXT="Grundidee" FOLDED="true" ID="ID_1664913223" CREATED="1512322010357" MODIFIED="1512492220483">
 <node TEXT="Algorithmus zum Anlegen ausf&#xfc;hren (bottom-up)" ID="ID_1228836961" CREATED="1512313071262" MODIFIED="1512323459042"/>
-<node TEXT="Bsp. 1: Page wird geschrieben, c1 bleibt gleich" ID="ID_1804072854" CREATED="1512324378837" MODIFIED="1512324434867">
+<node TEXT="Graph wird jedes Mal komplett beschrieben &amp; bei Differenz angelegt" ID="ID_207323742" CREATED="1513507625737" MODIFIED="1513507648866"/>
+<node TEXT="Konkrete Statements ist f&#xfc;r gegebene Page immer gleich" ID="ID_1861636464" CREATED="1513507798276" MODIFIED="1513507818614"/>
+<node TEXT="Bsp. 1: Page wird geschrieben, c1 bleibt gleich" FOLDED="true" ID="ID_1804072854" CREATED="1512324378837" MODIFIED="1512324434867">
 <node TEXT="Text Node gefunden" ID="ID_448124178" CREATED="1512324435918" MODIFIED="1512324441671"/>
 <node TEXT="Content Node mit der Klasse &amp; Text gefunden" ID="ID_287618508" CREATED="1512324441925" MODIFIED="1512324463191"/>
 <node TEXT="Beziehung rel4 bereits gefunden" ID="ID_1808352401" CREATED="1512324463372" MODIFIED="1512324475447"/>
@@ -145,30 +158,33 @@
 <node TEXT="Page gefunden" ID="ID_248615098" CREATED="1512324490183" MODIFIED="1512324493591"/>
 <node TEXT="rel1 gefunden" ID="ID_609348241" CREATED="1512324495340" MODIFIED="1512324502575"/>
 </node>
+<node TEXT="WELCHE FUNKTIONEN IM CODE M&#xdc;SSEN CHECKEN, OB NODE DA ODER NICHT?" ID="ID_982378721" CREATED="1513505168951" MODIFIED="1513505191274"/>
 </node>
 <node TEXT="Bsp. 2: Page wird geschrieben, Klasse von c1 ver&#xe4;ndert" ID="ID_152457360" CREATED="1512324505540" MODIFIED="1512324522039">
 <node TEXT="Text Node gefunden" ID="ID_189067330" CREATED="1512324533847" MODIFIED="1512324538287"/>
 <node TEXT="Kein passender Content Node gefunden" ID="ID_171080015" CREATED="1512324538628" MODIFIED="1512324548790"/>
-<node TEXT="Content Node wird angelegt - c1 wird nicht ver&#xe4;ndert" ID="ID_1163070222" CREATED="1512324548964" MODIFIED="1512325801870"/>
+<node TEXT="Content Node c1&apos; wird angelegt - c1 wird nicht ver&#xe4;ndert" ID="ID_1163070222" CREATED="1512324548964" MODIFIED="1513505554012"/>
 <node TEXT="rel4&apos; wird angelegt" ID="ID_263285145" CREATED="1512324560828" MODIFIED="1512324632262"/>
 <node TEXT="Am Ende" ID="ID_1220272658" CREATED="1512324573347" MODIFIED="1512324576422">
 <node TEXT="Page gefunden" ID="ID_1779115150" CREATED="1512324576661" MODIFIED="1512324579974"/>
-<node TEXT="rel1 wird umgebogen" ID="ID_879269421" CREATED="1512324580147" MODIFIED="1512324592662"/>
+<node TEXT="rel1&apos; wird angelegt" ID="ID_1154400221" CREATED="1513505575544" MODIFIED="1513505583649"/>
+<node TEXT="rel1 wird gel&#xf6;scht" ID="ID_879269421" CREATED="1512324580147" MODIFIED="1513505591474"/>
 <node TEXT="c1 und rel4 werden gel&#xf6;scht" ID="ID_1988956475" CREATED="1512324635627" MODIFIED="1512324646149"/>
 </node>
-<node TEXT="c1 kann nicht angepasst werden, weil technische Node Id nicht bekannt" ID="ID_1243634343" CREATED="1512492311204" MODIFIED="1512492325593"/>
+<node TEXT="c1 kann nicht angepasst werden, weil technische Node Id nicht bekannt" ID="ID_1243634343" CREATED="1512492311204" MODIFIED="1513505511044">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="200" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_624932762" STARTINCLINATION="586;0;" ENDINCLINATION="586;0;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
 </node>
 </node>
-<node TEXT="Neuer Node nicht notwendig, wenn nur Selektor anders" FOLDED="true" ID="ID_1915853644" CREATED="1512322472953" MODIFIED="1512324665623">
+<node TEXT="Neuer Node wird nicht angelegt, wenn z. B. nur Name des Features anders" FOLDED="true" ID="ID_1915853644" CREATED="1512322472953" MODIFIED="1513506196806">
 <node TEXT="Nur eingehende Kante" ID="ID_857917242" CREATED="1512322489507" MODIFIED="1512322496724"/>
 <node TEXT="Teilgraph ab diesem Knoten trotzdem g&#xfc;ltig" ID="ID_1341230432" CREATED="1512322496905" MODIFIED="1512322505556"/>
 <node TEXT="Ob c1 erneuert wird unabh&#xe4;ngig von rel1" ID="ID_27706609" CREATED="1512324023895" MODIFIED="1512324681646"/>
 </node>
-<node TEXT="Konsequenz ohne Pr&#xfc;fung der Seite" ID="ID_568012802" CREATED="1512314119060" MODIFIED="1512314129934">
+</node>
+<node TEXT="Konsequenz ohne Pr&#xfc;fung der Seite" FOLDED="true" ID="ID_568012802" CREATED="1512314119060" MODIFIED="1512314129934">
 <node TEXT="Auch Content und Text-Nodes k&#xf6;nnen viele einkommende Kanten haben" ID="ID_254066474" CREATED="1512314132759" MODIFIED="1512314183974">
 <node TEXT="Text zweier Content Nodes identisch" ID="ID_1654429767" CREATED="1512314201779" MODIFIED="1512319155204"/>
 <node TEXT="Content Node auf zwei Seiten vorhanden (ab hier ALLES gleich)" ID="ID_269588796" CREATED="1512314223475" MODIFIED="1512319290123"/>
-<node TEXT="Seite-spezifischer Selektor m&#xf6;glich, da an Kante gespeichert" ID="ID_141121234" CREATED="1512314254315" MODIFIED="1512314270709"/>
 <node TEXT="TODO: BEISPIEL" ID="ID_1688192111" CREATED="1512314310578" MODIFIED="1512314317508">
 <node TEXT="c1 gleich" ID="ID_579880526" CREATED="1512324731140" MODIFIED="1512324737573"/>
 <node TEXT="Aber andere Page" ID="ID_400131833" CREATED="1512324737738" MODIFIED="1512324745858"/>
@@ -184,10 +200,10 @@
 </node>
 </node>
 </node>
-<node TEXT="Wenn ganzer Teilgraph geteilt werden" FOLDED="true" ID="ID_1489111175" CREATED="1512314589888" MODIFIED="1512319380579">
-<node TEXT="Bedingung f&#xfc;r mehrere eingehende Kanten" ID="ID_418258506" CREATED="1512314458505" MODIFIED="1512324239577">
+<node TEXT="Wann Nodes nicht geteilt werden d&#xfc;rfen" FOLDED="true" ID="ID_1489111175" CREATED="1512314589888" MODIFIED="1513506396046">
+<node TEXT="Parent &amp; Child gleich, Child Name anders" FOLDED="true" ID="ID_1236142890" CREATED="1513506327687" MODIFIED="1513506365958">
 <node TEXT="Vater und Kind identisch" ID="ID_538366867" CREATED="1512314462756" MODIFIED="1512314471899"/>
-<node TEXT="Selektor anders" ID="ID_1306995878" CREATED="1512314472153" MODIFIED="1512314479715"/>
+<node TEXT="Name des Features anders" ID="ID_1306995878" CREATED="1512314472153" MODIFIED="1513506407758"/>
 <node TEXT="Kind darf geteilt werden" ID="ID_335836316" CREATED="1512314479913" MODIFIED="1512492581941"/>
 <node TEXT="Vom Vater gehen zwei Kanten zum Kind" ID="ID_1483903088" CREATED="1512492582426" MODIFIED="1512492603038">
 <node TEXT="Welche geh&#xf6;rt zu welcher Seite?" ID="ID_1480703374" CREATED="1512492603260" MODIFIED="1512492614238"/>
@@ -199,11 +215,11 @@
 </node>
 </node>
 <node TEXT="TODO: BEISPIEL" ID="ID_619787126" CREATED="1512314619160" MODIFIED="1512314623506">
-<node TEXT="c3+c5 auf zwei Seiten, aber unterschiedliche Selektoren f&#xfc;r c5" ID="ID_1356979761" CREATED="1512325697694" MODIFIED="1512492547592"/>
+<node TEXT="c3+c5 auf zwei Seiten, aber unterschiedliche Feature Namen f&#xfc;r c5" ID="ID_1356979761" CREATED="1512325697694" MODIFIED="1513506431301"/>
 <node TEXT="c3 muss dupliziert werden" ID="ID_548341213" CREATED="1512325726020" MODIFIED="1512492552767"/>
 </node>
 </node>
-<node TEXT="Duplizierung ebenfalls notwendig, wenn vormals geteilter Knoten sich auf einer Seite &#xe4;ndert" ID="ID_1490718610" CREATED="1512325845939" MODIFIED="1512325867397">
+<node TEXT="Vormals geteilter Knoten &#xe4;ndert sich auf einer Seite" FOLDED="true" ID="ID_1490718610" CREATED="1512325845939" MODIFIED="1513506470716">
 <node TEXT="TODO: Beispiel:" ID="ID_746617528" CREATED="1512325867964" MODIFIED="1512325877414">
 <node TEXT="c1 auf zwei Seiten identisch" ID="ID_924427706" CREATED="1512325878867" MODIFIED="1512325892493"/>
 <node TEXT="Auf p2 &#xe4;ndert sich die Klasse" ID="ID_856594045" CREATED="1512325901450" MODIFIED="1512325932810"/>
@@ -211,7 +227,7 @@
 </node>
 <node TEXT="Durch Algorithmus gew&#xe4;hrleistet" ID="ID_33393354" CREATED="1512325980186" MODIFIED="1512325990477"/>
 </node>
-<node TEXT="Kopieren nicht nur notwendig, wenn Node selbst oder Selektor eines Kindes ge&#xe4;ndert" ID="ID_1723211319" CREATED="1512315166628" MODIFIED="1512325761767">
+<node TEXT="Irgendein anderes Kind anders" ID="ID_1723211319" CREATED="1512315166628" MODIFIED="1513506542560">
 <node TEXT="Sobald ein Kind anders ist, muss Vater kopiert werden" ID="ID_1587445521" CREATED="1512314630906" MODIFIED="1512325658143">
 <node TEXT="Neues Kind" ID="ID_974899759" CREATED="1512315129343" MODIFIED="1512315133423"/>
 <node TEXT="Ver&#xe4;ndertes Kind" ID="ID_830798132" CREATED="1512315138084" MODIFIED="1512315141927">
@@ -235,6 +251,7 @@
 <node TEXT="Page p2 wird gefunden" ID="ID_611715303" CREATED="1512323917848" MODIFIED="1512325333545"/>
 <node TEXT="rel3&apos; wird umgebogen auf c3&apos;" ID="ID_1575387098" CREATED="1512323935320" MODIFIED="1512325349217"/>
 </node>
+<node TEXT="Dadurch ist auch L&#xf6;schen abgedeckt" ID="ID_1740735951" CREATED="1513507301512" MODIFIED="1513507313840"/>
 </node>
 </node>
 </node>
@@ -253,19 +270,33 @@
 <node TEXT="Klasse" ID="ID_524705924" CREATED="1512493001936" MODIFIED="1512493003388"/>
 </node>
 </node>
-<node TEXT="&#xdc;ber Leaf-Nodes: Pattern muss Vater und alle seine Kinder beschreiben" ID="ID_1949176796" CREATED="1512315627747" MODIFIED="1512493057149"/>
+<node TEXT="H&#xf6;here Ebenen" ID="ID_1949176796" CREATED="1512315627747" MODIFIED="1513512004820">
+<node ID="ID_1222356294" CREATED="1513512005554" MODIFIED="1513512005554"><richcontent TYPE="NODE">
+
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Pattern muss Vater und alle seine Kinder beschreiben
+    </p>
+  </body>
+</html>
+</richcontent>
+</node>
 <node TEXT="Beispiel" ID="ID_1975137498" CREATED="1512315644377" MODIFIED="1512315651156">
 <node TEXT="r1, r2, c5_text, rel9, rel10, rel11, c5" ID="ID_1647693015" CREATED="1512315651404" MODIFIED="1512315714683"/>
 <node TEXT="M&#xfc;ssen alle im MERGE sein" ID="ID_4806285" CREATED="1512315714929" MODIFIED="1512315728211"/>
 </node>
 <node TEXT="Wenn irgendetwas anders, muss Parent neu erstellt werden" ID="ID_1526928000" CREATED="1512315730176" MODIFIED="1512326234332">
 <node TEXT="Da m&#xf6;glich, dass diese Konstellation noch woanders verwendet wird" ID="ID_1712005178" CREATED="1512315772136" MODIFIED="1512315789110"/>
-<node TEXT="Sequentielle Pr&#xfc;fungen w&#xfc;rde irgendein IF-Konstrukt erfordern" ID="ID_719081187" CREATED="1512315857544" MODIFIED="1512326283732"/>
+<node TEXT="Sequentielle Pr&#xfc;fungen w&#xfc;rde irgendein IF-Konstrukt erfordern mit vielen UND" ID="ID_719081187" CREATED="1512315857544" MODIFIED="1513512080170"/>
 <node TEXT="Nur Parent wird neu erstellt, da Leafs gebunden" ID="ID_63217451" CREATED="1512326429983" MODIFIED="1512326441385"/>
 </node>
 <node TEXT="MERGE ist 1-dimensional, d.h. es muss eine Kette existieren, die gepr&#xfc;ft wird" ID="ID_786564971" CREATED="1512316166326" MODIFIED="1512316190112">
 <node TEXT="Kanten gehen aber von Parent, zu Kindern --&gt; Keine Kette" ID="ID_651363391" CREATED="1512316190382" MODIFIED="1512316208361"/>
-<node TEXT="Erfordert Kante zur&#xfc;ck zum Vater" ID="ID_1885036611" CREATED="1512316208781" MODIFIED="1512316223528"/>
+<node TEXT="M&#xf6;glichkeit: Zus&#xe4;tzliche Kante zur&#xfc;ck zum Vater" ID="ID_1885036611" CREATED="1512316208781" MODIFIED="1513512124330"/>
 </node>
 <node TEXT="Wie merkt man, dass ein Node gel&#xf6;scht wurde?" ID="ID_240009429" CREATED="1512315906031" MODIFIED="1512315921275">
 <node TEXT="MERGE pr&#xfc;ft nur, ob er gegebenes Pattern findet, nicht ob noch mehr da ist" ID="ID_302897156" CREATED="1512315926431" MODIFIED="1512315972734"/>
@@ -273,16 +304,15 @@
 <node TEXT="Dann w&#xe4;re die Reihenfolge allerdings schwierig" ID="ID_1452089442" CREATED="1512316085622" MODIFIED="1512316162272"/>
 </node>
 <node TEXT="R&#xfc;ckkanten und Kreis endet im Chaos und sehr komplexen Statements" ID="ID_165674680" CREATED="1512316246997" MODIFIED="1512316564863"/>
+</node>
 <node TEXT="Deshalb Checksumme auf Content" ID="ID_1975534389" CREATED="1512316270877" MODIFIED="1512316581975">
+<node TEXT="Worauf wird die konkret gebildet?" ID="ID_429279177" CREATED="1513512314127" MODIFIED="1513512323224"/>
 <node TEXT="Wenn Checksumme gleich hei&#xdf;t dass, dass sich zwei Contents vollst&#xe4;ndig gleichen und der eine an Stelle des anderen verwendet werden kann" ID="ID_500572238" CREATED="1512316878193" MODIFIED="1512316920067"/>
+<node TEXT="Wenn unterschiedlich, ist irgendetwas anders und es muss eine Kopie angelegt werden" ID="ID_689437081" CREATED="1513512203807" MODIFIED="1513512218137"/>
 <node TEXT="MERGE (c:Content {checksum: $c.checksum,class: $c.class})" ID="ID_101237136" CREATED="1512316778931" MODIFIED="1512316803876"/>
 <node TEXT="class eigentlich nicht notwendig in MERGE" ID="ID_1874203379" CREATED="1512316822737" MODIFIED="1512316853724"/>
 <node TEXT="Aber drin, damit die Eigenschaft beim Anelgen eines Nodes direkt gesetzt wird" ID="ID_1894227973" CREATED="1512316853953" MODIFIED="1512316870819"/>
 </node>
-</node>
-<node TEXT="resourceNode" ID="ID_861378417" CREATED="1512316951696" MODIFIED="1512316955411">
-<node TEXT="MERGE (r:Resource {url: $r.destination})" ID="ID_1340276548" CREATED="1512316979650" MODIFIED="1512316984563"/>
-<node TEXT="Resource wird nur einmalig angelegt" ID="ID_208031997" CREATED="1512317030368" MODIFIED="1512317039306"/>
 </node>
 <node TEXT="contentRelationship / referenceRelationship" ID="ID_1790063096" CREATED="1512317058576" MODIFIED="1512317573216">
 <node TEXT="Siehe Listing referenceRelationship.cypher" ID="ID_590377476" CREATED="1512317573478" MODIFIED="1512317582550"/>
@@ -295,6 +325,10 @@
 </node>
 <node TEXT="Neo4j gibt Warnung aus, dass durch MATCH kartesisches Produkt gebildet wird" ID="ID_1577139128" CREATED="1512317661675" MODIFIED="1512317679974"/>
 <node TEXT="Nicht schlimm, da beide Matches nur 1 Element liefern" ID="ID_337478319" CREATED="1512317680531" MODIFIED="1512317693334"/>
+</node>
+<node TEXT="resourceNode" ID="ID_861378417" CREATED="1512316951696" MODIFIED="1512316955411">
+<node TEXT="MERGE (r:Resource {url: $r.destination})" ID="ID_1340276548" CREATED="1512316979650" MODIFIED="1512316984563"/>
+<node TEXT="Resource wird nur einmalig angelegt" ID="ID_208031997" CREATED="1512317030368" MODIFIED="1512317039306"/>
 </node>
 <node TEXT="textRelationship" ID="ID_1201194525" CREATED="1512493364454" MODIFIED="1512493373401">
 <node TEXT="MATCH&#xa;    (c:Content {checksum: $c.checksum}),&#xa;    (t:Text {value: $t.value})&#xa;MERGE (c)-[:Reads]-&gt;(t)" ID="ID_718558687" CREATED="1512493444176" MODIFIED="1512493668694"/>
@@ -338,13 +372,13 @@
 </node>
 </node>
 </node>
-</node>
 <node TEXT="TODO: Warum ist der Endpunkt /pages, obwohl wir Klassifikationen abfragen?, Siehe auch Konzeptkapitel" POSITION="left" ID="ID_916136828" CREATED="1512066570050" MODIFIED="1513435748253">
 <edge COLOR="#ff0000"/>
 </node>
 <node TEXT="Funktionen &amp; Endpunkte" FOLDED="true" POSITION="left" ID="ID_851994132" CREATED="1512221521475" MODIFIED="1513441025007">
 <edge COLOR="#0000ff"/>
 <node TEXT="Fachliche Anfragen in DB Statements &#xfc;bersetzen" ID="ID_515250866" CREATED="1512221554101" MODIFIED="1512221569892"/>
+<node TEXT="Port 52629" ID="ID_60779280" CREATED="1513520102465" MODIFIED="1513520104385"/>
 <node TEXT="Sites abfragen" ID="ID_1974500584" CREATED="1512221858937" MODIFIED="1512221863322">
 <node TEXT="GET /sites" ID="ID_542334109" CREATED="1512222040986" MODIFIED="1512222044345">
 <node TEXT="Status Code 200" ID="ID_1146080523" CREATED="1512222050231" MODIFIED="1512222054368"/>
@@ -392,12 +426,11 @@
 <node TEXT="Einigen Clients ist die Site ggf. nicht bekannt" ID="ID_493422490" CREATED="1512223156863" MODIFIED="1512223181608"/>
 <node TEXT="URL technisch ausreichend" ID="ID_1448731844" CREATED="1512223181767" MODIFIED="1512223186792"/>
 </node>
-</node>
-<node TEXT="Page" FOLDED="true" POSITION="left" ID="ID_386530920" CREATED="1512222648099" MODIFIED="1513435748256">
-<edge COLOR="#00ff00"/>
+<node TEXT="Page" FOLDED="true" ID="ID_386530920" CREATED="1512222648099" MODIFIED="1513504702786">
 <node TEXT="Bsp. JSON" ID="ID_823295718" CREATED="1512228579488" MODIFIED="1512228583353"/>
 <node TEXT="Eine Klassifikation ist Seite mit Typinformationen, da sie auch Inhalte enth&#xe4;lt" ID="ID_403035391" CREATED="1512066479469" MODIFIED="1512066515751"/>
 <node TEXT="Deshalb auch /pages Endpunkt sinnvoll" ID="ID_790415476" CREATED="1512066524758" MODIFIED="1512066534182"/>
+</node>
 </node>
 </node>
 </map>

@@ -3,7 +3,7 @@
 <node TEXT="WordPress Crawler" FOLDED="false" ID="ID_28198434" CREATED="1511886583117" MODIFIED="1511886591128" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -63,23 +63,36 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="10" RULE="ON_BRANCH_CREATION"/>
-<node TEXT="Command Line Tool" POSITION="right" ID="ID_1571417882" CREATED="1511807972238" MODIFIED="1511886621081">
-<edge COLOR="#ff0000"/>
-</node>
+<hook NAME="AutomaticEdgeColor" COUNTER="14" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Auch als WebApp denkbar" POSITION="right" ID="ID_1959027718" CREATED="1511806204064" MODIFIED="1511886621083">
 <edge COLOR="#0000ff"/>
 </node>
-<node TEXT="In Kotlin geschrieben" POSITION="right" ID="ID_1901519109" CREATED="1511807979395" MODIFIED="1511886621085">
+<node TEXT="Ablauf" POSITION="right" ID="ID_1276239485" CREATED="1513519615989" MODIFIED="1513519618949">
 <edge COLOR="#00ff00"/>
+<node TEXT="Abfolge f&#xfc;r Posts + Pages einer Site" ID="ID_350670349" CREATED="1511808493337" MODIFIED="1513519621169">
+<node TEXT="1. Request liefert ersten Chunk + Anzahl aller Items" ID="ID_1866892449" CREATED="1511808499235" MODIFIED="1511808582913"/>
+<node TEXT="Alle Items abrufen mit gesetzter Page Size" ID="ID_617349259" CREATED="1511808515033" MODIFIED="1511808591281"/>
 </node>
-<node TEXT="L&#xe4;uft auf JVM" POSITION="right" ID="ID_423493447" CREATED="1511807984235" MODIFIED="1511886621086">
-<edge COLOR="#ff00ff"/>
+<node TEXT="Parallele Requests" ID="ID_1415043559" CREATED="1511808595600" MODIFIED="1513519623678">
+<node TEXT="F&#xfc;r alle Sites" ID="ID_1578898485" CREATED="1511808601211" MODIFIED="1511808615985"/>
+<node TEXT="F&#xfc;r Posts + Pages" ID="ID_1554813341" CREATED="1511808616504" MODIFIED="1511808622353"/>
+<node TEXT="Nie mehr als die gesetzte Anzahl an Requests" ID="ID_1229580491" CREATED="1511808623232" MODIFIED="1511808636321"/>
 </node>
-<node TEXT="Plattformunabh&#xe4;ngig" POSITION="right" ID="ID_1776214913" CREATED="1511807988523" MODIFIED="1511886621088">
-<edge COLOR="#00ffff"/>
+<node TEXT="Einige Beitr&#xe4;ge erzeugen Fehler" ID="ID_1071829348" CREATED="1511808328465" MODIFIED="1513519625717">
+<node TEXT="Bin&#xe4;rsuche, um diese auszuschlie&#xdf;en" ID="ID_791600300" CREATED="1511808229698" MODIFIED="1511808402394"/>
+<node TEXT="Page Size wird auf 2er Potenz aufgerundet" ID="ID_1174783659" CREATED="1511808406609" MODIFIED="1511808422794"/>
 </node>
-<node TEXT="YAML zur Konfiguration" POSITION="right" ID="ID_1745075730" CREATED="1511807994155" MODIFIED="1511886621101">
+</node>
+<node TEXT="Funktion" POSITION="left" ID="ID_689100562" CREATED="1513519401081" MODIFIED="1513519417375">
+<edge COLOR="#ff0000"/>
+<node TEXT="Command Line Tool" ID="ID_1571417882" CREATED="1511807972238" MODIFIED="1513519488455"/>
+<node TEXT="Verwendet WP-Rest-API" ID="ID_1366681765" CREATED="1511808222778" MODIFIED="1513519499638">
+<node TEXT="https://developer.wordpress.org/rest-api/" ID="ID_122344007" CREATED="1513519379833" MODIFIED="1513519380696"/>
+</node>
+<node TEXT="Ermittelt Posts &amp; Pages f&#xfc;r Menge von Sites" ID="ID_1883902015" CREATED="1513519417624" MODIFIED="1513519434647"/>
+<node TEXT="Initiiert Klassifizierung f&#xfc;r ermittelte URLs" ID="ID_1894503629" CREATED="1513519434878" MODIFIED="1513519468831"/>
+</node>
+<node TEXT="YAML zur Konfiguration" POSITION="left" ID="ID_1745075730" CREATED="1511807994155" MODIFIED="1511886621101">
 <edge COLOR="#7c0000"/>
 <node TEXT="Classification Service" ID="ID_1752479407" CREATED="1511808036950" MODIFIED="1511808041308">
 <node TEXT="URI Schema" ID="ID_856493735" CREATED="1511808041598" MODIFIED="1511808049140"/>
@@ -101,24 +114,15 @@
 </node>
 </node>
 </node>
-<node TEXT="Verwendet WP-Rest-API" POSITION="right" ID="ID_1366681765" CREATED="1511808222778" MODIFIED="1511886621103">
-<edge COLOR="#00007c"/>
+<node TEXT="Bsp. YAML und Aufruf" POSITION="left" ID="ID_93002056" CREATED="1513519581717" MODIFIED="1513519590246">
+<edge COLOR="#0000ff"/>
 </node>
-<node TEXT="Abfolge f&#xfc;r Posts + Pages einer Site" POSITION="right" ID="ID_350670349" CREATED="1511808493337" MODIFIED="1511886621106">
-<edge COLOR="#007c00"/>
-<node TEXT="1. Request liefert ersten Chunk + Anzahl aller Items" ID="ID_1866892449" CREATED="1511808499235" MODIFIED="1511808582913"/>
-<node TEXT="Alle Items abrufen mit gesetzter Page Size" ID="ID_617349259" CREATED="1511808515033" MODIFIED="1511808591281"/>
-</node>
-<node TEXT="Parallele Requests" POSITION="right" ID="ID_1415043559" CREATED="1511808595600" MODIFIED="1511886621108">
-<edge COLOR="#7c007c"/>
-<node TEXT="F&#xfc;r alle Sites" ID="ID_1578898485" CREATED="1511808601211" MODIFIED="1511808615985"/>
-<node TEXT="F&#xfc;r Posts + Pages" ID="ID_1554813341" CREATED="1511808616504" MODIFIED="1511808622353"/>
-<node TEXT="Nie mehr als die gesetzte Anzahl an Requests" ID="ID_1229580491" CREATED="1511808623232" MODIFIED="1511808636321"/>
-</node>
-<node TEXT="Einige Beitr&#xe4;ge erzeugen Fehler" POSITION="right" ID="ID_1071829348" CREATED="1511808328465" MODIFIED="1511886621110">
-<edge COLOR="#007c7c"/>
-<node TEXT="Bin&#xe4;rsuche, um diese auszuschlie&#xdf;en" ID="ID_791600300" CREATED="1511808229698" MODIFIED="1511808402394"/>
-<node TEXT="Page Size wird auf 2er Potenz aufgerundet" ID="ID_1174783659" CREATED="1511808406609" MODIFIED="1511808422794"/>
+<node TEXT="Technologien" POSITION="right" ID="ID_1467732493" CREATED="1513514782863" MODIFIED="1513514785854">
+<edge COLOR="#7c7c00"/>
+<node TEXT="In Kotlin geschrieben" ID="ID_1901519109" CREATED="1511807979395" MODIFIED="1513514791342"/>
+<node TEXT="L&#xe4;uft auf JVM" ID="ID_423493447" CREATED="1511807984235" MODIFIED="1513514791346"/>
+<node TEXT="Plattformunabh&#xe4;ngig" ID="ID_1776214913" CREATED="1511807988523" MODIFIED="1513514791353"/>
+<node TEXT="Unirest" ID="ID_485468935" CREATED="1513514816086" MODIFIED="1513514818806"/>
 </node>
 </node>
 </map>

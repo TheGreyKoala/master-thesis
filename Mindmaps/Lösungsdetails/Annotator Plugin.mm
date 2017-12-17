@@ -3,7 +3,7 @@
 <node TEXT="Annotator Plugin" FOLDED="false" ID="ID_718690573" CREATED="1512229749454" MODIFIED="1512229755017" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -63,8 +63,8 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="5" RULE="ON_BRANCH_CREATION"/>
-<node TEXT="Nutzung" POSITION="right" ID="ID_723117778" CREATED="1512229095900" MODIFIED="1512229767501">
+<hook NAME="AutomaticEdgeColor" COUNTER="6" RULE="ON_BRANCH_CREATION"/>
+<node TEXT="Einbindung des Plugins" FOLDED="true" POSITION="right" ID="ID_723117778" CREATED="1512229095900" MODIFIED="1513513539040">
 <edge COLOR="#ff00ff"/>
 <node TEXT="Annotator einbinden" ID="ID_1512543230" CREATED="1512229359274" MODIFIED="1512229368635">
 <node TEXT="http://assets.annotateit.org/annotator/v1.1.0/annotator.min.css" ID="ID_542878287" CREATED="1512229429124" MODIFIED="1512229433259"/>
@@ -81,10 +81,7 @@
 <node TEXT="http://docs.annotatorjs.org/en/v1.2.x/hacking/plugin-development.html" POSITION="left" ID="ID_240528258" CREATED="1512065993190" MODIFIED="1512229767477">
 <edge COLOR="#ff0000"/>
 </node>
-<node TEXT="Klasse eines Features bearbeitbar machen" POSITION="left" ID="ID_1858726237" CREATED="1512227181626" MODIFIED="1512229767480">
-<edge COLOR="#0000ff"/>
-</node>
-<node TEXT="Plugin wccs registrieren" POSITION="left" ID="ID_1564603686" CREATED="1512230006229" MODIFIED="1512230021582">
+<node TEXT="Plugin wccs registrieren" FOLDED="true" POSITION="left" ID="ID_1564603686" CREATED="1512230006229" MODIFIED="1512230021582">
 <edge COLOR="#00ffff"/>
 <node TEXT="Einmalig bekannte Klassen ermitteln" ID="ID_1973194466" CREATED="1512227302291" MODIFIED="1512228781872">
 <node TEXT="Vom Classification Service" ID="ID_645802147" CREATED="1512227324667" MODIFIED="1512227355234"/>
@@ -96,7 +93,24 @@
 </node>
 <node TEXT="Objekt zur&#xfc;ckgeben, welches pluginInit implementiert" ID="ID_1658677961" CREATED="1512230049317" MODIFIED="1512230062606"/>
 </node>
-<node TEXT="pluginInit" POSITION="left" ID="ID_142265639" CREATED="1512227297177" MODIFIED="1512230071422">
+<node TEXT="Funktionen" FOLDED="true" POSITION="left" ID="ID_730276761" CREATED="1513513984692" MODIFIED="1513513987453">
+<edge COLOR="#7c0000"/>
+<node TEXT="Klasse eines Features bearbeitbar machen" ID="ID_1858726237" CREATED="1512227181626" MODIFIED="1513514112917"/>
+<node TEXT="Annotation Viewer um neues Feld erg&#xe4;nzen" ID="ID_1516349164" CREATED="1513514140627" MODIFIED="1513514142108">
+<node TEXT="Zeigt Klasse" ID="ID_975552357" CREATED="1513514212661" MODIFIED="1513514222827"/>
+<node TEXT="SCREENSHOT" ID="ID_590693053" CREATED="1513514402873" MODIFIED="1513514406994"/>
+</node>
+<node TEXT="Annotation Editor um neues Feld erg&#xe4;nzen" ID="ID_149480013" CREATED="1513514147827" MODIFIED="1513514148724">
+<node TEXT="Drop Down mit allen Klassen" ID="ID_1443392937" CREATED="1513514413492" MODIFIED="1513514423874">
+<node TEXT="Bei Initialisierung abgerufen" ID="ID_1943323784" CREATED="1513514440882" MODIFIED="1513514457530">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="200" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_1973194466" STARTINCLINATION="632;0;" ENDINCLINATION="632;0;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
+</node>
+<node TEXT="Wird abh&#xe4;ngig vom featureKind gef&#xfc;llt" ID="ID_1342813280" CREATED="1513514517312" MODIFIED="1513514526889"/>
+</node>
+<node TEXT="Beim Speichern wird annotation.wccs.class &#xfc;berschrieben und Annotation &#xfc;ber Annotation Service gespeichert" ID="ID_1316384823" CREATED="1513514465880" MODIFIED="1513514501889"/>
+</node>
+</node>
+<node TEXT="pluginInit" FOLDED="true" POSITION="left" ID="ID_142265639" CREATED="1512227297177" MODIFIED="1512230071422">
 <edge COLOR="#00ff00"/>
 <node TEXT="Annotation Viewer um neues Feld erg&#xe4;nzen" ID="ID_573819997" CREATED="1512228788918" MODIFIED="1512230214101">
 <node TEXT="Objekt mit load Methode" ID="ID_601944024" CREATED="1512230235820" MODIFIED="1512230251132">
