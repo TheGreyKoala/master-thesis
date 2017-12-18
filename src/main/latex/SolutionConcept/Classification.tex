@@ -1,9 +1,146 @@
-\section{Die Klassifizierung}
+\section{Klassifizierung einer Webseite}
     \label{section:conceptClassification}
-    \subsection{Klassifizierungsergebnis}
+    Dieses Kapitel beschreibt die konzeptionellen Grundlagen der Klassifizierung.
+    % TODO: Irgendwo erwähnen, dass mit Spezifikation konfiguriert
+
+    \subsection{Datenquelle}
+        Erste Frage der Klassifizierung ist, was als Datenquelle genommen wird.
+        Wordpress bietet zwei Schnittstellen, um Daten über Posts und Pages abzufragen:
+        Direkter Zugriff auf die Datenbank und die Tabelle wp\_posts
+        \cite{wordpress:Database}.
+        Oder über die REST-API\cite{wordpress:RestAPI}.
+
+        Bei beiden Quellen gibt es Probleme.
+        Die Datenbank enthält das spezielles Markup, zum Beispiel von Plugins.
+        Das müsste erst ausgewertet werden, um die resultierenden Inhalte zu erlangen.
+        Das ist sehr komplex und bei der Fülle an Plugins nicht praktikabel.
+        Die REST-API übernimmt diese Auswertung hat aber ein anderes Problem.
+        Beide liefern nur den Inhalt des speziellen Posts / Page.
+        D.h. Inhalte, die über Templates kommen sind nicht direkt enthalten,
+        wie z. B. Header, Footer, Navigation.
+        Je nachdem, wie stark diese von der Seite abhängig sind,
+        kann das ok (wenn sie immer gleich sind) oder nicht ok (falls sie abhängig sind),
+        sein. Im konkreten Fall sind sie immer gleich, aber der Vollständigkeit halber sollte man das
+        behalten.
+        Allerdings fehlt dadurch der Kontext. D.h. man weiß nicht, wo die Inhalte auf der Seite sind,
+        weil die Templates nicht bekannt sind (kann überall in \gls{html}-Hierarchie stehen).
+        Das macht es sehr schwer die Klassifikation verlässlich auf der Seite zu visualisieren
+        (siehe \ref{section:conceptVisualization}).
+        Des Weiteren sind beide Quellen {\wordpress}-spezifisch, wodurch das System weniger
+        allgemein einsatzbar wäre.
+
+        Eine allgemeine Lösung, die auch die oben beschriebenen Probleme umgeht ist die Nutzung
+        der Live-Seite als Datenquelle.
+        Dort hat man die Inhalte ohne spezielles Markup und mit Kontext, da man das komplette \gls{html}-Dokument hat.
+        Deshalb sind auch allgemeine Parts, wie Header, Footer enthalten und können bei Bedarf klassifiziert werden.
+
+    \subsection{Allgemeiner Ablauf}
+        Der allgemeine Ablauf der Klassifizierung lässt sich leicht und in wenigen Sätzen beschreiben.
+        Da als Quelle die Live-Seite herangezogen wird, ist Eingabe die \gls{url} dieser Seite.
+
+        Das System bestimmt zunächst die Klasse der Seite, indem die verschiedenen Selektoren der bekannten
+        Seitenklassen gegen sie geprüft werden.
+        Dann werden die Features dieser Klasse auf der Seite ermittelt,
+        indem die Selektoren der Features auf der Seite angewandt werden.
+        Für jedes Content Feature wird die Ermittlung der Features rekursiv wiederholt.
+        Anschließend wird die gesamte Klassifikation persistiert.
+
+    \subsection{Unterstützte Selektoren}
+        Das Klassifizierungssystem unterstützt drei Selektoren,
+        die durch die gewählte Datenquelle begründet sind.
+        Eine andere Quelle hätte womöglich zu anderen Selektoren geführt.
+
+        Die Selektoren sind ein CSS-Selektor, ein XPath-Selektor und ein URL-Selektor
+        und werden jetzt vorgestellt.
+
+        \paragraph{CSS-Selektor}
+        Der CSS-Selektor kann für Features verwendet werden und benutzt
+        die durch das \gls{w3c} standardisierten CSS-Selektoren
+        (siehe Kapitel \ref{section:wwwTechnicalFoundations} und \cite{w3c:cssSelectors}),
+        um einen oder mehrere Nodes im \gls{html}-Dokument auszuwählen.
+        Da diese Selektoren auf mehrere Nodes zutreffen können,
+        sind Collection Featues direkt unterstützt.
+
+        Das \gls{wccs} folgt bei der Auswertung eines CSS-Selektors der Logik des \glspl{w3c}
+        \cite{w3c:selectorsAPI}.
+        Das bedeutet, dass der Selektor für das gesamte Dokument ausgeführt,
+        aber nur Elemente innerhalb des Parent Features im Ergebnis landen.
+        Für Features der ersten Ebene wird document als Kontext-Node genommen.
+        Dadurch ist sichergestellt, dass sich wiederholende Strukturen richtig zugeordnet werden können.
+
+        Dazu ein Beispiel. Angenommen es gibt ein CollectionFeature mit dem CSS-Selektor
+        "`article"'. Dieser wählt die drei article-Nodes aus.
+        Die Klasse dieses Features hat wiederum ein Feature "`heading"' mit dem Selektor
+        "`h3"'.
+        Da dieser im Kontext des jeweiligen article-Nodes ausgeführt wird,
+        ist klar, welche Überschrift zu welchem Artikel gehört.
+
+        \begin{lstlisting}
+<article>
+    <h3>Article 1 Heading<h3>
+</article>
+<article>
+    <h3>Article 2 Heading<h3>
+</article>
+<article>
+    <h3>Article 3 Heading<h3>
+</article>
+        \end{lstlisting}
+
+        \paragraph{XPath-Selektor}
+        Der XPath-Selektor ist ebenfalls für Features geeignet und wertet auf dem
+        HTML-Dokument XPath-Ausdrücke aus, um Nodes zu selektieren.
+        Im Vergleich zu CSS ist XPath in manchen Belangn mächtiger.
+        Zum Beispiel erlaubt es den aktuellen Node über "`self"' zu matchen,
+        Siblings des aktuellen Nodes zu selektieren
+        oder Nodes in anderen Teilen des Dokumentes zu selektieren \cite{w3c:xpath}.
+        Ein XPath-Selektor verwendet ebenfalls document bzw. den Node des Parent Features als
+        Kontext Node.
+        Die über CSS-Selektoren garantierte Relativität kann vom Nutzer mit den oben genannten Mitteln
+        durch XPath-Selektoren allerdings umgangen werden,
+        wodurch er mehr Möglichkeiten, aber auch mehr Verantwrotung erhält.
+
+        \paragraph{\gls{url}-Pattern-Selektor}
+        Ein \gls{url}-Pattern-Selektor ist für Seiten und Referenzen geeignet.
+        Bei diesem Selektor handelt es sich um einen regulären Ausdruck,
+        der im Falle von Seiten auf deren \gls{url} angewandt wird.
+        Gibt es ein Match, wird die Seite entsprechend klassifiziert.
+        
+        Zur Klassifizierung von Referenzen wird der Selektor auf die \gls{url} aller Knoten
+        innerhalb des Parent Features angewandt, die eine {\resource} referenzieren.
+        Gibt es ein Match, wird der Node als entsprechendes Referenz Feature erkannt.
+        Da alle Nodes geprüft werden, sind Collection Features kein Problem.
+
+        Dieser Selektor ist sinnvoll, um zum Beispiel externe Links anders als interne zu klassifizieren.
+
+    \subsection{Datenmodell des Klassifizierungsergebnisses}
+        \label{section:conceptPageDataModel}
+        % TODO: Muss das ggf. höher, vllt. direkt nach Klassen, Features, Selektoren?
+        Dieses Kapitel beschreibt anhand Abbildung \ref{image:conceptPageDataModel}
+        das Modell einer Klassifikation einer Seite.
+
         \begin{figure}[htb]
             \centering
             \includegraphics[width=\textwidth]{../resources/concept/page.png}
             \caption{Datenmodell eines Klassifizierungsergebnisses}
             \label{image:conceptPageDataModel}
         \end{figure}
+
+        Oben in der Hierarchie steht die Seite,
+        zu der ihre \gls{url} und ihre Klasse gespeichert wird.
+        Außerdem hat sie einen Status, der nach der Klassifizierung auf
+        "`Classified"' gesetzt ist.
+        Des weiteren speichert eine Seite in zwei getrennten Listen ihre
+        Content- und Reference Features.
+        Elemente dieser Listen können Content oder Reference Objekte oder Listen
+        dieser Objekte sein. Listen spiegeln CollectionFeatures wieder.
+        Jedes Feature speichert seinen Namen und seine Klasse.
+        Content Features darüber hinaus ihren textuellen Inhalt % TODO WARUM?!
+        und Reference Features die \gls{url} der referenzierten {\resource}.
+        Features speichern außerdem einen Selektor, bei dem es sich nicht um den Selektor
+        handelt, der während der Klassifizierung zu ihrer Ermittlung verwendet wurde.
+        Stattdessen identifiziert dieser Selektor den zum Feature gehörenden Node eindeutig im HTML-Dokument.
+        Das ist später z. B. für die Visualisierung der Klassifikation hilfreich.
+        Außerdem bietet es Drittsystemen die Möglichkeit leicht festzustellen,
+        ob sich der Inhalt eines Contents oder das Ziel einer Referenz seit der Klassifizierungssystem
+        geändert hat.

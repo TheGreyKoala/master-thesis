@@ -1,1 +1,12 @@
-\section{Bereitstellung der Klassifikation zur Weiterverareitung}
+\section{Bereitstellung der Klassifikation zur Weiterverarbeitung}
+    Drittsysteme sollen die Möglichkeit haben die Klassifikation für eine bestimmte Seite
+    vom \gls{wccs} anzufragen.
+
+    Das System bietet dazu zwei Alternativen.
+    Zum einen eine REST-Schnittstelle, mit der anhand der \gls{url} einer Seite
+    ihre Klassifikation angefragt wird.
+    Das Dokument verwendet das in Kapitel \ref{section:conceptPageDataModel}
+    vorgestellte Datenmodell.
+
+    Des Weiteren gewährt das System direkten Zugriff auf die Datenbank,
+    falls eigene Views o.Ä. erwünscht sind.

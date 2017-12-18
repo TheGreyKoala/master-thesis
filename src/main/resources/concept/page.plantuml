@@ -25,24 +25,13 @@ class Page {
     status : String = "Classified"
 }
 
-class RangeSelector {
-    type = "RangeSelector"
-    startSelector : Selector
-    endSelector : Selector
-}
-
 class Reference {
     destination : String
 }
 
 abstract class Selector {
     type : String
-}
-
-class XPathSelector {
-    type = "XPathSelector"
     value : String
-    offset : int
 }
 
 Content --|> FeatureCabable
@@ -52,7 +41,4 @@ Feature "1" --> "1" Selector : > Has
 FeatureCabable "1" --> "0..n" Content : > Has
 Page --|> FeatureCabable
 Reference "0..n" <-- "1" FeatureCabable : < Has
-RangeSelector "0..n" --> "2" Selector : > Uses
-Selector <|-- RangeSelector
-Selector <|-- XPathSelector
 @enduml

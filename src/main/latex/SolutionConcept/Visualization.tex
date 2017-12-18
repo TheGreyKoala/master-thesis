@@ -1,1 +1,30 @@
 \section{Visualisierung, Nachbesserung und Prüfung der Klassifikation}
+    \label{section:conceptVisualization}
+
+    \subsection{Web Annotationen}
+        Die Visualisierung der Klassifikation geschieht über Web Annotationen.
+        % TODO: LINK AUF W3C Standard.
+        Dadurch werden die klassifizierten Inhalte direkt in der Seite selbst hervorgehoben.
+
+        Eine Annotation ist dabei eine Referenz oder ein Content Feature ohne eigene Content Features.
+        Andernfalls würden sich die Annotationen ggf. mehrfach überlagern und man würde nichts mehr erkennen.
+        Eine Überlagerung ist zwar nicht ausgeschlossen, ist durch diese Maßnahme aber unwahrscheinlicher.
+        Außerdem ist die speziellste Klasse eines Features eh am interessantesten.
+        Der Inhalt der Annotation ist die Klasse des jeweiligen Features.
+
+        Neben der Visualisierung dienen Annotationen auch der Nachbesserung der Klassifikation.
+        Bearbeitet ein Nutzer eine Annotation, verändert er damit die Klasse des Features,
+        was dann so auch persistiert wird.
+
+        Das \gls{wccs} stellt ein entsprechende Erweiterung der JavaScript-Bibliothek Annotator bereit.
+
+        % TODO: Noch erwähnen, dass Klassifizierung nicht getriggert wird?
+        % TODO: SCREENSHOT?
+    
+    \subsection{Webanwendung}
+        Über Web Annotationen ist es nicht möglich alle Details einer Klassifikation darzustellen.
+        Oder einen Überblick über alle klassifizierten Seiten zu erhalten.
+        Zu diesem Zweck stellt das \gls{wccs} deshalb auch eine Webanwendung bereit,
+        die diese Informationen liefert.
+
+        % TODO: SCREENSHOT?

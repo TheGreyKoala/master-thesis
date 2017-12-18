@@ -1,1 +1,15 @@
-\section{Werkzeug zum Auffinden aller zu klassifizierenden Seiten}
+\section{Auffinden der zu klassifizierenden Seiten}
+    Das Klassifizierungssystem muss wissen, welche Seiten es klassifizieren soll.
+    Unter Umständen sehr viele Seiten, die man nicht manuell ermitteln und dem System
+    mitteilen möchte.
+
+    Motiviert durch den konkreten Fall der {\fernUni} enthält das \gls{wccs}
+    ein Kommandozeilenwerkzeug, welches alle öffentlichen Seiten einer
+    {\wordpress}-Installation ermittelt und die Klassifizierung anstößt.
+    Dazu verwendet es {\wordpress}' REST-Schnittstelle \cite{wordpress:RestAPI}.
+
+    Das ist sinnvoll, weil die immer da ist und man kein Plugin installieren muss,
+    wie z. B. https://de.wordpress.org/plugins/google-sitemap-generator/.
+    Außerdem ist es leicht als Links auf Seiten zu folgen.
+
+    % TODO: Muss man hier noch erklären, warum Sitemap im Front-End doof ist?
