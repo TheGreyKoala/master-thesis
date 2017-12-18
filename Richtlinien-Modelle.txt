@@ -1,0 +1,5 @@
+- Assoziationen sind gerichtet (-->)
+- Assoziationen sind beschriftet
+- Beschriftung einer Assoziation ist gerichtet
+- Beschriftung einer Assoziation ist in Englisch
+- Beschriftung einer Assoziation ist ein Verb und wird klein geschrieben

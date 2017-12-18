@@ -1,9 +1,17 @@
+!- Lösungskonzept
+!- Lösungsdetails
+!- Ergebnisse
+!- Diskussion der Ergebnisse
+!- Schluss
+!- Abstract
+!- Kapitel 1+2 überarbeiten
 !- Grundlagen zu Microservices
 !- Grundlagen zu DSLs
 !- Grundlagen zu Xtext
 !- Grundlagen zu Graphdatenbanken
 ?- Spezifikation der APIs erstellen und in Anhang
 ?- JSON-Schema für DSL Generat & Page Objekt?
+!- Im Konzeptkapitel steht, dass Features in einer Collection alle dieselbe Klasse haben, aber durch die Möglichkeit der Nachbesserung kann das umgangen werden!
 
 !- Ganzes System nochmal durchtesten
 !- Auslieferung zusammenpacken

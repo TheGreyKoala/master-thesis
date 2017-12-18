@@ -2,7 +2,7 @@
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node TEXT="Klassen, Features &amp; Selektoren" FOLDED="false" ID="ID_1704067425" CREATED="1511634391610" MODIFIED="1511634562905" STYLE="oval">
 <font SIZE="18"/>
-<hook NAME="MapStyle">
+<hook NAME="MapStyle" zoom="1.21">
     <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
@@ -85,6 +85,9 @@
 <node TEXT="Content" ID="ID_1942017909" CREATED="1511627255687" MODIFIED="1511634683746"/>
 <node TEXT="Reference" ID="ID_1110128538" CREATED="1511627263508" MODIFIED="1511634686410"/>
 </node>
+</node>
+<node TEXT="Ggf. Selector" ID="ID_707689978" CREATED="1513592528781" MODIFIED="1513592533565">
+<node TEXT="Weicht die mathematische Definition von Klasse auf, da n Aussagen zu einer Klasse f&#xfc;hren k&#xf6;nnen" ID="ID_139491470" CREATED="1513592533815" MODIFIED="1513592579064"/>
 </node>
 <node TEXT="Analog zu typisierten Variablen in anderen Programmiersprachen" ID="ID_817777456" CREATED="1511634923069" MODIFIED="1511634941134"/>
 <node TEXT="Mehrere Features mit derselben Klasse m&#xf6;glich" ID="ID_574434207" CREATED="1511619792668" MODIFIED="1511619803917"/>
