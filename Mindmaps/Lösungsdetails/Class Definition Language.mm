@@ -2,7 +2,7 @@
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node TEXT="Class Definition Language" FOLDED="false" ID="ID_1664177986" CREATED="1512810922197" MODIFIED="1512810929070" STYLE="oval">
 <font SIZE="18"/>
-<hook NAME="MapStyle">
+<hook NAME="MapStyle" zoom="1.331">
     <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
@@ -76,7 +76,7 @@
 <node TEXT="Coverage &amp; Completeness werden in Bewertung betrachtet" POSITION="left" ID="ID_35558098" CREATED="1512926567466" MODIFIED="1512926586346">
 <edge COLOR="#00007c"/>
 </node>
-<node TEXT="Sprachkonzepte" FOLDED="true" POSITION="left" ID="ID_321877630" CREATED="1512811296945" MODIFIED="1512924740695">
+<node TEXT="Sprachkonzepte" POSITION="left" ID="ID_321877630" CREATED="1512811296945" MODIFIED="1512924740695">
 <edge COLOR="#00ff00"/>
 <node TEXT="Linguistic Abstractions f&#xfc;r alle Konzepte, dadurch sehr deklarativ" ID="ID_483005855" CREATED="1512908252985" MODIFIED="1512921066690">
 <node TEXT="Was hei&#xdf;t das?" ID="ID_1417802635" CREATED="1513357248152" MODIFIED="1513357253440"/>
@@ -103,6 +103,14 @@
 <node TEXT="Deshalb gibt es f&#xfc;r jede Klassenart einen analogen Selektor-Typ" ID="ID_785540228" CREATED="1512823226431" MODIFIED="1512823248248"/>
 </node>
 </node>
+<node TEXT="FeatureCapableClass" ID="ID_395263961" CREATED="1512823060280" MODIFIED="1512823068681">
+<node TEXT="Einige Klassen k&#xf6;nnen Features haben" ID="ID_591789376" CREATED="1512823068962" MODIFIED="1512823286586"/>
+<node TEXT="Nicht jede Klasse kann Features haben" ID="ID_1250555559" CREATED="1512823286926" MODIFIED="1512823293615"/>
+<node TEXT="Deshalb eigenes Konzept" ID="ID_395394905" CREATED="1512823093112" MODIFIED="1512823097873"/>
+<node TEXT="Erbt von Class" ID="ID_1730878081" CREATED="1512823104440" MODIFIED="1512823108137"/>
+<node TEXT="Nur Conten- &amp; PageClass" ID="ID_1547670847" CREATED="1512823083352" MODIFIED="1512823089913"/>
+<node TEXT="Oberkonzept von Content- &amp; PageClass" ID="ID_776543300" CREATED="1512823111120" MODIFIED="1512823123657"/>
+</node>
 <node TEXT="FeatureClass" ID="ID_1790015943" CREATED="1512822972505" MODIFIED="1512823000194">
 <node TEXT="Features haben Klassen" ID="ID_58517415" CREATED="1512823036712" MODIFIED="1512823044329">
 <node TEXT="Siehe Konzept Kapitel" ID="ID_865613696" CREATED="1513357503982" MODIFIED="1513357508630"/>
@@ -112,14 +120,6 @@
 <node TEXT="Erbt von Class" ID="ID_692070124" CREATED="1512823015905" MODIFIED="1512823021186"/>
 <node TEXT="Content- &amp; Referenzclass k&#xf6;nnen als Klassen f&#xfc;r Features dienen" ID="ID_1620123444" CREATED="1512823000690" MODIFIED="1512823004730"/>
 <node TEXT="Oberkonzept von Content- &amp; ReferenceClass" ID="ID_632347648" CREATED="1512823021377" MODIFIED="1513357564943"/>
-</node>
-<node TEXT="FeatureCapableClass" ID="ID_395263961" CREATED="1512823060280" MODIFIED="1512823068681">
-<node TEXT="Einige Klassen k&#xf6;nnen Features haben" ID="ID_591789376" CREATED="1512823068962" MODIFIED="1512823286586"/>
-<node TEXT="Nicht jede Klasse kann Features haben" ID="ID_1250555559" CREATED="1512823286926" MODIFIED="1512823293615"/>
-<node TEXT="Deshalb eigenes Konzept" ID="ID_395394905" CREATED="1512823093112" MODIFIED="1512823097873"/>
-<node TEXT="Erbt von Class" ID="ID_1730878081" CREATED="1512823104440" MODIFIED="1512823108137"/>
-<node TEXT="Nur Conten- &amp; PageClass" ID="ID_1547670847" CREATED="1512823083352" MODIFIED="1512823089913"/>
-<node TEXT="Oberkonzept von Content- &amp; PageClass" ID="ID_776543300" CREATED="1512823111120" MODIFIED="1512823123657"/>
 </node>
 </node>
 <node TEXT="Features" FOLDED="true" ID="ID_1582433141" CREATED="1512823386870" MODIFIED="1512823390127">
@@ -146,7 +146,7 @@
 <node TEXT="Durch Klasse klar definiert" ID="ID_59107783" CREATED="1512823854828" MODIFIED="1512823873228"/>
 </node>
 </node>
-<node TEXT="Selektoren" ID="ID_1420130318" CREATED="1512823957970" MODIFIED="1512823960388">
+<node TEXT="Selektoren" FOLDED="true" ID="ID_1420130318" CREATED="1512823957970" MODIFIED="1512823960388">
 <node TEXT="Durch Konzept Selector dargestellt" ID="ID_1203881628" CREATED="1512824179875" MODIFIED="1512824189162"/>
 <node TEXT="Jede Selector hat einen Wert" ID="ID_712783651" CREATED="1512824678710" MODIFIED="1512824685756"/>
 <node TEXT="Ableitungen zur Strukturierung der Selektoren nach Eignung f&#xfc;r Klassentypen" ID="ID_84770277" CREATED="1512824201041" MODIFIED="1512824235098">
@@ -185,7 +185,7 @@
 </node>
 <node TEXT="Strukturelle Designentscheidungen" FOLDED="true" POSITION="right" ID="ID_1369362358" CREATED="1512811314671" MODIFIED="1512924934095">
 <edge COLOR="#ff00ff"/>
-<node TEXT="Separation of Concerns" ID="ID_722644807" CREATED="1512923063977" MODIFIED="1512925192524">
+<node TEXT="Separation of Concerns" FOLDED="true" ID="ID_722644807" CREATED="1512923063977" MODIFIED="1512925192524">
 <node TEXT="Btrachtung wichtig f&#xfc;r Entscheidung, ob alles in einer oder in viele Sprachen" ID="ID_1362466201" CREATED="1513428463421" MODIFIED="1513428477704">
 <node TEXT="Ein paar Grundlagen aus DSL Enginneering erkl&#xe4;ren" ID="ID_1009061185" CREATED="1513428635684" MODIFIED="1513428648788"/>
 </node>
