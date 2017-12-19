@@ -14,6 +14,8 @@
 !- Im Konzeptkapitel steht, dass Features in einer Collection alle dieselbe Klasse haben, aber durch die Möglichkeit der Nachbesserung kann das umgangen werden!
 !- Beschriftungen von Bildern etc. checken
 ?- Abkürzungsverzeichnis
+!- Ganzes Dokument auf Rechtschreibfehler prüfen
+?- Das Dokument in Parts einteilen?
 
 !- Ganzes System nochmal durchtesten
 !- Auslieferung zusammenpacken

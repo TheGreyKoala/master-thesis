@@ -2,7 +2,7 @@
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node TEXT="Architektur" FOLDED="false" ID="ID_112313344" CREATED="1511803887451" MODIFIED="1511803891586" STYLE="oval">
 <font SIZE="18"/>
-<hook NAME="MapStyle">
+<hook NAME="MapStyle" zoom="1.1">
     <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
