@@ -16,6 +16,7 @@
 ?- Abkürzungsverzeichnis
 !- Ganzes Dokument auf Rechtschreibfehler prüfen
 ?- Das Dokument in Parts einteilen?
+!- TODOs im Quelltext
 
 !- Ganzes System nochmal durchtesten
 !- Auslieferung zusammenpacken

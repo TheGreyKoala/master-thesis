@@ -1,5 +1,5 @@
 {
-	"pageTypes": { },
-	"contentTypes": { },
-	"referenceTypes": { }
+	"pageClasses": { },
+	"contentClasses": { },
+	"referenceClasses": { }
 }

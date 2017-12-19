@@ -1,0 +1,21 @@
+\subsection{Statische Semantik}
+    Die statische Semantik einer Sprache beschreibt alle Bedingungen,
+    die zum Zeitpunkt der Kompilierung eines Programmes erfüllt sein müssen.
+    \citet[Kapitel 4.3]{voelter:DslEngineering} unterteilt sie in zwei Kategorien:
+    Constraints und Type System Rules.
+
+    Die \gls{wccdl} besitzt kein komplexes Typsystem,
+    da an keiner Stelle Typen berechnet werden müssen.
+    Ein Großteil der Typbezogenen Regeln wird über Sprachkonzepte und Syntax (siehe unten)
+    sichergestellt.
+    Der Selektor einer Klasse hat speziellen Typ.
+    Als Feature dürfen nur bestimmte Klassen.
+
+    Allerdings gibt es einige Bedingungen, die nicht über Sprachkonzepte und Syntax gewährleistet werden können.
+    Hierfür implementiert die Sprache einige semantische Validierungen.
+    Dies sind:
+    Sicherstellen, dass Klassennamen global eindeutig sind.
+    Sicherstellen, dass die Namen der Features innerhalb einer Klasse eindeutig sind.
+    Sicherstellen, dass für jedes Feature ein Selektor ableitbar ist. Entweder über Klasse oder direkt über Feature.
+    Falls ein Feature selbst einen Selektor spezifiziert, muss dieser zur Klasse des Features passen.
+    Ein Selektor ist nicht leer und besteht nicht nur aus Leerzeichen.

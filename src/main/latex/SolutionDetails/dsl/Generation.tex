@@ -1,0 +1,64 @@
+\subsection{Generierung}
+    Alle Klassendefinitionen eines Projektes werden in ein JSON-Dokument generiert
+    und in einer Datei gespeichert.
+    Listing \ref{listing:dlsGenerationGlobal} zeigt die oberste Ebene dieses Dokumentes.
+
+    \lstinputlisting[
+        label=listing:dlsGenerationGlobal,
+        caption=Erste Ebene
+    ]{../resources/dsl/generation/global.json}
+
+    Im generierten Zustand werden die Klassendefinitionen weiterhin nach
+    Seiten-, Inhalts- und Referenzklassen unterteilt,
+    was im JSON-Dokument durch die Eigenschaften "`pageClasses"',
+    "`contentClasses"' und "`referenceClasses"' geschieht.
+    Jedes Objekte in diesen Properties ist eine Klasse.
+    Listing \ref{listing:dlsGenerationPageClass} zeigt dies am Beispiel
+    der Seitenklasse "`Service"'.
+
+    \lstinputlisting[
+        label=listing:dlsGenerationPageClass,
+        caption=Page Class
+    ]{../resources/dsl/generation/page-class.json}
+
+    Der Name der Klasse wird an zwei Stellen verwendet.
+    Zum einen als Name des Objektes, sodass eine Klasse anhand
+    ihres Namens direkt und eindeutig angesprochen werden kann,
+    ohne alle Klassen nach dem Namen zu filtern.
+    Außerdem wird der Name im Objekt selbst unter der Eigenschaft "`name"'
+    gespeichert, sodass das Objekt alleine auch identifizierbar ist.
+    Anschließend folgt die Eigenschaft "`selector"',
+    die den Selektor der Klasse speichert.
+    Dieses Objekt speichert den Typ des Selektors und seinen Wert.
+    Die verwendeten Werte für den Typ entsprechen den Namen der Sprachkonzepte:
+    "`CssSelector"', "`UrlPatternSelector"' und "`XPathSelector"'.
+    Im Beispiel ist zu sehen, dass das verwendete \gls{url} Pattern
+    escaped wurde, da einige Zeichen ansonsten von JSON-Interpretern
+    als Steuerzeichen interpretiert würden. %TODO: LINK AUF JSON ESCAPE SPEC!
+    Dieses escapen passiert automatisch während der Generierung und muss nicht
+    vom Entwickler vorgenommen werden.
+    Der Selektor einer Klasse ist niemals undefiniert, kann aber ein leeres Objekt sein.
+    In diesem Fall ist der Selektor vom Feature zu beziehen.
+
+    Seiten und Inhaltsklassen können Features enthalten.
+    Im JSON-Dokument werden diese nach Content und Reference Features unterteilt
+    und in den Eigenschaften "`contents"' und "`references"' gespeichert.
+    Die Struktur eines Features im JSON-Dokument zeigt Listing
+    \ref{listing:dlsGenerationFeature} am Beispiel des Content Features "`pageHeading"'.
+
+    \lstinputlisting[
+        label=listing:dlsGenerationFeature,
+        caption=Feature
+    ]{../resources/dsl/generation/page-heading-feature.json}
+
+    Wie schon bei Klassen wird der Name des Features sowohl als Name des Objektes
+    als auch innerhalb des Objektes selbst verwendet.
+    Neben dem Namen enthält ein Feature die Eigenschaft "`class"',
+    welche den Namen ihrer Klasse speichert. Dabei handelt es sich immer
+    um den Namen einer Klasse aus "`contentClasses"' oder "`referenceClasses"'.
+    Das JSON-Dokument ist also in sich geschlossen und hat keine Verweise auf andere {\resources}.
+    Darüber hinaus besitzt jedes Feature die Eigenschaft "`isCollection"',
+    die entweder "`true"' oder "`false"' sein kann und definiert,
+    ob es sich um ein Collection Feature handelt oder nicht.
+    Wie Klassen enthält auch ein Feature einen Selektor.
+    Ist dieser leer, ist der Selektor der Klasse zu verwenden.

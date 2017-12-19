@@ -1,0 +1,18 @@
+\subsection{Dynamische Semantik}
+    Die dynamische Semantik eines Programmes beschreibt sein Verhalten
+    während der Laufzeit. Deshalb wird sie auch als Execution Semantics bezeichnet
+    \cite[Kapitel 4.3]{voelter:DslEngineering}.
+
+    Die \gls{wccdl} ist eine rein deklarative Sprache.
+    Sie beschreibt keinen Kontrollfluss sondern lediglich
+    Klassen, deren Struktur (Features) und Selektoren,
+    anhand derer Klassifizierungswerkzeuge Klassen und Features erkennen.
+    Wie diese Informationen verarbeitet werden, spielt für die Sprache keine Rolle.
+
+    Entsprechend wird der Programmcode nicht in ein ausführbares Programm übersetzt,
+    sondern lediglich in ein anderes Beschreibungsformat
+    (siehe Kapitel \ref{section:conceptDslGeneration}).
+
+    Bezüglich des Laufzeitverhaltens trägt die \gls{wccdl}
+    deshalb lediglich die Verantwortung eine Klassendefinition
+    korrekt zu übersetzen.
