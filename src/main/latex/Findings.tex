@@ -1,7 +1,12 @@
 \chapter{Ergebnisse}
     \label{chapter:Findings}
     % http://www.fernuni-hagen.de/KSW/portale/babw/einstieg/lehrende-und-betreuende-im-b-a-bildungswissenschaft/
-    % Einfache Seite, wo Automatisierung viel bringt
+    % Seite, wo Automatisierung viel bringt
+    % Telefonnummer schwierig: XPath: substring-before(substring-after(p, 'Tel.: '),'\n')
+    % Dazu müsste System noch erweitert werden:
+    % - Result Type ist hier anders. Es gibt kein iterateNext. D.h. nur den String auslesen
+    % - Node wäre der gleiche wie Parent Node
+    % - Offset müsste genau berechnet werden.
 
     % http://www.fernuni-hagen.de/KSW/portale/lehre/bachelor-und-master-studiengaenge/
     % Da kann man gut Xpath nutzen:
