@@ -21,3 +21,13 @@
     % --- Wie gut lässt sie sich lesen?
     % --- Wie gut lässt sie sich schreiben?
     % -- Wie sinnvoll ist das Sharen der Nodes tatsächlich?
+
+    % Es ist schwierig einen Selektor zu finden, der auf alles auf EINER Seite und auf ALLE Portale passt:
+    % - Telefonnumer in Lehrende:
+    % -- Was im eclipse Projekt steht, passt nicht auf Nils Arne (http://www.fernuni-hagen.de/KSW/portale/bapvs/einstieg/lehrende-und-betreuende-im-b-a-pvs/),
+    % -- weil im Quelltext nach der Nummer kein Zeilenumbruch steht.
+    % -- Das passende Statement wäre:
+    % -- substring-before(concat(substring-after(normalize-space(.//text()[contains(., 'Tel')]), 'Tel.: '), '\n'), '\n')
+    % - Außerdem werden die Namen auf einer Seite fett, auf der anderen als Link. Macht matching schwer.
+    % - Bei Christopher Dorn ist die Node Struktur (team-member-des) plötzlich anders
+    % - Bei manchen heißt es Telefon anstatt Tel

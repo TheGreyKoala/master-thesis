@@ -1,21 +1,122 @@
 \subsection{Konkrete Syntax und deren Grammatik}
+    Dieses Kapitel geht auf die konkrete Syntax der DSL
+    und deren Grammatik ein.
+    Die vollständige Grammatik ist in Anhang \ref{appendix:dsl}
+    in Listing \ref{listing:dlsGrammar} zu finden.
+    
+    Zur Veranschaulichung zeigt Listing \ref{listing:dlsExample} dazu ein Beispiel.
+    Da es sich um eine deklarative Sprache handelt,
+    sind wie zu sehen viele Schlüsselwörter beschreibend formuliert und verwenden
+    den Indikativ anstelle des Imperativs.
+    Die Intention der konkreten Syntax ist es, eine Klassendefinition
+    so zu formulieren, dass sie als englischer Satz gelesen werden kann.
+
     \lstinputlisting[
         label=listing:dlsExample,
         caption=Beispielhafte Klassendeklaration,
         language=wccdl,
-        inputencoding=utf8/latin1]{../resources/dsl/example.wccd}    
+        inputencoding=utf8/latin1]{../resources/dsl/example.wccd}
+    
+    Dieses Beispiel definiert die Seitenklasse Service mit einem \gls{url}-Pattern-Selektor
+    und den beiden Features pageHeading und images.
+    Erstere hat die Inhaltsklasse PageHeading, die ebenfalls im Beispiel definiert wird.
+    Das Feature definiert einen eigenen CSS-Selektor.
+    Das Feature image ist hingegen ein Referenzfeature vom Typ Image und überschreibt
+    den Selektor der Klasse mit einem eigenen.
+
+    Wie aus dem Beispiel hervor geht, ist ein Programm in der DSL eine Sammlung
+    von Klassendefinitionen, die deklarativ beschrieben werden.
+    Die formale Grammatik einer solchen Definition zeigt Listing \ref{listing:dlsGrammarClasses}.
+
     \lstinputlisting[
         label=listing:dlsGrammarClasses,
         caption=Klassen in der Grammatik der DSL,
         language=wccdl,
         inputencoding=utf8/latin1]{../resources/dsl/grammar/classes.xtext}
-    \lstinputlisting[
-        label=listing:dlsGrammarSelectors,
-        caption=Selektoren in der Grammatik der DSL,
-        language=wccdl,
-        inputencoding=utf8/latin1]{../resources/dsl/grammar/selectors.xtext}
+
+    Jede Klassendefinition beginnt mit einer Folge von Schlüsselwörtern,
+    die festlegen, um welche Art von Klasse es sich handelt.
+    Die Definition einer Seitenklassen wird demnach mit "`page class"',
+    die einer Inhaltsklassen durch "`content class"' und die einer
+    Referenzklassen durch "`reference class"' angefangen.
+    Anschließend folgt der Name der Klasse, der ein Identifier gemäß
+    der Xtext-Terminal Rule ID sein muss.
+
+    Dem Namen kann die Definition des Selektors folgen,
+    was durch die Schlüsselwortsequenz "`is recognized by"' geschieht.
+    Jede Klasse verwendet dabei eine andere Regel,
+    wodurch syntaktisch sichergestellt ist, dass nur semantisch korrekte Selektoren
+    verwendet werden.
+    Die Syntax eines Selektors wird weiter unten beschrieben.
+    Bei Inhalts- und Referenzklassen ist der Selektor optional,
+    was man im Beispiel an der Klasse Image sieht.
+    In der Grammatik wird das durch die entsprechende Kardinalität deutlich.
+    Bei Seitenklassen ist der Selektor nicht optional.
+    
+    Im Falle von Seiten- und Inhaltsklassen kann anschließend optional die Deklaration von Features folgen.
+    Bei Referenzen ist da gemäß Konzept nicht möglich.
+    Die Deklaration der Features wird durch das Schlüsselwort "`classifies"' eingeleitet.
+    Dem muss mindestens eine Featuredeklaration folgen, es können aber beliebig viele sein.
+
+    Die formale Grammatik eines Features ist in Listing \ref{listing:dlsGrammarFeatures} zu sehen.
+
     \lstinputlisting[
         label=listing:dlsGrammarFeatures,
         caption=Features in der Grammatik der DSL,
         language=wccdl,
         inputencoding=utf8/latin1]{../resources/dsl/grammar/features.xtext}
+
+    Eine Deklaration eines Features beginnt mit der Angabe des Namens des Features
+    (in der Grammatik durch die Regeln "`ScalarFeature"' und "`CollectionFeature"' realisiert),
+    wobei wiederum auf die Terminal-Regel ID zurückgegriffen wird.
+    Anschließend folgt das Schlüsselwort "`as"' welches die Angabe der Klasse
+    des Features einleitet.
+    Soll das Feature allerdings ein CollectionFeature sein, folgt zunächst das
+    Schlüsselwort "`many"' und anschließend erst der Name der Klasse.
+    Dies muss gemäß Konzept eine FeatureClass sein, was entweder eine
+    Inhalts- oder eine Referenzklasse sein kann.
+    Der Klasse kann ein Selektor folgen.
+    Bei ScalarFeatures wird dies durch das Schlüsselwort "`by"',
+    im Falle von CollectionFeatures hingegen durch "`each by"' begonnen.
+    Der Selektor muss ein FeatureSelector sein.
+    Darunter fallen alle Selektoren, die zum Selektieren von Contents oder References geeignet sind.
+    Leider kann die Regel FeatureSelector nicht auf ContentSelector | ReferenceSelector verweisen,
+    weil dadurch eine Doppeldeutigkeit entstünde, die Xtext nicht auflösen kann.
+    Im Beispiel definieren beide Features der Seitenklasse einen Selektor.
+
+    Die Syntax von Selektoren ist für Klassen und Features identisch
+    und ist durch die Grammatik in Listing \ref{listing:dlsGrammarSelectors} definiert.
+
+    \lstinputlisting[
+        label=listing:dlsGrammarSelectors,
+        caption=Selektoren in der Grammatik der DSL,
+        language=wccdl,
+        inputencoding=utf8/latin1]{../resources/dsl/grammar/selectors.xtext}
+
+    Die Definition eines Selektors beginnt mit einem Schlüsselwort,
+    welches die Art des konkreten Selektors bestimmt.
+    In der Grammatik passiert das durch die Regeln
+    CssSelector, UrlPatternSelector und XPathSelector.
+    Demnach beginnt ein Selektor mit "`css"', "`url pattern"' oder "`xpath"'.
+    Anschließend folgt in jedem Fall die Definition des Selektors,
+    die durch {\flqq } und {\frqq } umschlossen wird.
+    Dazwischen können beliebige Zeichen folgen, wobei die Definition mindestens ein Zeichen umfassen muss.
+    Ausgenommen sind Zeichen für Backspace, Formfeed, Linebreak, Carriage Return und Tab.
+    Kein Zeichen muss escaped werden, wie in anderen Sprachen.
+    Das macht die Formulierung besonders einfach.
+    Zum Beispiel im UrlPatternSelector muss der Back-Slash nicht escaped werden.
+    Das ist gut, weil \glspl{url} enthalten oft einen Slash, der in Regex
+    durch Backslash escaped werden muss.
+    Der Backslash muss aber nicht escaped werden, was in anderen Sprachen notwendig wäre.
+    Dies wird durch die Terminal Regel SELECTOR\_VALUE in der Grammatik umgesetzt.
+    Hier wird bewusst nicht die Xtext-Regel STRING verwendet.
+    Da müssen Backslash sowie einfache und doppelte Anführungszeichen escaped werden.
+    Erlaubt außerdem Zeilenumbrüche innerhalb des Textes zu haben,
+    was Selektoren ohne spezielle Nachbehandlung kaputt machen könnte (Regex oder XPath erauben kein Zeilenumbruch).
+    Außerdem macht es die Selektoren schlechter lesbar.
+    Es werden keine Anführungszeichen verwendet, weil damit viele Strings verbinden
+    und ggf. gewisse Erwartungen nicht erfüllt werden. Wie z.B. Dinge escapen zu müssen.
+    Außerdem escaped ein Backslash vor dem schließenden Anführungszeichen dieses Zeichen
+    und der Text wird nicht abgeschlossen. Also auch ein technischer Grund.
+    Und es ist semantisch nicht unbedingt ein String.
+    Sprache könnte auch erweitert werden, sodass Code da drin syntaktisch geprüft wird.

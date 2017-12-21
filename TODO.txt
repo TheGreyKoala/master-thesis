@@ -34,11 +34,18 @@
 !- Labels und Properties in der DB heißen noch falsch
 
 - Classification Service
-!- Konfigurationsdatei hat doofen Namen
+!- Konfigurationsdatei hat doofen Namen (besser: classification-model.json)
 
 - Storage
 !- Volume für Neo4J
 !- Indexe auf neue Namen, sobald in Storage API gefixt
+
+- Annotator Plugin
+!- if-Prüfung in Zeile 43 doof. Was, wenn annotation.wccs schon fehlt?
+!- Wofür war die Anpassung in annotator-full.js? Die Macht das neue XPath Feature kaputt.
+
+- Sprache
+?- Wenn in XPath ein String angegeben wird und darin ein \n, wird das zu viel escaped.
 
 - Selektor eines Features in Beziehung zu speichern, trägt nicht zur Wiederverwendbarkeit Beziehung
 -- Selektor ist immer absolut. Er enthält kompletten Pfad seines Parent Features.

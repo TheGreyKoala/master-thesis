@@ -1,12 +1,3 @@
-ClassificationModel:
-	(classes+=Class)*;
-
-Class:
-	FeatureCapableClass | ReferenceClass;
-
-FeatureCapableClass:
-	ContentClass | PageClass;
-
 ContentClass:
 	'content' 'class' name=ID
 	('is' 'recognized' 'by' selector=ContentSelector)?
