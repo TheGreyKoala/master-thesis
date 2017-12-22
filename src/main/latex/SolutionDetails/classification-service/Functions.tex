@@ -39,7 +39,7 @@
     Diese Funktion wird später zum Beispiel vom Annotator Plugin genutzt,
     um die Auswahlboxen zu füllen. Siehe Kapitel \ref{section:solutionDetailsAnnotatorPlugin}.
     Dazu bietet der Service drei Endpunkte, die sich nur in ihrer \gls{url} unterscheiden.
-    Tabelle \ref{} zeigt die Schnittstelle.
+    Tabelle \ref{table:getClassesInterface} zeigt die Schnittstelle.
 
     \begin{table}[htb]
         \centering
@@ -55,7 +55,7 @@
         \hline
         \end{tabular}
         \caption{Schnittstelle zum Abfragen des aktuellen Klassifizierungsmodells}
-        \label{table:startClassificationInterface}
+        \label{table:getClassesInterface}
     \end{table}
 
     Das Ausgabedokument kapselt die Klassen in einem neuen Dokument,
@@ -64,4 +64,4 @@
     Das Feld "`total"' enthält dann die Anzahl aller Klassen.
     Das Feld "`classes"' enthält die Klassen gesammelt in einem Array.
     Ein einzelnes Klassenobjekt folgt dem des DSL Generats.
-    Siehe Kapitel \ref{section:conceptDslGeneration}.
+    Siehe Kapitel \ref{section:solutionDetailsDslGeneration}.

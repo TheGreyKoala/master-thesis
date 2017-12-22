@@ -1,0 +1,11 @@
+\subsection{Datenbank / Technologien}
+    Das \gls{wccs} setzt auf das Graphdatenbanksystem Neo4J in der Version 3.3.1
+    Diese bietet verschiedenen Schnittstellen, die Nutzern des Systems ebenfalls über die jeweiligen Standardports offen stehen.
+    Dabei handelt es sich um eine REST-Schnittstelle, % TODO: https://neo4j.com/docs/rest-docs/3.3/
+    eine HTTP API zur Ausführung von Cypher Queries % TODO: https://neo4j.com/docs/developer-manual/3.3/http-api/
+    und eine API, die ein Binärprotokoll verwendet. %TODO: https://neo4j.com/docs/developer-manual/3.3/drivers/
+
+    Das System stellt beim Starten automatisch Unique Property Constraints % TODO http://neo4j.com/docs/developer-manual/3.3/cypher/schema/constraints/#query-constraint-unique-nodes
+    für die folgenden Kombinationen aus Label und Property:
+    :Text(value), :Content(checksum), :Resource(url), :Site(id).
+    Dadurch werden automatisch auch Indexe auf diesen Kombinationen erzeugt.

@@ -1,0 +1,11 @@
+@startuml
+!include c5.plantuml
+!include r1.plantuml
+!include r2.plantuml
+
+scale 3840*2160
+left to right direction
+
+generalInformationContent --> image : rel9 : References
+generalInformationContent --> otherPage : rel10 : References
+@enduml
