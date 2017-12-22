@@ -1,0 +1,67 @@
+\subsection{Funktionen und Schnitstellen}
+    Der Classification Service biete verschiedene Funktionen,
+    die über eine REST-Schnittstelle angesprochen werden können.
+    In diesem Abschnitt werden die Funktionen und die zugehörigen
+    REST-Endpunkte beschrieben.
+    Diese Beschreibung enthält die \gls{url}, die HTTP-Methode,
+    verallgemeinerte Ein- bzw. Ausgabedokumente und den HTTP-Status
+    der Antwort im Erfolgsfall.
+
+    \paragraph{Klassifizierung}
+    Die Hauptaufgabe des Classification Services ist die Klassifizierung einer Webseite
+    und die Speicherung der resultierenden Klassifikation.
+    Dazu bietet sie den Endpunkt in Tabelle \ref{table:startClassificationInterface}.
+
+    \begin{table}[htb]
+        \centering
+        \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Endpunkt} & \texttt{http://<HOST>:44284/classifications}\\
+        \hline
+        \textbf{Methode} & \texttt{POST}\\
+        \hline
+        \textbf{Eingabedokument} & \lstinputlisting{../resources/classification-service/tasks.json}\\
+        \hline
+        \textbf{Status} & \texttt{202 (Accepted)}\\
+        \hline
+        \end{tabular}
+        \caption{Schnittstelle zum Starten einer Klassifizierung}
+        \label{table:startClassificationInterface}
+    \end{table}
+
+    Das Eingabedokument kann sowohl mehrere Sites als auch mehrere Seiten innerhalb einer Sites enthalten.
+    Dadurch können dem Service in einer Anfrage mehrere zu klassifizierende Seiten genannt werden.
+    Die Site wird nur für die spätere Zuordnung z. B. in der WebApp benötigt und kann beliebig sein.
+
+    \paragraph{Klassifizierungsmodell abfragen}
+    Der Service biete außerdem die Möglichkeit die aktuellen Klassen,
+    die er für eine Klassifizierung verwendet abzufragen.
+    Diese Funktion wird später zum Beispiel vom Annotator Plugin genutzt,
+    um die Auswahlboxen zu füllen. Siehe Kapitel \ref{section:solutionDetailsAnnotatorPlugin}.
+    Dazu bietet der Service drei Endpunkte, die sich nur in ihrer \gls{url} unterscheiden.
+    Tabelle \ref{} zeigt die Schnittstelle.
+
+    \begin{table}[htb]
+        \centering
+        \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Endpunkt} & \texttt{http://<HOST>:44284/[page | content | reference]-class}\\
+        \hline
+        \textbf{Methode} & \texttt{GET}\\
+        \hline
+        \textbf{Status} & \texttt{200 (OK)}\\
+        \hline
+        \textbf{Ausgabedokument} & \lstinputlisting{../resources/classification-service/classes.json}\\
+        \hline
+        \end{tabular}
+        \caption{Schnittstelle zum Abfragen des aktuellen Klassifizierungsmodells}
+        \label{table:startClassificationInterface}
+    \end{table}
+
+    Das Ausgabedokument kapselt die Klassen in einem neuen Dokument,
+    welches neben den eigentlichen Klassen auch die Anzahl aller Klassen enthält.
+    Das wurde gemacht, um schon jetzt kompatibel für eine Paginierung des Ergebnisses zu sein.
+    Das Feld "`total"' enthält dann die Anzahl aller Klassen.
+    Das Feld "`classes"' enthält die Klassen gesammelt in einem Array.
+    Ein einzelnes Klassenobjekt folgt dem des DSL Generats.
+    Siehe Kapitel \ref{section:conceptDslGeneration}.

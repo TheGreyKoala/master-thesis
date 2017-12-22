@@ -1,0 +1,161 @@
+\subsection{Klassifizierung}
+    Dieser Abschnitt geht detaillierter auf die tatsächliche Klassifizierung ein
+    und beschreibt einige Implementierungsaspekte.
+
+    \paragraph{Ablauf}
+    Die Klassifizierung folgt einem Algorithmus,
+    der rekursiv die Features einer Seitenklasse abarbeitet und nach Entsprechungen
+    auf der aktuellen Seite sucht.
+    Dieser Algorithmus wird für jeden \gls{url} einer Webseite im  Request durchgeführt.
+    Er ist in Listing \ref{listing:classificationAlg} skizziert.
+
+    \lstinputlisting[
+        label=listing:classificationAlg,
+        caption=Klassifizierungsalgorithmus,
+        style=pseudo
+    ]{../resources/classification.code}
+
+    Wie in Kapitel \ref{section:conceptClassificationDataSource} beschrieben
+    nutzt die Klassifizierung das HTML-Dokument einer Seite.
+    Deshalb wird die Webseite zunächst über ihre \gls{url} geöffnet und ihr HTML-Dokument geparst,
+    wodurch ein HTML-DOM entsteht.% TODO Referenz: (https://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/)
+    Anschließend wird die Klasse der Seite ermittelt, indem der Selektor jeder bekannten
+    Seitenklasse auf die Seite angewandt wird, bis ein Treffer gefunden wurde.
+    Bei dem Selektor handelt es sich konkret um einen \gls{url}-Pattern-Selektor,
+    weshalb dieser Selektor als regulärer Ausdruch interpretiert wird,
+    der auf die \gls{url} angewandt wird.
+    Danach werden die Features der Klasse auf der Seite ermittelt,
+    wozu die Funktion "`classify"' aufgerufen wird.
+    Diese erwartet eine Liste an Feature-Definitionen und einen HTML-Node,
+    der als Kontextobjekt dient und innerhalb dem nach Features gesucht wird.
+    Im ersten Schritt ist dies das "`document"' Objekt. %TODO: Referenz
+    Für jedes Feature durchläuft die Funktion die gleichen Schritte.
+    Zunächst sucht sie innerhalb des Kontextobjektes nach allen Knoten,
+    die dem Selektor des aktuellen Features entsprechen.
+    Falls das Feature ein Skalarfeature ist, verwirft sie alle gefundenen Knoten bis auf den ersten.
+    Die an diesem Punkt erhaltenen Knoten werden mit der Klasse des Features klassifiziert,
+    was für jeden Knoten gespeichert wird.
+    Neben dieser Information wird außerdem der eindeutige Selektor des Knotens bestimmt und ebenfalls gespeichert.
+    Siehe Kapitel \ref{section:conceptPageDataModel}.
+    Ist da Feature ein ContentFeature, ruft sich die Funktion rekursiv für jeden gefundenen Knoten selbst auf.
+    Dazu verwendet es die Features der aktuellen Feature-Klasse sowie de aktuellen Knoten als Parameter.
+
+    \paragraph{Browserautomatisierung}
+    Die Herausforderung bei der Implementierung des oben beschriebenen Algorithmus
+    ist die Auswertung der Selektoren und das damit verbundenen Parsen des \gls{html}-Dokumentes.
+    Das \gls{wccs} setzt zur Bewältigung dieser Aufgabe auf die Automatisierung eines Browsers.
+    Konkret verwendet es die Bibliothek
+    Puppeteer\footnote{\url{https://github.com/GoogleChrome/puppeteer}},
+    mit deren Hilfe sich der Browser Google Chrome in einem "`Headless"'-Modus starten und anschließend steuern lässt.
+    Das bedeutet, dass der Browser ohne Oberfläche gestartet wird und über eine API gesteuert werden kann.
+    %TODO: Referenz: https://developers.google.com/web/updates/2017/04/headless-chrome
+    Die von Puppeteer und Headless Chrome bereitgestellte API ist bereits mächtig und ausgereift genug,
+    um die Anforderungen des \gls{wccs} zu erfüllen.
+
+    Der wichtigste Vorteil der Nutzung eines echten Browsers ist seine ausgereifte und umfangreiche Implementierung
+    als Parser von \gls{html}, CSS-Selektoren und XPath, sowie der Auswertung von CSS und XPath-Ausdrücken.
+    Ein weiterer Vorteil ist, dass der Browser das JavaScript auf der Seite ausführt,
+    was den Inhalt der Seite ggf. entscheidend beeinflust in Bezug auf die Klassifizierung.
+    % TODO: Erwähnen, dass das für spätere Skript-Selektoren auch nützlich ist?
+
+    \paragraph{Selektoren}
+    Dank der Verwendung von Puppeteer erweist sich die Umsetzung der Selektoren weitaus einfacher.
+    Der CSS-Selektor kann auf die Methode "`querySelectorAll"' zurückgreifen,
+    die sowohl auf dem document als auch auf beliebigen \gls{html}-Nodes verfügbar ist.
+    % TODO: Referenz: https://www.w3.org/TR/2013/REC-selectors-api-20130221/
+    Das in Listing \ref{c} dargestellte Verfahren wird also unterstützt.
+    Diese Methode nimmt einen CSS-Selektor als String entgegen und führt ihn im Kontext des
+    Nodes, auf dem sie aufgerufen wurde, aus.
+    Ihr Ergebnis sind alle Knoten innerhalb des Kontextobjektes,
+    auf die der Selektor zutrifft.
+    Wie in Kapitel \ref{section:conceptSupportedSelectors} erläutert,
+    wertet diese Methode den Selektor global aus, liefert allerdings nur Nodes,
+    die Kinder des Kontextobjektes sind.
+
+    Ein XPath-Selector wird hingegen über die Methdoe "`evaluate"' des document Objektes realisiert.
+    % TODO: Ref: https://developer.mozilla.org/en-US/docs/Web/API/Document/evaluate
+    Diese Methode erwartet neben dem XPath-Ausdruck auch ein Kontextobjekt,
+    sodass auch hier der beschriebene Algorithmus leicht realisiert werden kann.
+    
+    % TODO: Soll das vielleicht ins Konzept-Kapitel?
+    Das Ergebnis eines XPath-Ausdruckes kann eine Liste von Nodes, ein String,
+    ein Boolean oder eine Number sein.
+    Boolean und Number werden vom System nicht unterstützt und als "`Kein Match gefunden"' gewertet.
+    Bei Nodess läuft der Algorithmus wie im Listing beschrieben weiter.
+    Bei Strings wird die Rekursion allerdings unterbrochen, da kein neuer Knoten vorhanden ist.
+    Auch wenn die Klasse des Strings Features hat, sind diese dann nicht in der Klassifikation.
+    Der String wird entwendet als textueller Inhalt des Features (siehe unten) oder als Ziel
+    eines ReferenceFeatures genutzt.
+    Der eindeutige Selektor wird auf Basis des Parent Nodes ermittelt, da dieser den Text enthält.
+    Start- und Endoffset bestimmen, wo im innerText des Nodes sich der String befindet.
+
+    Der \gls{url}-Pattern-Selektor ist für Seiten in Features unterschiedlich implementiert.
+    Für Seiten wird er einfach auf die \gls{url} angewandt, wie in Listing \ref{listing:classificationAlg} zu sehen.
+    Für Features arbeitet er anders.
+    Zunächst werden innerhalb des Kontextobjektes alle Nodes gesucht, die {\resources} referenzieren.
+    Das sind alle Nodes, die eines der Attribute "`href"', "`src"' oder "`srcset"' besitzen.
+    % TODO: Ref: (siehe Mindmap
+    Um diese Nodes zu finden wird zunächst wird der CSS-Selektor "`[href], [src], [srcset]"' auf dem Kontextobjekt angewandt.
+    Anschließend wird für jeden gefundenen Node der Wert des jeweiligen Attributes ausgelesen
+    und der reguläre Ausdruck des \gls{url}-Selektors auf ihm angewandt.
+    Bei einem Match wird der Node ins Ergebnis aufgenommen.
+
+    Aus diesen Beschreibungen folgt, dass Selektoren selbst keine Unterscheidung bzgl.
+    der Kardinalität eines Features machen.
+    Stattdessen liefern sie immer alle Treffer und überlassen dem Aufrufer die Aufgabe zu entscheiden,
+    welche Nodes er verwendet.
+    Das wird auch in Listing \ref{listing:classificationAlg} deutlich.
+    
+    \paragraph{Textueller Inhalt oder Ziel eines Features}
+    Wie in Kapitel \ref{section:conceptPageDataModel} beschrieben speichert
+    ein Content Feature seinen textuellen Inhalt und ein Reference Feature die \gls{url} seines Ziels.
+    Bei Content Features gilt allerdings die Einschränkung, dass nur solche Features ihren textuellen Inhalt speichern,
+    deren Klasse selbst keine Content Features besitzt.
+    Der Grund ist, dass durch Child Features der Text spezieller klassifiziert und in diesen Features
+    feingranularer gespeichert werden kann.
+    Die entsprechenden Werte für Inhalt und Ziel müssen während der Klassifizierung ermittelt werden.
+
+    Für Text eines Content Features ist die Eigenschaft "`innerText"' des zugehörigen Nodes.
+    Anders als "`textContent"' enthält diese Eigenschaft nur den gerenderten Text, d.h. das, was ein Webseitenbesucher sieht.
+    % TODO: Ref: https://html.spec.whatwg.org/#the-innertext-idl-attribute
+    Die Eigenschaft "`textContent"' enthält auch Kommentare, style und script-Tags oder Zeilenumbrüche des Quelltextes.
+    Für den vorliegenden Anwendungsfall ist "`innerText"' deshalb besser geeignet.
+
+    \paragraph{Bestimmung eines eindeutigen Selektors}
+    Am Ende der Klassifizierung liegt ein Dokument vor, dass dem Datenmodell aus Kapitel \ref{section:conceptPageDataModel} entspricht.
+    Dazu muss für jeden Node ein eindeutiger Selektor ermittelt werden,
+    der zwei Anwendungsfälle hat.
+    Annotator soll ihn Nutzen, die Knoten hervorzuheben.
+    Drittsysteme sollen bei Bedarf den aktuellen Text / Ziel des Knotes ermittelt können.
+    Das \gls{wccs} folgt dabei dem Format von Annotator, welches wiederum auf der Selection DOM-API basiert.
+    % TODO: Ref: https://developer.mozilla.org/en-US/docs/Web/API/Selection
+    Ein Selektor ist demnach ein RangeSelector.
+    Die Range besteht zwischen zwei Punkten,
+    die über XPath-Selektoren und start und endOffset bestimmt werden.
+    Zur Bestimmung der Werte gibt es API, die man nutzen kann, um z. B. einen Node auszuwählen.
+    Das ist das was man bräuchte.
+    Allerdings geht Annotator anders vor.
+    Annotator bestimmt den ersten Text-Node und geht solange immer tiefer
+    in die ersten Child-Nodes, bis es einen Text-Node findet.
+    Der wird dann ausgewählt.
+    Das Ergebnis ist, dass Ranges, die über die API ermittelt wurden,
+    nicht mit Annotator kompatibel sind und Bereichne nicht richtig hervorgehoben werden.
+    Die Logik von Annotator könnte jetzt nachgebaut werden, aber das wäre semantisch falsch.
+    Wir selektieren einen meistens einen ganzen Node und wollen für den den Selektor.
+    Nicht für den ersten Text Node, der ggf. erst im Dritten Child Node kommt.
+    Das wäre auch für Drittsysteme schwer, die die schwere Logik immer nachbauen müssten.
+    Das \gls{wccs} verwendet einen Mittelweg, der beide Fälle gut genug abdeckt.
+    Der XPath selektiert immer den konkreten Node und ist meistens für Start und Ende gleich.
+    Er folgt dem Algorithmus von Annotator, welcher sich die Vaterkette der Nodes hocharbeitet,
+    die Namen der besuchten Nodes durch einen Slash getrennt aneinanderhängt
+    und außerdem die Position eines Nodes innerhalb des Parents anhängt.
+    Beispiel: /html[1]/body[1]/div[2]/header[1].
+    Startoffset ist 0, Endoffset ist die Länge von innerText.
+    Das ist leicht erklär- und nachvollziehbar für Drittsysteme und führt bei Annotator meistens zum richtigen Ergebnis.
+    Ein Spezialfall ist, wenn über XPath ein String ausgewählt wurde.
+    Xpath ist weiterhin der des Nodes, Startoffset ist aber die Startposition des Strings innerhalb des innerTextes des Nodes.
+    Endoffset ist startOffset + Länge des Strings.
+    Sie markieren also die Position des String innerhalb des innerTexts.
+    Das ist immernoch gut für Drittsysteme, führt bei Annotator aber manchmal zu leichten Verschiebungen der Hervorhebung.
+
+    % TODO: Ist das interessant? \paragraph{Limitierung der gleichzeitig ausgeführten Klassifizierungen}

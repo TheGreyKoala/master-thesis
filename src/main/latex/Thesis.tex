@@ -24,23 +24,6 @@
 \usepackage{subcaption}
 \usepackage{color}
 
-\lstset {
-	language = Java,
-	basicstyle = \ttfamily\small,
-	numberstyle = \footnotesize,
-	showspaces = false,
-	showtabs = false,
-	showstringspaces = false,
-	frame = single,
-	tabsize = 4,
-	captionpos = b,
-	breaklines = true,
-	numbers = left,
-	breakatwhitespace = true,
-	upquote=true,
-	keywordstyle=\color{blue}
-}
-
 \lstdefinelanguage{wccdl}{
 	morekeywords={
 		as,
@@ -63,7 +46,7 @@
 	sensitive=true
 }
 
-\lstset {
+\lstdefinestyle{Xtext} {
 	language = wccdl,
 	basicstyle = \ttfamily\small,
 	numberstyle = \footnotesize,
@@ -79,6 +62,40 @@
 	upquote=true,
 	keywordstyle=\color{blue},
 	stringstyle=\color{green}
+}
+
+\lstdefinestyle{pseudo} {
+	language = Java,
+	basicstyle = \ttfamily\small,
+	numberstyle = \footnotesize,
+	showspaces = false,
+	showtabs = false,
+	showstringspaces = false,
+	frame = single,
+	tabsize = 4,
+	captionpos = b,
+	breaklines = true,
+	numbers = left,
+	breakatwhitespace = true,
+	upquote=true,
+	keywordstyle=\color{blue},
+	stringstyle=\color{green}
+}
+
+\lstset {
+	basicstyle = \ttfamily\small,
+	numberstyle = \footnotesize,
+	showspaces = false,
+	showtabs = false,
+	showstringspaces = false,
+	frame = none,
+	tabsize = 4,
+	captionpos = b,
+	breaklines = true,
+	numbers = none,
+	breakatwhitespace = true,
+	upquote=true,
+	keywordstyle=\color{blue}
 }
 
 \usepackage{graphicx}

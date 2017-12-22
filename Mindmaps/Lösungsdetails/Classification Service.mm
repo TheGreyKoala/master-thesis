@@ -2,7 +2,7 @@
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
 <node TEXT="Classification Service" FOLDED="false" ID="ID_237861654" CREATED="1512494058966" MODIFIED="1512494066115" STYLE="oval">
 <font SIZE="18"/>
-<hook NAME="MapStyle">
+<hook NAME="MapStyle" zoom="1.21">
     <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
@@ -64,7 +64,7 @@
 </map_styles>
 </hook>
 <hook NAME="AutomaticEdgeColor" COUNTER="26" RULE="ON_BRANCH_CREATION"/>
-<node TEXT="Funktions- &amp; Schnittstellenbeschreibung (Aufgaben)" POSITION="left" ID="ID_882920301" CREATED="1512494153610" MODIFIED="1513434335867">
+<node TEXT="Funktions- &amp; Schnittstellenbeschreibung (Aufgaben)" FOLDED="true" POSITION="left" ID="ID_882920301" CREATED="1512494153610" MODIFIED="1513434335867">
 <edge COLOR="#ff0000"/>
 <node TEXT="Port 44284" ID="ID_1179861281" CREATED="1513520071137" MODIFIED="1513520074585"/>
 <node TEXT="Klassifizierung einer Seite durchf&#xfc;hren &amp; Ergebnis speichern" ID="ID_1458966839" CREATED="1512494166409" MODIFIED="1513434374938">
@@ -93,27 +93,18 @@
 </node>
 </node>
 </node>
-<node TEXT="Klassifizierung" POSITION="right" ID="ID_261956992" CREATED="1513434472947" MODIFIED="1513434477337">
+<node TEXT="Klassifizierung" FOLDED="true" POSITION="right" ID="ID_261956992" CREATED="1513434472947" MODIFIED="1513434477337">
 <edge COLOR="#ff00ff"/>
 <node TEXT="XSLT kann nicht genutzt werden, da HTML kein XML ist." ID="ID_719103983" CREATED="1511633652815" MODIFIED="1513601425506" VSHIFT_QUANTITY="-35.249998949468164 pt"/>
-<node TEXT="Browserautomatisierung" FOLDED="true" ID="ID_1014543470" CREATED="1512495768110" MODIFIED="1513434492088">
-<node TEXT="Selektoren arbeiten auf DOM der Seite (Auswertung von CSS &amp; XPath)" ID="ID_1692988316" CREATED="1512495307993" MODIFIED="1512495787689"/>
-<node TEXT="Wenige zuverl&#xe4;ssige Bibliotheken" ID="ID_757367152" CREATED="1512495571047" MODIFIED="1512495787691"/>
-<node TEXT="Entg&#xfc;ltige Seite k&#xf6;nnte auch von JS-Ausf&#xfc;hrung abh&#xe4;ngen (dynamische Seiten)" ID="ID_1658536414" CREATED="1512495694903" MODIFIED="1512495894783"/>
-<node TEXT="Browser f&#xfc;hren JS aus und k&#xf6;nnen CSS und XPath" ID="ID_1247654748" CREATED="1512495741198" MODIFIED="1512495787693"/>
-<node TEXT="Chrome kann Headless betrieben werden" ID="ID_305088681" CREATED="1512495792206" MODIFIED="1512495804183"/>
-<node TEXT="Steuerung &#xfc;ber Puppeteer m&#xf6;glich" ID="ID_1035442533" CREATED="1512495804366" MODIFIED="1512495833975"/>
-<node TEXT="Browser holen: https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions" ID="ID_1105974847" CREATED="1512496158771" MODIFIED="1512496166772"/>
-</node>
-<node TEXT="Ablauf" FOLDED="true" ID="ID_1638846077" CREATED="1512496463985" MODIFIED="1513434492093">
-<node TEXT="Algorithmus" ID="ID_1388683875" CREATED="1512495150644" MODIFIED="1513271197435">
+<node TEXT="Ablauf" ID="ID_1638846077" CREATED="1512496463985" MODIFIED="1513434492093">
+<node TEXT="Algorithmus" FOLDED="true" ID="ID_1388683875" CREATED="1512495150644" MODIFIED="1513271197435">
 <node TEXT="F&#xfc;r jede URL im Request" ID="ID_1225580587" CREATED="1512495293441" MODIFIED="1512669694967"/>
 <node TEXT="Seite im Browser &#xf6;ffnen, wodruch DOM erzeugt wird (toDOM)" ID="ID_1840498216" CREATED="1511637235413" MODIFIED="1513271280449"/>
 <node TEXT="Page Class ermitteln" ID="ID_1636235459" CREATED="1511637258861" MODIFIED="1513271115228">
 <node TEXT="Bekannte Page Classes durchgehen" ID="ID_382264113" CREATED="1511637281424" MODIFIED="1511637298406"/>
 <node TEXT="Erster Match gewinnt" ID="ID_1764261580" CREATED="1511637298629" MODIFIED="1511637305054"/>
 </node>
-<node TEXT="Features der Klasse ermitteln" ID="ID_682394820" CREATED="1511639591394" MODIFIED="1513271127949">
+<node TEXT="Features der Klasse ermitteln" FOLDED="true" ID="ID_682394820" CREATED="1511639591394" MODIFIED="1513271127949">
 <node TEXT="document ist Kontext" ID="ID_1766366566" CREATED="1511639600987" MODIFIED="1511639605874"/>
 <node TEXT="&#xdc;ber alle Features iterieren" ID="ID_1158277920" CREATED="1511639609778" MODIFIED="1511639620026">
 <node TEXT="Nodes finden, die Selektor des Features entsprechen" ID="ID_853891200" CREATED="1511639628908" MODIFIED="1511639646986"/>
@@ -148,7 +139,7 @@
 </node>
 </node>
 </node>
-<node TEXT="Vermutlich &#xfc;berfl&#xfc;ssig" ID="ID_769760950" CREATED="1513271284312" MODIFIED="1513271290697">
+<node TEXT="Vermutlich &#xfc;berfl&#xfc;ssig" FOLDED="true" ID="ID_769760950" CREATED="1513271284312" MODIFIED="1513271290697">
 <node TEXT="Page laden (toDOM)" ID="ID_391327442" CREATED="1512496191211" MODIFIED="1512496241060">
 <node TEXT="Page erstellen" ID="ID_767632048" CREATED="1512496314962" MODIFIED="1512496319923">
 <node TEXT="browser.newPage" ID="ID_869978534" CREATED="1512496355570" MODIFIED="1512496359875"/>
@@ -178,6 +169,15 @@
 </node>
 </node>
 </node>
+<node TEXT="Browserautomatisierung" FOLDED="true" ID="ID_1014543470" CREATED="1512495768110" MODIFIED="1513434492088">
+<node TEXT="Selektoren arbeiten auf DOM der Seite (Auswertung von CSS &amp; XPath)" ID="ID_1692988316" CREATED="1512495307993" MODIFIED="1512495787689"/>
+<node TEXT="Wenige zuverl&#xe4;ssige Bibliotheken" ID="ID_757367152" CREATED="1512495571047" MODIFIED="1512495787691"/>
+<node TEXT="Entg&#xfc;ltige Seite k&#xf6;nnte auch von JS-Ausf&#xfc;hrung abh&#xe4;ngen (dynamische Seiten)" ID="ID_1658536414" CREATED="1512495694903" MODIFIED="1512495894783"/>
+<node TEXT="Browser f&#xfc;hren JS aus und k&#xf6;nnen CSS und XPath" ID="ID_1247654748" CREATED="1512495741198" MODIFIED="1512495787693"/>
+<node TEXT="Chrome kann Headless betrieben werden" ID="ID_305088681" CREATED="1512495792206" MODIFIED="1512495804183"/>
+<node TEXT="Steuerung &#xfc;ber Puppeteer m&#xf6;glich" ID="ID_1035442533" CREATED="1512495804366" MODIFIED="1512495833975"/>
+<node TEXT="Browser holen: https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions" ID="ID_1105974847" CREATED="1512496158771" MODIFIED="1512496166772"/>
+</node>
 <node TEXT="Selektoren" FOLDED="true" ID="ID_520346972" CREATED="1512497831033" MODIFIED="1513434492099">
 <node TEXT="Puppeteer hat f&#xfc;r einiges API, aber auch M&#xf6;glichkeit beliebigen Code auszuf&#xfc;hren" ID="ID_1049966573" CREATED="1513434948540" MODIFIED="1513434968373"/>
 <node TEXT="Liefern alle NodeList oder Array" ID="ID_771891703" CREATED="1512670112144" MODIFIED="1512670122114">
@@ -196,13 +196,13 @@
 <node TEXT="https://www.w3.org/TR/2013/REC-selectors-api-20130221/" ID="ID_387237511" CREATED="1512497493204" MODIFIED="1512497494100"/>
 <node TEXT="Liefert immer NodeList" ID="ID_283936542" CREATED="1512498382991" MODIFIED="1512498388870"/>
 </node>
-<node TEXT="Features der ersten Ebene" FOLDED="true" ID="ID_339187464" CREATED="1512497324846" MODIFIED="1512497498340">
+<node TEXT="Features der ersten Ebene" ID="ID_339187464" CREATED="1512497324846" MODIFIED="1512497498340">
 <node TEXT="document.querySelectorAll" ID="ID_1844441037" CREATED="1512497484692" MODIFIED="1512497492956"/>
 <node TEXT="https://www.w3.org/TR/2013/REC-selectors-api-20130221/" ID="ID_1494148706" CREATED="1512497493204" MODIFIED="1512497494100"/>
 <node TEXT="Mittels page.$$" ID="ID_664056924" CREATED="1512497507299" MODIFIED="1512497513204"/>
 <node TEXT="https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pageselector-1" ID="ID_137157874" CREATED="1512497513974" MODIFIED="1512497528604"/>
 </node>
-<node TEXT="Features tieferer Ebene" ID="ID_314427490" CREATED="1512497769417" MODIFIED="1512497776986">
+<node TEXT="Features tieferer Ebene" FOLDED="true" ID="ID_314427490" CREATED="1512497769417" MODIFIED="1512497776986">
 <node TEXT="Aufruf auf Node, der zum &#xfc;bergeordneten Feature geh&#xf6;rt" ID="ID_1147222167" CREATED="1512498471724" MODIFIED="1512498489221"/>
 <node TEXT="element.querySelectorAll" ID="ID_174688016" CREATED="1512498325128" MODIFIED="1512498332478"/>
 <node TEXT="ElementHandle.$$ noch nicht zur Verf&#xfc;gung" ID="ID_963445472" CREATED="1512496839841" MODIFIED="1512668411002">
@@ -335,11 +335,11 @@
 <node TEXT="Gleiche Logik wie $$, fall 1 entf&#xe4;llt" ID="ID_1166620031" CREATED="1512671273127" MODIFIED="1512671671846"/>
 </node>
 </node>
-<node TEXT="UrlPattern Selector" FOLDED="true" ID="ID_363862908" CREATED="1512498653531" MODIFIED="1512498661219">
+<node TEXT="UrlPattern Selector" FOLDED="true" ID="ID_363862908" CREATED="1512498653531" MODIFIED="1513949436411">
 <node TEXT="F&#xfc;r Pages hart codiert" ID="ID_90298509" CREATED="1512498661789" MODIFIED="1512498669532">
 <node TEXT="&#xdc;ber alle PageClasses iterieren und pr&#xfc;fen" ID="ID_1658873826" CREATED="1513435011286" MODIFIED="1513435022277"/>
 </node>
-<node TEXT="Features" ID="ID_1755759812" CREATED="1513435037708" MODIFIED="1513435039621">
+<node TEXT="Features" ID="ID_1755759812" CREATED="1513435037708" MODIFIED="1513949436410">
 <node TEXT="Findet Nodes, die Resourcen referenzieren k&#xf6;nnen" ID="ID_1987144027" CREATED="1512671704627" MODIFIED="1512671716509"/>
 <node TEXT="Nodes haben href, src oder srcset Attribute" ID="ID_1306562857" CREATED="1512671733379" MODIFIED="1512671745069">
 <node TEXT="https://www.w3.org/TR/html5/links.html#links" ID="ID_796806560" CREATED="1512498798150" MODIFIED="1512498800243"/>
@@ -430,7 +430,7 @@
 </node>
 </node>
 </node>
-<node TEXT="Ausf&#xfc;hrung nicht seriell, sondern verzahnt" FOLDED="true" ID="ID_589529757" CREATED="1512672106969" MODIFIED="1513434492114">
+<node TEXT="Ausf&#xfc;hrung nicht seriell, sondern verzahnt" ID="ID_589529757" CREATED="1512672106969" MODIFIED="1513434492114">
 <node TEXT="Puppeteer Funktionen asynchron" ID="ID_1351456967" CREATED="1512672117515" MODIFIED="1512672127650"/>
 <node TEXT="Alg. f&#xe4;ngt an n&#xe4;chste Seite zu bearbeiten" ID="ID_1141002207" CREATED="1512672132768" MODIFIED="1512672142578"/>
 <node TEXT="&#xd6;ffnet neue Page im Browser" ID="ID_1143141609" CREATED="1512672142800" MODIFIED="1512672148810"/>
@@ -468,11 +468,11 @@
 <node TEXT="body-parser" ID="ID_869122964" CREATED="1512494291353" MODIFIED="1512494294504"/>
 <node TEXT="cookie-parser" ID="ID_1918453175" CREATED="1512494294670" MODIFIED="1512494299727"/>
 <node TEXT="morgan" ID="ID_626897911" CREATED="1512494308462" MODIFIED="1512494309919"/>
-<node TEXT="puppeteer" ID="ID_926332353" CREATED="1512494311150" MODIFIED="1512494316415"/>
+</node>
 <node TEXT="unirest" ID="ID_1604339865" CREATED="1512494316574" MODIFIED="1512494320399"/>
 <node TEXT="uuid" ID="ID_1314192475" CREATED="1512494345254" MODIFIED="1512494349311"/>
 <node TEXT="winston" ID="ID_301214157" CREATED="1512494357990" MODIFIED="1512494360695"/>
-</node>
+<node TEXT="puppeteer" ID="ID_926332353" CREATED="1512494311150" MODIFIED="1512494316415"/>
 </node>
 </node>
 </map>
