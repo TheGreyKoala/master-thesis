@@ -25,10 +25,6 @@
 ?-- Namen der Services etc.
 
 - Classification Storage API
-!-- Es wird POST auf /sites/{id}/pages zum Schreiben verwendet
----- Das ist falsch, weil wir eine ID vorgeben wollen und Requests idempotent sein sollen
----- POST ist nicht idempotent sondern soll _immer_ anlegen
----- Muss umgestellt werden auf PUT /sites/{id}/pages/{page-id}
 !- Page Objekte haben noch types
 !- Neo4J Passwort ist hart codiert
 !- Labels und Properties in der DB heißen noch falsch
@@ -79,3 +75,9 @@ Done oder nicht mehr nachvollziehbar:
 x GENERIERUNG SOLL JSON ERSTELLEN! REQUIRE FUNKTION KANN JSON EINLESEN!
 x Generiertes JSON muss überarbeiet werden, sodass es nicht mehr "type" enhält
 x Feste Versionsnummern für verwendete Images
+
+- Classification Storage API
+x!-- Es wird POST auf /sites/{id}/pages zum Schreiben verwendet
+x---- Das ist falsch, weil wir eine ID vorgeben wollen und Requests idempotent sein sollen
+x---- POST ist nicht idempotent sondern soll _immer_ anlegen
+x---- Muss umgestellt werden auf PUT /sites/{id}/pages/{page-id}

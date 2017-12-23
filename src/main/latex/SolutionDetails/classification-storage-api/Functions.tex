@@ -1,0 +1,125 @@
+\subsection{Funktionen und Schnitstellen}
+    Die Intention der Classification Storage API ist es,
+    fachliche Anfragen an die Datenbank in technische Datenbankanfragen zu übersetzen,
+    sodass die technischen Details der Datenbank vor dem restlichen System verborgen bleiben.
+    Zu diesem Zweck bietet der Service eine REST-Schnittstelle,
+    die die unterstützen Operationen beschreibt.
+    Dieser Schnitstelle und den fachlichen Funktionen widmet sich dieses Kapitel.
+    Die \glspl{url} der Schnittstelle sind hierarchisch aufgebaut.
+    Die folgenden Ausführungen folgen dieser Hierarchie und beginnen deshalb mit der obersten Funktion.
+
+    \paragraph{Format einer Seite}
+    Zunächst soll aber geklärt werden, wie die Classification Storage API das Datenmodell einer Seite
+    (siehe Kapitel \ref{section:conceptPageDataModel}) konkret umsetzt.
+    % TOODO: KONKRETES FORMAT EINER SEITE
+
+    \paragraph{Sites abfragen}
+    Die Classification Storage API erlaubt es alle bekannten Sites abzurufen.
+    Dazu bietet sie die Schnittstelle in Tabelle \ref{table:getSitesInterface}.
+
+    \begin{table}[htb]
+        \centering
+        \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Endpunkt} & \texttt{http://<HOST>:52629/sites}\\
+        \hline
+        \textbf{Methode} & \texttt{GET}\\
+        \hline
+        \textbf{Status} & \texttt{200 (OK)}\\
+        \hline
+        \textbf{Ausgabedokument} & \lstinputlisting[title=Test123]{../resources/classification-storage-api/sites.json}\\
+        \hline
+        \end{tabular}
+        \caption{Schnittstelle zum Holen aller Sites}
+        \label{table:getSitesInterface}
+    \end{table}
+
+    Das Ausgabedokument sammelt alle Sites im Array "`sites"', wobei jedes Objekt die ID der jeweiligen Seite enthält.
+
+    \paragraph{Seiten einer Site abfragen}
+    Interessant an einer Site ist die Information, welche Seiten zu ihr gehören.
+    Diese lässt sich über die Schnittstelle in Tabelle \ref{table:getSitePagesInterface} für eine spezifische Site abfragen.
+
+    \begin{table}[htb]
+        \centering
+        \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Endpunkt} & \texttt{http://<HOST>:52629/sites/<SITE\_ID>/pages}\\
+        \hline
+        \textbf{Methode} & \texttt{GET}\\
+        \hline
+        \textbf{Status} & \texttt{200 (OK)}\\
+        \hline
+        \textbf{Ausgabedokument} & \lstinputlisting{../resources/classification-storage-api/site-pages.json}\\
+        \hline
+        \end{tabular}
+        \caption{Schnittstelle zum Holen aller Seiten einer Site}
+        \label{table:getSitePagesInterface}
+    \end{table}
+
+    Wie zu sehen ist, muss die Anfrage-\gls{url} die ID der Site beinhalten.
+    Die Seiten einer Site sind im Ausgabedokument im Array "`pages"' abgelegt.
+    Jede Seite enthält ihre \gls{url}, ihre Klasse und ihren Status.
+    Informationen über ihre Features sind nicht enthalten,
+    da der Fokus wie beschrieben auf der fachlichen Frage besteht,
+    welche Seiten zu einer Site gehören.
+    Die vollständige Klassifikation einer Site kann über die folgende Schnittstelle bezogen werden.
+
+    \paragraph{Klassifikation einer Seite}
+    Die interessanteste Information die das \gls{wccs} liefern kann,
+    ist selbstverständlich die vollständige Klassifikation einer Seite.
+    Diese kann für eine spezifische Webseite über zwei Schnittstellen ermittelt werden.
+    Beide werden in Tabelle \ref{table:getFullPageInterface} vorgestellt.
+
+    \begin{table}[htb]
+        \centering
+        \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Endpunkt} & \texttt{http://<HOST>:52629/[ sites/<SITE\_ID>/ ]pages/<PAGE\_ID>}\\
+        \hline
+        \textbf{Methode} & \texttt{GET}\\
+        \hline
+        \textbf{Status} & \texttt{200 (OK)}\\
+        \hline
+        \textbf{Ausgabedokument} & Page\\
+        \hline
+        \end{tabular}
+        \caption{Schnittstelle zum Holen der Klassifikation einer Seite}
+        \label{table:getFullPageInterface}
+    \end{table}
+
+    Die Anfrage-\gls{url} kann die Informationen der Site beinhalten,
+    wodurch die bisher verfolgte Hierarchie der {\resources} fortgesetzt wird.
+    Die ID eine Seite (ihre \gls{url}), die in jeden Fall enthalten sein muss, identifiziert sie allerdings eindeutig,
+    weshalb die Site auch ausgelassen werden kann.
+    Das macht sich zum Beispiel das Annotator Plugin zunutze,
+    die die Site der Seite, auf dem es ausgeführt wird, nicht bestimmen kann
+    (siehe Kapitel \ref{section:solutionDetailsAnnotatorPlugin}).
+    Die Antwort ist in beiden Fällen eine vollständige Seite,
+    wie am Anfang diese Kapitels vorgestellt wurde.
+
+    \paragraph{Klassifikation einer Seite speichern}
+    Neben dem Lesen einer Klassifikation unterstützt die Schnittstelle natürlich auch das Schreiben einer Klassifikation,
+    worauf der Classification Service und das Annotator Plugin zurückgreifen.
+    Auch hierfür bietet die Komponente zwei Schnittstellen, die in Tabelle \ref{table:writePageInterface} zu sehen sind.
+
+    \begin{table}[htb]
+        \centering
+        \begin{tabular}{|l|l|}
+        \hline
+        \textbf{Endpunkt} & \texttt{http://<HOST>:52629/[ sites/<SITE\_ID>/ ]pages/<PAGE\_ID>}\\
+        \hline
+        \textbf{Methode} & \texttt{PUT}\\
+        \hline
+        \textbf{Eingabedokument} & Page\\
+        \hline
+        \textbf{Status} & \texttt{201 (Created)} oder \texttt{204 (No Content)}\\
+        \hline
+        \end{tabular}
+        \caption{Schnittstelle zum Schreiben der Klassifikation einer Seite}
+        \label{table:writePageInterface}
+    \end{table}
+
+    Wie beim Lesen einer Klassifikation kann die Anfrage-\gls{url} optional auch die Site-Informationen enthalten.
+    Als Eingabe erwartet der Service eine Seite, wie sie oben beschrieben wurde.
+    Der Status der Antwort zeigt an, ob eine neue Klassifikation angelegt oder eine vorhandenen aktualisiert wurde.

@@ -1,0 +1,4 @@
+{
+  "total": "<TOTAL_NUMBER_OF_SITES>",
+  "sites": [ { "id": "<SITE_ID>" } ]
+}

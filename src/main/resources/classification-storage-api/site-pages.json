@@ -1,0 +1,8 @@
+{
+  "total": "<NUMBER_OF_PAGES>",
+  "pages": [{
+    "type": "<PAGE_CLASS>",
+    "url": "<URL>",
+    "status": "Classified"
+  }]
+}
