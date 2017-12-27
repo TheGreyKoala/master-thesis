@@ -174,9 +174,6 @@ Universitätsstraße 1\newline
 		% No new page after table of contents
 		\let\cleardoublepage\relax
 		\tableofcontents
-		\listoffigures
-		\listoftables
-		\lstlistoflistings
 	\endgroup
 
 	\newpage
@@ -192,4 +189,12 @@ Universitätsstraße 1\newline
 	\input{Appendix/Appendix}
 	\sloppy
 	\printbibliography[heading=bibintoc]
+	
+	\listoffigures
+	\begingroup
+		% No new page after table of contents
+		\let\cleardoublepage\relax
+		\listoftables
+		\lstlistoflistings
+	\endgroup
 \end{document}

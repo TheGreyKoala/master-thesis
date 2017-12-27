@@ -55,6 +55,7 @@
 --- x ist in beiden Seiten an exakt der gleichen Stelle (xpath) zu finden
 --- Die anderen Kinder seiner Parent Features unterscheiden sich oder x ist ein mal ein ScalarFeature und ein mal ein CollectionFeature.
 --- Sonst wären auch Parent Features identisch
+- Interessanterweise wird auch die Checksumme bereits über das gesamte Feature (d.h. inkl. Selektor) gebildet.
 
 - Graphdatenbank macht auch Probleme
 -- Beim Schreiben einer Seite müssen immer viele Nodes betroffen und es ist schwer festzustellen, was angepasst und gelöscht werden muss*

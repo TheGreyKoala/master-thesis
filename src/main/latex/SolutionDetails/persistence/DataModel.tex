@@ -1,4 +1,5 @@
 \subsection{Datenmodell}
+    \label{section:solutionDetailsPersistenceDataModel}
     Dieses Kapitel beschreibt, wie eine Klassifikation in der Datenbank modelliert wird.
     Dabei orientiert es sich an dem Vorgehen in https://neo4j.com/developer/guide-data-modeling/
     und geht deshalb zunächst darauf ein, welche Entitäten durch Knoten dargestellt werden.
@@ -26,7 +27,7 @@
     Wie später deutlich wird, kann er für alle Referenzen, die diese {\resource} als Ziel haben, genutzt werden.
 
     Knoten mit dem Label "`Content"' enthalten eine Prüfsumme über sich selbst, die innerhalb der Datenbank als Schlüssel Verwendung findet.
-    Im späteren Verlauf geht Kapitel \ref{section:solutionDetailsStorageAPIStoreClassification} darauf ein,
+    Im späteren Verlauf geht Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage} darauf ein,
     wieso diese Eigenschaft des Weiteren benötigt wird.
     Für skalare Content Features existiert exakt ein Knoten.
     Für CollectionFeatures existiert ein Knoten pro Element der Liste.
@@ -78,7 +79,7 @@
     Jede dieser Beziehungen speichert den gleichen Namen und hat isCollection auf true gesetzt.
     Es ist sinnvoll diese Informationen nicht im Content Knoten, sondern in der Beziehung zu speichern,
     um den Knoten besser wiederverwendbar zu machen.
-    Details werden in Kapitel \ref{section:solutionDetailsStorageAPIStoreClassification} erklärt.
+    Details werden in Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage} erklärt.
 
     Referenzen werden in der Datenbank durch eine Kombination aus
     {\resource} Knoten und Beziehungen zu diesen Knoten dargestellt.

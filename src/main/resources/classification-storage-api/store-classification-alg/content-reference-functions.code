@@ -1,0 +1,21 @@
+function content(contentFeature : Content) {
+    if (contentFeature.isScalarFeature)
+        contentFeature.contents.forEach(c -> content(c))
+        contentFeature.references.forEach(r -> reference(r))
+
+        t = textNode(contentFeature)
+        contentNode(contentFeature)
+
+        contentFeature.contents.forEach(c -> contentRelationship(contentFeature, c))
+        contentFeature.references.forEach(r -> referenceRelationship(contentFeature, r))
+        textRelationship(contentFeature, t)
+    else
+        contentFeature.forEach(c -> content(c))
+}
+
+function reference(referenceFeature : Reference) {
+    if (referenceFeature.isScalarFeature)
+        resourceNode(referenceFeature)
+    else
+        referenceFeature.forEach(r -> reference(r))
+}

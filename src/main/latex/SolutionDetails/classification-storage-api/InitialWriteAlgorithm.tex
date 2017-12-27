@@ -1,0 +1,69 @@
+\subsection{Erstmaliges Speichern einer Klassifikation}
+    \label{section:solutionDetailsStorageAPIInitialWrite}
+    Dieses Kapitel beschreibt, wie der Service eine neue Klassifikation in die Datenbank schreibt.
+
+    Beim initialen Schreiben einer Klassifikation verwendet der Service einen
+    einfach Bottom-Up-Algorithmus, durch denn alle Knoten und Beziehungen erstellt werden.
+    Dieser ist in den Listing \ref{listing:storeClassificationPageFlow} und
+    \ref{listing:storeClassificationContentReferenceFunctions} skizziert,
+    wobei ersteres den globalen Ablauf aus der Sicht der Seite darstellt und
+    letztere die Funktionen zum Speichern von Features erklärt.
+    
+    \lstinputlisting[
+        label=listing:storeClassificationPageFlow,
+        caption=Globaler Kontrollfluss zum Speichern,
+        style=pseudo
+    ]{../resources/classification-storage-api/store-classification-alg/page-flow.code}
+
+    Da es sich um einen Bottom-Up-Algorithmus handelt,
+    wird zunächst der Teilgraph für alle Features,
+    das heißt für alle Inhalte und Referenzen der Seite, angelegt.
+    Die entsprechenden Funktionen werden gleich anhand Listing \ref{listing:storeClassificationContentReferenceFunctions} erläutert.
+    Anschließend erstellt der Service einen Knoten für die Seite selbst.
+    Was dann noch fehlt sind die Kanten vom Knoten der Seite,
+    zu denen der Content Features bzw. referenzierter {\resources}.
+    Aus diesem Grund iteriert der Algorithmus nochmal über alle Features
+    und letg die entsprechenden Beziehungen an.
+    Dabei unterscheidet er zwischen skalaren und mehrelementigen Features,
+    bei denen für jedes Element eine Beziehung angelegt wird.
+    Die verwendeten Funktionen "`contentRelationship"' und "`referenceRelationship"',
+    erzeugen lediglich konkrete Datenbankanweisungen, die im späteren Verlauf thematisiert werden.
+
+    Wie aus Listing \ref{listing:storeClassificationContentReferenceFunctions} deutlich wird,
+    arbeitet der Algorithmus bei der Erzeugung von Features sehr ähnlich.
+
+    \lstinputlisting[
+        label=listing:storeClassificationContentReferenceFunctions,
+        caption=Funktionen zum Schreiben von Features,
+        style=pseudo
+    ]{../resources/classification-storage-api/store-classification-alg/content-reference-functions.code}
+
+    Im Falle einer Referenz legt er lediglich einen passenden {\resource}-Knoten an,
+    was er bei einem CollectionFeature durch einen rekursiven Aufruf für alle Element tut.
+    
+    Das Anlegen eines Content Features ist etwas komplexer,
+    da diese selbst Features besitzen können.
+    Dem Ansatz eines Bottom-Up-Algorithmus folgend, legt der Service
+    zunächst die Teilgraphen der Child Features für das aktuelle Feature an,
+    indem er sowohl über alle Contents als auch alle Referenzen iteriert und
+    sich selbst für jedes rekursiv aufruft.
+    Anschließend legt zunächst einen Text-Knoten und dann einen Content-Knoten
+    für das aktulle ContentFeature an.
+    Die im Listing verwendeten Funktionen erzeugen wiederum nur Datenbankanweisungen,
+    die später erklärt werden.
+    Danach iteriert er wiederum über alle Child Features, um die Beziehungen vom
+    gerade erzeugten Content-Knoten, zu den Knoten der Features anzulegen.
+    Abschließend legt er eine Reads-Kante zum Text-Knoten an.
+    
+    Nach dem vollständigen Durchlaufen dieses Algorithmus,
+    ist die Klassifikation vollständig in der Datenbank gespeichert.
+
+    Angewandt auf das Beispiel aus Kapitel \ref{section:solutionDetailPersistenceDataModelExample}
+    legt der Algorithmus Knoten und Kanten in der folgenden Reihenfolge an:
+    c1\_text, c1, rel4,
+    c2\_text, c2, rel5,
+    c4\_text, c4, rel8
+    r1, r2, c5\_text, c5,
+    rel9, rel10, rel11,
+    c3, rel6, rel7,
+    p, rel1, rel2, rel3.

@@ -1,0 +1,17 @@
+page.contents.forEach(c -> content(c))
+page.references.forEach(r -> reference(r))
+pageNode(page)
+
+page.contents.forEach(contentFeature -> {
+    if (contentFeature.isScalarFeature)
+        contentRelationship(page, contentFeature)
+    else
+        contentFeature.forEach(c -> contentRelationship(page, c))
+})
+
+page.references.forEach(referenceFeature -> {
+    if (referenceFeature.isScalarFeature)
+        referenceRelationship(page, referenceFeature)
+    else
+        referenceFeature.forEach(r -> referenceRelationship(page, r))
+})
