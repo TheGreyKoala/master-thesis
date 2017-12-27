@@ -1,0 +1,17 @@
+{
+  "id": "<GENERATED_ID>",
+  "annotator_schema_version": "v1.0",
+  "text": "<FEATURE_NAME>: <FEATURE_CLASS>",
+    "ranges": [{
+      "start": "<START_SELECTOR_VALUE>",
+      "startOffset": "<START_SELECTOR_OFFSET>",
+      "end": "<END_SELECTOR_VALUE>",
+      "endOffset": "<END_SELECTOR_OFFSET>"
+    }],
+  "user": "wccs",
+  "permissions": { "admin": ["wccs"] },
+  "wccs": {
+      "featureKind": "<content | reference>",
+      "class": "<FEATURE_CLASS>"
+  }
+}

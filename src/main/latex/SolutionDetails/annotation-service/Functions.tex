@@ -1,0 +1,86 @@
+\subsection{Funktionen und Schnittstellen}
+    Der Annotation Service ist für die Umformung einer Klassifikation zu
+    einer Menge von Annotationen zuständig und kann Änderungen an einer
+    Annotation in eine Änderung an der Klassifikation übersetzen.
+    Hierzu bietet er eine REST-Schnittstelle, die gleichzeitig auch die Annotator Storage API implementiert.
+    % TODO: Link
+    Dieser Schnittstelle und der verbunden Funktionen widmet sich dieses Kapitel.
+
+    \paragraph{Format einer Annotation}
+    Zunächst wird allerdings beschrieben, welches konkrete technische Format eine Annotation besitzt.
+    Dieses folgt dem vorgegebenen Format von Annotator und ergänzt es um einige spezifische Angaben.
+    Das vollständige Format, wie es vom Annotation Service erzeugt und akzeptiert wird,
+    ist in Listing \ref{listing:annotationServiceAnnotationFormat} zu sehen.
+
+    \lstinputlisting[
+        label=listing:annotationServiceAnnotationFormat,
+        caption=Format einer Annotation
+    ]{../resources/annotation-service/annotation.json}
+
+    Die ID einer Annotation wird vom Service automatisch generiert.
+    Dieser Prozess wird in Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}
+    genau erklärt.
+    Das Feld "`text"' bestimmt den Inhalt der Annotation, der dem Nutzer sichtbar ist.
+    Die vom Service erzeugten Annotationen beinhalten immer den Namen des verknüpften Features und dessen Klasse.
+    Die Angaben im Feld "`ranges"' mappen 1:1 auf den eindeutigen Selektor jedes Features.
+    Durch das Feld "`user"' identifiziert Annotator den Ersteller der Annotation,
+    der in diesem Fall immer der imaginäre technische Benutzer "`wccs"' ist.
+    Da im Feld "`permissions"' lediglich das Recht "`admin"' auf diesen Nutzer beschränkt wurde,
+    kann jeder die Annotation lesen und bearbeiten.
+    Änderungen an den Rechten bleiben aber dem Nutzer "`wccs"' vorbehalten.
+    Die Eigenschaft "`wccs"' ist nicht durch das Format von Annotator vorgegeben,
+    sondern stellt eine Ergänzung des \gls{wccs} dar.
+    Dieses speichert, ob es sich beim verknüpften Feature um ein Content oder ein Reference Feature handelt,
+    und welche Klasse dieses besitzt.
+
+    \paragraph{Bereitstellung von Metainformationen}
+    Um der Annotator Storage API zu genügen,
+    muss ein Endpunkt existieren, der ein JSON-Dokument liefert,
+    welches Informationen über die Version der implementierten Schnittstelle enthält.
+
+    \begin{table}[htb]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Endpunkt} & \texttt{http://<HOST>:16612/pages/\{pageId\}}\\
+            \hline
+            \textbf{Methode} & \texttt{GET}\\
+            \hline
+            \textbf{Status} & \texttt{200 (OK)}\\
+            \hline
+            \textbf{Ausgabedokument} & \lstinputlisting[title=Test123]{../resources/annotation-service/meta.json}\\
+            \hline
+        \end{tabular}
+        \caption{Schnittstelle zum Abfragen von Metainformationen über den Annotation Service}
+        \label{my-label}
+    \end{table}
+
+
+    
+ %   \begin{table}[htb]
+ %       \centering
+ %       \begin{tabular}{|l|l|}
+ %       \hline
+ %       \textbf{Endpunkt}     & /pages/\{pageId\}/annotations\\
+ %       \hline
+ %       \textbf{Methode}      & GET\\
+ %       \hline
+ %       \textbf{Beschreibung} & Liefert alle Annotationen einer Seite\\
+ %       \hline
+ %       \textbf{Status}       & 200\\
+ %       \hline
+ %       \textbf{Antwort}      & \{ ``name'': ``Annotator Store API'', ``version'': ``2.0.0'' \}\\
+ %       \hline
+ %       \end{tabular}
+ %       \caption{My caption}
+ %       \label{my-label}
+ %   \end{table}
+
+    % Schnittstellenbeschreibung:
+    % - Endpunkt
+    % - Methoden
+    % -- Input-Dokument
+    % -- Status Codes der Antwort
+    % -- Return Dokument für jede Antwort
+
+    % - Schnittstelle so, dass später auch anderes Format für Annotationen möglich
