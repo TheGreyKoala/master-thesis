@@ -1,4 +1,5 @@
 \subsection{Funktionen und Schnittstellen}
+    \label{section:solutionDetailsAnnotationServiceFunctions}
     Der Annotation Service ist für die Umformung einer Klassifikation zu
     einer Menge von Annotationen zuständig und kann Änderungen an einer
     Annotation in eine Änderung an der Klassifikation übersetzen.
@@ -37,50 +38,112 @@
     Um der Annotator Storage API zu genügen,
     muss ein Endpunkt existieren, der ein JSON-Dokument liefert,
     welches Informationen über die Version der implementierten Schnittstelle enthält.
+    % TODO: Referenz: http://docs.annotatorjs.org/en/v1.2.x/storage.html#root
+    Die entsprechende Schnittstelle ist in Tabelle
+    \ref{table:annotationServiceMetaInterface} dokumentiert.
+
+    % TODO: Erwähnen, dass die Page ID die URL ist. Oder den Parameter gleich PAGE_URL nennen.
 
     \begin{table}[htb]
         \centering
         \begin{tabular}{|l|l|}
             \hline
-            \textbf{Endpunkt} & \texttt{http://<HOST>:16612/pages/\{pageId\}}\\
+            \textbf{Endpunkt} & \texttt{http://<HOST>:16612/pages/<PAGE\_ID>}\\
             \hline
             \textbf{Methode} & \texttt{GET}\\
             \hline
             \textbf{Status} & \texttt{200 (OK)}\\
             \hline
-            \textbf{Ausgabedokument} & \lstinputlisting[title=Test123]{../resources/annotation-service/meta.json}\\
+            \textbf{Ausgabedokument} & \lstinputlisting[title=AnnotationServiceMetaInfo]{../resources/annotation-service/meta.json}\\
             \hline
         \end{tabular}
         \caption{Schnittstelle zum Abfragen von Metainformationen über den Annotation Service}
-        \label{my-label}
+        \label{tableannotationServiceMetaInterface}
     \end{table}
 
-
+    \paragraph{Annotationen einer Seite abrufen}
+    Zentrale Aufgabe des Services ist die Bereitstellung der Annotationen einer Seite.
+    Auf diese Funktion greift zum Beispiel das Annotator Plugin zurück
+    (siehe Kapitel \ref{section:solutionDetailsAnnotatorPlugin}).
+    Hierfür stellt der Serivce den in Tabelle \ref{}
+    dargestellten Endpunkt bereit, der die entsprechende Funktion der Annotator Storage API
+    umsetzt.
+    % TODO: Referenz: http://docs.annotatorjs.org/en/v1.2.x/storage.html#index
     
- %   \begin{table}[htb]
- %       \centering
- %       \begin{tabular}{|l|l|}
- %       \hline
- %       \textbf{Endpunkt}     & /pages/\{pageId\}/annotations\\
- %       \hline
- %       \textbf{Methode}      & GET\\
- %       \hline
- %       \textbf{Beschreibung} & Liefert alle Annotationen einer Seite\\
- %       \hline
- %       \textbf{Status}       & 200\\
- %       \hline
- %       \textbf{Antwort}      & \{ ``name'': ``Annotator Store API'', ``version'': ``2.0.0'' \}\\
- %       \hline
- %       \end{tabular}
- %       \caption{My caption}
- %       \label{my-label}
- %   \end{table}
+    \begin{table}[htb]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Endpunkt} & \texttt{http://<HOST>:16612/pages/<PAGE\_ID>/annotations}\\
+            \hline
+            \textbf{Methode} & \texttt{GET}\\
+            \hline
+            \textbf{Status} & \texttt{200 (OK)}\\
+            \hline
+            \textbf{Ausgabedokument} & \texttt{Array von Annotationen}\\
+            \hline
+        \end{tabular}
+        \caption{Schnittstelle zum Abfragen aller Annotationen einer Seite}
+        \label{tablegetAllAnnotationsInterface}
+    \end{table}
 
-    % Schnittstellenbeschreibung:
-    % - Endpunkt
-    % - Methoden
-    % -- Input-Dokument
-    % -- Status Codes der Antwort
-    % -- Return Dokument für jede Antwort
+    Die \gls{url} der Seite, für die die Annotationen angefragt werden,
+    wird in der Anfrage-\gls{url} codiert.
+    Die Antwort ist ein JSON-Array von Annotationen, wie sie im ersten Abschnitt vorgestellt wurden.
 
-    % - Schnittstelle so, dass später auch anderes Format für Annotationen möglich
+    \paragraph{Einzelne Annotation lesen}
+    Eine einzelne Annotation kann anhand ihrer ID beim Service angefragt werden.
+    Der Endpunkt, der die entsprechende Storage API Funktion implementiert,
+    % TODO: Referenz: http://docs.annotatorjs.org/en/v1.2.x/storage.html#read
+    ist in Tabelle \ref{tablegetAnnotationInterface} zu sehen.
+
+    \begin{table}[htb]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Endpunkt} & \texttt{http://<HOST>:16612/pages/<PAGE\_ID>/annotations/<ANNOTATION\_ID>}\\
+            \hline
+            \textbf{Methode} & \texttt{GET}\\
+            \hline
+            \textbf{Status} & \texttt{200 (OK)}\\
+            \hline
+            \textbf{Ausgabedokument} & \texttt{Annotation}\\
+            \hline
+        \end{tabular}
+        \caption{Schnittstelle zum Abfragen einer Annotation}
+        \label{tablegetAnnotationInterface}
+    \end{table}
+
+    Wie zu sehen ist, wird an die Anfrage-\gls{url} einfach die ID der Annotation gehangen.
+    Die Antwort besteht aus einer einzelnen Annotation.
+
+    \paragraph{Einzelne Annotation aktualisieren}
+    Eine einzelne Annotation kann auch aktualisiert werden,
+    was zur Aktualisierung des entsprechenden Features der Seite führt
+    (siehe Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}).
+    Der Endpunkt in Tabelle \ref{table:putAnnotationInterface} implementiert
+    die entsprechende Storage API Funktion.
+    % TODO: Referenz: http://docs.annotatorjs.org/en/v1.2.x/storage.html#update
+
+    \begin{table}[htb]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Endpunkt} & \texttt{http://<HOST>:16612/pages/<PAGE\_ID>/annotations/<ANNOTATION\_ID>}\\
+            \hline
+            \textbf{Methode} & \texttt{PUT}\\
+            \hline
+            \textbf{Eingabedokument} & \texttt{Annotation}\\
+            \hline
+            \textbf{Status} & \texttt{303 (See Other)}\\
+            \hline
+        \end{tabular}
+        \caption{Schnittstelle zum Aktualisieren einer Annotation}
+        \label{table:putAnnotationInterface}
+    \end{table}
+
+    In der Anfrage muss eine Annotation im oben beschriebenen Format enthalten sein.
+    Die Antwort enthält im Header "`Location"' die \gls{url} zum Lesen der geschriebenen
+    Annotation, wie es die Storage API vorschreibt.
+
+    % TODO: Schnittstelle so, dass später auch anderes Format für Annotationen möglich

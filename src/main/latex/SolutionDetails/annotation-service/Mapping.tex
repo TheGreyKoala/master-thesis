@@ -1,0 +1,53 @@
+\subsection{Abbildung einer Klassifikation auf Annotationen}
+    \label{section:solutionDetailsAnnotationServiceMapping}
+    Dieses Kapitel erklärt, wie der Annotation Service
+    die Klassifikation einer Seite auf eine Menge von Annotationen abbildet.
+    Dazu wird zunächst beschrieben, wie lesende Operationen Annotationen
+    erzeugen und dazu eine ID für jede Annotation generieren.
+    Anschließend wird vorgestellt, wie schreibende Operationen agieren.
+
+    \paragraph{Lesen von Annotationen}
+    Wie in Kapitel \ref{section:conceptWebAnnotations} beschrieben,
+    erzeugt der Annotation Service Annotationen für alle Referenzen einer Seite,
+    sowie für alle Content Features ohne eigene Child Features.
+    Der Algorithmus fragt deshalb zunächst die Seite bei der Calssification Storage API an
+    und traversiert anschließend über die Klassifikation und erzeugt
+    für die beschriebenen Features eine Annotation im oben vorgestellten Format.
+
+    Eine Herausforderung dabei ist die Generierung einer eindeutigen Id für jede Annotation,
+    da anhand dieser beim Lesen oder Schreiben einzelner Annotationen das betroffene
+    Feature der Seite erkannt werden muss.
+    Features besitzen keine ID, weshalb eine solche ID erzeugt werden muss.
+    Diese Generierung muss für ein Feature allerdings deterministisch und umkehrbar sein.
+    Bei zufällig generierten oder nicht umkehrbaren IDs müsste der Service
+    die Zuordnung festhalten.
+    Dadurch würde er seine Zustandslosigkeit verlieren (siehe Kapitel \ref{section:conceptMicroServices}).
+    Bei einem unvorhergesehenen Neustart des Services ginge diese Zuordnung unter Umständen verloren.
+    Annotationen müssten dann erst neu gelesen werden,
+    bevor der Service Aktualisierungsanfragen bearbeiten kann.
+
+    Zur Erzeugung einer ID konkateniert der Annotation Service deshalb
+    alle Navigationsschritte von der obersten Ebene der Klassifikation,
+    bis zum aktuellen Feature und trennt sie durch einen Doppelpunkt.
+    Bei Collection Features ist außerdem der Index des jeweiligen Elementes Teil dieser Kette.
+    Für die Referenz r1 aus dem Beispiel in Kapitel \ref{section:solutionDetailPersistenceDataModelExample}
+    enstünde demnach die Zeichenkette \texttt{contents:c3:contents:c5:references:internalLinks:0}.
+    Anschließend codiert er diese Kette noch mit Base64.
+    So entsteht eine deterministische und leicht umkehrbare ID.
+
+    \paragraph{Schreiben einer Annotationen}
+    An verschiedenen Stellen wurde bereits erwähnt,
+    dass das \gls{wccs} über Änderungen einer Annotation erlaubt die Klasse eines Features zu bearbeiten.
+    Beim Schreiben einer Annotation muss der Annotation Service deshalb lediglich
+    die Klasse des betroffenen Features neu setzen und die Änderung persistieren.
+
+    Dank der beschriebenen Erzeugung der ID einer Annotation,
+    stellt die Abbildung von Annotation auf Feature keine Herausforderung dar.
+    Der Service muss die ID lediglich Base64 dekodieren,
+    bei jedem Doppelpunkt splitten und die einzelnen Teile verwenden,
+    um durch die Klassifikation bis zum Feature zu navigieren.
+    Anschließend liest er die neue Klasse aus dem Feld "`wccs.featureClass"' der Annotation
+    (siehe Kapitel \ref{section:solutionDetailsAnnotationServiceFunctions})
+    und aktualisiert die Klasse des Features entsprechend.
+    Anschließend übermittelt er die neue Klassifikation zur Classification Storage API,
+    die die Änderung persistiert.

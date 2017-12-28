@@ -39,9 +39,11 @@
 - Annotator Plugin
 !- if-Prüfung in Zeile 43 doof. Was, wenn annotation.wccs schon fehlt?
 !- Wofür war die Anpassung in annotator-full.js? Die Macht das neue XPath Feature kaputt.
+!- Muss die Funktion zum Anlegen neuer Annotationen noch deaktiviert werden? Der Service unterstützt das nicht!
 
 - Annotation Service
--- Annotationen haben noch property in featureKind
+!- Annotationen haben noch property in featureKind
+!- ID einer Annotation enthält noch "properties"
 
 - Sprache
 ?- Wenn in XPath ein String angegeben wird und darin ein \n, wird das zu viel escaped.
