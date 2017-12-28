@@ -39,6 +39,7 @@
 - Annotator Plugin
 !- if-Prüfung in Zeile 43 doof. Was, wenn annotation.wccs schon fehlt?
 !- Wofür war die Anpassung in annotator-full.js? Die Macht das neue XPath Feature kaputt.
+    --> Ohne diesen Fix scheinen die Annotationen der Antworten der FAQs nicht angezeigt zu werden.
 !- Muss die Funktion zum Anlegen neuer Annotationen noch deaktiviert werden? Der Service unterstützt das nicht!
 
 - Annotation Service
