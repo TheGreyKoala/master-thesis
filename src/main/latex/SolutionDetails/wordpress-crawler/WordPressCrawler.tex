@@ -1,0 +1,16 @@
+\section{WordPress Crawler}
+    \label{section:solutionDetailsCrawler}
+    Der {\wordpress}-Crawler ist ein Kommandozeilenwerkzeug,
+    welches die REST-API von {\wordpress} verwendet,
+    % TODO: Referenz: https://developer.wordpress.org/rest-api/
+    um die \glspl{url} aller Posts und Pages beliebig vieler Sites zu ermitteln.
+    Für die gesammelten \glspl{url} initiiert er die Klassifizierung,
+    indem er entsprechende Aufträge an den
+    Classification Service\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationService}}
+    richtet.
+    
+    Dieses Kapitel beschreibt, wie dieses Werkzeug konfiguriert und gestartet wird
+    und vermittelt einen Überblick über die verwendeten Technologien.
+
+    \input{SolutionDetails/wordpress-crawler/ConfigurationAndRun}
+    \input{SolutionDetails/wordpress-crawler/Technologies}

@@ -1,0 +1,74 @@
+\subsection{Konfiguration und Aufruf}
+    Der Crawler benötigt einige Informationen,
+    die ihm beim Start in einer Konfigurationsdatei mitgeteilt werden.
+    Die Konfigurationsparameter lassen sich in drei Kategorien einteilen:
+    Classification Service, Sites und Crawling.
+
+    \paragraph{Classification Service Parameter}
+    Der Crawler soll die Klassifizierung der gefundenen Seiten anstoßen,
+    weshalb er die \gls{url} des Classification Services benötigt.
+    Die verfügbaren Parameter sind in Tabelle \ref{table:crawlerClassificationServiceParameter} aufgeführt.
+    Jeder dieser Parameter ist optional und besitzt einen Standardwert,
+    der genutzt wird, falls er nicht durch die Konfiguration überschrieben wird.
+
+    \begin{table}[]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Parameter} & \textbf{Standardwert}\\
+            \hline
+            scheme & http \\
+            \hline
+            host & localhost \\
+            \hline
+            port & 44284 \\
+            \hline
+            path & /classifications \\
+            \hline
+            \end{tabular}
+        \caption{Konfigurationsparameter des Crawlers: Classification Service}
+        \label{table:crawlerClassificationServiceParameter}
+    \end{table}
+
+    Der Crawler baut basierend auf den Angaben die \gls{url} des Classification Services nach
+    folgendem Schema auf: \texttt{<scheme>://<host>:<port>:<path>}.
+
+    \paragraph{Sites Parameter}
+    Neben Informationen zum Classification Service benötigt der Crawler auch Informationen zu den Sites,
+    die er durchsuchen soll.
+    Es können deshalb beliebig viele Sites durch die Angabe einer Id,
+    eines Namens und vor allem einer Basis-\gls{url} konfiguriert werden.
+
+    \paragraph{Crawling Parameter}
+    Die Kategorie "`Crawling"' enthält zwei Parameter:
+    "`resultPageSize"' und "`maxConcurrentRequests"'.
+    Der erste Parameter legt die Anzahl der Posts und Pages fest,
+    die in einer Anfrage von {\wordpress} angefordert werden.
+    Der Standardwert dieses Parameters ist 8.
+    Der Crawler führt entsprechend viele Anfragen durch,
+    um alle Seiten zu beziehen.
+    Seiten die er ermittelt hat, leitet er direkt zum Classification Service weiter,
+    anstatt erst alle Seiten zu sammeln.
+    Der zweite Parameter bestimmt die Anzahl der gleichzeiten Anfragen,
+    die an {\wordpress} gerichtet werden.
+    Hier liegt der Standardwert bei 5.
+    Beide Parameter dienen der Erzeugung eines guten Flusses zwischen Anfragen an
+    {\wordpress} und den Classification Service.
+    Außerdem stellen sie sicher, dass {\wordpress} durch die Anfragen des Crawlers
+    nicht überlastet wird und keine anderen Anfragen mehr bearbeiten kann.
+
+    \paragraph{Beispielkonfiguration}
+    Eine Konfiguration muss in YAML\footnote{vgl. \url{http://yaml.org}} geschrieben.
+    Ein Beispiel ist in Listing \ref{listing:crawlerConfiguration} zu sehen.
+
+    \lstinputlisting[
+        label=listing:crawlerConfiguration,
+        caption=Beispielkonfiguration für den {\wordpress}-Crawler,
+        style=pseudo
+    ]{../resources/crawler/config.yaml}
+
+    \paragraph{Aufruf}
+    Der Aufruf erfolgt über automatisch generierte Start-Skripte,
+    die dem Werkzeug beiliegen und denen als Argument
+    der Pfad zur Konfigurationsdatei mitgeteilt werden muss.
+    Ein beispielhafter Aufruf ist \texttt{./wccs-wordpress-crawler /home/wccs/crawler.yaml}.

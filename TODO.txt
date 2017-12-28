@@ -53,6 +53,9 @@
 !- In den Labels steht noch "Type"
 ?- Sollte die Detailseite auch die Selektoren und isCollection der Features beinhalten?
 
+- Crawler
+-- Es steht an vielen Stellen noch wcts (z. B. die ausführbaren Skripte)
+
 - Ist es "Klassifizierungsmodell" oder "Klassenmodell"? Betrifft viele Stellen.
 
 - Selektor eines Features in Beziehung zu speichern, trägt nicht zur Wiederverwendbarkeit Beziehung

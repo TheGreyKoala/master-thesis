@@ -1,0 +1,17 @@
+classificationService:
+  scheme: https
+  host: myhost
+  port: 55555
+  path: /myservice
+
+sites:
+  - id: babw
+    name: B.A. Bildungswissenschaft
+    url: http://www.fernuni-hagen.de/KSW/portale/babw
+  - id: bakw
+    name: B.A. Kulturwissenschaften
+    url: http://www.fernuni-hagen.de/KSW/portale/bakw
+
+crawler:
+  resultPageSize: 24
+  maxConcurrentRequests: 3
