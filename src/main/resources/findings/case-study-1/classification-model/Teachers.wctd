@@ -1,0 +1,44 @@
+page class Teachers
+	is recognized by url pattern « \/lehrende »
+	classifies
+		header as Header
+		heading as PageHeading
+		introduction as Introduction by css « #content h3 + p »
+		mainNavigationLinks as many FernUniInternalLink each by xpath « //ul[@class="nav navbar-nav"]/li/a »
+		portal as Portal
+		sidebarNavigationLinks as many FernUniInternalLink each by css « ul.menu a »
+		teachers as many Teacher
+
+// Ausnahme im Namen für Natascha Compes
+content class Teacher
+	is recognized by css « section#content div.grid »
+	classifies
+		area as SubjectArea
+		contactInformation as ContactInformation by css « div.team-member-des > p »
+		image as Image by css « img.team-picture »
+		name as TeacherName by css « div.team-member-des > p > strong, div.team-member-des > p > b »
+
+// Ausnahme im Selektor für Thorsten Junge
+content class SubjectArea
+	is recognized by css « div.team-member-des > p > a:first-child »
+	classifies
+		name as SubjectAreaName by xpath « . »
+		link as FernUniInternalLink
+
+// Ausnahme bei der email und phone für Jessica Felgentreu
+content class ContactInformation
+	classifies
+		email as Email by xpath « .//a[starts-with(@href, "mailto")] »
+		fax as Fax
+		phone as Phone
+		room as Room
+
+reference class Email
+content class Fax is recognized by xpath « substring-before(substring-after(., "Fax: "), "\n") »
+content class Phone is recognized by xpath « substring-before(concat(substring-after(., "Tel.: "), "\n"), "\n") »
+content class Room is recognized by xpath « normalize-space(substring-after(., "Raum")) »
+content class SubjectAreaName
+content class TeacherName
+
+// Ausnahme: Veronika Kopf (nur email und name)
+// Ausnahme: Prof. Dr. Julia Schütz und Dr. Rüdiger Wild (Name ist in zwei Tags aufgeteilt)

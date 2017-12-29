@@ -1,0 +1,20 @@
+content class Introduction
+
+content class Header
+	is recognized by css « header »
+	classifies fernUni as Brand by xpath « //a[@class="navbar-brand"] »
+
+content class Brand
+	classifies
+		homepage as FernUniInternalLink by xpath « . »
+		logo as Image by xpath « ./img »
+
+content class PageHeading is recognized by css « #content h3 »
+
+content class Portal
+	is recognized by css « section#inner-headline a.content »
+	classifies homepage as FernUniInternalLink by xpath « . »
+
+reference class Image is recognized by css « img »
+// Ausnahme bei Dr. Thorsten Junge
+reference class FernUniInternalLink is recognized by url pattern « ^((http(s?):\/\/www\.fernuni-hagen\.de\/?)|\/).*$ »
