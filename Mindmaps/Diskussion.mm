@@ -63,7 +63,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="7" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="9" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Abdeckung der Dom&#xe4;ne" POSITION="right" ID="ID_1332383261" CREATED="1514538648248" MODIFIED="1514538657080">
 <edge COLOR="#ff0000"/>
 <node TEXT="Wiederholende Elemente ohne umschlie&#xdf;enden Tag schwer" ID="ID_722876685" CREATED="1514538657913" MODIFIED="1514538681663"/>
@@ -78,8 +78,9 @@
 <node TEXT="Fehlende Syntax Checks machen Schreiben von CSS und XPath schwer und fehleranf&#xe4;llig. Dazu wird drittes Tool verwendet." POSITION="right" ID="ID_1033591712" CREATED="1514544546253" MODIFIED="1514544615121">
 <edge COLOR="#ff00ff"/>
 </node>
-<node TEXT="Christopher Dorn (PVS)" POSITION="left" ID="ID_273042609" CREATED="1514547369251" MODIFIED="1514569368125">
-<edge COLOR="#7c0000"/>
+<node TEXT="Fallstudie 1" POSITION="left" ID="ID_4679892" CREATED="1514571007374" MODIFIED="1514571010805">
+<edge COLOR="#7c007c"/>
+<node TEXT="Christopher Dorn (PVS)" ID="ID_273042609" CREATED="1514547369251" MODIFIED="1514571012854">
 <node TEXT="Wurde 2x klassifiziert" ID="ID_1643551589" CREATED="1514547384826" MODIFIED="1514547390993"/>
 <node TEXT="Weil ung&#xfc;nstige Konstellation aus CSS Selektor und Node Struktur" ID="ID_1573582082" CREATED="1514547391208" MODIFIED="1514547406161">
 <node TEXT="team-member-des geschachtelt" ID="ID_1776108256" CREATED="1514547406410" MODIFIED="1514547415770"/>
@@ -87,9 +88,10 @@
 <node TEXT="D.h. man muss  genau gucken" ID="ID_904370754" CREATED="1514547417696" MODIFIED="1514547425937"/>
 <node TEXT="Gleiches gilt auch f&#xfc;r andere (siehe info.txt)" ID="ID_54617364" CREATED="1514569374938" MODIFIED="1514569385675"/>
 </node>
-<node TEXT="Katharina Bengin (PVS)" POSITION="left" ID="ID_994630311" CREATED="1514569340003" MODIFIED="1514569372315">
-<edge COLOR="#00007c"/>
+<node TEXT="Katharina Bengin (PVS)" ID="ID_994630311" CREATED="1514569340003" MODIFIED="1514571014611">
 <node TEXT="&#xdc;berschrift wurde f&#xe4;lschlicherweise als Name erkannt" ID="ID_1589153216" CREATED="1514569346421" MODIFIED="1514569361331"/>
+</node>
+<node TEXT="Der Graph macht explizit, wer an welchem Lehrgebiet arbeitet" ID="ID_68483572" CREATED="1514570975093" MODIFIED="1514571016225"/>
 </node>
 </node>
 </map>

@@ -1,23 +1,25 @@
 BaBw:
-- www.fernuni-hagen.de/KSW/portale/babw/einstieg/lehrende-und-betreuende-im-b-a-bildungswissenschaft/
+- http://www.fernuni-hagen.de/KSW/portale/babw/einstieg/lehrende-und-betreuende-im-b-a-bildungswissenschaft/
 
-- 552 Knoten (MATCH (n) RETURN distinct labels(n), count(*))
+- 503 Knoten (MATCH (n) RETURN distinct labels(n), count(*))
 -- 1 Page
 -- 1 Page und Resource
 -- 1 Site
 -- 126 Resource
--- 319 Content
+-- 270 Content
 -- 105 Text
 
-- 600 Kanten (MATCH (n)-[q]->(p) return count(q))
+- 551 Kanten (MATCH (n)-[q]->(p) return count(q))
 -- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
 -- 59 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
 -- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
 -- 260 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
 -- 113 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
--- 154 Content zu Text (MATCH (n:Property)-[q]->(t:Content) return count(q))
--- 12 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
--- 0 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 105 Content zu Text (MATCH (n:Property)-[q]->(t:Content) return count(q))
+-- 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 12 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 8 SubjectAreaName
+--- 4 Phone
 -- 0 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 
 
@@ -29,18 +31,26 @@ BaPVS:
 -- 1 Page und Resource
 -- 1 Site
 -- 140 Resource
--- 328 Content
+-- 275 Content
 -- 69 Text
 
-- 599 Kanten
+- 546 Kanten
 -- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
 -- 74 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
 -- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
--- 262 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
+-- 260 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
 -- 129 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
--- 120 Content zu Text (MATCH (n:Property)-[q]->(t:Content) return count(q))
--- 18 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
--- 8 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 69 Content zu Text (MATCH (n:Property)-[q]->(t:Content) return count(q))
+-- 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 26 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 16 SubjectAreaName
+--- 3 Teacher Name
+--- 1 Phone
+
+TODO: Die Summe stimmt noch nicht! Es muss geteilte Nodes ohne Text geben!
+TODO: WAS IST AUS DEN UNTEREN SACHEN GEWORDEN??
+
+
 --- Christopher Dorn wurde aufgrund der anderen HTML-Struktur doppelt klassifiziert, wird folgendes doppelt verwendet:
 ---- ContactInformation
 ---- TeacherName
@@ -55,3 +65,6 @@ BaPVS:
 -- 2 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 --- Anna Hinzmann wird 2x aufgeführt, deshalb wird ihre E-Mail Adresse 2x referenziert (mailto:anna.hinzmann@fernuni-hagen.de)
 --- Aus dem gleichen Grund wird ihr Bild 2x referenziert
+
+http://www.fernuni-hagen.de/KSW/portale/bscpsy/einstieg/lehrende-und-betreuende-im-b-sc-psychologie/
+http://www.fernuni-hagen.de/KSW/portale/mabm/einstieg/lehrende-und-betreuende-im-m-a-eeducation/
