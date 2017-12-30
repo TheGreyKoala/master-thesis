@@ -1,0 +1,49 @@
+- http://www.fernuni-hagen.de/KSW/portale/bscpsy/einstieg/lehrende-und-betreuende-im-b-sc-psychologie/
+
+- 342 Knoten (MATCH (n) RETURN distinct labels(n), count(*))
+-- 89 ["Resource"]
+-- 1 ["Page", "Resource"]
+-- 1 ["Site"]
+-- 75 ["Text"]
+-- 176 ["Content"] (MATCH (n:Property) RETURN distinct count(*), n.type ORDER BY n.type)
+--- 1	"Brand"
+--- 33	"ContactInformation"
+--- 1	"Header"
+--- 1	"Introduction"
+--- 1	"PageHeading"
+--- 29	"Phone"
+--- 1	"Portal"
+--- 33	"SubjectArea"
+--- 11	"SubjectAreaName"
+--- 33	"Teacher"
+--- 32	"TeacherName"
+
+- 352 Kanten (MATCH ()-[q]->() return distinct type(q), count(*))
+-- 200	"Owns"
+-- 75	"Reads"
+-- 110	"References"
+-- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
+-- 37 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
+-- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
+-- 162 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
+-- 97 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
+-- 75 Content zu Text (siehe oben, MATCH (n:Property)-[q]->(t:Content) return count(q))
+-- 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 8 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 7 SubjectAreaName
+--- 1 TeacherName (B. Siem)
+-- 10 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 8 Links zu LGs
+--- Birte Siem ist zwei mal aufgeführt, weshalb Bild und E-Mail 2x referenziert werden
+---- In einem Eintrag wurde die Telefonnummer falsch erkannt (wegen fehlendem Zeilenumbruch), deshalb wurde nicht kompletter ContactInformation geteilt
+---- Zusätzlich sind LGs anders
+
+- Prüfen:
+-- Introduction ist leer
+-- 2 ContactInformation ohne E-Mail
+-- 33 ContactInformation ohne Fax
+-- 4 ContactInformation ohne Phone
+-- 33 ContactInformation ohne Room
+-- 3 Teacher ohne Bild
+-- Viele Telefonnummern enthalten auch E-Mails
+-- Einige Namen enthalten am Ende ein Leerzeichen

@@ -104,7 +104,7 @@
 				"name": { "name": "name", "class": "SubjectAreaName", "isCollection": false, "selector": { "type": "XPathSelector", "value": "." } }
 			},
 			"references": {
-				"link": { "name": "link", "class": "FernUniInternalLink", "isCollection": false, "selector": {} }
+				"link": { "name": "link", "class": "FernUniInternalLink", "isCollection": false, "selector": { "type": "XPathSelector", "value": "." } }
 			}
 		},
 		"SubjectAreaName": {

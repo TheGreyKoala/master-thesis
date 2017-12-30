@@ -1,0 +1,41 @@
+- http://www.fernuni-hagen.de/KSW/portale/babw/einstieg/lehrende-und-betreuende-im-b-a-bildungswissenschaft/
+
+- 510 Knoten (MATCH (n) RETURN distinct labels(n), count(*))
+-- 133	["Resource"]
+-- 1	["Page", "Resource"]
+-- 1	["Site"]
+-- 105	["Text"]
+-- 270	["Content"]
+--- 1	"Brand"
+--- 55	"ContactInformation"
+--- 1	"Fax"
+--- 1	"Header"
+--- 1	"Introduction"
+--- 1	"PageHeading"
+--- 35	"Phone"
+--- 1	"Portal"
+--- 2	"Room"
+--- 53	"SubjectArea"
+--- 9	"SubjectAreaName"
+--- 55	"Teacher"
+--- 55	"TeacherName"
+
+- 604 Kanten (MATCH (n)-[q]->(p) return count(q))
+-- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
+-- 59 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
+-- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
+-- 260 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
+-- 166 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
+-- 105 Content zu Text (MATCH (n:Property)-[q]->(t:Content) return count(q))
+-- 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 12 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 8 SubjectAreaName
+--- 4 Phone
+-- 7 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 7 Links zu LGs (von SubjectArea)
+
+- Prüfen
+-- 2 Teacher ohne SubjectArea
+-- 15 ContactInformation ohne Phone
+-- Name von Julia Schütz falsch
+-- Name von Rüdiger Wild falsch

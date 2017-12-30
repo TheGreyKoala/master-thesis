@@ -23,7 +23,7 @@ content class SubjectArea
 	is recognized by css « div.team-member-des > p > a:first-child »
 	classifies
 		name as SubjectAreaName by xpath « . »
-		link as FernUniInternalLink
+		link as FernUniInternalLink by xpath « . »
 
 // Ausnahme bei der email und phone für Jessica Felgentreu
 content class ContactInformation

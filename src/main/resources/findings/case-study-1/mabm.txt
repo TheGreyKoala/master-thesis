@@ -1,0 +1,44 @@
+- http://www.fernuni-hagen.de/KSW/portale/mabm/einstieg/lehrende-und-betreuende-im-m-a-eeducation/
+
+- 257 Knoten
+-- 71	["Resource"]
+-- 1	["Page", "Resource"]
+-- 1	["Site"]
+-- 56	["Text"]
+-- 128	["Content"]
+--- 1	"Brand"
+--- 24	"ContactInformation"
+--- 1	"Fax"
+--- 1	"Header"
+--- 1	"Introduction"
+--- 1	"PageHeading"
+--- 21	"Phone"
+--- 1	"Portal"
+--- 22	"SubjectArea"
+--- 7	"SubjectAreaName"
+--- 24	"Teacher"
+--- 24	"TeacherName"
+
+- 286 Kanten
+-- 56	"Reads"
+-- 86	"References"
+-- 144	"Owns"
+
+-- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
+-- 28 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
+-- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
+-- 115 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
+-- 73 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
+-- 56 Content zu Text (siehe oben, MATCH (n:Property)-[q]->(t:Content) return count(q))
+-- 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 5 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 5 SubjectAreaName
+-- 5 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 5 LG Seiten (von SubjectArea)
+
+- Prüfen:
+-- Introduction ist leer
+-- 2 Teacher ohne SubjectArea
+-- 3 ContactInformation ohne Phone (in Annotationen sind mehr nicht sichtbar!)
+-- Viele Telefonnummern enthalten auch E-Mails
+-- 2 Namen enthalten das LG (weil dieses auch im strong steht)

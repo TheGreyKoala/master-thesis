@@ -1,0 +1,48 @@
+- Was wurde nicht erkannt?
+-- Header (match (n:Page)-[q:Owns {name:"header"}]->(p)-[*]->(x) return n,x,p)
+--- Brand
+---- Homepage
+---- Logo
+-- PageHeading (match (n:Page)-[q:Owns {name:"heading"}]->(p)-[*]->(x) return n,x,p)
+-- Introduction (match (n:Page)-[q:Owns {name:"introduction"}]->(p)-[*]->(x) return n,x,p)
+-- MainNavigationLinks (match (n:Page)-[q:References {name:"mainNavigationLinks"}]->(p) return n,p)
+-- Portal (match (n:Page)-[q:Owns {name:"portal"}]->(p)-[*]->(x) return n,x,p)
+--- Homepage
+-- SidebarNavigationLinks (match (n:Page)-[q:References {name:"sidebarNavigationLinks"}]->(p) return n,p)
+-- Teachers
+--- Alle Lehrende (match (n:Property {type:"Teacher"}) return count(n))
+--- Teacher ohne SubjectArea (MATCH (n:Property {type:"Teacher"}) WHERE NOT ((n)-[]->(:Property {type:"SubjectArea"})) return n)
+---- SubjectArea ohne Name (MATCH (n:Property {type:"SubjectArea"}) WHERE NOT ((n)-[]->(:Property {type:"SubjectAreaName"})) return n)
+---- SubjectAreaName ohne Text (MATCH (n:Property {type:"SubjectAreaName"}) WHERE NOT ((n)-[:Reads]->()) return n)
+---- SubjectArea ohne Link (MATCH (n:Property {type:"SubjectArea"}) WHERE NOT ((n)-[:References {name:"link"}]->()) return n)
+--- Teacher ohne ContactInformation (MATCH (n:Property {type:"Teacher"}) WHERE NOT ((n)-[]->(:Property {type:"ContactInformation"})) return n)
+---- ContactInformation ohne E-Mail (MATCH (n:Property {type:"ContactInformation"}) WHERE NOT ((n)-[:References {name:"email"}]->()) return n)
+---- ContactInformation ohne Fax (MATCH (n:Property {type:"ContactInformation"}) WHERE NOT ((n)-[]->(:Property {type:"Fax"})) return n)
+---- Fax ohne Text (MATCH (n:Property {type:"Fax"}) WHERE NOT ((n)-[:Reads]->()) return n)
+---- ContactInformation ohne Phone (MATCH (n:Property {type:"ContactInformation"}) WHERE NOT ((n)-[]->(:Property {type:"Phone"})) return n)
+---- Phone ohne Text (MATCH (n:Property {type:"Phone"}) WHERE NOT ((n)-[:Reads]->()) return n)
+---- ContactInformation ohne Room (MATCH (n:Property {type:"ContactInformation"}) WHERE NOT ((n)-[]->(:Property {type:"Room"})) return n)
+---- Room ohne Text (MATCH (n:Property {type:"Room"}) WHERE NOT ((n)-[:Reads]->()) return n)
+--- Teacher ohne Bild (MATCH (n:Property {type:"Teacher"}) WHERE NOT ((n)-[:References {name:"image"}]->()) return n)
+--- Teacher ohne Name (MATCH (n:Property {type:"Teacher"}) WHERE NOT ((n)-[]->(:Property {type:"TeacherName"})) return n)
+---- TeacherName ohne Text (MATCH (n:Property {type:"TeacherName"}) WHERE NOT ((n)-[:Reads]->()) return n)
+
+- Gibt es Knoten, die mehrfach unterschiedlich klassifiziert wurden?
+--> match (a)-[q]->(b),(c)-[x]->(d) where not(a = c and b = d) and q.startSelectorValue = x.startSelectorValue and q.endSelectorValue = x.endSelectorValue and q.startSelectorOffset = x.startSelectorOffset and q.endSelectorOffset = x.endSelectorOffset return a,b,c,d
+--> DAS STIMMT NOCH NICHT! Das ist gängig bei Subject
+
+
+
+- Was wurde falsch erkannt?
+-- Name einer SubjectArea (match (n:Property {type:"SubjectAreaName"})-[:Reads]->(t) RETURN t.value)
+-- E-Mail (match (n:Property {type:"ContactInformation"})-[:References {name:"email"}]->(t) RETURN t.url)
+-- Phone (match (n:Property {type:"Phone"})-[:Reads]->(t) RETURN t.value)
+-- Fax (match (n:Property {type:"Fax"})-[:Reads]->(t) RETURN t.value)
+-- Room (match (n:Property {type:"Room"})-[:Reads]->(t) RETURN t.value)
+-- Bild eines Teachers (match (n:Property {type:"Teacher"})-[:References {name:"image"}]->(t) RETURN t.url)
+-- Name eines Teachers (match (n:Property {type:"TeacherName"})-[:Reads]->(t) RETURN t.value)
+
+- Was wurde im Modell nicht berücksichtigt?
+
+- Dopplungen?
+-- Z. B. SubjectArea mit 2 Namen?
