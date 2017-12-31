@@ -94,6 +94,12 @@
 <node TEXT="Der Graph macht explizit, wer an welchem Lehrgebiet arbeitet" ID="ID_68483572" CREATED="1514570975093" MODIFIED="1514571016225">
 <node TEXT="Allerdings wird nur Name geteilt, was semantisch komisch ist (mehrere LGs mit demselben Namen?)" ID="ID_187530709" CREATED="1514721194901" MODIFIED="1514721217324"/>
 </node>
+<node TEXT="Eigentlich w&#xfc;rde man die Adresse ohne mailto haben wollen" ID="ID_1179658420" CREATED="1514721934516" MODIFIED="1514721954822">
+<node TEXT="Sollte die DSL erlauben Operationen auf den gewonnenen Werten durchzuf&#xfc;hren?" ID="ID_1248898229" CREATED="1514722436745" MODIFIED="1514722457184"/>
+</node>
+<node TEXT="Will man ein Feature, wenn es nichts enth&#xe4;lt?" ID="ID_642344002" CREATED="1514722117084" MODIFIED="1514722137141">
+<node TEXT="Wie ContactInformation bei dem N.N. Kontakt bei BsPsy" ID="ID_1761163525" CREATED="1514722138693" MODIFIED="1514722156862"/>
+</node>
 </node>
 </node>
 </map>
