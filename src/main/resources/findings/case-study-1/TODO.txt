@@ -1,2 +1,0 @@
-- Abfrage zum Finden von Knoten, die doppelt klassifiziert wurden stimmt noch nicht?
-- BaPVS muss nochmal klassifiziert werden, weil erst jetzt die Links der LGs richtig erkannt werden.

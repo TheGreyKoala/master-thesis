@@ -3,7 +3,7 @@
 <node TEXT="Diskussion" FOLDED="false" ID="ID_1129469300" CREATED="1514538636418" MODIFIED="1514538642122" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -91,7 +91,9 @@
 <node TEXT="Katharina Bengin (PVS)" ID="ID_994630311" CREATED="1514569340003" MODIFIED="1514571014611">
 <node TEXT="&#xdc;berschrift wurde f&#xe4;lschlicherweise als Name erkannt" ID="ID_1589153216" CREATED="1514569346421" MODIFIED="1514569361331"/>
 </node>
-<node TEXT="Der Graph macht explizit, wer an welchem Lehrgebiet arbeitet" ID="ID_68483572" CREATED="1514570975093" MODIFIED="1514571016225"/>
+<node TEXT="Der Graph macht explizit, wer an welchem Lehrgebiet arbeitet" ID="ID_68483572" CREATED="1514570975093" MODIFIED="1514571016225">
+<node TEXT="Allerdings wird nur Name geteilt, was semantisch komisch ist (mehrere LGs mit demselben Namen?)" ID="ID_187530709" CREATED="1514721194901" MODIFIED="1514721217324"/>
+</node>
 </node>
 </node>
 </map>

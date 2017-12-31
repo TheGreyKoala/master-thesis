@@ -184,7 +184,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lng/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[10]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 127,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[10]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -295,7 +313,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg4/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[11]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[11]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -426,7 +462,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/ls_hering/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[12]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 99,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[12]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -557,7 +611,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/ls_haratsch/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[13]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 93,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[13]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -668,7 +740,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg3/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[14]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 60,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[14]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -799,7 +889,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/ls_hering/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[15]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 99,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[15]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -910,7 +1018,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg1/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[16]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[16]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1021,7 +1147,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[17]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[17]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1171,7 +1315,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/philosophie/philos2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[18]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 17,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[18]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1302,7 +1464,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg4/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[19]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[19]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1433,7 +1613,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg1/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1564,7 +1762,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[20]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[20]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1675,7 +1891,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/geschichte/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[21]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 38,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[21]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1806,7 +2040,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg1/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[22]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 44,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[22]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1937,7 +2189,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[23]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 16,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[23]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2068,7 +2338,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/team/lg3",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[24]/div[2]/div[1]/div[1]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 76,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[24]/div[2]/div[1]/div[1]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2198,7 +2486,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/team/lg3",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[24]/div[2]/div[1]/div[1]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 76,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[24]/div[2]/div[1]/div[1]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2310,7 +2616,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/ls_wagner/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[25]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 63,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[25]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2441,7 +2765,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/philosophie/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[26]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 17,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[26]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2572,7 +2914,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lng/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[27]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 127,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[27]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2683,7 +3043,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg1/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[28]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 44,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[28]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2814,7 +3192,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[29]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 16,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[29]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2945,7 +3341,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg4/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3076,7 +3490,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[30]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[30]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3189,7 +3621,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[31]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[31]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3282,7 +3732,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg3/index.shtml",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[32]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[32]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3413,7 +3881,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/geschichte/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[33]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 38,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[33]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3544,7 +4030,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[34]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 16,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[34]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3675,7 +4179,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/geschichte/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[35]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 38,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[35]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3825,7 +4347,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/ls_schlieffen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[36]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 76,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[36]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3918,7 +4458,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg3/index.shtml",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[37]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[37]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4049,7 +4607,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg3/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[38]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 75,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[38]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4180,7 +4756,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/ls_haratsch/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[39]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 93,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[39]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4459,7 +5053,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg5",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[40]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 59,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[40]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4590,7 +5202,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg1/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[41]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 44,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[41]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4721,7 +5351,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg5",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[42]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 59,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[42]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4852,7 +5500,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg5/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[43]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 59,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[43]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4983,7 +5649,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/ksw/qm/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[44]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 35,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[44]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5114,7 +5798,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg3/index.shtml",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[45]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[45]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5245,7 +5947,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/ls_schlieffen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[46]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 76,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[46]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5356,7 +6076,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[47]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 16,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[47]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5487,7 +6225,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[48]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[48]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5618,7 +6374,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/ls_wagner/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[49]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 63,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[49]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5711,7 +6485,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg3/index.shtml",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5842,7 +6634,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg4/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[50]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[50]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5973,7 +6783,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg3/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[51]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 76,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[51]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6084,7 +6912,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg4/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[5]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6215,7 +7061,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg1/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6346,7 +7210,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/team/lg3",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 76,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6476,7 +7358,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/team/lg3",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 76,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6588,7 +7488,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg3/index.shtml",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[8]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[8]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6719,7 +7637,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/ls_schlieffen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[9]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 76,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[9]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6850,7 +7786,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[10]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[10]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6980,7 +7934,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg3/index.shtml",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[11]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[11]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7073,7 +8045,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg1/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[12]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[12]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7203,7 +8193,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[13]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[13]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7333,7 +8341,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg4/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[14]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[14]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7464,7 +8490,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg1/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[15]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 44,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[15]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7575,7 +8619,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[16]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 16,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[16]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7686,7 +8748,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg3/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[17]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 76,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[17]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7798,7 +8878,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg1/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 44,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7909,7 +9007,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg3/index.shtml",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -8020,7 +9136,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg1/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 64,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[3]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -8150,7 +9284,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg3/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 76,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[4]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -8225,7 +9377,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[5]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 16,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[5]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -8336,7 +9506,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/ksw/qm/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[6]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 35,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[6]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -8447,7 +9635,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg3/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[7]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 76,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[7]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -8540,7 +9746,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[8]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[8]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -8690,7 +9914,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/polis/lg4/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[9]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[9]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {

@@ -28,6 +28,7 @@
 ---- TeacherName ohne Text (MATCH (n:Property {type:"TeacherName"}) WHERE NOT ((n)-[:Reads]->()) return n)
 
 - Gibt es Knoten, die mehrfach unterschiedlich klassifiziert wurden?
+--> Ist das überhaupt wichtig? Die Frage ist doch eigentlich, ob konkreter Text auf einer Seite unterschiedlich klassifiziert wurde. Die Knoten sind eher unwichtig, da ein Knoten mehrere Infos enthalten kann. Die Frage, ob Text unterschiedlich klassifiziert wurde lässt sich leicht beantworten. Das gilt auch für Ressourcen auf einer Seite.
 --> match (a)-[q]->(b),(c)-[x]->(d) where not(a = c and b = d) and q.startSelectorValue = x.startSelectorValue and q.endSelectorValue = x.endSelectorValue and q.startSelectorOffset = x.startSelectorOffset and q.endSelectorOffset = x.endSelectorOffset return a,b,c,d
 --> DAS STIMMT NOCH NICHT! Das ist gängig bei Subject
 

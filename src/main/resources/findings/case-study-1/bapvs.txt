@@ -1,39 +1,81 @@
 - http://www.fernuni-hagen.de/KSW/portale/bapvs/einstieg/lehrende-und-betreuende-im-b-a-pvs/
 
 - 486 Knoten
--- 1 Page
--- 1 Page und Resource
--- 1 Site
--- 140 Resource
--- 275 Content (MATCH (n:Property) RETURN distinct n.type, count(*))
---- 67 ContactInformation
---- 1 Portal
---- 70 Teacher
---- 18 SubjectAreaName
---- 1 Header
---- 11 TeacherName
---- 38 Phone
---- 67 SubjectArea
---- 1 Brand
---- 1 PageHeading
--- 69 Text
+-- 159	["Resource"]
+-- 1	["Page", "Resource"]
+-- 1	["Site"]
+-- 69	["Text"]
+-- 275	["Content"] (MATCH (n:Property) RETURN distinct count(*), n.type ORDER BY n.type)
+--- 1	"Brand"
+--- 67	"ContactInformation"
+--- 1	"Header"
+--- 1	"PageHeading"
+--- 38	"Phone"
+--- 1	"Portal"
+--- 67	"SubjectArea"
+--- 18	"SubjectAreaName"
+--- 70	"Teacher"
+--- 11	"TeacherName"
 
-- 546 Kanten
--- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
--- 74 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
--- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
--- 260 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
--- 129 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
--- 69 Content zu Text (MATCH (n:Property)-[q]->(t:Content) return count(q))
+- 546 Kanten (MATCH ()-[q]->() return distinct type(q), count(*))
+-- 69	"Reads" (Content zu Text)
+-- 209	"References"
+--- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
+--- 196 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
+-- 335	"Owns"
+--- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
+--- 74 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
+--- 260 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
 -- 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 -- 26 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 --- 16 SubjectAreaName
---- 3 Teacher Name (A. Hinzmann, C. Dorn, M. Kaufmann)
+--- 3 TeacherName (A. Hinzmann, C. Dorn, M. Kaufmann)
 --- 1 Phone (Anna Hinzmann hat zwei identische Einträge)
 --- 2 SubjectArea (Christopher Dorn und Max Kaufmann wurden aufgrund der anderen HTML-Struktur doppelt klassifiziert)
 --- 3 ContactInformation (C. Dorn, M. Kaufmann, bei Helmut Wagner ist die E-Mail anders (kein mailto) und Benedikt Engelmeier hat keine Kontaktinformationen, deshalb teilen sie sich den "leeren" ContactInformation Knoten)
---- 1 Teacher (Katharina Bengin wurde aufgrund der anderen HTML-Struktur doppelt klassifiziert)
----- Bei C. Dorn und M. Kaufmann wurde nicht der ganze Teacher Knoten geteilt, weil nur bei einer der beiden Klassifizierungen das Bild gefunden wurde
--- 2 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 1 Teacher (Katharina Bengin wurde aufgrund der anderen HTML-Struktur doppelt klassifiziert, anders als C. Dorn und M. Kaufmann gibt es kein Bild, deshalb komplett)
+-- 18 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 16 Links von LGs
 --- Anna Hinzmann wird 2x aufgeführt, deshalb wird ihre E-Mail Adresse 2x referenziert (mailto:anna.hinzmann@fernuni-hagen.de)
 --- Aus dem gleichen Grund wird ihr Bild 2x referenziert
+--- Der ganze ContactInformation wird wegen unterschiedlicher Selektoren nicht wiederverwendet
+
+- Auffälligkeiten:
+-- 68 tatsächliche Lehrende, 70 klassifiziert
+--- C. Dorn und M. Kaufmann wurden doppelt klassifiziert (im div.grid ist noch ein div.grid)
+--- Deshalb werden einige ihrer Knoten doppelt verwendet
+--- Der Teacher-Knoten wurde nicht geteilt, weil nur bei einer der beiden Klassifizierungen das Bild gefunden wurde
+--- Das hätte durch den CSS Selektor "section#content div.team-list > div.grid" gelöst werden können
+-- Ganzer Teacher Knoten 2x referenziert
+--- Katharina Bengin
+--- Wurde doppelt klassifiziert
+--- Kein Bild, deshalb passt alles
+-- 1 Teacher ohne SubjectArea
+--- Bei Katharina Bengin steht als erstes der Text "Auskunft erteilt auch:"
+--- Deshalb passt der Selektor nicht mehr.
+--- Anstatt first-child hätte man first-of-type nehmen sollen
+-- 28 ContactInformation ohne Phone
+--- 9 "Telefon:" anstatt "Tel.:"
+--- 1 "Tel:" anstatt "Tel.:"
+--- 18 Tatsächlich kein Phone
+-- 10 Teacher ohne Bild
+--- 8 Teacher tatsächlich kein Bild
+--- C. Dorn und M- Kaufmann doppelt klassifiziert und bei jeweils 2. Klassifizierung kein Bild gefunden (Folgefehler)
+-- 56 Teacher ohne Name
+--- Selektor passt nicht, da Name z. B. oft nur als Link oder direkt als Text gepfelgt sind
+--- Kein Selektor gefunden, der auf alles passt
+-- Viele Telefonnummern haben auch E-Mail in sich
+--- Im Quelltext ist kein Zeilenumbruch nach Telefonnummer (oder nicht am Ende)
+--- Passender: substring-before(concat(substring-after(normalize-space(.//text()[contains(., 'Tel')]), 'Tel.: '), '\n'), '\n')
+--- Allerdings müsste hier auch noch die obere Ausnahme beachtet werden, dass es manchmal auch "Telefon:" ist
+-- TeacherName: Auskunft erteilt auch:
+--- Als Name wird der erste fette Text genommen, das ist in diesem Fall diese Info.
+--- Siehe auch Name oben
+-- Fehler im Modell:
+--- Namen können Links sein
+--- Helmut Wagner hat keine E-Mail, sondern Internetadresse
+--- Sprechzeiten
+
+- Prüfen:
+-- Keine Introduction (richtig)
+-- 1 ContactInformation ohne E-Mail (richtig, Benedikt Engelmeier und Helmut Wagner haben keine E-Mail)
