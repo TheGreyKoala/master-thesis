@@ -1,0 +1,69 @@
+1546 Knoten -- 510 + 486 + 342 + 247 = 1585
+430	vs. 638 ["Resource"]
+4	["Page", "Resource"]
+4	["Site"]
+284	vs. 305 ["Text"]
+824	vs. 849 ["Content"]
+-- 4	"Brand"
+-- 178 vs. 179	"ContactInformation"
+-- 1 vs. 2	"Fax"
+-- 4	"Header"
+-- 2 vs. 3	"Introduction"
+-- 4	"PageHeading"
+-- 119 vs. 193	"Phone"
+-- 4	"Portal"
+-- 2	"Room"
+-- 172 vs. 175	"SubjectArea"
+-- 39 vs. 45	"SubjectAreaName"
+-- 182	"Teacher"
+-- 113 vs. 122	"TeacherName"
+
+- 1862 vs. 1889 Kanten
+-- 284 vs. 305	"Reads"
+-- 582 vs. 585	"References"
+--- 52 Page zu Resource
+--- 530 vs 533 Content zu Resource
+-- 996 vs. 999	"Owns"
+--- 4 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
+--- 198 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
+--- 794 vs. 797 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
+
+-- 21 vs. 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- Siehe unten
+-- 64 vs. 51 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+---- "Phone"
+----- "+49 (0)2331 987 2655" (gleicher Kontakt auf zwei Seiten, babw & mabm, Cathleen Grunert)
+----- "+49 (0)2331 987 4691" (gleicher Kontakt auf zwei Seiten, babw & mabm, Julia Schütz)
+----- "+49 (0)2331 987-4338" (gleicher Kontakt auf zwei Seiten, babw & mabm, Rüdiger Wild)
+----- "+49 (0)2331 987 2133" (gleicher Kontakt auf zwei Seiten, babw & mabm, Katja Ludwig)
+---- "SubjectAreaName"
+----- "Lehrgebiet Mediendidaktik"
+----- "LG Empirische Bildungsforschung"
+----- "LG Bildungstheorie und Medienpädagogik "
+----- "Lehrgebiet Allgemeine Bildungswissenschaft"
+----- "LG Lebenslanges Lernen"
+----- "LG Bildung und Differenz"
+---- "TeacherName"
+----- "Prof. Dr. Theo Bastiaens"
+----- "Prof. Dr. Uwe Elsholz"
+----- "Claudia Grüner"
+----- "Katja Ludwig"
+----- "Prof."
+----- "Christine Schulmann"
+----- "Prof. Dr. Katharina Walgenbach"
+----- "Dr."
+----- "Florentina Sauerbach"
+---- "SubjectArea"
+----- Lehrgebiet Allgemeine Bildungswissenschaft
+----- Lehrgebiet Mediendidaktik
+----- LG Lebenslanges Lernen
+---- "Fax"
+----- "+49 (0)2331 987 2145"
+---- "ContactInformation"
+----- PSV und PSY haben Lehrer ohne irgendwelche Kontaktadressen
+---- "Introduction"
+----- Leere Einführung
+-- 48 vs. 41 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- FernUni Homepage
+--- Lehrgebiet Links
+--- E-Mail Adressen

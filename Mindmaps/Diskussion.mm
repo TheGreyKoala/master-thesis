@@ -102,6 +102,7 @@
 </node>
 <node TEXT="Problem mit mehreren Nodes, die in 1 Feature sollen schon bei Julia Sch&#xfc;tz und R&#xfc;diger Wild von BaBw sichtbar" ID="ID_921423305" CREATED="1514724736290" MODIFIED="1514724765658"/>
 <node TEXT="Falsche Annotationen machen Pr&#xfc;fung schwierig" ID="ID_1525758361" CREATED="1514726062688" MODIFIED="1514726074642"/>
+<node TEXT="Text Knoten funktionieren erst, wenn alle klassifiziert" ID="ID_298723474" CREATED="1514735280867" MODIFIED="1514735296622"/>
 </node>
 </node>
 </map>

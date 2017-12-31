@@ -18,7 +18,7 @@
 --- 33	"Teacher"
 --- 32	"TeacherName"
 
-- 352 Kanten (MATCH ()-[q]->() return distinct type(q), count(*))
+- 385 Kanten (MATCH ()-[q]->() return distinct type(q), count(*))
 -- 200	"Owns"
 --- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
 --- 37 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))

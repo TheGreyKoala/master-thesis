@@ -17,7 +17,7 @@
 --- 70	"Teacher"
 --- 11	"TeacherName"
 
-- 546 Kanten (MATCH ()-[q]->() return distinct type(q), count(*))
+- 613 Kanten (MATCH ()-[q]->() return distinct type(q), count(*))
 -- 69	"Reads" (Content zu Text)
 -- 209	"References"
 --- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))

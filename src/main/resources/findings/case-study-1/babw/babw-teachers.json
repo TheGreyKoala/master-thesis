@@ -111,7 +111,27 @@
             "type": "Introduction",
             "content": "Hier finden Sie eine alphabetische Liste mit allen Lehrenden und Betreuenden. Eine modulspezifische Darstellung finden Sie unter Studium beim jeweiligen Modul.",
             "properties": {},
-            "references": {}
+            "references": {
+                "links": [
+                    {
+                        "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/studium/",
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[1]/a[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 7,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[1]/a[1]"
+                            }
+                        },
+                        "type": "FernUniInternalLink"
+                    }
+                ]
+            }
         },
         "portal": {
             "selector": {
