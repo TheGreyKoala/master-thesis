@@ -75,6 +75,11 @@
 --- Namen können Links sein
 --- Helmut Wagner hat keine E-Mail, sondern Internetadresse
 --- Sprechzeiten
+-- Annotationen:
+--- LG hat teilweise 3 Annotationen, aber nicht der komplette Text
+---- Text wird mit document.evaluate ermittelt, welches auf dem Quelltext arbeitet. Kein Zeilenumbruch sondern Leerzeichen zwischen Tel und E-Mail
+---- Startoffset wird anhand innerText.indexOf ermittelt. innerText hat zwischen Tel und E-Mail einen Zeilenumbruch
+---- StartOffset ist -1, weshalb die Annotation verschoben ist.
 
 - Prüfen:
 -- Keine Introduction (richtig)

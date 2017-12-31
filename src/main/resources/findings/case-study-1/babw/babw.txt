@@ -43,7 +43,7 @@
 --- Veronika Kopf hat kein Lehrgebiet
 -- Annotationen
 --- Bilder werden nicht hervorgehoben (Overview)
---- Telefonnumer und Fax nicht richtig markiert (siehe Konzept)
+--- Telefonnumer und Fax nicht richtig markiert (siehe Konzept), ggf. mit nächster zusammen
 --- Raum nicht richtig markiert
 --- E-Mail bei Anneke Bruning nicht hervorgehoben, obwohl vorhanden
 --- LG mit 2 Annotationen (korrekt)
