@@ -203,7 +203,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_medien/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 38,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[10]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -353,7 +371,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_medien/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 38,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[11]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -503,7 +539,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/allgemeine_biwi/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 42,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[12]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -672,7 +726,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/mediendidaktik/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 25,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[13]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -822,7 +894,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/lebenslanges_lernen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 30,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[14]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -972,7 +1062,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/allgemeine_biwi/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 42,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[15]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1122,7 +1230,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 52,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[16]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1384,7 +1510,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_medien/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 39,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[18]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1534,7 +1678,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/mediendidaktik/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 25,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[19]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1684,7 +1846,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/emp_bildungsforschung/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 31,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -1906,7 +2086,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/emp_bildungsforschung/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[21]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 31,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[21]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2056,7 +2254,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_medien/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[22]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 39,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[22]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2206,7 +2422,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/allgemeine_biwi/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[23]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 42,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[23]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2356,7 +2590,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/allgemeine_biwi/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[24]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 42,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[24]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2525,7 +2777,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/lebenslanges_lernen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[25]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 22,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[25]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2675,7 +2945,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_medien/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[26]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 38,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[26]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2825,7 +3113,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/emp_bildungsforschung/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[27]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 31,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[27]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -2955,7 +3261,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/lebenslanges_lernen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[28]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 22,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[28]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3105,7 +3429,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/emp_bildungsforschung/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[29]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 31,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[29]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3255,7 +3597,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/mediendidaktik/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 25,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3405,7 +3765,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/mediendidaktik/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[30]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 25,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[30]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3535,7 +3913,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/allgemeine_biwi/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[31]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 42,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[31]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3704,7 +4100,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_medien/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[32]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 38,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[32]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -3854,7 +4268,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/mediendidaktik/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[33]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 25,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[33]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4004,7 +4436,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[34]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 52,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[34]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4154,7 +4604,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_differenz/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[35]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 24,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[35]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4304,7 +4772,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/emp_bildungsforschung/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[36]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 31,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[36]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4434,7 +4920,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/lebenslanges_lernen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[37]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 22,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[37]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4584,7 +5088,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/lebenslanges_lernen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[38]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 22,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[38]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4734,7 +5256,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_differenz/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[39]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 24,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[39]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -4884,7 +5424,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/soziologie/lg2/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 52,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5034,7 +5592,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_medien/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[40]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 39,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[40]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5184,7 +5760,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_differenz/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[41]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 24,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[41]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5334,7 +5928,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/mediendidaktik/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 25,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5484,7 +6096,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/lebenslanges_lernen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 22,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[5]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5634,7 +6264,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_differenz/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 24,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[6]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5784,7 +6432,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/mediendidaktik/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 25,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[7]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -5934,7 +6600,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/lebenslanges_lernen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 22,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[8]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6084,7 +6768,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/mediendidaktik/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 25,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/div[9]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6234,7 +6936,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_differenz/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[10]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 24,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[10]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6364,7 +7084,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/emp_bildungsforschung/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[11]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 31,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[11]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6514,7 +7252,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/lebenslanges_lernen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[12]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 22,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[12]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6664,7 +7420,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_medien/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[13]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 38,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[13]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6794,7 +7568,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/mediendidaktik/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[14]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 25,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[14]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -6944,7 +7736,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_differenz/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 24,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7074,7 +7884,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/lebenslanges_lernen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 22,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7204,7 +8032,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_medien/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[3]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 38,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[3]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7334,7 +8180,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/mediendidaktik/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 25,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[4]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7484,7 +8348,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_medien/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[5]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 38,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[5]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7614,7 +8496,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_differenz/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[6]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 24,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[6]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7744,7 +8644,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_medien/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[7]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 38,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[7]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -7874,7 +8792,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/bildung_differenz/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[8]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 24,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[8]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {
@@ -8004,7 +8940,25 @@
                                 "references": {}
                             }
                         },
-                        "references": {}
+                        "references": {
+                            "link": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/ifbm/mediendidaktik/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[9]/div[2]/p[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 25,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/div[9]/div[2]/p[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
                     },
                     "contactInformation": {
                         "selector": {

@@ -1,4 +1,5 @@
 content class Introduction
+	classifies links as many FernUniInternalLink
 
 content class Header
 	is recognized by css « header »

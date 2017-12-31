@@ -5,7 +5,7 @@
 -- 1	["Page", "Resource"]
 -- 1	["Site"]
 -- 105	["Text"]
--- 270	["Content"]
+-- 270	["Content"] (MATCH (n:Property) RETURN distinct count(*), n.type ORDER BY n.type)
 --- 1	"Brand"
 --- 55	"ContactInformation"
 --- 1	"Fax"
@@ -20,22 +20,39 @@
 --- 55	"Teacher"
 --- 55	"TeacherName"
 
-- 604 Kanten (MATCH (n)-[q]->(p) return count(q))
--- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
--- 59 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
--- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
--- 260 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
--- 166 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
--- 105 Content zu Text (MATCH (n:Property)-[q]->(t:Content) return count(q))
+- 604 Kanten (MATCH (n)-[q]->(p) return count(q), MATCH ()-[q]->() return distinct type(q), count(*))
+-- 105	"Reads" Content zu Text (MATCH (n:Property)-[q]->(t:Content) return count(q))
+-- 178	"References"
+--- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
+--- 167 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
+-- 320	"Owns"
+--- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
+--- 59 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
+--- 260 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
 -- 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 -- 12 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 --- 8 SubjectAreaName
 --- 4 Phone
--- 7 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 8 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 --- 7 Links zu LGs (von SubjectArea)
+--- 1 Link zur Main Site (Studium)
+
+- Auffälligkeiten:
+-- 2 Teacher ohne SubjectArea
+--- Dr. Thorsten Junge hat anderes Format
+--- Veronika Kopf hat kein Lehrgebiet
+-- Annotationen
+--- Bilder werden nicht hervorgehoben (Overview)
+--- Telefonnumer und Fax nicht richtig markiert (siehe Konzept)
+--- Raum nicht richtig markiert
+--- E-Mail bei Anneke Bruning nicht hervorgehoben, obwohl vorhanden
+--- LG mit 2 Annotationen (korrekt)
+
 
 - Prüfen
--- 2 Teacher ohne SubjectArea
 -- 15 ContactInformation ohne Phone
+--- 15 tatsächlich keine Telefonnummer
 -- Name von Julia Schütz falsch
+--- "Prof." ist in eigenem Node
 -- Name von Rüdiger Wild falsch
+--- "Dr." in eigenem Node

@@ -100,6 +100,8 @@
 <node TEXT="Will man ein Feature, wenn es nichts enth&#xe4;lt?" ID="ID_642344002" CREATED="1514722117084" MODIFIED="1514722137141">
 <node TEXT="Wie ContactInformation bei dem N.N. Kontakt bei BsPsy" ID="ID_1761163525" CREATED="1514722138693" MODIFIED="1514722156862"/>
 </node>
+<node TEXT="Problem mit mehreren Nodes, die in 1 Feature sollen schon bei Julia Sch&#xfc;tz und R&#xfc;diger Wild von BaBw sichtbar" ID="ID_921423305" CREATED="1514724736290" MODIFIED="1514724765658"/>
+<node TEXT="Falsche Annotationen machen Pr&#xfc;fung schwierig" ID="ID_1525758361" CREATED="1514726062688" MODIFIED="1514726074642"/>
 </node>
 </node>
 </map>
