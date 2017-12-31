@@ -20,25 +20,30 @@
 --- 24	"TeacherName"
 
 - 286 Kanten
--- 56	"Reads"
--- 86	"References"
 -- 144	"Owns"
-
--- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
--- 28 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
--- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
--- 115 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
--- 73 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
--- 56 Content zu Text (siehe oben, MATCH (n:Property)-[q]->(t:Content) return count(q))
+--- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
+--- 28 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
+--- 115 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
+-- 56	"Reads" (Content zu Text (siehe oben, MATCH (n:Property)-[q]->(t:Content) return count(q)))
+-- 86	"References"
+--- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
+--- 73 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
 -- 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 -- 5 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 --- 5 SubjectAreaName
 -- 5 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 --- 5 LG Seiten (von SubjectArea)
 
-- Prüfen:
+- Auffälligkeiten:
 -- Introduction ist leer
+--- Absatz vorhanden, aber leer
 -- 2 Teacher ohne SubjectArea
--- 3 ContactInformation ohne Phone (in Annotationen sind mehr nicht sichtbar!)
--- Viele Telefonnummern enthalten auch E-Mails
--- 2 Namen enthalten das LG (weil dieses auch im strong steht)
+--- Anker ist innerhalb eines strong, weshalb Selektor nicht passt
+--- Anpassung aus BaPVS hilft hier auch
+-- 3 ContactInformation ohne Phone
+--- 2 haben tatsächlich keine
+--- 1 hat "Telefon" anstatt "Tel", siehe BaPVS
+-- Viele Telefonnummern enthalten auch E-Mails (siehe BaPVS)
+-- 2 Namen enthalten das LG
+--- Name und LG stehen zusammen im Node, der Name matcht
+--- Anderer Selektor hätte geholfen
