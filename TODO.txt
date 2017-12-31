@@ -55,6 +55,7 @@
 
 - Crawler
 -- Es steht an vielen Stellen noch wcts (z. B. die ausführbaren Skripte)
+!- Findet der Crawler auch http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/page/2/
 
 - Ist es "Klassifizierungsmodell" oder "Klassenmodell"? Betrifft viele Stellen.
 
