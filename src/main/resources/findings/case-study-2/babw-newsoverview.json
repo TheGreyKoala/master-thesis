@@ -1,0 +1,1171 @@
+{
+    "type": "NewsOverview",
+    "url": "http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/",
+    "status": "Classified",
+    "properties": {
+        "header": {
+            "selector": {
+                "type": "RangeSelector",
+                "startSelector": {
+                    "type": "XPathSelector",
+                    "offset": 0,
+                    "value": "/html[1]/body[1]/div[1]/header[1]"
+                },
+                "endSelector": {
+                    "type": "XPathSelector",
+                    "offset": 43,
+                    "value": "/html[1]/body[1]/div[1]/header[1]"
+                }
+            },
+            "type": "Header",
+            "properties": {
+                "fernUni": {
+                    "selector": {
+                        "type": "RangeSelector",
+                        "startSelector": {
+                            "type": "XPathSelector",
+                            "offset": 0,
+                            "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]"
+                        },
+                        "endSelector": {
+                            "type": "XPathSelector",
+                            "offset": 0,
+                            "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]"
+                        }
+                    },
+                    "type": "Brand",
+                    "properties": {},
+                    "references": {
+                        "homepage": {
+                            "destination": "http://www.fernuni-hagen.de",
+                            "selector": {
+                                "type": "RangeSelector",
+                                "startSelector": {
+                                    "type": "XPathSelector",
+                                    "offset": 0,
+                                    "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]"
+                                },
+                                "endSelector": {
+                                    "type": "XPathSelector",
+                                    "offset": 0,
+                                    "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]"
+                                }
+                            },
+                            "type": "FernUniInternalLink"
+                        },
+                        "logo": {
+                            "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/wp-content/uploads/sites/3/2015/06/feulogo.png",
+                            "selector": {
+                                "type": "RangeSelector",
+                                "startSelector": {
+                                    "type": "XPathSelector",
+                                    "offset": 0,
+                                    "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]/img[1]"
+                                },
+                                "endSelector": {
+                                    "type": "XPathSelector",
+                                    "offset": 0,
+                                    "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]/img[1]"
+                                }
+                            },
+                            "type": "Image"
+                        }
+                    }
+                }
+            },
+            "references": {}
+        },
+        "heading": {
+            "selector": {
+                "type": "RangeSelector",
+                "startSelector": {
+                    "type": "XPathSelector",
+                    "offset": 0,
+                    "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h3[1]"
+                },
+                "endSelector": {
+                    "type": "XPathSelector",
+                    "offset": 9,
+                    "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h3[1]"
+                }
+            },
+            "type": "PageHeading",
+            "content": "Aktuelles",
+            "properties": {},
+            "references": {}
+        },
+        "news": [
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[10]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[10]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[36]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[36]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[10]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 58,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[10]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Modul 1C: Präsenzveranstaltungen im Wintersemester 2017/18",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2017/06/14/modul-1c-einfuehrungsveranstaltungen-im-wintersemester-201718/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[10]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 58,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[10]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            },
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[11]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[11]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[46]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 13,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[46]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "content": "16. März 2017",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[11]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 54,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[11]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Modul 1C: Online-Kurzeinführung im Sommersemester 2017",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2017/03/16/modul-1c-online-kurzeinfuehrung-im-sommersemester-2017/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[11]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 54,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[11]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            },
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[1]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 17,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[1]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "content": "21. November 2016",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 54,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[1]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Wichtig: Strukturänderungen im BA Bildungswissenschaft",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2016/11/21/wichtig-strukturaenderungen-im-ba-bildungswissenschaft/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 54,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            },
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[2]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[2]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[5]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 17,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[5]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "content": "13. Dezember 2017",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[2]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 59,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[2]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Modul 1C: Online-Diskussionsrunde im Wintersemester 2017/18",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2017/12/13/modul-1c-online-diskussionsrunde-im-wintersemester-201718/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[2]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 59,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[2]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            },
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[3]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[3]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[9]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 15,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[9]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "content": "31. August 2017",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[3]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 18,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[3]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Willkommen an Bord",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2017/08/31/3384/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[3]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 18,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[3]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            },
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[4]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[4]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[12]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 15,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[12]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "content": "14. August 2017",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[4]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 67,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[4]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Klausurortsliste für die KSW Klausuren im September 2017 erschienen",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2017/08/14/klausurortsliste-fuer-die-ksw-klausuren-im-september-2017-erschienen/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[4]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 67,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[4]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            },
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[5]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[5]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[13]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 13,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[13]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "content": "19. Juli 2017",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[5]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 41,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[5]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Neues Modul 1D ab dem Sommersemester 2018",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2017/07/19/neues-modul-1d-ab-dem-sommersemester-2018/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[5]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 41,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[5]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            },
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[6]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[6]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[18]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 13,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[18]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "content": "12. Juli 2017",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[6]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 57,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[6]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Modul 1C: Aktualisierung des Kursmaterials zum WiSe 17/18",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2017/07/12/modul-1c-aktualisierung-des-kursmaterials-zum-wise-1718/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[6]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 57,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[6]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            },
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[7]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[7]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[23]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 13,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[23]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "content": "11. Juli 2017",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[7]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 58,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[7]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Informationsveranstaltung „Hands-on: Bildungswissenschaft“",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2017/07/11/informationsveranstaltung-hands-on-bildungswissenschaft-3/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[7]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 58,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[7]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            },
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[8]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[8]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[28]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 13,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[28]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "content": "21. Juni 2017",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[8]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 49,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[8]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Wichtige Hinweise zur Überarbeitung des Moduls 1B",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2017/06/21/ueberarbeitung-modul-1b/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[8]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 49,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[8]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            },
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[9]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[9]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[30]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 13,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[30]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "content": "14. Juni 2017",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[9]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 70,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[9]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Modul 1C: Online-Einführungsveranstalltungen im Wintersemester 2017/18",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2017/06/14/modul-1c-online-einfuehrungsveranstalltungen-im-wintersemester-201718/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[9]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 70,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[9]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            }
+        ],
+        "portal": {
+            "selector": {
+                "type": "RangeSelector",
+                "startSelector": {
+                    "type": "XPathSelector",
+                    "offset": 0,
+                    "value": "/html[1]/body[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h3[1]/a[1]"
+                },
+                "endSelector": {
+                    "type": "XPathSelector",
+                    "offset": 25,
+                    "value": "/html[1]/body[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h3[1]/a[1]"
+                }
+            },
+            "type": "Portal",
+            "content": "B.A. Bildungswissenschaft",
+            "properties": {},
+            "references": {
+                "homepage": {
+                    "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/",
+                    "selector": {
+                        "type": "RangeSelector",
+                        "startSelector": {
+                            "type": "XPathSelector",
+                            "offset": 0,
+                            "value": "/html[1]/body[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h3[1]/a[1]"
+                        },
+                        "endSelector": {
+                            "type": "XPathSelector",
+                            "offset": 25,
+                            "value": "/html[1]/body[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h3[1]/a[1]"
+                        }
+                    },
+                    "type": "FernUniInternalLink"
+                }
+            }
+        }
+    },
+    "references": {
+        "mainNavigationLinks": [
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/einstieg/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 9,
+                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/studium/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 8,
+                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/pruefungen/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 10,
+                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 8,
+                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/sitemap/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 1,
+                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            }
+        ],
+        "nextPage": {
+            "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/page/2/",
+            "selector": {
+                "type": "RangeSelector",
+                "startSelector": {
+                    "type": "XPathSelector",
+                    "offset": 0,
+                    "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/a[1]"
+                },
+                "endSelector": {
+                    "type": "XPathSelector",
+                    "offset": 1,
+                    "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[2]/a[1]"
+                }
+            },
+            "type": "FernUniInternalLink"
+        },
+        "sidebarNavigationLinks": [
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[1]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 7,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[1]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[2]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 9,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[2]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/kontakt/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[3]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 7,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[3]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/downloads/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[4]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 9,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[4]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/online-systeme/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[5]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 14,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[5]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/vom-bachelor-zum-master/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[6]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 23,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[6]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            }
+        ]
+    }
+}

@@ -33,7 +33,7 @@
 -- 12 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 --- 8 SubjectAreaName
 --- 4 Phone
--- 8 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 8 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q:References]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 --- 7 Links zu LGs (von SubjectArea)
 --- 1 Link zur Main Site (Studium)
 

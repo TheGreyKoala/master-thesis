@@ -1,0 +1,32 @@
+- http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/
+
+- 86 Knoten
+-- 24	["Resource"]
+-- 1	["Page", "Resource"]
+-- 1	["Site"]
+-- 23	["Text"]
+-- 37	["Content"]
+--- 1	"Brand"
+--- 1	"Header"
+--- 11	"News"
+--- 11	"NewsDate"
+--- 11	"NewsHeading"
+--- 1	"PageHeading"
+--- 1	"Portal"
+
+- 87 Kanten
+-- 23	"Reads"
+-- 26	"References"
+--- 12 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
+--- 14 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
+-- 38	"Owns"
+--- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
+--- 14 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
+--- 23 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
+-- 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 0 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 1 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q:References]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- http://www.fernuni-hagen.de/KSW/portale/babw/service/
+
+- Auffälligkeiten
+-- Inhalt kann nicht sinnvoll klassifiziert werden

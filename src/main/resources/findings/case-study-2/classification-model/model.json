@@ -1,0 +1,105 @@
+{
+	"pageClasses": {
+		"NewsOverview": {
+			"name": "NewsOverview",
+			"selector": { "type": "UrlPatternSelector", "value": "\\\/aktuelles" },
+			"contents": {
+				"header": { "name": "header", "class": "Header", "isCollection": false, "selector": {} },
+				"heading": { "name": "heading", "class": "PageHeading", "isCollection": false, "selector": {} },
+				"introduction": { "name": "introduction", "class": "Introduction", "isCollection": false, "selector": { "type": "CssSelector", "value": "#content h3 + p" } },
+				"news": { "name": "news", "class": "News", "isCollection": true, "selector": {} },
+				"portal": { "name": "portal", "class": "Portal", "isCollection": false, "selector": {} }
+			},
+			"references": {
+				"mainNavigationLinks": { "name": "mainNavigationLinks", "class": "FernUniInternalLink", "isCollection": true, "selector": { "type": "XPathSelector", "value": "\/\/ul[@class=\"nav navbar-nav\"]\/li\/a" } },
+				"nextPage": { "name": "nextPage", "class": "FernUniInternalLink", "isCollection": false, "selector": { "type": "CssSelector", "value": "#pagination > span.current + a.inactive" } },
+				"previousPage": { "name": "previousPage", "class": "FernUniInternalLink", "isCollection": false, "selector": { "type": "XPathSelector", "value": "\/\/div[@id='pagination']\/span[@class='current']\/preceding-sibling::a[1][@class='inactive']" } },
+				"sidebarNavigationLinks": { "name": "sidebarNavigationLinks", "class": "FernUniInternalLink", "isCollection": true, "selector": { "type": "CssSelector", "value": "ul.menu a" } }
+			}
+		}
+	},
+	"contentClasses": {
+		"Brand": {
+			"name": "Brand",
+			"selector": {},
+			"contents": {
+			},
+			"references": {
+				"homepage": { "name": "homepage", "class": "FernUniInternalLink", "isCollection": false, "selector": { "type": "XPathSelector", "value": "." } },
+				"logo": { "name": "logo", "class": "Image", "isCollection": false, "selector": { "type": "XPathSelector", "value": ".\/img" } }
+			}
+		},
+		"Header": {
+			"name": "Header",
+			"selector": { "type": "CssSelector", "value": "header" },
+			"contents": {
+				"fernUni": { "name": "fernUni", "class": "Brand", "isCollection": false, "selector": { "type": "XPathSelector", "value": "\/\/a[@class=\"navbar-brand\"]" } }
+			},
+			"references": {
+			}
+		},
+		"Introduction": {
+			"name": "Introduction",
+			"selector": {},
+			"contents": {
+			},
+			"references": {
+				"links": { "name": "links", "class": "FernUniInternalLink", "isCollection": true, "selector": {} }
+			}
+		},
+		"News": {
+			"name": "News",
+			"selector": { "type": "CssSelector", "value": "#content > div > div > div + div > hr" },
+			"contents": {
+				"date": { "name": "date", "class": "NewsDate", "isCollection": false, "selector": {} },
+				"heading": { "name": "heading", "class": "NewsHeading", "isCollection": false, "selector": {} }
+			},
+			"references": {
+			}
+		},
+		"NewsDate": {
+			"name": "NewsDate",
+			"selector": { "type": "XPathSelector", "value": "following-sibling::p[@class=\"datum\"]" },
+			"contents": {
+			},
+			"references": {
+			}
+		},
+		"NewsHeading": {
+			"name": "NewsHeading",
+			"selector": { "type": "XPathSelector", "value": "following-sibling::h4[@class=\"entry-title\"]" },
+			"contents": {
+			},
+			"references": {
+				"newsDetailPage": { "name": "newsDetailPage", "class": "FernUniInternalLink", "isCollection": false, "selector": {} }
+			}
+		},
+		"PageHeading": {
+			"name": "PageHeading",
+			"selector": { "type": "CssSelector", "value": "#content h3" },
+			"contents": {
+			},
+			"references": {
+			}
+		},
+		"Portal": {
+			"name": "Portal",
+			"selector": { "type": "CssSelector", "value": "section#inner-headline a.content" },
+			"contents": {
+			},
+			"references": {
+				"homepage": { "name": "homepage", "class": "FernUniInternalLink", "isCollection": false, "selector": { "type": "XPathSelector", "value": "." } }
+			}
+		}
+	},
+	"referenceClasses": {
+		"FernUniInternalLink": {
+			"name": "FernUniInternalLink",
+			"selector": { "type": "UrlPatternSelector", "value": "^((http(s?):\\\/\\\/www\\.fernuni-hagen\\.de\\\/?)|\\\/).*$" }
+		},
+		"Image": {
+			"name": "Image",
+			"selector": { "type": "CssSelector", "value": "img" }
+		}
+	}
+}

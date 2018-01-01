@@ -1,0 +1,48 @@
+- http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/
+- http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/page/2/
+- http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/page/3/
+- http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/page/4/
+- http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/page/5/
+
+- 260 Knoten
+-- 53	["Resource"]
+-- 5	["Page", "Resource"]
+-- 1	["Site"]
+-- 77	["Text"]
+-- 124	["Content"]
+--- 1	"Brand"
+--- 1	"Header"
+--- 41	"News"
+--- 38	"NewsDate"
+--- 41	"NewsHeading"
+--- 1	"PageHeading"
+--- 1	"Portal"
+
+- 332 Kanten
+-- 80	"Reads"
+-- 107	"References"
+--- 13 Page zu Page (MATCH (n:Page)-[q:References]->(t:Page) return count(q))
+--- 50 Page zu Resource MATCH (n:Page)-[q:References]->(t:Resource) where not t:Page return count(q)
+--- 44 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
+-- 145	"Owns"
+--- 5 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
+--- 57 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
+--- 83 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
+-- 2 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 2 Titel von News
+-- 5 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- 1 PageHeading
+--- 1 Portal
+--- 1 Header
+--- 1 News
+---- "Wichtig: Strukturänderungen im BA Bildungswissenschaft" vom 21.11.2016 wird auf Seite 1 + 3 angezeigt
+--- 1 NewsDate
+---- News ohne Datum
+-- 13 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q:References]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- Page 1-4
+--- Sidebar Navigation + Main Navigation
+
+
+- Auffälligkeiten
+-- 3 News ohne Datum
+--- Ist tatsächlich so

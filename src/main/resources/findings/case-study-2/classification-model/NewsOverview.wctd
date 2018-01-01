@@ -1,0 +1,30 @@
+page class NewsOverview
+	is recognized by url pattern « \/aktuelles »
+	classifies
+		header as Header
+		heading as PageHeading
+		introduction as Introduction by css « #content h3 + p »
+		mainNavigationLinks as many FernUniInternalLink each by xpath « //ul[@class="nav navbar-nav"]/li/a »
+		news as many News
+		nextPage as FernUniInternalLink by css « #pagination > span.current + a.inactive »
+		portal as Portal
+		previousPage as FernUniInternalLink by xpath « //div[@id='pagination']/span[@class='current']/preceding-sibling::a[1][@class='inactive'] »
+		sidebarNavigationLinks as many FernUniInternalLink each by css « ul.menu a »
+
+content class News
+	is recognized by css « #content > div > div > div + div > hr »
+	classifies
+		date as NewsDate
+		heading as NewsHeading
+//		section as NewsSection
+// We are inside a hr, so CSS is of no use
+// XPath has no feature to only select the nodes (p and ul) until the next hr
+// following-sibling::p[x] does not work either because the news have different amounts of sections and following sibling will skip the next hr and return the sections of the next news
+
+content class NewsDate is recognized by xpath « following-sibling::p[@class="datum"] »
+content class NewsHeading
+	is recognized by xpath « following-sibling::h4[@class="entry-title"] »
+	classifies
+		newsDetailPage as FernUniInternalLink
+
+// content class NewsSection

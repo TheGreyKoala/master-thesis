@@ -67,3 +67,7 @@
 --- FernUni Homepage
 --- Lehrgebiet Links
 --- E-Mail Adressen
+
+- Auffälligkeiten
+-- Der Header wird nicht geteilt (Screenshot!)
+--- Das FernUni-Logo hat auf jeder Seite eine andere URL

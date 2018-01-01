@@ -31,6 +31,7 @@
 
 - Classification Service
 !- Konfigurationsdatei hat doofen Namen (besser: classification-model.json)
+!- Warum bricht der Browser schon bei 4 parallelen Seiten zusammen?
 
 - Storage
 !- Volume für Neo4J

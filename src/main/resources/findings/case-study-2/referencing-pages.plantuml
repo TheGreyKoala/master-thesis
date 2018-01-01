@@ -1,0 +1,42 @@
+@startuml
+skinparam linetype ortho
+scale 3840*2160
+
+object ":Page" as p1 {
+    url = [..]/aktuelles/
+}
+
+object ":Page" as p2 {
+    url = [..]/aktuelles/page/2/
+}
+
+object ":Page" as p3 {
+    url = [..]/aktuelles/page/3/
+}
+
+object ":Page" as p4 {
+    url = [..]/aktuelles/page/4/
+}
+
+object ":Page" as p5 {
+    url = [..]/aktuelles/page/5/
+}
+
+' Next page relationship
+p1 --> p2
+p2 --> p3
+p3 --> p4
+p4 --> p5
+
+' Previous page relationship
+p2 --> p1
+p3 --> p2
+p4 --> p3
+p5 --> p4
+
+' Sitebar navigation links
+p2 --> p1
+p3 --> p1
+p4 --> p1
+p5 --> p1
+@enduml
