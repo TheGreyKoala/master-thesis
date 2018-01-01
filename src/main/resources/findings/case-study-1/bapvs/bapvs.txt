@@ -20,8 +20,8 @@
 - 613 Kanten (MATCH ()-[q]->() return distinct type(q), count(*))
 -- 69	"Reads" (Content zu Text)
 -- 209	"References"
---- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
---- 196 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
+--- 8 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
+--- 201 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
 -- 335	"Owns"
 --- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
 --- 74 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
@@ -54,6 +54,7 @@
 --- Bei Katharina Bengin steht als erstes der Text "Auskunft erteilt auch:"
 --- Deshalb passt der Selektor nicht mehr.
 --- Anstatt first-child hätte man first-of-type nehmen sollen
+---- first-of-child wurde absichtlich wegen Thorsten Junge bei BaBw genommen!
 -- 28 ContactInformation ohne Phone
 --- 9 "Telefon:" anstatt "Tel.:"
 --- 1 "Tel:" anstatt "Tel.:"

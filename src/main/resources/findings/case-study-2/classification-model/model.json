@@ -11,7 +11,6 @@
 				"portal": { "name": "portal", "class": "Portal", "isCollection": false, "selector": {} }
 			},
 			"references": {
-				"mainNavigationLinks": { "name": "mainNavigationLinks", "class": "FernUniInternalLink", "isCollection": true, "selector": { "type": "XPathSelector", "value": "\/\/ul[@class=\"nav navbar-nav\"]\/li\/a" } },
 				"nextPage": { "name": "nextPage", "class": "FernUniInternalLink", "isCollection": false, "selector": { "type": "CssSelector", "value": "#pagination > span.current + a.inactive" } },
 				"previousPage": { "name": "previousPage", "class": "FernUniInternalLink", "isCollection": false, "selector": { "type": "XPathSelector", "value": "\/\/div[@id='pagination']\/span[@class='current']\/preceding-sibling::a[1][@class='inactive']" } },
 				"sidebarNavigationLinks": { "name": "sidebarNavigationLinks", "class": "FernUniInternalLink", "isCollection": true, "selector": { "type": "CssSelector", "value": "ul.menu a" } }
@@ -36,6 +35,7 @@
 				"fernUni": { "name": "fernUni", "class": "Brand", "isCollection": false, "selector": { "type": "XPathSelector", "value": "\/\/a[@class=\"navbar-brand\"]" } }
 			},
 			"references": {
+				"mainNavigationLinks": { "name": "mainNavigationLinks", "class": "FernUniInternalLink", "isCollection": true, "selector": { "type": "XPathSelector", "value": "\/\/ul[@class=\"nav navbar-nav\"]\/li\/a" } }
 			}
 		},
 		"Introduction": {

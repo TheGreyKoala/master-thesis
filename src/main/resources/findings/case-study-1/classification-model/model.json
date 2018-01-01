@@ -11,7 +11,6 @@
 				"teachers": { "name": "teachers", "class": "Teacher", "isCollection": true, "selector": {} }
 			},
 			"references": {
-				"mainNavigationLinks": { "name": "mainNavigationLinks", "class": "FernUniInternalLink", "isCollection": true, "selector": { "type": "XPathSelector", "value": "\/\/ul[@class=\"nav navbar-nav\"]\/li\/a" } },
 				"sidebarNavigationLinks": { "name": "sidebarNavigationLinks", "class": "FernUniInternalLink", "isCollection": true, "selector": { "type": "CssSelector", "value": "ul.menu a" } }
 			}
 		}
@@ -54,6 +53,7 @@
 				"fernUni": { "name": "fernUni", "class": "Brand", "isCollection": false, "selector": { "type": "XPathSelector", "value": "\/\/a[@class=\"navbar-brand\"]" } }
 			},
 			"references": {
+				"mainNavigationLinks": { "name": "mainNavigationLinks", "class": "FernUniInternalLink", "isCollection": true, "selector": { "type": "XPathSelector", "value": "\/\/ul[@class=\"nav navbar-nav\"]\/li\/a" } }
 			}
 		},
 		"Introduction": {

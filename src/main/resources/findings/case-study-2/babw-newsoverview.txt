@@ -17,8 +17,8 @@
 - 87 Kanten
 -- 23	"Reads"
 -- 26	"References"
---- 12 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
---- 14 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
+--- 7 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
+--- 19 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
 -- 38	"Owns"
 --- 1 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
 --- 14 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))

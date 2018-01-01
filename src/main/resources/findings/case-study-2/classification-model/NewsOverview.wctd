@@ -4,7 +4,6 @@ page class NewsOverview
 		header as Header
 		heading as PageHeading
 		introduction as Introduction by css « #content h3 + p »
-		mainNavigationLinks as many FernUniInternalLink each by xpath « //ul[@class="nav navbar-nav"]/li/a »
 		news as many News
 		nextPage as FernUniInternalLink by css « #pagination > span.current + a.inactive »
 		portal as Portal

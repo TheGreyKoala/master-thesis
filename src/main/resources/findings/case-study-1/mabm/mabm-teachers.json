@@ -73,7 +73,95 @@
                     }
                 }
             },
-            "references": {}
+            "references": {
+                "mainNavigationLinks": [
+                    {
+                        "destination": "http://www.fernuni-hagen.de/KSW/portale/mabm/einstieg/",
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 9,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]"
+                            }
+                        },
+                        "type": "FernUniInternalLink"
+                    },
+                    {
+                        "destination": "http://www.fernuni-hagen.de/KSW/portale/mabm/studium/",
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 8,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]"
+                            }
+                        },
+                        "type": "FernUniInternalLink"
+                    },
+                    {
+                        "destination": "http://www.fernuni-hagen.de/KSW/portale/mabm/pruefungen/",
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 10,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]"
+                            }
+                        },
+                        "type": "FernUniInternalLink"
+                    },
+                    {
+                        "destination": "http://www.fernuni-hagen.de/KSW/portale/mabm/service/",
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 8,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]"
+                            }
+                        },
+                        "type": "FernUniInternalLink"
+                    },
+                    {
+                        "destination": "http://www.fernuni-hagen.de/KSW/portale/mabm/sitemap/",
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 1,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]"
+                            }
+                        },
+                        "type": "FernUniInternalLink"
+                    }
+                ]
+            }
         },
         "heading": {
             "selector": {
@@ -4033,93 +4121,6 @@
         ]
     },
     "references": {
-        "mainNavigationLinks": [
-            {
-                "destination": "http://www.fernuni-hagen.de/KSW/portale/mabm/einstieg/",
-                "selector": {
-                    "type": "RangeSelector",
-                    "startSelector": {
-                        "type": "XPathSelector",
-                        "offset": 0,
-                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]"
-                    },
-                    "endSelector": {
-                        "type": "XPathSelector",
-                        "offset": 9,
-                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]"
-                    }
-                },
-                "type": "FernUniInternalLink"
-            },
-            {
-                "destination": "http://www.fernuni-hagen.de/KSW/portale/mabm/studium/",
-                "selector": {
-                    "type": "RangeSelector",
-                    "startSelector": {
-                        "type": "XPathSelector",
-                        "offset": 0,
-                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]"
-                    },
-                    "endSelector": {
-                        "type": "XPathSelector",
-                        "offset": 8,
-                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]"
-                    }
-                },
-                "type": "FernUniInternalLink"
-            },
-            {
-                "destination": "http://www.fernuni-hagen.de/KSW/portale/mabm/pruefungen/",
-                "selector": {
-                    "type": "RangeSelector",
-                    "startSelector": {
-                        "type": "XPathSelector",
-                        "offset": 0,
-                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]"
-                    },
-                    "endSelector": {
-                        "type": "XPathSelector",
-                        "offset": 10,
-                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]"
-                    }
-                },
-                "type": "FernUniInternalLink"
-            },
-            {
-                "destination": "http://www.fernuni-hagen.de/KSW/portale/mabm/service/",
-                "selector": {
-                    "type": "RangeSelector",
-                    "startSelector": {
-                        "type": "XPathSelector",
-                        "offset": 0,
-                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]"
-                    },
-                    "endSelector": {
-                        "type": "XPathSelector",
-                        "offset": 8,
-                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]"
-                    }
-                },
-                "type": "FernUniInternalLink"
-            },
-            {
-                "destination": "http://www.fernuni-hagen.de/KSW/portale/mabm/sitemap/",
-                "selector": {
-                    "type": "RangeSelector",
-                    "startSelector": {
-                        "type": "XPathSelector",
-                        "offset": 0,
-                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]"
-                    },
-                    "endSelector": {
-                        "type": "XPathSelector",
-                        "offset": 1,
-                        "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]"
-                    }
-                },
-                "type": "FernUniInternalLink"
-            }
-        ],
         "sidebarNavigationLinks": [
             {
                 "destination": "http://www.fernuni-hagen.de/KSW/portale/mabm/einstieg/schaukasten/",

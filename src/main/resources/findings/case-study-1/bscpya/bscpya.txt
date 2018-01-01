@@ -25,8 +25,8 @@
 --- 162 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
 -- 75	"Reads" Content zu Text (siehe oben, MATCH (n:Property)-[q]->(t:Content) return count(q))
 -- 110	"References"
---- 13 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
---- 97 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
+--- 8 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) return count(q))
+--- 102 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
 -- 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 -- 8 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 --- 7 SubjectAreaName

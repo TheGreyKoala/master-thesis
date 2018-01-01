@@ -18,12 +18,12 @@
 --- 1	"PageHeading"
 --- 1	"Portal"
 
-- 332 Kanten
+- 312 Kanten
 -- 80	"Reads"
 -- 107	"References"
 --- 13 Page zu Page (MATCH (n:Page)-[q:References]->(t:Page) return count(q))
---- 50 Page zu Resource MATCH (n:Page)-[q:References]->(t:Resource) where not t:Page return count(q)
---- 44 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
+--- 25 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) where not t:Page return count(q))
+--- 49 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))
 -- 145	"Owns"
 --- 5 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
 --- 57 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
@@ -38,9 +38,9 @@
 ---- "Wichtig: Strukturänderungen im BA Bildungswissenschaft" vom 21.11.2016 wird auf Seite 1 + 3 angezeigt
 --- 1 NewsDate
 ---- News ohne Datum
--- 13 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q:References]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+-- 9 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q:References]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 --- Page 1-4
---- Sidebar Navigation + Main Navigation
+--- 5 Sidebar Navigation
 
 
 - Auffälligkeiten

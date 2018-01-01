@@ -21,8 +21,8 @@
 - 1862 vs. 1889 Kanten
 -- 284 vs. 305	"Reads"
 -- 582 vs. 585	"References"
---- 52 Page zu Resource
---- 530 vs 533 Content zu Resource
+--- 32 Page zu Resource
+--- 550 vs 533 Content zu Resource
 -- 996 vs. 999	"Owns"
 --- 4 Site zu Page (MATCH (n:Site)-[q]->(t:Page) return count(q))
 --- 198 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
