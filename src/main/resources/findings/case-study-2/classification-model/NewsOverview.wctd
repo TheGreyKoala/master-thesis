@@ -16,9 +16,6 @@ content class News
 		date as NewsDate
 		heading as NewsHeading
 //		section as NewsSection
-// We are inside a hr, so CSS is of no use
-// XPath has no feature to only select the nodes (p and ul) until the next hr
-// following-sibling::p[x] does not work either because the news have different amounts of sections and following sibling will skip the next hr and return the sections of the next news
 
 content class NewsDate is recognized by xpath « following-sibling::p[@class="datum"] »
 content class NewsHeading

@@ -63,7 +63,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="9" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="12" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Abdeckung der Dom&#xe4;ne" POSITION="right" ID="ID_1332383261" CREATED="1514538648248" MODIFIED="1514538657080">
 <edge COLOR="#ff0000"/>
 <node TEXT="Wiederholende Elemente ohne umschlie&#xdf;enden Tag schwer" ID="ID_722876685" CREATED="1514538657913" MODIFIED="1514538681663"/>
@@ -104,6 +104,13 @@
 <node TEXT="Falsche Annotationen machen Pr&#xfc;fung schwierig" ID="ID_1525758361" CREATED="1514726062688" MODIFIED="1514726074642"/>
 <node TEXT="Text Knoten funktionieren erst, wenn alle klassifiziert" ID="ID_298723474" CREATED="1514735280867" MODIFIED="1514735296622"/>
 <node TEXT="H&#xe4;tte man die Sidebarlinks gekapselt, h&#xe4;tte jede Page das wiederverwenden k&#xf6;nnen, anstatt jede zu allen Resourcen" ID="ID_210198910" CREATED="1514821073409" MODIFIED="1514821105907"/>
+</node>
+<node TEXT="Fallstudie 2" POSITION="left" ID="ID_264089268" CREATED="1514822730412" MODIFIED="1514822736237">
+<edge COLOR="#7c7c00"/>
+<node TEXT="Seitenklasse sehr &#xe4;hnlich zu Bsp.1" ID="ID_1576508891" CREATED="1514822704416" MODIFIED="1514822738397"/>
+</node>
+<node TEXT="Fehlender Namespace in DSL verleitet dazu ihn in Namen zu kodieren" POSITION="left" ID="ID_151004786" CREATED="1514822878179" MODIFIED="1514822896604">
+<edge COLOR="#ff0000"/>
 </node>
 </node>
 </map>
