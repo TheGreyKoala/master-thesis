@@ -24,7 +24,7 @@ content class SubjectArea
 
 content class ContactInformation
 	classifies
-		email as Email by xpath « .//a[starts-with(@href, "mailto")] »
+		email as Email by url pattern « ^mailto: »
 		fax as Fax
 		phone as Phone
 		room as Room

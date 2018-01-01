@@ -35,7 +35,7 @@
 				"room": { "name": "room", "class": "Room", "isCollection": false, "selector": {} }
 			},
 			"references": {
-				"email": { "name": "email", "class": "Email", "isCollection": false, "selector": { "type": "XPathSelector", "value": ".\/\/a[starts-with(@href, \"mailto\")]" } }
+				"email": { "name": "email", "class": "Email", "isCollection": false, "selector": { "type": "UrlPatternSelector", "value": "^mailto:" } }
 			}
 		},
 		"Fax": {
