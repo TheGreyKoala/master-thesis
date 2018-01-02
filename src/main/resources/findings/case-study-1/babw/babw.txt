@@ -47,12 +47,11 @@
 --- Raum nicht richtig markiert
 --- E-Mail bei Anneke Bruning nicht hervorgehoben, obwohl vorhanden
 --- LG mit 2 Annotationen (korrekt)
-
-
-- Prüfen
--- 15 ContactInformation ohne Phone
---- 15 tatsächlich keine Telefonnummer
 -- Name von Julia Schütz falsch
 --- "Prof." ist in eigenem Node
 -- Name von Rüdiger Wild falsch
 --- "Dr." in eigenem Node
+
+- Prüfen
+-- 15 ContactInformation ohne Phone
+--- 15 tatsächlich keine Telefonnummer
