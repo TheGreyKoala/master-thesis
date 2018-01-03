@@ -20,7 +20,7 @@
 
 - 312 Kanten
 -- 80	"Reads"
--- 107	"References"
+-- 87	"References"
 --- 13 Page zu Page (MATCH (n:Page)-[q:References]->(t:Page) return count(q))
 --- 25 Page zu Resource (MATCH (n:Page)-[q:References]->(t:Resource) where not t:Page return count(q))
 --- 49 Content zu Resource (MATCH (n:Property)-[q]->(t:Resource) return count(q))

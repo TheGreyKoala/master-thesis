@@ -1,4 +1,6 @@
-\chapter{Konzept}
+\chapter{Anhang}
+
+\section{Konzept}
     \begin{figure}[htb]
         \centering
         \includegraphics[width=\textwidth]{../resources/concept/classes-features-selectors.png}
@@ -6,7 +8,7 @@
         \label{image:conceptClassesFeaturesSelectors}
     \end{figure}
 
-\chapter{Architektur des WCCS}
+\section{Architektur des WCCS}
     Abbildung \ref{image:wccsCompleteArchitecture} zeigt die vollständige Architektur des \glspl{wccs},
     wie sie in Kapitel \ref{section:Architecture} vorgestellt wurde.
 
@@ -17,9 +19,9 @@
         \label{image:wccsCompleteArchitecture}
     \end{figure}
 
-\chapter{DSL}
+\section{DSL}
     \label{appendix:dsl}
-    \section{Modell}
+    \subsection{Modell}
         \begin{figure}[htb]
             \centering
             \includegraphics[width=\textwidth]{../resources/dsl/model.png}
@@ -27,20 +29,20 @@
             \label{image:dslCompleteModel}
         \end{figure}
     
-    \section{Grammatik}
+    \subsection{Grammatik}
         \lstinputlisting[
             label=listing:dlsGrammar,
             caption=Grammatik der DSL,
             language=wccdl,
             inputencoding=utf8/latin1]{../resources/dsl/grammar/grammar.xtext}
 
-    \section{Transformation}
+    \subsection{Transformation}
         \lstinputlisting[
             label=listing:dlsGenerationComplete,
             caption=Vollständiges Generat
         ]{../resources/dsl/generation/complete.json}
 
-\chapter{Classification Storage API}
+\section{Classification Storage API}
     % TODO: Braucht man das überhaupt?
     \lstinputlisting[
         label=listing:storeClassification,

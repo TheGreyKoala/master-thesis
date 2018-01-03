@@ -43,7 +43,9 @@
 		xpath
 	},
 	morestring=[s]{^^ab}{^^bb},
-	sensitive=true
+	sensitive=true,
+	morecomment=[l]{//},
+	morecomment=[s]{/*}{*/}
 }
 
 \lstdefinestyle{Xtext} {
@@ -79,7 +81,8 @@
 	breakatwhitespace = true,
 	upquote=true,
 	keywordstyle=\color{blue},
-	stringstyle=\color{green}
+	stringstyle=\color{green},
+	commentstyle=\color{red}
 }
 
 \lstdefinestyle{pseudo} {

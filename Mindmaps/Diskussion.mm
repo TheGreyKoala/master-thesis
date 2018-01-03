@@ -302,6 +302,7 @@
 <node TEXT="Ber der letzten Tabelle in Fallbsp. 1" ID="ID_1197765359" CREATED="1514994002294" MODIFIED="1514994015563">
 <node TEXT="Weniger geteilte LG Links und Namen, daf&#xfc;r aber mehr geteilte LGs!" ID="ID_509830173" CREATED="1514994031687" MODIFIED="1514994034405"/>
 </node>
+<node TEXT="Allgemein ausgedr&#xfc;ckt ist eine sinnvolle Klassifizierung nicht m&#xf6;glich,&#xa;    wenn ein Element eines Collection Features selbst ein Collection Feature besitzt&#xa;    und weder das Parent noch das Child Feature alleine in einem Element gekapselt sind." ID="ID_1033812486" CREATED="1514998771276" MODIFIED="1514998772381"/>
 </node>
 </node>
 <node TEXT="Bewertung" FOLDED="true" POSITION="right" ID="ID_154514138" CREATED="1514886459009" MODIFIED="1514886462122">

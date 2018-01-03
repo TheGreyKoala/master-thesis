@@ -1,0 +1,69 @@
+\subsection{Klassifizierungsmodell}
+    Bei der Analyse der Nachrichtenseite wurde deutlich,
+    dass einige Teile konzetionell identisch mit denen aus dem ersten Beispiel sind.
+    Die allgemeinen Klassendefinitionen aus Listing \ref{listing:findingsTeachersCommon}
+    werden deshalb hier wiederverwendet.
+
+    Die speziellen Definitionen für die Nachrichtenseite sind in
+    Listing \ref{listing:findingsNewsSpecial}
+    aufgeführt\footnote{Der Selektor in den Zeile \ref{line:newsWctdInvalidSelectorStart}
+    bis \ref{line:newsWctdInvalidSelectorEnd} wurde aus Gründen der Lesbarkeit umgebrochen,
+    was syntaktisch nicht erlaubt ist.}.
+
+    \lstinputlisting[
+        label=listing:findingsNewsSpecial,
+        caption=Klassendefinition für die Nachrichtenübersichtsseite,
+        language=wccdl,
+        inputencoding=utf8/latin1,
+        style=wccdl,
+        escapechar=|
+    ]{../resources/findings/case-study-2/classification-model/NewsOverview.wctd}
+
+    Die Seitenklasse "`NewsOverview"' enthält neben Features für die
+    allgemeinen Bereiche der Seite außerdem welche für die vorherige und die nächste
+    Seite, die als "`FernUniInternalLink"' klassifiziert werden,
+    sowie für die Liste der Meldungen.
+
+    Eine Nachricht wird durch die Klasse "`News"' repräsentiert,
+    ihr Datum durch "`NewsDate"', ihre Überschrift durch "`NewsHeading"'
+    und ihre Absätze durch "`NewsSection"'.
+    Da die Überschrift auch einen Link enthält,
+    wird dieser ebenfalls aus "`FernUniInternalLink"' klassifiziert.
+
+    Die Klasse "`NewsSection"' besitzt keinen Selektor und wurde wie das
+    korrespondierende Feature in "`News"' auskommentiert.
+    Der Grund ist, dass für die Absätze einer Nachricht kein Selektor ermittelt werden konnte,
+    mit dem eine sinnvolle Klassifizierung möglich wäre.
+    Um den Grund hierfür zu erklären, ist eine Betrachtung eines
+    Ausschnittes der \gls{html}-Struktur notwendig.
+    Ein solcher ist in Listing \ref{listing:findingsNewsEvilHtmll}
+    zu sehen, wobei die konkreten textuellen Inhalte entfernt wurden,
+    da sie für das Verständnis der Problematik irrelevant sind.
+
+    \lstinputlisting[
+        label=listing:findingsNewsEvilHtmll,
+        caption=HTML-Struktur einer Nachricht,
+        language=HTML
+    ]{../resources/findings/case-study-2/news.html}
+
+    Wie aus diesem HTML-Fragment ersichtlich wird,
+    werden Nachrichten nicht in einzelne Nodes gekapselt.
+    Stattdessen befinden sich die Knoten alle auf einer Ebene.
+    Eine Trennung der Nachrichten geschieht nur durch das hr-Element,
+    welches es ermöglicht einzelne News zu identifizieren.
+    Aufgrund der fehlenden Kapselung ist es aber mit den zur Verfügung
+    stehenden CSS- und XPath-Selektoren nicht möglich festzustellen,
+    welche Elemente als "`NewsSection"' zu klassifizieren sind.
+    Der CSS-Selektor "`p"' würde beispielsweise alle Absätze aller Nachrichten selektieren.
+    Erschwerend kommt hinzu, dass Absätze nicht nur p,
+    sondern auch andere Elemente sein können und dass jede Nachricht eine andere Anzahl an Absätzen hat.
+    Informell ausgedrückt wäre ein Selektor notwendig,
+    der ausgehend vom aktuellen Kontext-Element (das hr-Element) alle Elemente
+    ab dem ersten h4-Element bis zum nächsten hr selektiert.
+    Das ist mit CSS nicht möglich, da es keine Sibling-Selektoren gibt.
+    XPath besitzt diese zwar, allerdings konnte auch bei diesen keine
+    passende Filterung umgesetzt werden, die nur die Absätze der aktuellen Nachricht matcht.
+
+    Die einzige Lösung sind spezielle Klassen für jede einzelne Nachricht,
+    die speziell auf sie zugeschnitten sind und deshalb Selektoren verwenden,
+    die einzelne Elemente im HTML-Dokument eindeutig selektieren.

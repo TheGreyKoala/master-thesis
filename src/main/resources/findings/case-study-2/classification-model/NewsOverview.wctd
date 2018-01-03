@@ -5,21 +5,28 @@ page class NewsOverview
 		heading as PageHeading
 		introduction as Introduction by css « #content h3 + p »
 		news as many News
-		nextPage as FernUniInternalLink by css « #pagination > span.current + a.inactive »
+		nextPage as FernUniInternalLink by css
+			« #pagination > span.current + a.inactive »
 		portal as Portal
-		previousPage as FernUniInternalLink by xpath « //div[@id='pagination']/span[@class='current']/preceding-sibling::a[1][@class='inactive'] »
-		sidebarNavigationLinks as many FernUniInternalLink each by css « ul.menu a »
+		previousPage as FernUniInternalLink by xpath
+			« //div[@id='pagination']/span[@class='current']|\label{line:newsWctdInvalidSelectorStart}|
+				/preceding-sibling::a[1][@class='inactive'] »|\label{line:newsWctdInvalidSelectorEnd}|
+		sidebarNavigationLinks as many FernUniInternalLink each by css
+			« ul.menu a »
 
 content class News
 	is recognized by css « #content > div > div > div + div > hr »
 	classifies
 		date as NewsDate
 		heading as NewsHeading
-//		section as NewsSection
+//		section as many NewsSection
 
-content class NewsDate is recognized by xpath « following-sibling::p[@class="datum"] »
+content class NewsDate is recognized by xpath
+	« following-sibling::p[@class="datum"] »
+
 content class NewsHeading
-	is recognized by xpath « following-sibling::h4[@class="entry-title"] »
+	is recognized by xpath
+		« following-sibling::h4[@class="entry-title"] »
 	classifies
 		newsDetailPage as FernUniInternalLink
 
