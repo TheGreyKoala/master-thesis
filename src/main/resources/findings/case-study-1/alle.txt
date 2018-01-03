@@ -1,5 +1,5 @@
-1546 Knoten -- 510 + 486 + 342 + 247 = 1585
-430	vs. 638 ["Resource"]
+1546 Knoten -- 510 + 505 + 342 + 257 = 1614
+430	vs. 452 ["Resource"]
 4	["Page", "Resource"]
 4	["Site"]
 284	vs. 305 ["Text"]
@@ -10,7 +10,7 @@
 -- 4	"Header"
 -- 2 vs. 3	"Introduction"
 -- 4	"PageHeading"
--- 119 vs. 193	"Phone"
+-- 119 vs. 123	"Phone"
 -- 4	"Portal"
 -- 2	"Room"
 -- 172 vs. 175	"SubjectArea"
@@ -31,19 +31,20 @@
 -- 21 vs. 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 --- Siehe unten (Gleiche textuellen Infos auf mehreren Seiten)
 -- 64 vs. 51 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
----- "Phone"
+---- 9 "Phone"
 ----- "+49 (0)2331 987 2655" (gleicher Kontakt auf zwei Seiten, babw & mabm, Cathleen Grunert)
 ----- "+49 (0)2331 987 4691" (gleicher Kontakt auf zwei Seiten, babw & mabm, Julia Schütz)
 ----- "+49 (0)2331 987-4338" (gleicher Kontakt auf zwei Seiten, babw & mabm, Rüdiger Wild)
 ----- "+49 (0)2331 987 2133" (gleicher Kontakt auf zwei Seiten, babw & mabm, Katja Ludwig)
----- "SubjectAreaName"
+----- ...
+---- 31 "SubjectAreaName"
 ----- "Lehrgebiet Mediendidaktik"
 ----- "LG Empirische Bildungsforschung"
 ----- "LG Bildungstheorie und Medienpädagogik "
 ----- "Lehrgebiet Allgemeine Bildungswissenschaft"
 ----- "LG Lebenslanges Lernen"
 ----- "LG Bildung und Differenz"
----- "TeacherName"
+---- 13 "TeacherName"
 ----- "Prof. Dr. Theo Bastiaens"
 ----- "Prof. Dr. Uwe Elsholz"
 ----- "Claudia Grüner"
@@ -53,20 +54,26 @@
 ----- "Prof. Dr. Katharina Walgenbach"
 ----- "Dr."
 ----- "Florentina Sauerbach"
----- "SubjectArea"
+---- 5 "SubjectArea"
 ----- Lehrgebiet Allgemeine Bildungswissenschaft
 ----- Lehrgebiet Mediendidaktik
 ----- LG Lebenslanges Lernen
----- "Fax"
+----- ...
+---- 1 "Fax"
 ----- "+49 (0)2331 987 2145"
----- "ContactInformation"
+---- 3 "ContactInformation"
 ----- PSV und PSY haben Lehrer ohne irgendwelche Kontaktadressen
----- "Introduction"
+----- C. Dorn
+----- M. Kaufmann
+---- 1 "Introduction"
 ----- Leere Einführung
+---- 1 Teacher
 -- 48 vs. 41 Resource Knoten mehr als 1x verwendet (MATCH (r:Resource)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
---- FernUni Homepage
---- Lehrgebiet Links
---- E-Mail Adressen
+--- 1 FernUni Homepage
+--- 30 Lehrgebiet Links
+--- 2 Bilder
+--- 14 E-Mail Adressen
+--- 1 Hauptnavigation
 
 - Auffälligkeiten
 -- Der Header wird nicht geteilt (Screenshot!)

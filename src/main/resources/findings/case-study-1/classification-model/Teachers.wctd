@@ -5,16 +5,19 @@ page class Teachers
 		heading as PageHeading
 		introduction as Introduction by css « #content h3 + p »
 		portal as Portal
-		sidebarNavigationLinks as many FernUniInternalLink each by css « ul.menu a »
+		sidebarNavigationLinks as many FernUniInternalLink each by css
+			« ul.menu a »
 		teachers as many Teacher
 
 content class Teacher
 	is recognized by css « section#content div.grid »
 	classifies
 		area as SubjectArea
-		contactInformation as ContactInformation by css « div.team-member-des > p »
+		contactInformation as ContactInformation by css
+			« div.team-member-des > p »
 		image as Image by css « img.team-picture »
-		name as TeacherName by css « div.team-member-des > p > strong, div.team-member-des > p > b »
+		name as TeacherName by css
+			«div.team-member-des >p >strong, div.team-member-des >p >b»
 
 content class SubjectArea
 	is recognized by css « div.team-member-des > p > a:first-child »
@@ -30,8 +33,14 @@ content class ContactInformation
 		room as Room
 
 reference class Email
-content class Fax is recognized by xpath « substring-before(substring-after(., "Fax: "), "\n") »
-content class Phone is recognized by xpath « substring-before(concat(substring-after(., "Tel.: "), "\n"), "\n") »
-content class Room is recognized by xpath « normalize-space(substring-after(., "Raum")) »
+content class Fax is recognized by xpath
+	« substring-before(substring-after(., "Fax: "), "\n") »
+
+content class Phone is recognized by xpath
+	«substring-before(concat(substring-after(.,"Tel.: "),"\n"),"\n")»
+
+content class Room is recognized by xpath
+	« normalize-space(substring-after(., "Raum")) »
+
 content class SubjectAreaName
 content class TeacherName

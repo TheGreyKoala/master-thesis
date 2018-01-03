@@ -44,6 +44,8 @@
 -- Viele Telefonnummern enthalten auch E-Mails (siehe BaPVS)
 -- Einige Namen enthalten am Ende ein Leerzeichen
 --- Nodes enthalten Leerzeichen, könnte man trimmen
+-- Ein TeacherName weniger als Teacher
+--- B. Siem ist 2x aufgeführt, weshalb Name wiederverwendet werden kann
 
 - Prüfen:
 -- 4 ContactInformation ohne Phone

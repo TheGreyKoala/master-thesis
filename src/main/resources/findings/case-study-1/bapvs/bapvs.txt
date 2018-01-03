@@ -1,6 +1,6 @@
 - http://www.fernuni-hagen.de/KSW/portale/bapvs/einstieg/lehrende-und-betreuende-im-b-a-pvs/
 
-- 486 Knoten
+- 505 Knoten
 -- 159	["Resource"]
 -- 1	["Page", "Resource"]
 -- 1	["Site"]

@@ -5,7 +5,8 @@ content class Header
 	is recognized by css « header »
 	classifies
 		fernUni as Brand by xpath « //a[@class="navbar-brand"] »
-		mainNavigationLinks as many FernUniInternalLink each by xpath « //ul[@class="nav navbar-nav"]/li/a »
+		mainNavigationLinks as many FernUniInternalLink each by xpath
+			« //ul[@class="nav navbar-nav"]/li/a »
 
 content class Brand
 	classifies
@@ -22,4 +23,5 @@ reference class Image
 	is recognized by css « img »
 
 reference class FernUniInternalLink
-	is recognized by url pattern « ^((http(s?):\/\/www\.fernuni-hagen\.de\/?)|\/).*$ »
+	is recognized by url pattern
+		« ^((http(s?):\/\/www\.fernuni-hagen\.de\/?)|\/).*$ »

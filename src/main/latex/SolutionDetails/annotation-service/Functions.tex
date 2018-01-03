@@ -58,14 +58,14 @@
             \hline
         \end{tabular}
         \caption{Schnittstelle zum Abfragen von Metainformationen über den Annotation Service}
-        \label{tableannotationServiceMetaInterface}
+        \label{table:annotationServiceMetaInterface}
     \end{table}
 
     \paragraph{Annotationen einer Seite abrufen}
     Zentrale Aufgabe des Services ist die Bereitstellung der Annotationen einer Seite.
     Auf diese Funktion greift zum Beispiel das Annotator Plugin zurück
     (siehe Kapitel \ref{section:solutionDetailsAnnotatorPlugin}).
-    Hierfür stellt der Serivce den in Tabelle \ref{}
+    Hierfür stellt der Serivce den in Tabelle \ref{table:getAllAnnotationsInterface}
     dargestellten Endpunkt bereit, der die entsprechende Funktion der Annotator Storage API
     umsetzt.
     % TODO: Referenz: http://docs.annotatorjs.org/en/v1.2.x/storage.html#index
@@ -84,7 +84,7 @@
             \hline
         \end{tabular}
         \caption{Schnittstelle zum Abfragen aller Annotationen einer Seite}
-        \label{tablegetAllAnnotationsInterface}
+        \label{table:getAllAnnotationsInterface}
     \end{table}
 
     Die \gls{url} der Seite, für die die Annotationen angefragt werden,
@@ -95,7 +95,7 @@
     Eine einzelne Annotation kann anhand ihrer ID beim Service angefragt werden.
     Der Endpunkt, der die entsprechende Storage API Funktion implementiert,
     % TODO: Referenz: http://docs.annotatorjs.org/en/v1.2.x/storage.html#read
-    ist in Tabelle \ref{tablegetAnnotationInterface} zu sehen.
+    ist in Tabelle \ref{table:getAnnotationInterface} zu sehen.
 
     \begin{table}[htb]
         \centering
@@ -111,7 +111,7 @@
             \hline
         \end{tabular}
         \caption{Schnittstelle zum Abfragen einer Annotation}
-        \label{tablegetAnnotationInterface}
+        \label{table:getAnnotationInterface}
     \end{table}
 
     Wie zu sehen ist, wird an die Anfrage-\gls{url} einfach die ID der Annotation gehangen.
