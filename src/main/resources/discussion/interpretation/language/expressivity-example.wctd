@@ -1,0 +1,7 @@
+content class Object
+
+page class UPCOMING_EVENT_PAGE
+	is recognized by url pattern « \/page »
+	classifies
+		name as Object by xpath « //title/text() »
+		link as Object by xpath « //a/text() »

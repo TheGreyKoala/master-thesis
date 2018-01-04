@@ -1,0 +1,61 @@
+\subsection{Übertrakbarkeit eines Klassifizierungsmodells}
+    Ein Ziel der Fallbeispiele ist herauszufinden,
+    wie gut sich ein anhand einer einzelnen konkreten Seite
+    erstelltes Klassifizierungsmodell auf andere Seiten anwenden lässt,
+    die augenscheinlich konzeptionell identisch aufgebaut sind.
+    Je besser diese Übertragbarkeit ist,
+    desto höher ist der Nutzen der Automatisierung.
+
+    Eine erste naheliegende Erkenntnis,
+    die nicht direkt aus den präsentierten Ergebnissen hervorgeht,
+    aber schon bei der Entwicklung des Klassifizierungsmodells
+    für das Portal "`BaBw"' hervortrat, ist,
+    das Klassen iterativ zu definieren sind.
+    Ausnahmen innerhalb einer Seite werden oft erst
+    bei der Prüfung des Klassifizierungsergebnis entdeckt,
+    woraufhin die Ausnahme analysiert und die Klassendefinitionen
+    entsprechend angepasst werden müssen.
+    Ein Beispiel ist die Faxnummer, die nur bei einem Mitarbeiter auftritt,
+    deren Erfassung aber auch eine Anpassung des Selektors der Telefonnummer
+    erforderlich machte.
+
+    Diese Erkenntnis wiegt natürlich noch schwerer,
+    wenn eine Menge an Klassen auf viele verschiedene Seiten angewandt werden soll.
+    Wie das erste Fallbeispiel zeigt,
+    können auch vermeintlich sehr ähnliche Seiten deutliche Unterschiede
+    sowohl im Modell als auch in der HTML-Struktur haben,
+    die nicht alle vorausgedacht werden können.
+    Es müssen demnach mehrere Seiten bei der Entwicklung der Klassendefinitionen
+    betrachtet werden.
+    Andernfalls werden Informationen nicht klassifiziert,
+    wie der Verweis auf die Detailseite eines Mitarbeiters im Falle des
+    Portals "`BaPVS"' oder es kommt zu unerwarteten Ergebnissen,
+    wie die doppelte Klassifizierungen bei "`BaPVS"'.
+
+    Deutlich wurde aber auch, dass viele und zu große Unterschiede
+    die Auflösung eines Konfliktes sehr komplex machen.
+
+    Insgesamt lassen sich fast alle Unregelmäßigkeiten in den Klassifikationen
+    auf Unterschiede in den Seiten und dadurch unzutreffende Selektoren zurückführen.
+    Eine Schlussfolgerung könnte sein, auf ein anderes Vorgehen beim
+    Schreiben der Klassendefinitionen zu setzen,
+    welches nicht versucht alle Seiten durch eine Definition abzudecken.
+    Eine Alternative ist zum Beispiel ein Modell für eine Seite zu schreiben,
+    sodass es diese korrekt und vollständig klassifiziert.
+    Es dann auf eine weitere Seite anzuwenden,
+    das Ergebnis zu prüfen und anzupassen,
+    bis diese zweite Seite korrekt klassifiziert wird.
+    Die Klassifikation findet dabei nur auf den betrachteten Seiten statt,
+    sodass bereits korrekt klassifizierte Seiten unberührt bleiben.
+    Dadurch entstehen natürlich Klassifikationen,
+    die ein anderes konkretes Schema besitzen,
+    was Drittsysteme, die diese Informationen nutzen,
+    beachten müssen.
+
+    Nicht erfasste Features und unzutreffende Selektoren können
+    aber auch auf Fehler in der Webseite hinweisen,
+    wie der E-Mail-Adresse ohne vorangestelltes "`mailto"'
+    bei "`BscPsy"' oder einem nicht erwähnten Fall,
+    beim dem die angebliche E-Mail-Adresse ein Link auf eine andere Webseite war.
+    Das \gls{wccs} fungiert indirekt also als ein Werkzeug
+    zu Validierung eines individuell definierbaren Schemas für Webseiten.

@@ -28,8 +28,8 @@
 --- 198 Page zu Content (MATCH (n:Page)-[q:Owns]->(t:Property) return count(q))
 --- 794 vs. 797 Content zu Content (MATCH (n:Property)-[q]->(t:Property) return count(q))
 
--- 21 vs. 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
---- Siehe unten (Gleiche textuellen Infos auf mehreren Seiten)
+-- 0 vs. 0 Text Knoten mehr als 1x verwendet (MATCH (r:Content)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
+--- Es wurden immer die ganzen Features geteilt.
 -- 64 vs. 51 Content Knoten mehr als 1x verwendet (MATCH (r:Property)<-[q]-() with r, count(q) as anzahl where anzahl > 1 return count(r))
 ---- 9 "Phone"
 ----- "+49 (0)2331 987 2655" (gleicher Kontakt auf zwei Seiten, babw & mabm, Cathleen Grunert)

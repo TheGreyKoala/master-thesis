@@ -1,0 +1,6 @@
+@startuml
+object UPCOMING_EVENT_PAGE {
+    name = "//title/text()"
+    link = "//a/text()"
+}
+@enduml

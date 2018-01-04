@@ -1,0 +1,48 @@
+\subsection{Mächtigkeit der Selektoren}
+    \label{section:discussionInterpretationSelectors}
+    Zusammen mit der Schachtelung von Features und dem
+    damit verbundenen eingeschränkten Kontexts bei der
+    Auswertung von Selektoren,
+    spielen deren Fähigkeiten eine zentrale Rolle bei den
+    Möglichkeiten der Klassifizierung, die das \gls{wccs} bietet.
+
+    Betrachtet man die Klassdefinitionen der beiden Fallbeispiele wird klar,
+    dass ohne den XPath-Selektor die Möglichkeiten weitaus eingeschränkter wären.
+    Die Klasse "`Portal"', durch die ein Feature den eigenen Knoten
+    als Reference Feature "`homepage"' klassifiziert,
+    wäre beispielsweise weder mit dem CSS-Selektor,
+    noch mit dem \gls{url}-Pattern-Selektor möglich,
+    da beide ausschließlich Child Nodes matchen können.
+    In vielen Fällen kann der XPath-Selektor die anderen beiden Selektoren sogar ersetzen.
+    
+    Die Selektoren und die Art ihrer Verwendung hat allerdings auch Grenzen.
+    Im ersten Fallbeispiel gab es auf der Seite des Portal "`BaBw"'
+    Mitarbeiter deren Namen in der Klassifikation"`Prof."' bzw. "`Dr."' ist,
+    da der vollständige Name auf mehrere Knoten verteilt wurde
+    und das \gls{wccs} nur den ersten Treffer des Selektors verwendet.
+    Ein Ähnliches Teilproblem gibt es im zweiten Beispiel bei den Absätzen einer Nachricht,
+    von denen es pro Nachricht unterschiedlich viele geben kann.
+    In beiden Fällen lässt sich argumentieren,
+    dass alle Elemente zusammen eine Einheit darstellen,
+    die nur gemeinsam vollständig sind und deshalb
+    in einem skalaren Feature gespeichert werden sollten,
+    welches alle Nodes umfasst.
+    Anders also, als Collection Features,
+    bei denen jedes einzelne Feature für sich abgeschlossen ist
+    und sie zu einer Liste zusammengefasst werden,
+    in der sie aber trotzdem eine eigenständige Einheit darstellen.
+    Konkret hieße das, dass der Selektor des Namens eines Mitarbeiters
+    alle relevanten Elemente erfasst und
+    dass das \gls{wccs} die textuellen Werte dieser Elemente zusammenfasst
+    und in einem skalaren Feature speichert.
+    Der eindeutige Selektor dieses Features würde alle Elemente umfassen,
+    was prinzipiell schon jetzt möglich ist,
+    da der Selektor ein Range-Selektor ist.
+
+    Das zweite Fallbeispiel zeigt eine weitere Grenze des Systems auf,
+    da es nicht möglich war einen allgemeinen Selektor zu formulieren,
+    der die Absätze pro Nachricht korrekt
+    erfasst\footnote{vgl. Kapitel \ref{section:findingsNewsClasses}}.
+    Allgemein ausgedrückt ist eine sinnvolle Klassifizierung nicht möglich,
+    wenn ein Element eines Collection Features selbst ein Collection Feature besitzt
+    und weder das Parent noch das Child Feature alleine in einem Element gekapselt sind.

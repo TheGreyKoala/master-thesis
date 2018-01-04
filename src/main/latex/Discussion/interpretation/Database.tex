@@ -1,0 +1,62 @@
+\subsection{Teilen von Knoten in der Datenbank}
+    Der erste Beweggrund für die Verwendung einer Graphdatenbank
+    ist die natürliche Modellierung und Speicherung von Verweisen
+    zwischen Seiten und auf sonstige {\resources}.
+    Des Weiteren sollte durch die Vermeidung von Duplikaten in der Datenbank
+    und der Möglichkeit einen Knoten mehrfach zu referenzieren,
+    die Möglichkeit entstehen weiterführende Analysen auf den klassifizierten
+    Inhalten auszuführen.
+
+    Das zweite Beispiel hat gezeigt,
+    wie Referenzen zwischen Seiten auf sehr einfache Art und Weise
+    die Reihenfolge der Übersichtsseiten und Navigationspfade explizit machen.
+    Eine Auswertung ist trivial, da lediglich ein- und ausgehenden Kanten gefolgt werden muss.
+    Andere Datenbankmodelle hätten komplexere Konstrukte erfordert,
+    um diese Informationen zu speichern oder hätten komplexere
+    Aggregierungsschritte zur Auswertung erfordert.
+
+    Betrachtet man Tabele \ref{table:findingsTeachersFiguresNodesByLabel} wird deutlich,
+    dass Text- und Resource-Knoten verhältnismäßig am meisten von der
+    Möglichkeit Knoten wiederzuverwenden profitieren.
+    Das ist nicht verwunderlich, da sie jeweils genau einen Wert speichern,
+    der sie identifiziert und keine ausgehenden Kanten besitzen,
+    die seitenspezifische Informationen enthalten.
+    Wie Tabelle \ref{table:findingsTeachersFiguresSharedNodes} belegt,
+    steigt ihre Wiederverwendung bei mehreren Klassifikationen in einer Datenbank,
+    was eine logische Konsequenz der größeren Informationsmenge ist.
+
+    Für Resource-Knoten ist dies aber nicht sofort ersichtlich,
+    zum Beispiel die Zahl der mehrfach referenzierten
+    Lehrgebiets-Resource-Knoten im Falle einer gemeinsamer Datenbank niedriger ist,
+    als die Summe der geteilten Knoten in einzelnen Datenbanken (30 vs. 36).
+    Gleichzeitig ist die Zahl der geteilten SubjectArea-Knoten aber höher,
+    die jeder einen Lehrgebietsknoten referenzieren.
+    Es wird also lediglich ein größerer Teilbaum geteilt.
+    Außerdem enthielten die einzelnen Datenbanken identische Resource-Knoten,
+    die in der gemeinsamen natürlich zusammengefasst werden konnten.
+
+    Resource-Knoten innerhalb einer Datenbank zu duplizieren
+    macht aus semantischen Gründen keinen Sinn,
+    da sie eine Entität der Domäne darstellen,
+    die genau ein mal existiert, was die Datenbank wiederspiegeln sollte
+    und außerdem die Möglichkeiten eines Graphens besser ausschöpft.
+
+    Nicht so eindeutig ist dies allerdings bei Text-Knoten.
+    Aus Tabelle \ref{table:findingsTeachersFiguresSharedNodes} geht hervor,
+    dass im ersten Fallbeispiel niemals ein Text-Knoten geteilt wurde.
+    Stattdessen konnte immer der Content-Knoten,
+    der ihn referenziert geteilt werden.
+    Deshalb ist die Zahl beider Knoten-Typen gesunken und die der geteilten
+    Content Knoten dafür gesteigen.
+    Das ist möglich, wenn die entsprechenden Content-Knoten
+    sich sowohl in ihrer Klasse als auch in ihren Features nicht unterscheiden.
+    Betrachtet man die Klassen der geteilten Content Knoten wird deutlich,
+    dass diese keine Features haben.
+
+    Anders ist das beim zweiten Fallbeispiel.
+    Dort wurden Text-Knoten geteilt, weil es mehrere News mit derselben ÜBerschrift
+    gab, die aber jeweils eine eigene Detailseite referenzieren.
+    % TODO: Referenz auf TABELLE!
+
+    
+% Oder: Verwendung einer Graphdatenbank

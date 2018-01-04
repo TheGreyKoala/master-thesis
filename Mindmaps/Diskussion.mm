@@ -82,7 +82,7 @@
 <node TEXT="Ausdrucksst&#xe4;rke (Expressivity)" FOLDED="true" ID="ID_1957502995" CREATED="1514885806995" MODIFIED="1514896000534">
 <node TEXT="Was ist das?" ID="ID_1529859812" CREATED="1514896386633" MODIFIED="1514896390178"/>
 <node TEXT="Programme sind &#xfc;berschaubar" ID="ID_984869190" CREATED="1514896768540" MODIFIED="1514896776405"/>
-<node TEXT="Programme l&#xe4;nger als unbedingt n&#xf6;tig" FOLDED="true" ID="ID_780893667" CREATED="1514896546082" MODIFIED="1514896560731">
+<node TEXT="Programme l&#xe4;nger als unbedingt n&#xf6;tig" ID="ID_780893667" CREATED="1514896546082" MODIFIED="1514896560731">
 <node TEXT="Viele Schl&#xfc;sselw&#xf6;rter" ID="ID_1612949446" CREATED="1514896561539" MODIFIED="1514896573491"/>
 <node TEXT="Viele Sequenzen von Schl&#xfc;sselw&#xf6;rtern notwendig" ID="ID_966634679" CREATED="1514896573914" MODIFIED="1514896585971"/>
 <node TEXT="Klasse wird immer mit 2 anstatt 1" ID="ID_870987332" CREATED="1514896664443" MODIFIED="1514896674516"/>
@@ -106,7 +106,7 @@
 <node TEXT="Was ist das?" ID="ID_920597931" CREATED="1514897170175" MODIFIED="1514897172487"/>
 <node TEXT="Formeln in Zusammenfassung" ID="ID_939877834" CREATED="1514887120919" MODIFIED="1514897035879"/>
 <node TEXT="Kann mit der Sprache jedes beliebige Struktur auf einer Webseite klassifiziert werden --&gt; Nein" ID="ID_390091611" CREATED="1514887111918" MODIFIED="1514897109985"/>
-<node TEXT="Einige Spezialf&#xe4;lle nicht abgedeckt" FOLDED="true" ID="ID_844951659" CREATED="1514887128454" MODIFIED="1514897104928">
+<node TEXT="Einige Spezialf&#xe4;lle nicht abgedeckt" ID="ID_844951659" CREATED="1514887128454" MODIFIED="1514897104928">
 <node TEXT="Mergen eines Features aus mehreren Knoten" ID="ID_1140521929" CREATED="1514895643495" MODIFIED="1514895653957"/>
 <node TEXT="Wiederholungen in Wiederholungen ohne Container" ID="ID_1276691759" CREATED="1514896059878" MODIFIED="1514896075480"/>
 <node TEXT="Spezielle Aktionen auf Text" ID="ID_1932589521" CREATED="1514896168335" MODIFIED="1514896182288">
@@ -122,12 +122,12 @@
 <node TEXT="Alles kann direkt in Sprache geschrieben werden." ID="ID_1643767617" CREATED="1514887198181" MODIFIED="1514887198815"/>
 <node TEXT="Kein D-1 Code notwendig" ID="ID_1352564181" CREATED="1514887205646" MODIFIED="1514887206510"/>
 <node TEXT="D-1 w&#xe4;re JSON. Sprache braucht das nicht." ID="ID_1407964175" CREATED="1514887211766" MODIFIED="1514887212407"/>
-<node TEXT="CSS etc. geh&#xf6;ren nicht dazu" FOLDED="true" ID="ID_1140782520" CREATED="1514897211263" MODIFIED="1514897240056">
+<node TEXT="CSS etc. geh&#xf6;ren nicht dazu" ID="ID_1140782520" CREATED="1514897211263" MODIFIED="1514897240056">
 <node TEXT="Als String zu werten" ID="ID_755754207" CREATED="1514897240537" MODIFIED="1514897245520"/>
 <node TEXT="Java ist GPL und kann auch kein CSS" ID="ID_725422172" CREATED="1514897245727" MODIFIED="1514897255424"/>
 </node>
 </node>
-<node TEXT="Konkreter Syntax" ID="ID_1315806287" CREATED="1514885848678" MODIFIED="1514885853112">
+<node TEXT="Konkreter Syntax" FOLDED="true" ID="ID_1315806287" CREATED="1514885848678" MODIFIED="1514885853112">
 <node TEXT="Writeability" FOLDED="true" ID="ID_313505230" CREATED="1514885861673" MODIFIED="1514896010097">
 <node TEXT="Lange Schl&#xfc;sselwortsequenzen machen Schreiben etwas langwierig" ID="ID_1664316446" CREATED="1514897293288" MODIFIED="1514897309809"/>
 <node TEXT="Entsch&#xe4;rft durch IDE Unterst&#xfc;tzung" ID="ID_1644119511" CREATED="1514897310608" MODIFIED="1514897320369"/>
@@ -159,7 +159,7 @@
 <node TEXT="Erfordern gute Kentnisse der Selektoren" ID="ID_109509849" CREATED="1514897717155" MODIFIED="1514897728020"/>
 </node>
 </node>
-<node TEXT="Effectivness?" FOLDED="true" ID="ID_1505910140" CREATED="1514885879006" MODIFIED="1514885902848">
+<node TEXT="Effectivness?" ID="ID_1505910140" CREATED="1514885879006" MODIFIED="1514885902848">
 <node TEXT="Kann schwer beurteilt werden" ID="ID_91282103" CREATED="1514897604180" MODIFIED="1514897610275"/>
 <node TEXT="Teilweise k&#xfc;nstliche Konstrukte notwendig" ID="ID_1980821686" CREATED="1514897624298" MODIFIED="1514897640331"/>
 <node TEXT="Node mit Link und Text ist g&#xe4;ngig" ID="ID_1331383923" CREATED="1514897746387" MODIFIED="1514897755515">
@@ -178,6 +178,7 @@
 </node>
 </node>
 </node>
+<node TEXT="&#xdc;bertragbarkeit eines Klassifizierungsmodells" FOLDED="true" ID="ID_222372027" CREATED="1515071528978" MODIFIED="1515071548332">
 <node TEXT="Klassen m&#xfc;ssen iterativ geschrieben werden" FOLDED="true" ID="ID_715750369" CREATED="1514892719581" MODIFIED="1514892730886">
 <node TEXT="Nicht erwarten, dass alles sofort passt" ID="ID_1955153674" CREATED="1514893899761" MODIFIED="1514893908860"/>
 <node TEXT="Passende Selektoren entwickeln" ID="ID_1546444251" CREATED="1514892833487" MODIFIED="1514892843404">
@@ -198,13 +199,13 @@
 </node>
 <node TEXT="Modell und Klassen m&#xfc;ssen iterativ anhand mehrerer Seiten entwickelt werden" FOLDED="true" ID="ID_1448630755" CREATED="1514893178443" MODIFIED="1514893280086">
 <node TEXT="Nicht erwarten, dass erstellte Klassen ohne weiteres &#xdc;bertragbar sind" ID="ID_1637043193" CREATED="1514893918041" MODIFIED="1514893930890"/>
-<node TEXT="Seiten unterscheiden sich trotz gleichen &quot;Typs&quot;" ID="ID_1932225854" CREATED="1514893221301" MODIFIED="1514893235813">
+<node TEXT="Seiten unterscheiden sich trotz gleichen &quot;Typs&quot;" FOLDED="true" ID="ID_1932225854" CREATED="1514893221301" MODIFIED="1514893235813">
 <node TEXT="Modell" ID="ID_1932281601" CREATED="1514893236295" MODIFIED="1514893254341"/>
 <node TEXT="HTML-Struktur (Selektoren)" ID="ID_153266847" CREATED="1514893254915" MODIFIED="1514893262357"/>
 </node>
 <node TEXT="Kann sonst zu fehlenden Infos f&#xfc;hren" ID="ID_1004617182" CREATED="1514893736908" MODIFIED="1514893744686">
 <node TEXT="BaPVS" ID="ID_1519480503" CREATED="1514893744934" MODIFIED="1514893750166">
-<node TEXT="LG ist Link" ID="ID_900743558" CREATED="1514893750415" MODIFIED="1514893754766"/>
+<node TEXT="Name ist Link" ID="ID_900743558" CREATED="1514893750415" MODIFIED="1515083351988"/>
 </node>
 </node>
 <node TEXT="Kann sonst zu Fehlern f&#xfc;hren" ID="ID_200995811" CREATED="1514893291660" MODIFIED="1514893298813">
@@ -222,12 +223,7 @@
 </node>
 </node>
 </node>
-<node TEXT="Unterschiede k&#xf6;nnen auf Fehler in der Seite hinweisen" ID="ID_224773699" CREATED="1514893845578" MODIFIED="1514893856508">
-<node TEXT="BscPya" ID="ID_249407976" CREATED="1514893858262" MODIFIED="1514893867140">
-<node TEXT="Kein mailto in E-Mail" ID="ID_419702692" CREATED="1514893867651" MODIFIED="1514893873076"/>
-</node>
-</node>
-<node TEXT="Zu gro&#xdf;e Unterschiede k&#xf6;nnen eine Klassifizierung unm&#xf6;glich machen" FOLDED="true" ID="ID_1177637709" CREATED="1514893526566" MODIFIED="1514893541807">
+<node TEXT="Zu gro&#xdf;e Unterschiede k&#xf6;nnen eine Klassifizierung unm&#xf6;glich machen" ID="ID_1177637709" CREATED="1514893526566" MODIFIED="1514893541807">
 <node TEXT="BaBPS" ID="ID_1238727562" CREATED="1514893550456" MODIFIED="1514893553967">
 <node TEXT="TeacherName f&#xfc;r die kein Selektor gefunden werden konnte, siehe Textdatei" ID="ID_643300276" CREATED="1514893554801" MODIFIED="1514893577944"/>
 </node>
@@ -240,8 +236,29 @@
 <node TEXT="2. Seite klassifizieren" ID="ID_529553479" CREATED="1514891007169" MODIFIED="1514891013763"/>
 <node TEXT="..." ID="ID_1718335003" CREATED="1514891014049" MODIFIED="1514891015235"/>
 </node>
+<node TEXT="Unterschiede k&#xf6;nnen auf Fehler in der Seite hinweisen" ID="ID_224773699" CREATED="1514893845578" MODIFIED="1514893856508">
+<node TEXT="BscPya" ID="ID_249407976" CREATED="1514893858262" MODIFIED="1514893867140">
+<node TEXT="Kein mailto in E-Mail" ID="ID_419702692" CREATED="1514893867651" MODIFIED="1514893873076"/>
 </node>
-<node TEXT="Teilen von Knoten in der DB" FOLDED="true" ID="ID_1011410401" CREATED="1514894153255" MODIFIED="1514894159088">
+<node TEXT="KANN HELFEN FEHLER AUF DER SEITE ZU FINDEN: Z. B. FEHLENDES MAILTO ODER INTERNETSEITE, OBWOHL DAVOR E-MAIL STEHT" ID="ID_1286673145" CREATED="1515064292468" MODIFIED="1515071677863"/>
+</node>
+</node>
+</node>
+<node TEXT="M&#xe4;chtigkeit der Selektoren / Grenzen des Ansatzes" FOLDED="true" ID="ID_1594067477" CREATED="1514895794260" MODIFIED="1515078741120">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="200" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_844951659" STARTINCLINATION="285;0;" ENDINCLINATION="285;0;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
+<node TEXT="MAN BRAUCHT XPATH!" ID="ID_788141711" CREATED="1514978349121" MODIFIED="1514978358186">
+<node TEXT="Sonst vieles nicht m&#xf6;glich" ID="ID_814633849" CREATED="1514978358466" MODIFIED="1514978366770"/>
+<node TEXT="Z. B. Brand / Portal, da kein Container" ID="ID_665026532" CREATED="1514978367465" MODIFIED="1514978378050"/>
+</node>
+<node TEXT="F&#xe4;lle m&#xf6;glich, in denen Wiederholungen nicht sinnvoll klassifiziert werden k&#xf6;nnen" FOLDED="true" ID="ID_364083703" CREATED="1514895843656" MODIFIED="1514895868334">
+<node TEXT="Fallbsp. 2" ID="ID_1757150259" CREATED="1514895943813" MODIFIED="1514895946807"/>
+<node TEXT="Nur alle einzeln, keine allgemeinen Selektoren" ID="ID_1370442123" CREATED="1514895918793" MODIFIED="1514895930806"/>
+<node TEXT="Macht &#xc4;nderung der Seite notwendig" ID="ID_1176136514" CREATED="1514895931829" MODIFIED="1514895938527"/>
+<node TEXT="Zumindest nicht mit aktuellen Selektoren m&#xf6;glich" ID="ID_1620166066" CREATED="1514896117047" MODIFIED="1514896125752"/>
+<node TEXT="Allgemein ausgedr&#xfc;ckt ist eine sinnvolle Klassifizierung nicht m&#xf6;glich,&#xa;    wenn ein Element eines Collection Features selbst ein Collection Feature besitzt&#xa;    und weder das Parent noch das Child Feature alleine in einem Element gekapselt sind." ID="ID_1033812486" CREATED="1514998771276" MODIFIED="1514998772381"/>
+</node>
+</node>
+<node TEXT="Teilen von Knoten in der DB" ID="ID_1011410401" CREATED="1514894153255" MODIFIED="1514894159088">
 <node TEXT="Vor allem bei Resource Knoten erfolgreich" FOLDED="true" ID="ID_490936115" CREATED="1514894172535" MODIFIED="1514894186733">
 <node TEXT="Einmalige Entit&#xe4;ten" ID="ID_747332121" CREATED="1514891262826" MODIFIED="1514891274321"/>
 <node TEXT="Gut im Graph modellierbar" ID="ID_333805699" CREATED="1514891276048" MODIFIED="1514891282793"/>
@@ -250,19 +267,16 @@
 <node TEXT="Rest im Selektor" ID="ID_1238312570" CREATED="1514891312032" MODIFIED="1514891316113"/>
 </node>
 </node>
-<node TEXT="Teilen von Text-Knoten wahrscheinlicher bei mehreren klassifizierten Seiten" FOLDED="true" ID="ID_75963840" CREATED="1514892886210" MODIFIED="1514892903452">
-<node TEXT="0 geteilte Text-Knoten bei einzelnen Klassifizierungen" ID="ID_1810791785" CREATED="1514892904741" MODIFIED="1514892920044"/>
-<node TEXT="21 geteilte Text-Knoten bei allen zusammen" ID="ID_932284582" CREATED="1514892937754" MODIFIED="1514892948372">
-<node TEXT="Trotz der vielen Informationen relativ wenig geteilte Knoten" ID="ID_343656386" CREATED="1514894215895" MODIFIED="1514894247001"/>
+<node TEXT="Ber der letzten Tabelle in Fallbsp. 1" ID="ID_1197765359" CREATED="1514994002294" MODIFIED="1514994015563">
+<node TEXT="Weniger geteilte LG Links und Namen, daf&#xfc;r aber mehr geteilte LGs!" ID="ID_509830173" CREATED="1514994031687" MODIFIED="1514994034405"/>
 </node>
-</node>
-<node TEXT="Allgemeine Teile k&#xf6;nnen innerhalb einer Site geteilt werden" FOLDED="true" ID="ID_1546493872" CREATED="1514895152288" MODIFIED="1514895178921">
+<node TEXT="Allgemeine Teile k&#xf6;nnen innerhalb einer Site geteilt werden" ID="ID_1546493872" CREATED="1514895152288" MODIFIED="1514895178921">
 <node TEXT="Header in Fallbsp. 2" ID="ID_893589392" CREATED="1514895118432" MODIFIED="1514895192186"/>
 </node>
-<node TEXT="Kleine Unterschiede machen Teilen unm&#xf6;glich" FOLDED="true" ID="ID_1102196664" CREATED="1514894266446" MODIFIED="1514894278392">
+<node TEXT="Kleine Unterschiede machen Teilen unm&#xf6;glich" ID="ID_1102196664" CREATED="1514894266446" MODIFIED="1514894278392">
 <node TEXT="Z. B. Logo, dadurch kann ganzer Header nicht &#xfc;ber mehrere Sites geteilt werden" ID="ID_83952083" CREATED="1514892410334" MODIFIED="1514894300577"/>
 </node>
-<node TEXT="Features werden nur tief geteilt" FOLDED="true" ID="ID_1515114969" CREATED="1514894331342" MODIFIED="1514894361871">
+<node TEXT="Features werden nur tief geteilt" ID="ID_1515114969" CREATED="1514894331342" MODIFIED="1514894361871">
 <node TEXT="Nur direkt &#xfc;ber Text Knoten" ID="ID_1329999702" CREATED="1514894418590" MODIFIED="1514894428567"/>
 <node TEXT="Inhaltlich w&#xe4;re mehr m&#xf6;glich" ID="ID_1242413991" CREATED="1514894442454" MODIFIED="1514894448647"/>
 <node TEXT="Bsp." ID="ID_862604136" CREATED="1514894498190" MODIFIED="1514894500471">
@@ -286,23 +300,7 @@
 </node>
 <node TEXT="Verl&#xe4;ssliche Pr&#xfc;fung nur mit WebApp" ID="ID_1084045908" CREATED="1514893025954" MODIFIED="1514893040675"/>
 </node>
-<node TEXT="Grenzen des Ansatzes" FOLDED="true" ID="ID_1594067477" CREATED="1514895794260" MODIFIED="1514895810670">
-<node TEXT="F&#xe4;lle m&#xf6;glich, in denen Wiederholungen nicht sinnvoll klassifiziert werden k&#xf6;nnen" ID="ID_364083703" CREATED="1514895843656" MODIFIED="1514895868334">
-<node TEXT="Fallbsp. 2" ID="ID_1757150259" CREATED="1514895943813" MODIFIED="1514895946807"/>
-<node TEXT="Nur alle einzeln, keine allgemeinen Selektoren" ID="ID_1370442123" CREATED="1514895918793" MODIFIED="1514895930806"/>
-<node TEXT="Macht &#xc4;nderung der Seite notwendig" ID="ID_1176136514" CREATED="1514895931829" MODIFIED="1514895938527"/>
-<node TEXT="Zumindest nicht mit aktuellen Selektoren m&#xf6;glich" ID="ID_1620166066" CREATED="1514896117047" MODIFIED="1514896125752"/>
-</node>
-</node>
-<node TEXT="MAN BRAUCHT XPATH!" ID="ID_788141711" CREATED="1514978349121" MODIFIED="1514978358186">
-<node TEXT="Sonst vieles nicht m&#xf6;glich" ID="ID_814633849" CREATED="1514978358466" MODIFIED="1514978366770"/>
-<node TEXT="Z. B. Brand / Portal, da kein Container" ID="ID_665026532" CREATED="1514978367465" MODIFIED="1514978378050"/>
-</node>
 <node TEXT="DINGE AUS ERGEBNISSE -&gt; DSL? (Au&#xdf;erhalb der Mapping Nodes)" ID="ID_92758333" CREATED="1514979071060" MODIFIED="1514979096101"/>
-<node TEXT="Ber der letzten Tabelle in Fallbsp. 1" ID="ID_1197765359" CREATED="1514994002294" MODIFIED="1514994015563">
-<node TEXT="Weniger geteilte LG Links und Namen, daf&#xfc;r aber mehr geteilte LGs!" ID="ID_509830173" CREATED="1514994031687" MODIFIED="1514994034405"/>
-</node>
-<node TEXT="Allgemein ausgedr&#xfc;ckt ist eine sinnvolle Klassifizierung nicht m&#xf6;glich,&#xa;    wenn ein Element eines Collection Features selbst ein Collection Feature besitzt&#xa;    und weder das Parent noch das Child Feature alleine in einem Element gekapselt sind." ID="ID_1033812486" CREATED="1514998771276" MODIFIED="1514998772381"/>
 </node>
 </node>
 <node TEXT="Bewertung" FOLDED="true" POSITION="right" ID="ID_154514138" CREATED="1514886459009" MODIFIED="1514886462122">
@@ -377,7 +375,7 @@
 <node TEXT="Trotzdem insgesamt positiv zu bewerten" ID="ID_948324087" CREATED="1514900631029" MODIFIED="1514900641678"/>
 </node>
 <node TEXT="Klassifizierungsansatz" ID="ID_1325214878" CREATED="1514885780375" MODIFIED="1514886479031">
-<node TEXT="Entwicklung eines Modells &amp; Schreiben der Klassen" ID="ID_1453435814" CREATED="1514886536777" MODIFIED="1514900675534">
+<node TEXT="Entwicklung eines Modells &amp; Schreiben der Klassen" FOLDED="true" ID="ID_1453435814" CREATED="1514886536777" MODIFIED="1514900675534">
 <node TEXT="Muss iterativ geschehen" ID="ID_1366322085" CREATED="1514886548813" MODIFIED="1514886555418"/>
 <node TEXT="&#xdc;bertragung von 1 auf n Seiten klappt nicht gut" ID="ID_309679023" CREATED="1514886562929" MODIFIED="1514886605364"/>
 <node TEXT="Selektoren" ID="ID_1741139991" CREATED="1514900751068" MODIFIED="1514900753644">
@@ -414,6 +412,7 @@
 <node TEXT="Knoten k&#xf6;nnen nicht unbedacht ver&#xe4;ndert werden" ID="ID_572636581" CREATED="1514902054030" MODIFIED="1514902063820"/>
 </node>
 <node TEXT="Text Knoten vielleicht &#xfc;berfl&#xfc;ssig?" ID="ID_1683336435" CREATED="1514888165070" MODIFIED="1514888171183"/>
+<node TEXT="Falls Graph nicht n&#xfc;tzlich, w&#xe4;re Document Store besser gewesen" ID="ID_1762416751" CREATED="1515072129681" MODIFIED="1515072143711"/>
 </node>
 <node TEXT="Wie sinnvoll sind die Annotationen?" FOLDED="true" ID="ID_1148108685" CREATED="1514887776185" MODIFIED="1514887786155">
 <node TEXT="Sinnvoll, um schnell festzustellen, ob" ID="ID_1807851839" CREATED="1514902312311" MODIFIED="1514902385271">
@@ -436,10 +435,10 @@
 </node>
 <node TEXT="Vergleich" POSITION="right" ID="ID_365336737" CREATED="1514886462489" MODIFIED="1514886464834">
 <edge COLOR="#7c0000"/>
-<node TEXT="Sprache" FOLDED="true" ID="ID_1748109521" CREATED="1514909944749" MODIFIED="1514909946981">
+<node TEXT="Sprache" FOLDED="true" ID="ID_1748109521" CREATED="1514909944749" MODIFIED="1515088466614">
 <node TEXT="Viele Datenmodellierungssprachen" ID="ID_666977931" CREATED="1514911680449" MODIFIED="1514911688190"/>
 <node TEXT="Keine Arbeit mit exakt der gleichen Dom&#xe4;ne/Anwendungsfall gefunden" ID="ID_799663118" CREATED="1514912387133" MODIFIED="1514912405078"/>
-<node TEXT="Nur &#xfc;ber Websuche in der Sprache ansatzweise implementiert wurde" FOLDED="true" ID="ID_1359930432" CREATED="1514912410525" MODIFIED="1514912429422">
+<node TEXT="Nur &#xfc;ber Websuche in der Sprache ansatzweise implementiert wurde" ID="ID_1359930432" CREATED="1514912410525" MODIFIED="1515088466612">
 <node TEXT="https://github.com/sabrams/web-miner" ID="ID_538439408" CREATED="1514912449855" MODIFIED="1514912451750"/>
 <node TEXT="Interne DSL" ID="ID_998153382" CREATED="1514912632686" MODIFIED="1514912636574"/>
 <node TEXT="In Ruby geschrieben" ID="ID_1285831123" CREATED="1514912507654" MODIFIED="1514912512582"/>
@@ -510,7 +509,7 @@
 <node TEXT="https://arxiv.org/pdf/1602.07637.pdf" ID="ID_10904710" CREATED="1514915912999" MODIFIED="1514915913695"/>
 </node>
 </node>
-<node TEXT="Beim System abh&#xe4;ngig von Kategorisierung" ID="ID_1805157428" CREATED="1514909813272" MODIFIED="1514909914166">
+<node TEXT="Beim System abh&#xe4;ngig von Kategorisierung" FOLDED="true" ID="ID_1805157428" CREATED="1514909813272" MODIFIED="1514909914166">
 <node TEXT="Hilfstool f&#xfc;r CMS-Migration" FOLDED="true" ID="ID_1494488269" CREATED="1514909915639" MODIFIED="1514970775270">
 <node TEXT="Mehrere Anbieter, da regelm&#xe4;&#xdf;ige Anforderung" ID="ID_83092066" CREATED="1514916014928" MODIFIED="1514916054910"/>
 <node TEXT="Oft als Dienstleistung angeboten" ID="ID_294352117" CREATED="1514916055077" MODIFIED="1514916063638"/>
@@ -579,6 +578,7 @@
 <node TEXT="WCCS" ID="ID_1226127604" CREATED="1514920698791" MODIFIED="1514920700792">
 <node TEXT="Betreibt im weitesten Sinne ebenfalls Web Content Mining" ID="ID_1641791796" CREATED="1514920701049" MODIFIED="1514920718504"/>
 <node TEXT="Versucht Inhalte zu klassifizieren und bildet Cluster" ID="ID_1210913933" CREATED="1514920756735" MODIFIED="1514920769319"/>
+<node TEXT="Durch mehrfache Nutzung der Knoten k&#xf6;nnen weitergehende Fragen beantwortet werden." ID="ID_1872133142" CREATED="1515088493744" MODIFIED="1515088521987"/>
 <node TEXT="Verwendet aber kein Machine Learning sondern muss instrumentiert werden" ID="ID_1865270371" CREATED="1514920786543" MODIFIED="1514920802199"/>
 <node TEXT="M&#xf6;glichkeiten des Machine Learning m&#xe4;chtiger" ID="ID_866596898" CREATED="1514921311026" MODIFIED="1514921445505"/>
 <node TEXT="Mit Ansatz des WCCS k&#xf6;nnen nicht beliebige Seiten des Webs klassifiziert werden" ID="ID_1356304042" CREATED="1514971317887" MODIFIED="1514971346384"/>
@@ -592,7 +592,9 @@
 </node>
 </node>
 <node TEXT="Stylechecker f&#xfc;r Webseiten" FOLDED="true" ID="ID_1976570391" CREATED="1514909930541" MODIFIED="1514909943757">
-<node TEXT="Um Einheitlichkeit und Schema einer Webseite sicherzustellen" ID="ID_1375977704" CREATED="1514921686777" MODIFIED="1514921702671"/>
+<node TEXT="Um Einheitlichkeit und Schema einer Webseite sicherzustellen" ID="ID_1375977704" CREATED="1514921686777" MODIFIED="1515071732114">
+<arrowlink SHAPE="CUBIC_CURVE" COLOR="#000000" WIDTH="2" TRANSPARENCY="200" FONT_SIZE="9" FONT_FAMILY="SansSerif" DESTINATION="ID_224773699" STARTINCLINATION="-76;0;" ENDINCLINATION="-338;0;" STARTARROW="NONE" ENDARROW="DEFAULT"/>
+</node>
 <node TEXT="Klassen und damit Schema wird formuliert" ID="ID_969220179" CREATED="1514921971989" MODIFIED="1514921985773"/>
 <node TEXT="Nur wenn alles gefunden wurde, ist Schema erf&#xfc;llt" ID="ID_1028124060" CREATED="1514921986020" MODIFIED="1514922001469"/>
 <node TEXT="Pr&#xfc;fung bisher manuell oder durch Drittsystem" ID="ID_1237658828" CREATED="1514922292922" MODIFIED="1514922302115"/>
@@ -616,9 +618,6 @@
 </node>
 </node>
 </node>
-</node>
-<node TEXT="KANN HELFEN FEHLER AUF DER SEITE ZU FINDEN: Z. B. FEHLENDES MAILTO ODER INTERNETSEITE, OBWOHL DAVOR E-MAIL STEHT" POSITION="left" ID="ID_1286673145" CREATED="1515064292468" MODIFIED="1515064336291">
-<edge COLOR="#7c007c"/>
 </node>
 </node>
 </map>
