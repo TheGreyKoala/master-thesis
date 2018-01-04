@@ -1,0 +1,22 @@
+\subsection{Unregelmäßigkeiten}
+    Im Vergleich zum ersten Fallbeispiel in Kapitel \ref{section:findingsCaseStudy1}
+    wurden keine neuen Auffälligkeiten ermittelt in den Klassifikationen entdeckt.
+
+    Allerdings ist dies der Fall für den {\wordpress}-Crawler,
+    der zum Auffinden der Seiten und zum Starten der Klassifizierung
+    in beiden Fallbeispielen Anwendung fand.
+
+    Wie bereits erwähnt sind die verschiedenen Meldungen auf mehrere Seiten verteilt.
+    Dazu wird eine {\wordpress}-eigene Funktion verwendet
+    \footnote{vgl. \url{https://codex.wordpress.org/Pagination}}.
+    Die einzelnen Meldungen sind der Kategorie "`Aktuelles"' zugewiesen
+    und eine Übersichtsseite ist eine Sicht auf alle Einträge
+    dieser Kategorie, die mithilfe der genannten Pagination-Funktionen
+    parametrisiert wird und so verschiedene Seiten von Meldungen erzeugt.
+
+    Das bedeutet, dass {\wordpress} für die einzelnen Übersichtsseiten keine Posts oder Pages enthält.
+    Der {\wordpress}-Crawler, der genau diese Einträge abfragt,
+    findet die verschiedenen Übersichtsseiten deshalb nicht.
+    Stattdessen teilt ihm {\wordpress} lediglich die
+    generelle \gls{url} der Kategorieseite "`Aktuelles"' mit.
+    Dadurch findet er zumindest die erste Nachrichtenübersichtsseite.

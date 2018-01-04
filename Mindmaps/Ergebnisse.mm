@@ -228,7 +228,7 @@
 </node>
 <node TEXT="Statistiken &amp; Auff&#xe4;lligkeiten in Textdateien" ID="ID_825154740" CREATED="1514822545158" MODIFIED="1514822564775"/>
 </node>
-<node TEXT="Fallbeispiel 2" POSITION="right" ID="ID_1906418440" CREATED="1514815738309" MODIFIED="1514815742174">
+<node TEXT="Fallbeispiel 2" FOLDED="true" POSITION="right" ID="ID_1906418440" CREATED="1514815738309" MODIFIED="1514815742174">
 <edge COLOR="#ff00ff"/>
 <node TEXT="Modell der Seite" FOLDED="true" ID="ID_1372700888" CREATED="1514822569262" MODIFIED="1514822572358">
 <node TEXT="Wie im ersten Bsp." ID="ID_417129012" CREATED="1514822573358" MODIFIED="1514822583054">
@@ -262,7 +262,7 @@
 <node TEXT="News wird anhand hr erkannt" ID="ID_1989232222" CREATED="1514822915059" MODIFIED="1514822924076"/>
 <node TEXT="Datum ist erstes p mit spezieller KLasse nach hr, dank XPath" ID="ID_486076364" CREATED="1514822931299" MODIFIED="1514822944004"/>
 <node TEXT="Analog f&#xfc;r Heading" ID="ID_1217690378" CREATED="1514822948451" MODIFIED="1514822953148"/>
-<node TEXT="Keine M&#xf6;glichkeit Abs&#xe4;tze sinnvoll zu klassifizieren" ID="ID_181013403" CREATED="1514822958346" MODIFIED="1514822973468">
+<node TEXT="Keine M&#xf6;glichkeit Abs&#xe4;tze sinnvoll zu klassifizieren" FOLDED="true" ID="ID_181013403" CREATED="1514822958346" MODIFIED="1514822973468">
 <node TEXT="Problem 1" ID="ID_558938303" CREATED="1514822978069" MODIFIED="1514822980371">
 <node TEXT="Viele Tags, die zu einem Feature zusammengefasst werden sollten" ID="ID_1730154702" CREATED="1514822980613" MODIFIED="1514822997171"/>
 </node>
@@ -284,7 +284,7 @@
 </node>
 </node>
 </node>
-<node TEXT="Statistiken" FOLDED="true" ID="ID_1577845938" CREATED="1514823237248" MODIFIED="1514823241689">
+<node TEXT="Statistiken" ID="ID_1577845938" CREATED="1514823237248" MODIFIED="1514823241689">
 <node TEXT="Nicht auf alle Site, weil keine neuen Erkentnisse im Vergleich zu Bsp. 1" ID="ID_650780756" CREATED="1514823242283" MODIFIED="1514823256953"/>
 <node TEXT="Siehe Textdateien" ID="ID_156794660" CREATED="1514823275200" MODIFIED="1514823280641"/>
 </node>

@@ -46,36 +46,45 @@
 --- Deshalb werden einige ihrer Knoten doppelt verwendet
 --- Der Teacher-Knoten wurde nicht geteilt, weil nur bei einer der beiden Klassifizierungen das Bild gefunden wurde
 --- Das hätte durch den CSS Selektor "section#content div.team-list > div.grid" gelöst werden können
+
 -- Ganzer Teacher Knoten 2x referenziert
 --- Katharina Bengin
 --- Wurde doppelt klassifiziert
 --- Kein Bild, deshalb passt alles
+
 -- 1 Teacher ohne SubjectArea
 --- Bei Katharina Bengin steht als erstes der Text "Auskunft erteilt auch:"
 --- Deshalb passt der Selektor nicht mehr.
 --- Anstatt first-child hätte man first-of-type nehmen sollen
 ---- first-of-child wurde absichtlich wegen Thorsten Junge bei BaBw genommen!
+
 -- 28 ContactInformation ohne Phone
 --- 9 "Telefon:" anstatt "Tel.:"
 --- 1 "Tel:" anstatt "Tel.:"
 --- 18 Tatsächlich kein Phone
+
 -- 10 Teacher ohne Bild
 --- 8 Teacher tatsächlich kein Bild
 --- C. Dorn und M- Kaufmann doppelt klassifiziert und bei jeweils 2. Klassifizierung kein Bild gefunden (Folgefehler)
+
 -- 56 Teacher ohne Name
 --- Selektor passt nicht, da Name z. B. oft nur als Link oder direkt als Text gepfelgt sind
 --- Kein Selektor gefunden, der auf alles passt
+
 -- Viele Telefonnummern haben auch E-Mail in sich
 --- Im Quelltext ist kein Zeilenumbruch nach Telefonnummer (oder nicht am Ende)
 --- Passender: substring-before(concat(substring-after(normalize-space(.//text()[contains(., 'Tel')]), 'Tel.: '), '\n'), '\n')
 --- Allerdings müsste hier auch noch die obere Ausnahme beachtet werden, dass es manchmal auch "Telefon:" ist
+
 -- TeacherName: Auskunft erteilt auch:
 --- Als Name wird der erste fette Text genommen, das ist in diesem Fall diese Info.
 --- Siehe auch Name oben
+
 -- Fehler im Modell:
 --- Namen können Links sein
 --- Helmut Wagner hat keine E-Mail, sondern Internetadresse
 --- Sprechzeiten
+
 -- Annotationen:
 --- LG hat teilweise 3 Annotationen, aber nicht der komplette Text
 ---- Text wird mit document.evaluate ermittelt, welches auf dem Quelltext arbeitet. Kein Zeilenumbruch sondern Leerzeichen zwischen Tel und E-Mail
