@@ -1,0 +1,75 @@
+@startuml
+scale 3840*2160
+hide circle
+hide empty methods
+
+class Teachers {
+    introduction: String
+    header: Header
+    pageHeading: String
+    portal: Portal
+    sidebarNavigationLinks: List<FernUniInternalLink>
+    teachers: List<Teacher>
+}
+
+Teachers "1" --> "1" Header
+Teachers "1" --> "1" Portal
+Teachers "1" --> "0..n" Teacher
+Teachers "0..1" --> "0..n" FernUniInternalLink
+
+class Header {
+    fernUni: Brand
+    mainNavigationLinks: List<FernUniInternalLink>
+}
+
+"Header" "1" --> "1" Brand
+"Header" "0..1" --> "0..n" FernUniInternalLink
+
+class Brand {
+    homepage: FernUniInternalLink
+    logo: Image
+}
+
+Brand "0..1" --> "1" FernUniInternalLink
+Brand "0..1" --> "1" Image
+
+class Portal {
+    homepage: FernUniInternalLink
+    name: String
+}
+
+Portal "0..1" --> "1" FernUniInternalLink
+
+class Image {
+    url: String
+}
+
+class Teacher {
+    area: SubjectArea
+    contactInformation: ContactInformation
+    image: Image
+    name: String
+}
+
+Teacher "1..n" --> "1" SubjectArea
+Teacher "1" --> "0..1" ContactInformation
+Teacher "0..1" --> "0..1" Image
+
+class SubjectArea {
+    name: String
+    homepage: FernUniInternalLink
+}
+
+SubjectArea "0..1" --> "1" FernUniInternalLink
+
+class ContactInformation {
+    email: String
+    phone: String
+    fax: String
+    room: String
+}
+
+class FernUniInternalLink {
+    url: String
+}
+@enduml

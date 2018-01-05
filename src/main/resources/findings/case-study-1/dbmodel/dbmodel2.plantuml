@@ -1,0 +1,72 @@
+@startuml
+scale 3840*2160
+object ":Content" as teacher {
+    class = "Teacher"
+}
+
+object ":Content" as teacherName {
+    class = "TeacherName"
+}
+
+object ":Content" as area {
+    class = "SubjectArea"
+}
+
+object ":Content" as subjectAreaName {
+    class = "SubjectAreaName"
+}
+
+object ":Text" as subjectAreaNameText {
+    value = "[SUBJECT_AREA_NAME]"
+}
+
+object ":Content" as contactInformation {
+    class = "ContactInformation"
+}
+
+object ":Content" as email {
+    class = "Email"
+}
+
+object ":Text" as emailText {
+    value = "mailto:[EMAIL]"
+}
+
+object ":Content" as phone {
+    class = "Phone"
+}
+
+object ":Text" as phoneText {
+    value = "[PHONE]"
+}
+
+object ":Content" as fax {
+    class = "Fax"
+}
+
+object ":Text" as faxText {
+    value = "[FAX]"
+}
+
+object ":Content" as room {
+    class = "Room"
+}
+
+object ":Text" as roomText {
+    value = "[ROOM]"
+}
+
+teacher --> area : area
+teacher --> contactInformation : contactInformation
+teacher --> teacherName : name
+area --> subjectAreaName : name
+subjectAreaName --> subjectAreaNameText
+contactInformation --> email : email
+contactInformation --> phone : phone
+contactInformation --> fax : fax
+contactInformation --> room : room
+email --> emailText
+phone --> phoneText
+fax --> faxText
+room --> roomText
+@enduml

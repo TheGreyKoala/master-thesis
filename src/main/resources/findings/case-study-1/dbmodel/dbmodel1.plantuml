@@ -1,0 +1,55 @@
+@startuml
+scale 3840*2160
+left to right direction
+
+object ":Page" as page {
+    class = "Teachers"
+    url = "[...]"
+}
+
+object ":Content" as header {
+    class = "Header"
+}
+
+object ":Content" as brand {
+    class = "Brand"
+}
+
+object ":Content" as introduction {
+    class = "Introduction"
+}
+
+object ":Text" as introductionText {
+    value = "[INTRODUCTION]"
+}
+
+object ":Content" as pageHeading {
+    class = "PageHeading"
+}
+
+object ":Text" as pageHeadingText {
+    value = "[PAGE_HEADING]"
+}
+
+object ":Content" as portal {
+    class = "Portal"
+}
+
+object ":Text" as portalText {
+    value = "[PORTAL_NAME]"
+}
+
+object ":Content" as teacher {
+    class = "Teacher"
+}
+
+page --> header : header
+page --> pageHeading : pageHeading
+page --> introduction : introduction
+page --> portal : portal
+page --> teacher : teachers
+"header" --> brand : brand
+introduction --> introductionText
+pageHeading --> pageHeadingText
+portal --> portalText
+@enduml
