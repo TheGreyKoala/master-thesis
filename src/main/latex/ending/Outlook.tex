@@ -1,0 +1,70 @@
+\section{Ausblick}
+    Das \gls{wccs} bietet sehr viel Potenzial um ausgebaut zu werden.
+
+    Ein Erweiterung, von der die \gls{wccdl} profitieren würden,
+    ist die Einführung eines Vererbungskonzeptes für Klassen,
+    um Features und Selektoren wiederzuverwenden und die Ausdrucksstärke
+    der Sprache damit zu erhöhen.
+    Hierzu muss ein konsistentes Konzept für Vererbung und Polymorphie
+    von Features und Selektoren geschaffen werden,
+    welches sich syntaktisch gut einfügt.
+    Außerdem erfordert es weitergehende semantische Prüfungen.
+
+    Wichtig aber auch herausfordernd ist außerdem die Einbettung
+    von Sprachen zur Unterstützung von CSS, XPath und regulären Ausdrücken,
+    sodass die Definition von Selektoren syntaktisch und semantisch geprüft werden kann
+    und ihre Formulierung durch die Entwicklungsumgebung unterstützt wird.
+
+    Der Entwickler könnte außerdem durch ein Browser-Plugin
+    deutlich bei der Formulierung von Selektoren unterstützt werden.
+    Nämlich dann, wenn dieses Plugin den Browser und die Entwicklungsumgebung
+    dahingehend verbindet, dass der Browser solche Elemente auf der aktuellen Seite
+    hervorhebt, die durch einen bestimmten Selektor im Quelltext erfasst werden.
+    Andersherum könnte der Entwickler den Browser nutzen,
+    um einen Selektor eines \gls{html}-Elementes zu bestimmen und
+    in die Entwicklungsumgebung zu übertragen.
+
+    Eine Möglichkeit die beschriebenen Sonderfälle besser abzudecken ist die
+    Einführung eines Skript-Selektors.
+    Das heißt zur Auswahl eines HTMl-Knotens ein JavaScript Fragment ausgeführt wird,
+    was prinzipiell dank der Browser-Automatisierung von Puppeteer möglich sein sollte.
+    Programmatisch sollten sich auch deutlich komplexere Strukturen einfangen lassen.
+
+    Eine weitere Maßnahme zu diesem Zweck ist die Einführung von Selektor-Ketten.
+    Das heißt ein Feature wird durch eine Reihe von Selektoren
+    ermittelt, wobei das Ergebnis eines Selektors als Kontext Knoten des nächsten fungiert.
+    Dadurch lässt sich der Suchraum mit verschiedenen Selektor-Typen eingrenzen,
+    ohne zusätzliche Features definieren zu müssen.
+
+    In Kapitel \ref{section:discussionComparisonClassificationSystem}
+    wurde das Thema maschinelles Lernen bereits kurz aufgegriffen.
+    Im \gls{wccs} sind zwei Anwendungen dieser Technik denkbar:
+
+    \begin{enumerate}
+        \item   Das System wird anhand einiger Klassifikationen trainiert
+                und versucht anschließend ohne exakte Vorgaben (Selektoren),
+                sondern nur auf Basis des Trainings,
+                neue Seiten zu erkennen und zu strukturieren.
+        \item   Das System analysiert Korrekturen, die durch Nutzer durchgeführt werden
+                und erzeugt Vorschläge für Änderungen in weiteren Klassifikationen.
+    \end{enumerate}
+
+    Darüber hinaus sind einige weitere kleinere Erweiterungen denkbar,
+    die das Werkzeug verbessern.
+
+    Der Nutzen des Annotator Plugins kann zum Beispiel deutlich erhöht werden,
+    indem das Löschen und Anlegen von Annotationen unterstützt wird.
+    Außerdem wäre es denkbar neben den vordefinierten Klassen auch
+    die Angabe eigener neuer Klassen zu erlauben.
+
+    Ein Grund der schwachen Ausdrucksstärke der Sprache ist die Notwendigkeit
+    jede Klasse einzeln bekannt zu machen.
+
+    Zur Steigerung der Ausdrucksstärke der Sprache wäre es außerdem denkbar
+    einmalig genutzte Klassen ohne eigene Features nicht separat,
+    sondern zusammen mit ihrer Verwendung definieren zu können.
+    Das könnte zum Beispiel folgendermaßen aussehen:
+
+    \begin{lstlisting}[style=wccdl,language=wccdl,inputencoding=utf8/latin1]
+classifies myFeature as content class MyClass by css « p »
+    \end{lstlisting}
