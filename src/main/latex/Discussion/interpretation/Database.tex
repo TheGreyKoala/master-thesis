@@ -1,4 +1,4 @@
-\subsection{Teilen von Knoten in der Datenbank}
+\subsection{Vorteile einer Graphdatenbank}
     Der erste Beweggrund für die Verwendung einer Graphdatenbank
     ist die natürliche Modellierung und Speicherung von Verweisen
     zwischen Seiten und auf sonstige {\resources}.
@@ -45,18 +45,82 @@
     Aus Tabelle \ref{table:findingsTeachersFiguresSharedNodes} geht hervor,
     dass im ersten Fallbeispiel niemals ein Text-Knoten geteilt wurde.
     Stattdessen konnte immer der Content-Knoten,
-    der ihn referenziert geteilt werden.
+    der ihn referenziert, geteilt werden.
     Deshalb ist die Zahl beider Knoten-Typen gesunken und die der geteilten
     Content Knoten dafür gesteigen.
-    Das ist möglich, wenn die entsprechenden Content-Knoten
-    sich sowohl in ihrer Klasse als auch in ihren Features nicht unterscheiden.
-    Betrachtet man die Klassen der geteilten Content Knoten wird deutlich,
-    dass diese keine Features haben.
+    Tabelle \ref{table:findingsNewsFiguresSharedNodes}
+    zeigt eine andere Situation beim zweiten Fallbeispiel.
+    Dort werden zwei Text-Knoten geteilt,
+    weil es mehrere News mit derselben ÜBerschrift gibt,
+    die aber unterschiedliche Detailseiten referenzieren,
+    weshalb der Content Knoten nicht teilbar ist.
+    Der tatsächliche Nutzen der Text-Knoten ist in diesen Beispielt trotzdem sehr gering,
+    weshalb der textuelle Wert eines Features besser im Content Knoten selbst aufgehoben ist.
+    Für die Schnittstellen des Systems ändert sich durch eine entsprechende Anpassung nichts,
+    allerdings vereinfacht sich dadurch das Datenmodell der Datenbank sowie
+    die generierten Datenbankanweisungen.
 
-    Anders ist das beim zweiten Fallbeispiel.
-    Dort wurden Text-Knoten geteilt, weil es mehrere News mit derselben ÜBerschrift
-    gab, die aber jeweils eine eigene Detailseite referenzieren.
-    % TODO: Referenz auf TABELLE!
-
+    Bezüglich der Wiederverwendung von Teilgraphen ist außerdem ersichtlich,
+    dass dies häufig erst auf einer tiefen Ebene,
+    wie bei Content Knoten der Klasse "`SubjectAreaName"',
+    und seltener auf einer hohen Ebene,
+    wie bei einem Content Knoten der Klasse "`Teacher"' geschieht.
+    Betrachtet man die Inhalte der klassifizierten Webseiten von außen,
+    ist eine entsprechende Erwartung gerechtfertigt,
+    da sich zum Beispiel der Kopfbereich auf allen Seiten exakt wiederholt
+    oder mehrere Lehrende auf unterschiedlichen Seiten identisch aufgeführt werden.
+    Trotzdem werden solche Mitarbeiter und der Kopfbereich in der Datenbank
+    nicht auf Ebene der Teacher bzw. Header Knoten geteilt,
+    sondern nur ihre Unterknoten.
+    Dafür gibt es zwei Gründe.
+    Zum einen müssen Features inklusive ihrer Child Features inhaltlich
+    exakt übereinstimmen, damit ihr Content Knoten mehrfach verwendet werden kann.
+    Die kleinste Abweichung macht die unmöglich,
+    da die Inhalte sich letztendlich unterscheiden und nur Teilaspekte übereinstimmen,
+    was die Datenbank wiederspiegeln muss.
+    Im Falle des Kopfbereiches im ersten Beispiel ist die \gls{url} des Logos
+    auf jeder klassifizierten Seite unterschiedlich.
+    Das ist im zweiten Beispiel nicht der Fall,
+    da alle Seiten zu einer Site in {\wordpress} gehören
+    und deshalb das gleiche Bild referenzieren.
+    Entsprechend existiert in der Datenbank nur ein Header Knoten,
+    den alle Klassifikationen referenzieren.
     
-% Oder: Verwendung einer Graphdatenbank
+    Die zweite Ursache sind die unterschiedlichen Positionen von identischen Inhalten
+    auf verschiedenen Webseiten.
+    Diese Positionen werden in Form eines eindeutigen Selektors in der eingehenden
+    Kante eines Content Knoten gespeichert\footnote{vgl. Kapitel \ref{section:solutionDetailsPersistenceDataModel}}.
+    Diese Knoten sind prinzipiell also unabhängig von der konkreten Position
+    von mehreren Seiten gleichzeitig nutzbar.
+    Dies ändert sich allerdings, sobald ein Content Knoten Child Features referenziert,
+    da diese ausgehenden Kanten die \textit{absoluten} Selektoren der Child Features speichern.
+    Befindet sich ein Lehrender auf zwei Seiten also nicht an exakt der gleichen Position,
+    sind die Selektoren seines Namens, seines Lehrgebietes etc. unterschiedlich.
+    Der Teacher Knoten kann dann nicht von beiden Seiten referenziert
+    werden\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage}}.
+    
+    Genau betrachtet spiegelt die Datenbank also lediglich die Struktur der Webseiten exakt wieder.
+    Trotzdem lässt sich argumentieren, dass es fachlich konsistenter wäre,
+    wenn die Teacher Knoten im beschriebenen Fall geteilt werden würden.
+    Schon jetzt lässt sich zum Beispiel die Frage beantworten,
+    welche Mitarbeiter in einem gewissen Lehrgebiet arbeiten.
+    Dazu muss lediglich den eingehenden Kanten des entsprechenden
+    SubjectAreaName Knotens zu allen Teacher Knoten gefolgt werden.
+    Aus fachlicher Sicht ist es aber inkonsistent,
+    dass es mehrere SubjectArea Knoten gibt,
+    die denselben SubjectAreaName Knoten referenzieren und sie nicht
+    nur die ausgehenden Kanten eines SubjectArea Knotens betrachtet brauchen.    
+
+    Ein erster Schritt hierzu ist anstatt absolute Selektoren
+    lediglich zum Parent Feature relative Selektoren in den Kanten zu speichern.
+    Allerdings hilft dies nicht, wenn die HTML-Struktur sich unterscheidet,
+    weil dann auch die relative Position eines Elementes anders ist.
+    Außerdem hätte dies zur Folge, dass zur Ermittlung der eindeutigen Position
+    eines Features, der gesamte Vaterpfad bis zur Seite abgelaufen werden muss,
+    um alle relativen Selektoren einzusammeln und zu verbinden.
+    Eine weitere Alternative zum aktuellen Vorgehen,
+    die auch diesen Nachteil umgeht,
+    ist die Speicherung der absoluten Selektoren in Kanten,
+    die vom Page Knoten direkt zu Content Knoten führen.
+    Die Teilbarkeit von Content Knoten hinge dann nur noch von den Inhalten und ihrer Klasse ab,
+    da die Position komplett unabhängig gespeichert wird.

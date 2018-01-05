@@ -1,0 +1,423 @@
+{
+    "type": "NewsOverview",
+    "url": "http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/page/5/",
+    "status": "Classified",
+    "properties": {
+        "header": {
+            "selector": {
+                "type": "RangeSelector",
+                "startSelector": {
+                    "type": "XPathSelector",
+                    "offset": 0,
+                    "value": "/html[1]/body[1]/div[1]/header[1]"
+                },
+                "endSelector": {
+                    "type": "XPathSelector",
+                    "offset": 43,
+                    "value": "/html[1]/body[1]/div[1]/header[1]"
+                }
+            },
+            "type": "Header",
+            "properties": {
+                "fernUni": {
+                    "selector": {
+                        "type": "RangeSelector",
+                        "startSelector": {
+                            "type": "XPathSelector",
+                            "offset": 0,
+                            "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]"
+                        },
+                        "endSelector": {
+                            "type": "XPathSelector",
+                            "offset": 0,
+                            "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]"
+                        }
+                    },
+                    "type": "Brand",
+                    "properties": {},
+                    "references": {
+                        "homepage": {
+                            "destination": "http://www.fernuni-hagen.de",
+                            "selector": {
+                                "type": "RangeSelector",
+                                "startSelector": {
+                                    "type": "XPathSelector",
+                                    "offset": 0,
+                                    "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]"
+                                },
+                                "endSelector": {
+                                    "type": "XPathSelector",
+                                    "offset": 0,
+                                    "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]"
+                                }
+                            },
+                            "type": "FernUniInternalLink"
+                        },
+                        "logo": {
+                            "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/wp-content/uploads/sites/3/2015/06/feulogo.png",
+                            "selector": {
+                                "type": "RangeSelector",
+                                "startSelector": {
+                                    "type": "XPathSelector",
+                                    "offset": 0,
+                                    "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]/img[1]"
+                                },
+                                "endSelector": {
+                                    "type": "XPathSelector",
+                                    "offset": 0,
+                                    "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/a[1]/img[1]"
+                                }
+                            },
+                            "type": "Image"
+                        }
+                    }
+                }
+            },
+            "references": {
+                "mainNavigationLinks": [
+                    {
+                        "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/einstieg/",
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 9,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/a[1]"
+                            }
+                        },
+                        "type": "FernUniInternalLink"
+                    },
+                    {
+                        "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/studium/",
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 8,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]"
+                            }
+                        },
+                        "type": "FernUniInternalLink"
+                    },
+                    {
+                        "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/pruefungen/",
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 10,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]"
+                            }
+                        },
+                        "type": "FernUniInternalLink"
+                    },
+                    {
+                        "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/",
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 8,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/a[1]"
+                            }
+                        },
+                        "type": "FernUniInternalLink"
+                    },
+                    {
+                        "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/sitemap/",
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 1,
+                                "value": "/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[2]/ul[1]/li[5]/a[1]"
+                            }
+                        },
+                        "type": "FernUniInternalLink"
+                    }
+                ]
+            }
+        },
+        "heading": {
+            "selector": {
+                "type": "RangeSelector",
+                "startSelector": {
+                    "type": "XPathSelector",
+                    "offset": 0,
+                    "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h3[1]"
+                },
+                "endSelector": {
+                    "type": "XPathSelector",
+                    "offset": 9,
+                    "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h3[1]"
+                }
+            },
+            "type": "PageHeading",
+            "content": "Aktuelles",
+            "properties": {},
+            "references": {}
+        },
+        "news": [
+            {
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/hr[1]"
+                    }
+                },
+                "type": "News",
+                "properties": {
+                    "date": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 13,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/p[1]"
+                            }
+                        },
+                        "type": "NewsDate",
+                        "content": "29. Juli 2014",
+                        "properties": {},
+                        "references": {}
+                    },
+                    "heading": {
+                        "selector": {
+                            "type": "RangeSelector",
+                            "startSelector": {
+                                "type": "XPathSelector",
+                                "offset": 0,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[1]"
+                            },
+                            "endSelector": {
+                                "type": "XPathSelector",
+                                "offset": 53,
+                                "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[1]"
+                            }
+                        },
+                        "type": "NewsHeading",
+                        "content": "Veränderung des Kursangebotes im Modul 1C zum SS 2015",
+                        "properties": {},
+                        "references": {
+                            "newsDetailPage": {
+                                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/2014/07/29/veraenderung-des-kursangebotes-im-modul-1c-zum-ss-2015/",
+                                "selector": {
+                                    "type": "RangeSelector",
+                                    "startSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 0,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[1]/a[1]"
+                                    },
+                                    "endSelector": {
+                                        "type": "XPathSelector",
+                                        "offset": 53,
+                                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/h4[1]/a[1]"
+                                    }
+                                },
+                                "type": "FernUniInternalLink"
+                            }
+                        }
+                    }
+                },
+                "references": {}
+            }
+        ],
+        "portal": {
+            "selector": {
+                "type": "RangeSelector",
+                "startSelector": {
+                    "type": "XPathSelector",
+                    "offset": 0,
+                    "value": "/html[1]/body[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h3[1]/a[1]"
+                },
+                "endSelector": {
+                    "type": "XPathSelector",
+                    "offset": 25,
+                    "value": "/html[1]/body[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h3[1]/a[1]"
+                }
+            },
+            "type": "Portal",
+            "content": "B.A. Bildungswissenschaft",
+            "properties": {},
+            "references": {
+                "homepage": {
+                    "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/",
+                    "selector": {
+                        "type": "RangeSelector",
+                        "startSelector": {
+                            "type": "XPathSelector",
+                            "offset": 0,
+                            "value": "/html[1]/body[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h3[1]/a[1]"
+                        },
+                        "endSelector": {
+                            "type": "XPathSelector",
+                            "offset": 25,
+                            "value": "/html[1]/body[1]/div[1]/section[1]/div[1]/div[1]/div[1]/h3[1]/a[1]"
+                        }
+                    },
+                    "type": "FernUniInternalLink"
+                }
+            }
+        }
+    },
+    "references": {
+        "previousPage": {
+            "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/page/4/",
+            "selector": {
+                "type": "RangeSelector",
+                "startSelector": {
+                    "type": "XPathSelector",
+                    "offset": 0,
+                    "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/a[1]"
+                },
+                "endSelector": {
+                    "type": "XPathSelector",
+                    "offset": 1,
+                    "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[2]/div[1]/a[1]"
+                }
+            },
+            "type": "FernUniInternalLink"
+        },
+        "sidebarNavigationLinks": [
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[1]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 7,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[1]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[2]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 9,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[2]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/kontakt/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[3]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 7,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[3]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/downloads/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[4]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 9,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[4]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/online-systeme/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[5]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 14,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[5]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            },
+            {
+                "destination": "http://www.fernuni-hagen.de/KSW/portale/babw/service/vom-bachelor-zum-master/",
+                "selector": {
+                    "type": "RangeSelector",
+                    "startSelector": {
+                        "type": "XPathSelector",
+                        "offset": 0,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[6]/a[1]"
+                    },
+                    "endSelector": {
+                        "type": "XPathSelector",
+                        "offset": 23,
+                        "value": "/html[1]/body[1]/div[1]/section[2]/div[1]/div[1]/div[1]/aside[1]/div[1]/div[1]/ul[1]/li[6]/a[1]"
+                    }
+                },
+                "type": "FernUniInternalLink"
+            }
+        ]
+    }
+}

@@ -1,1 +1,31 @@
 \subsection{Annotationen}
+    Die Fallbeispiele zeigen, dass die Visualisierung einer Klassifikation
+    über Web-Annotationen ein nützliches Mittel ist, um festzustellen,
+    ob eine Klassifizierung erfolgreich und den Erwartungen entsprechend durchgeführt wurde.
+
+    Die falsch oder nicht markierten Inhalte schränken dies allerdings
+    auf eine erste oberflächliche Sichtung ein
+    und können zu falschen Annahmen und Aussagen über die Klassifikation führen.
+    Für eine genaue Prüfung sind sie deshalb ungeeignet,
+    weshalb hierzu auf die Webanwendung zurückgegriffen werden sollte.
+
+    Das Annotator Plugin ist außerdem hilfreich,
+    um die Klasse einzelner Inhalte zu korrigieren,
+    falls diese falsch einsortiert wurden.
+    Für umfangreichere Änderungen ist sie aufgrund des manuellen Aufwandes
+    und der Tatsache, dass lediglich Leaf Features dargestellt werden,
+    ungeeignet.
+    Bei den festgestellten Fehlern in den Klassifikationen hätte diese
+    Funktion allerdings nicht weitergeholfen,
+    da nie der Fall eingetreten ist, dass Inhalte lediglich die falsche Klasse erhalten haben.
+    Stattdessen wurden Inhalte gar nicht klassifiziert,
+    umfassten zu viele oder zu wenige Informationen
+    (z. B. Telefonnumern mit E-Mail-Adressen, Name nur "`Prof."')
+    oder irrelevante Informationen wurden klassifiziert.
+    Um diese Art von Fehlern korrigieren zu können,
+    muss das Annotator Plugin um zwei Funktionen erweitert werden:
+
+    \begin{enumerate}
+        \item Nicht klasifizierte Inhalte der Seite manuell annotieren und dadurch einer Klasse zuordnen
+        \item Annotationen löschen und dadurch die Klassifizierung eines Inhaltes entfernen
+    \end{enumerate}

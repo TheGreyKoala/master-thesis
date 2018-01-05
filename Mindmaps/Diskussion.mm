@@ -64,7 +64,7 @@
 </map_styles>
 </hook>
 <hook NAME="AutomaticEdgeColor" COUNTER="20" RULE="ON_BRANCH_CREATION"/>
-<node TEXT="Interpretation" POSITION="left" ID="ID_1705587986" CREATED="1514886452049" MODIFIED="1514886458666">
+<node TEXT="Interpretation" FOLDED="true" POSITION="left" ID="ID_1705587986" CREATED="1514886452049" MODIFIED="1514886458666">
 <edge COLOR="#ff00ff"/>
 <node TEXT="Fallstudie 1" ID="ID_4679892" CREATED="1514571007374" MODIFIED="1514886852085">
 <node TEXT="Will man ein Feature, wenn es nichts enth&#xe4;lt?" ID="ID_642344002" CREATED="1514722117084" MODIFIED="1514722137141">
@@ -258,7 +258,7 @@
 <node TEXT="Allgemein ausgedr&#xfc;ckt ist eine sinnvolle Klassifizierung nicht m&#xf6;glich,&#xa;    wenn ein Element eines Collection Features selbst ein Collection Feature besitzt&#xa;    und weder das Parent noch das Child Feature alleine in einem Element gekapselt sind." ID="ID_1033812486" CREATED="1514998771276" MODIFIED="1514998772381"/>
 </node>
 </node>
-<node TEXT="Teilen von Knoten in der DB" ID="ID_1011410401" CREATED="1514894153255" MODIFIED="1514894159088">
+<node TEXT="Teilen von Knoten in der DB" FOLDED="true" ID="ID_1011410401" CREATED="1514894153255" MODIFIED="1514894159088">
 <node TEXT="Vor allem bei Resource Knoten erfolgreich" FOLDED="true" ID="ID_490936115" CREATED="1514894172535" MODIFIED="1514894186733">
 <node TEXT="Einmalige Entit&#xe4;ten" ID="ID_747332121" CREATED="1514891262826" MODIFIED="1514891274321"/>
 <node TEXT="Gut im Graph modellierbar" ID="ID_333805699" CREATED="1514891276048" MODIFIED="1514891282793"/>
@@ -267,16 +267,16 @@
 <node TEXT="Rest im Selektor" ID="ID_1238312570" CREATED="1514891312032" MODIFIED="1514891316113"/>
 </node>
 </node>
-<node TEXT="Ber der letzten Tabelle in Fallbsp. 1" ID="ID_1197765359" CREATED="1514994002294" MODIFIED="1514994015563">
+<node TEXT="Ber der letzten Tabelle in Fallbsp. 1" FOLDED="true" ID="ID_1197765359" CREATED="1514994002294" MODIFIED="1514994015563">
 <node TEXT="Weniger geteilte LG Links und Namen, daf&#xfc;r aber mehr geteilte LGs!" ID="ID_509830173" CREATED="1514994031687" MODIFIED="1514994034405"/>
 </node>
-<node TEXT="Allgemeine Teile k&#xf6;nnen innerhalb einer Site geteilt werden" ID="ID_1546493872" CREATED="1514895152288" MODIFIED="1514895178921">
+<node TEXT="Allgemeine Teile k&#xf6;nnen innerhalb einer Site geteilt werden" FOLDED="true" ID="ID_1546493872" CREATED="1514895152288" MODIFIED="1514895178921">
 <node TEXT="Header in Fallbsp. 2" ID="ID_893589392" CREATED="1514895118432" MODIFIED="1514895192186"/>
 </node>
-<node TEXT="Kleine Unterschiede machen Teilen unm&#xf6;glich" ID="ID_1102196664" CREATED="1514894266446" MODIFIED="1514894278392">
+<node TEXT="Kleine Unterschiede machen Teilen unm&#xf6;glich" FOLDED="true" ID="ID_1102196664" CREATED="1514894266446" MODIFIED="1514894278392">
 <node TEXT="Z. B. Logo, dadurch kann ganzer Header nicht &#xfc;ber mehrere Sites geteilt werden" ID="ID_83952083" CREATED="1514892410334" MODIFIED="1514894300577"/>
 </node>
-<node TEXT="Features werden nur tief geteilt" ID="ID_1515114969" CREATED="1514894331342" MODIFIED="1514894361871">
+<node TEXT="Features werden nur tief geteilt" FOLDED="true" ID="ID_1515114969" CREATED="1514894331342" MODIFIED="1514894361871">
 <node TEXT="Nur direkt &#xfc;ber Text Knoten" ID="ID_1329999702" CREATED="1514894418590" MODIFIED="1514894428567"/>
 <node TEXT="Inhaltlich w&#xe4;re mehr m&#xf6;glich" ID="ID_1242413991" CREATED="1514894442454" MODIFIED="1514894448647"/>
 <node TEXT="Bsp." ID="ID_862604136" CREATED="1514894498190" MODIFIED="1514894500471">
@@ -303,7 +303,7 @@
 <node TEXT="DINGE AUS ERGEBNISSE -&gt; DSL? (Au&#xdf;erhalb der Mapping Nodes)" ID="ID_92758333" CREATED="1514979071060" MODIFIED="1514979096101"/>
 </node>
 </node>
-<node TEXT="Bewertung" FOLDED="true" POSITION="right" ID="ID_154514138" CREATED="1514886459009" MODIFIED="1514886462122">
+<node TEXT="Bewertung" POSITION="right" ID="ID_154514138" CREATED="1514886459009" MODIFIED="1514886462122">
 <edge COLOR="#00ffff"/>
 <node TEXT="DSL" FOLDED="true" ID="ID_608565618" CREATED="1514885775708" MODIFIED="1514886472228">
 <node TEXT="Prinzipiell, unabh&#xe4;ngig von dem WIE:" ID="ID_1240612636" CREATED="1514898534950" MODIFIED="1514898628836">
