@@ -124,3 +124,13 @@
     die vom Page Knoten direkt zu Content Knoten führen.
     Die Teilbarkeit von Content Knoten hinge dann nur noch von den Inhalten und ihrer Klasse ab,
     da die Position komplett unabhängig gespeichert wird.
+
+    Insgesamt scheint eine Graphdatenbank geeignet,
+    die sie Beziehungen zwischen Seiten gut modelliert
+    und sich aus den Fallbeispielen bereits weiterführende Informationen ablesen lassen.
+    Das Teilen von Content Knoten hat aber auch zur Folge,
+    dass diese nicht unbedacht verändert werden können,
+    ohne Inkonsistenzen zu riskieren.
+    Falls die Analysemöglichkeiten keine praktische Relevanz haben,
+    ist deshalb ein anderer Datenbanktyp, wie zum Beispiel ein einfacher Document Store,
+    in Betracht zu ziehen.

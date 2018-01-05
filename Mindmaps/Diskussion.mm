@@ -303,10 +303,10 @@
 <node TEXT="DINGE AUS ERGEBNISSE -&gt; DSL? (Au&#xdf;erhalb der Mapping Nodes)" ID="ID_92758333" CREATED="1514979071060" MODIFIED="1514979096101"/>
 </node>
 </node>
-<node TEXT="Bewertung" POSITION="right" ID="ID_154514138" CREATED="1514886459009" MODIFIED="1514886462122">
+<node TEXT="Bewertung" FOLDED="true" POSITION="right" ID="ID_154514138" CREATED="1514886459009" MODIFIED="1514886462122">
 <edge COLOR="#00ffff"/>
 <node TEXT="DSL" FOLDED="true" ID="ID_608565618" CREATED="1514885775708" MODIFIED="1514886472228">
-<node TEXT="Prinzipiell, unabh&#xe4;ngig von dem WIE:" ID="ID_1240612636" CREATED="1514898534950" MODIFIED="1514898628836">
+<node TEXT="Prinzipiell, unabh&#xe4;ngig von dem WIE:" FOLDED="true" ID="ID_1240612636" CREATED="1514898534950" MODIFIED="1514898628836">
 <node TEXT="Deckt viele F&#xe4;lle der Dom&#xe4;ne ab" ID="ID_1132948877" CREATED="1514898496082" MODIFIED="1514898505880"/>
 <node TEXT="Schafft sie mit" ID="ID_1651945723" CREATED="1514899071416" MODIFIED="1514899462532">
 <node TEXT="Einfachen Konzepten" ID="ID_654016068" CREATED="1514899463562" MODIFIED="1514899466364"/>
@@ -315,7 +315,7 @@
 <node TEXT="Das ist positiv zu bewerten" ID="ID_460914318" CREATED="1514899041009" MODIFIED="1514899047074"/>
 <node TEXT="Wichtiger als jeden Sonderfall abzudecken" ID="ID_1525051158" CREATED="1514898506055" MODIFIED="1514898514576"/>
 </node>
-<node TEXT="Gut lesbare Programme" ID="ID_1540058196" CREATED="1514900287393" MODIFIED="1514900292170">
+<node TEXT="Gut lesbare Programme" FOLDED="true" ID="ID_1540058196" CREATED="1514900287393" MODIFIED="1514900292170">
 <node TEXT="Positiv, auch wenn l&#xe4;nger zu schreiben" ID="ID_275007938" CREATED="1514900296004" MODIFIED="1514900312474"/>
 <node TEXT="Lesen ist wichtiger" ID="ID_1098581078" CREATED="1514898352093" MODIFIED="1514898358918">
 <node TEXT="Wird von vielen gelesen" ID="ID_884942813" CREATED="1514898359223" MODIFIED="1514898366806"/>
@@ -327,7 +327,7 @@
 <node TEXT="Wegen IDE Support scheint Verh&#xe4;ltnis OK" ID="ID_954990035" CREATED="1514898403235" MODIFIED="1514898418323"/>
 <node TEXT="Lesbarkeit in einigen F&#xe4;llen nicht perfekt, aber auch hier gilt erstmal Masse!" ID="ID_847343286" CREATED="1514898867429" MODIFIED="1514898895997"/>
 </node>
-<node TEXT="Sollte schnell zu erlernen sein" ID="ID_635808244" CREATED="1514899624608" MODIFIED="1514899630681">
+<node TEXT="Sollte schnell zu erlernen sein" FOLDED="true" ID="ID_635808244" CREATED="1514899624608" MODIFIED="1514899630681">
 <node TEXT="Einfache Konzepte" ID="ID_1206804774" CREATED="1514900339475" MODIFIED="1514900344953"/>
 <node TEXT="IDE Unterst&#xfc;tzung f&#xfc;r Syntax" ID="ID_1577647628" CREATED="1514900345112" MODIFIED="1514900355353"/>
 <node TEXT="Beispiele vermitteln alles gut" ID="ID_298486075" CREATED="1514900356224" MODIFIED="1514900375657"/>
@@ -343,7 +343,7 @@
 <node TEXT="Fehlende Unterst&#xfc;tzung f&#xfc;r Selektoren ist ein Manko" ID="ID_1361220351" CREATED="1514898765303" MODIFIED="1514898778208"/>
 </node>
 </node>
-<node TEXT="Struktur" ID="ID_92187243" CREATED="1514899677912" MODIFIED="1514899695594">
+<node TEXT="Struktur" FOLDED="true" ID="ID_92187243" CREATED="1514899677912" MODIFIED="1514899695594">
 <node TEXT="Aufteilung auf Dateien sinnvoll" ID="ID_136386500" CREATED="1514899695858" MODIFIED="1514899705153">
 <node TEXT="&#xdc;bersicht" ID="ID_773291178" CREATED="1514899705618" MODIFIED="1514899711129"/>
 <node TEXT="Wiederverwendung" ID="ID_1005234298" CREATED="1514899711295" MODIFIED="1514899714545"/>
@@ -383,7 +383,7 @@
 <node TEXT="Selektoren k&#xf6;nnen schwer werden, wie z. B. Telefonnummer, die noch nichtmal &#xfc;berall klappt." ID="ID_1020691500" CREATED="1514886955408" MODIFIED="1514894714443"/>
 <node TEXT="Selektor zu finden nicht immer trivial, vor allem, wenn man viele Seiten abdecken m&#xf6;chte" ID="ID_812886493" CREATED="1514898959347" MODIFIED="1514898979700"/>
 </node>
-<node TEXT="Schreiben der Klassen scheint schwer und langwierig" ID="ID_969481655" CREATED="1514887476579" MODIFIED="1514887516165">
+<node TEXT="Schreiben der Klassen scheint schwer und langwierig" FOLDED="true" ID="ID_969481655" CREATED="1514887476579" MODIFIED="1514887516165">
 <node TEXT="hat man dadurch einen Zeitvorteil im Vergleich zu manueller Klassifizierung" ID="ID_260658225" CREATED="1514887516454" MODIFIED="1514887517500"/>
 <node TEXT="Vor allem, wenn man noch Seite &#xe4;ndern muss, damit sie klassifiziert werden kann" ID="ID_1618107196" CREATED="1514887517891" MODIFIED="1514887537916"/>
 </node>
@@ -435,7 +435,7 @@
 </node>
 <node TEXT="Vergleich" POSITION="right" ID="ID_365336737" CREATED="1514886462489" MODIFIED="1514886464834">
 <edge COLOR="#7c0000"/>
-<node TEXT="Sprache" FOLDED="true" ID="ID_1748109521" CREATED="1514909944749" MODIFIED="1515088466614">
+<node TEXT="Sprache" ID="ID_1748109521" CREATED="1514909944749" MODIFIED="1515088466614">
 <node TEXT="Viele Datenmodellierungssprachen" ID="ID_666977931" CREATED="1514911680449" MODIFIED="1514911688190"/>
 <node TEXT="Keine Arbeit mit exakt der gleichen Dom&#xe4;ne/Anwendungsfall gefunden" ID="ID_799663118" CREATED="1514912387133" MODIFIED="1514912405078"/>
 <node TEXT="Nur &#xfc;ber Websuche in der Sprache ansatzweise implementiert wurde" ID="ID_1359930432" CREATED="1514912410525" MODIFIED="1515088466612">

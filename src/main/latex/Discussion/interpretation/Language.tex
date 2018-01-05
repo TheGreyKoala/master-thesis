@@ -88,6 +88,11 @@
     wodurch identische Features wiederholt werden müssen
     und sich die Ausdrucksstärke der Sprache verringert.
 
+    Eine Kritik der Ausdrucksstärke ist berechtigt,
+    allerdings muss beachtet werden,
+    dass dieses Merkmal in Konflikt mit einigen nun folgenden
+    Eigenschaften steht, die positiver bewertet werden.
+
     % TODO: Namespace?
 
     \paragraph{Abdeckung der Domäne}
@@ -118,12 +123,25 @@
     Eine Sprache ist nach \citet[Kapitel 4.5]{voelter:DslEngineering}
     vollständig wenn sie keine Code-Fragmente in niedrigeren Sprachen,
     Konfigurationsdateien oder ähnliches benötigt,
-    um Ausführbar zu sein.
-    Die \gls{wccdl} ist vollständig, da zur Generierung keine Abhängigkeiten benötigt.
-    Die Werte von Selektoren sollen CSS, XPath oder reguläre Ausdrücke sein,
-    allerdings werden sie weder einer syntaktischen noch einer semantischen Prüfung unterzogen,
-    sondern als beliebige Zeichenketten behandelt.
-    Sie stellen also keine Verwendung von niedrigeren Sprachen dar.
+    um ausführbare Programme zu formulieren.
+    Es kann argumentiert werden, dass die \gls{wccdl} zur Definition von
+    Selektoren auf niedrigere Sprachen angewiesen ist,
+    nämlich CSS, XPath und reguläre Ausdrücke.
+    Zum einen, weil sie keine eigenen Konzepte für diese Sprachen enthält,
+    sie weder einer syntaktischen noch semantischen Prüfungen unterzieht
+    und sie während der Generierung nicht auswertet,
+    sondern als simple Zeichenketten 1:1 übernimmt.
+    All dies geschieht erst durch das Klassifizierungssystem.
+
+    Die Unvollständigkeit der Sprache an dieser Stelle ist nachvollziehbar,
+    weil warum das Rad neu erfinden?
+    % TODO: Buch nochmal genau lesen, ggf. Zitat.
+
+    %Die \gls{wccdl} ist vollständig, da zur Generierung keine Abhängigkeiten benötigt.
+    %Die Werte von Selektoren sollen CSS, XPath oder reguläre Ausdrücke sein,
+    %allerdings werden sie weder einer syntaktischen noch einer semantischen Prüfung unterzogen,
+    %sondern als beliebige Zeichenketten behandelt.
+    %Sie stellen also keine Verwendung von niedrigeren Sprachen dar.
     % TODO: Stimmt das so, oder könnte die spätere Verwendung sie doch dazu machen?
     % Vermutlich schon, aber das ist nicht schlimm, weil warum das Rad neu erfinden?
 
@@ -135,16 +153,22 @@
     deutlich, allerdings relativiert sich dieser Nachteil durch die Unterstützung der Entwicklungsumgebung.
     Ein weiterer Nachteil beim Schreiben des Codes ist die fehlende Prüfung der
     Werte der Selektoren, wodurch ihre Formulierung unnötig schwer und fehleranfällig wird.
+    Das gilt vor allem bei komplexeren Selektoren.
 
     Die vielen Schlüsselwörter sind aber auch ein Vorteil,
     da sich Programme nahezu wie ein Fließtext lesen lassen
     und ihre Verständlichkeit dadurch steigt.
+    Da Quelltext in der Regel häufiger gelesen als geschrieben wird,
+    ist das sehr positiv zu bewerten.
     Beide Fallbeispiele zeigen aber auch Konstrukte,
     in denen die Lesbarkeit besser sein könnte.
     Zum Beispiel bei der Klasse "`Portal"',
     bei der nicht offensichtlich ist,
     dass sie selbst den Namen des Studienportals speichert,
     der Link aber in einem Child Feature gespeichert wird.
+    Eingeschränkt wird die Lesbarkeit aber auch durch die Selektoren,
+    die in den Fallbeispielen schnell eine hohe Komplexität angenommen haben,
+    wie zum Beispiel bei der Klasse "`Phone"'.
 
     Die Konzepte der Sprache sind leicht zu verstehen
     und durch die gebotene Autovervollständigung und einige
@@ -167,6 +191,19 @@
     eine logische Strukturierung der Klassen in Namensräume,
     dafür aber für eine globale Sichtbarkeit aller Klassen
     in allen Quelldateien eines Projektes entschieden.
-    Zumindest die hier vorgestellten Fallbeispiele profitieren
-    von diesen Entscheidungen,
+    Die hier vorgestellten Fallbeispiele profitieren von diesen Entscheidungen,
     da die Klassen leicht aufgeteilt und wiederverwendet werden konnten.
+    Als Argument gegen Namensräume wurde die höhere Komplexität für
+    Nicht-Programmierer genannt, was ein valider Punkt ist.
+    Allerdings steigt die Einstiegshürde für diese Gruppe wie erläutert bereits
+    durch die Selektoren und Namensräume würden diese Hürde womöglich nicht noch weiter anheben.
+
+    Es ist außerdem nicht auszuschließen, dass in größeren Projekten
+    Namensräume und eine eingeschränkte Sichtbarkeit von Vorteil wäre,
+    damit, anders als die Beispielklassen "`NewsDate"' und "`TeacherName"',
+    Klassen mit abstrakten Namen nicht mit einem Präfix versehen werden müssen,
+    was durchaus aus schlechter Stil angesehen werden kann.
+
+    Insgesamt ist festzuhalten, dass die \gls{wccdl} viele Problemstellungen der Domäne
+    mit einfachen Konzepten abdeckt, was wichtiger ist als jeden Sonderfall zu berücksichtigen
+    und deshalb positiv zu bewerten ist.
