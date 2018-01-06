@@ -1,0 +1,32 @@
+@startuml
+scale 3840*2160
+hide circle
+hide empty methods
+left to right direction
+
+class NewsOverview {
+    news: List<FernUniInternalLink>
+    nextPageLink: FernUniInternalLink
+    previousPageLink: FernUniInternalLink
+}
+
+class News {
+    date: Date
+    headline: Headline
+    sections: List<String>
+}
+
+class Headline {
+    text: String
+    link: FernUniInternalLink
+}
+
+class Section {
+    text: String
+    links: List<FernUniInternalLink>
+}
+
+NewsOverview "1" --> "0..n" News
+News "1" --> "1" Headline
+News "1" --> "0..n" Section
+@enduml

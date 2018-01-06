@@ -1,0 +1,35 @@
+@startuml
+scale 3840*2160
+left to right direction
+
+object ":Page" as page {
+    class = "Teachers"
+    url = "[...]"
+}
+
+object ":Content" as news {
+    class = "News"
+}
+
+object ":Content" as newsDate {
+    class = "NewsDate"
+}
+
+object ":Text" as newsDateText {
+    value = "[NEWS_DATE_TEXT]"
+}
+
+object ":Content" as newsHeading {
+    class = "NewsHeading"
+}
+
+object ":Text" as newsHeadingText {
+    value = "[NEWS_HEADING]"
+}
+
+page --> news : news
+news --> newsDate : date
+news --> newsHeading : heading
+newsDate --> newsDateText
+newsHeading --> newsHeadingText
+@enduml
