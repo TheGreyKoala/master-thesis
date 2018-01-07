@@ -3,7 +3,7 @@
 <node TEXT="Microservices" FOLDED="false" ID="ID_1229295225" CREATED="1515249332199" MODIFIED="1515249337339" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -102,7 +102,7 @@
 <node TEXT="Solange API gleich gleibt" ID="ID_1210990083" CREATED="1515251983562" MODIFIED="1515251988331"/>
 </node>
 </node>
-<node TEXT="Herausforderungen [Wolff]" POSITION="right" ID="ID_1129282651" CREATED="1515252280751" MODIFIED="1515252302816">
+<node TEXT="Herausforderungen [Wolff]" FOLDED="true" POSITION="right" ID="ID_1129282651" CREATED="1515252280751" MODIFIED="1515252302816">
 <edge COLOR="#00ff00"/>
 <node TEXT="[6.1] Netzwerk" ID="ID_1036199659" CREATED="1515252608877" MODIFIED="1515252711607">
 <node TEXT="Latenz des Netzwerkes" ID="ID_1950475525" CREATED="1515252358514" MODIFIED="1515252363096"/>
@@ -115,13 +115,13 @@
 <node TEXT="Testinfrastruktur etc." ID="ID_801711646" CREATED="1515253378255" MODIFIED="1515253383520"/>
 </node>
 </node>
-<node TEXT="[Newman 1.1] Prinzip" POSITION="left" ID="ID_564873468" CREATED="1515249337660" MODIFIED="1515252209155">
+<node TEXT="[Newman 1.1] Prinzip" FOLDED="true" POSITION="left" ID="ID_564873468" CREATED="1515249337660" MODIFIED="1515341245725">
 <edge COLOR="#ff0000"/>
 <node TEXT="Kein monolithisches System" ID="ID_1810960229" CREATED="1515249340635" MODIFIED="1515249357233"/>
 <node TEXT="Verteiltes System" ID="ID_1103556088" CREATED="1515252331655" MODIFIED="1515252335824"/>
 <node TEXT="Mehrere eigenst&#xe4;ndige Prozesse, die gemeinsam Problem l&#xf6;sen" ID="ID_1512136319" CREATED="1515249357559" MODIFIED="1515249376184"/>
 <node TEXT="Jeder Prozess ist ein Service" ID="ID_1469246514" CREATED="1515249395055" MODIFIED="1515249405096"/>
-<node TEXT="Jeder Service hat genau eine Aufgabe" ID="ID_1930156029" CREATED="1515249405231" MODIFIED="1515249420400"/>
+<node TEXT="Jeder Service hat genau eine Aufgabe" ID="ID_1930156029" CREATED="1515249405231" MODIFIED="1515341245729"/>
 <node TEXT="Jeder Service ist darauf fokussiert seine Aufgabe gut zu machen" ID="ID_1238482606" CREATED="1515250451102" MODIFIED="1515250462191"/>
 <node TEXT="Services sind klein" ID="ID_1884490340" CREATED="1515250426086" MODIFIED="1515250430224"/>
 <node TEXT="Kommunikation der Services" ID="ID_963769518" CREATED="1515249420647" MODIFIED="1515250697439">

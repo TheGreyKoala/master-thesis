@@ -6,13 +6,61 @@
 
     \subsection{Microservices Architekturen}
         \label{section:conceptMicroServices}
-        \paragraph{Prinzipien}
-            Bla bla \cite{newman:microservices}
+        Mit "`Microservices"' wird ein Architekturmuster beschrieben
+        dessen grundlegende Idee ist, anstatt eines monolithischen Systems
+        ein verteiltes System zu nutzen, bei dem mehrere Prozesse gemeinsam
+        eine größere Aufgabe bearbeiten.
+        Diese Idee ist durchaus nicht neu.
+        Jeder Prozess wird dabei als "`Service"' bezeichnet und ist darauf
+        fokussiert genau eine Aufgabe zu erfüllen.
+        Diese Aufgaben sollten möglichst klein sein,
+        sodass jeder Service ebenfalls klein gehalten werden kann und seine
+        Aufgabe dadurch besonders gut erfüllen kann.
+        Die Kommunikation zwischen den Services erfolgt über das Netzwerk
+        und definierte Schnittstellen
+        \cite[Kapitel 1.1]{newman:microservices}.
 
-            ZUSTANDSLOSIGKEIT WIRD IN ANNOTATION SERVICE gebraucht!
-        \paragraph{Vorteile}
-        \paragraph{Herausforderungen}
-            Blasd \cite{wolff:microservices}
+        Dieses Vorgehen bietet verschiedene Vorteile.
+        Jeder Service kann verschiedene Technologien,
+        was zum Beispiel die verwendete Programmiersprache und eingesetzte Frameworks betrifft.
+        Services können unabhängig von einander die Werkzeuge verwenden,
+        die am besten zur Erfüllung ihrer Aufgabe geeignet sind
+        \cite[Kapitel 1.2.1]{newman:microservices}.
+
+        Die Belastbarkeit des Gesamtsystems steigt,
+        da der Ausfall eines Services nicht den Ausfall des restlichen Systems
+        zur Folge haben muss
+        \cite[Kapitel 1.2.2]{newman:microservices}.
+        
+        Es ist sinnvoll Services zustandslos zu halten,
+        weil sie dann einfach und unabhängig von einander skaliert werden können.
+        Im Gegensatz zu Monolithen muss also nicht das ganze System bei Bedarf skaliert werden,
+        sondern nur die Komponenten, die es erfordern
+        \cite[Kapitel 1.2.3]{newman:microservices}.
+
+        Einzelne Services können außerdem leichter und mit weniger Risiko
+        verteilt werden, als monolithische Systeme
+        \cite[Kapitel 1.2.4]{newman:microservices}.
+
+        Die Entwicklungsarbeit kann leichter aufgeteilt und organisiert werden,
+        da für jeden Service ein kleines Team die Verantwortung übernehmen kann.
+        Dessen Arbeit ist einfacher, da es nur ihren Service detailliert kennen muss
+        und nicht das gesamte System, um Änderungen durchzuführen
+        \cite[Kapitel 1.2.5]{newman:microservices}.
+
+        Der modulare Aufbau eines solchen Systems erlaubt außerdem Services
+        in Zukunft unterschiedlich wiederzuverwenden
+        \cite[Kapitel 1.2.6]{newman:microservices}.
+
+        Ihre geringe Größe macht eine Neuimplementierung einfach
+        \cite[Kapitel 1.2.7]{newman:microservices}
+
+        \citet[Kapitel 6.1-6.3]{wolff:microservices} beschreibt aber auch
+        Herausforderungen, die die Umsetzung einer Microservices Architektur mit sich bringen.
+        Dies sind vor allem die Latenz und die Unzuverlässigkeit bei der Kommunikation,
+        die durch das Netzwerk entstehen.
+        Die Entwicklung von Microservices stellt außerdem höhere Anforderungen an die
+        verwendete Infrastruktur und den Grad der Automatisierung.
 
     \subsection{Architektur}
         % TODO Sollte WCCS component lieber WCCS service sein? Was mit DSL oder Crawler? Was wären das dann?
