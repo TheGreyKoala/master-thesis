@@ -1,29 +1,34 @@
 \section{Klassen, Features und Selektoren}
     \label{section:conceptClassesFeaturesSelectors}
-    Lösung dreht sich um eine Klassifizierung.
-    Zentrales Konzept ist deshalb "`Klasse"'.
-    Dieses Kapitel erläutert, was das im Kontext des \gls{wccs} bedeutet
+    Mit dem \gls{wccs} sollen Inhalte klassifiziert,
+    das heißt einer von vielen Klassen zugewiesen werden.
+    Dieses Kapitel erläutert, was eine Klasse im Kontext des \glspl{wccs} ist
     und mit welchen anderen Konzepten es in Beziehung steht.
 
     \subsection{Klassen}
-        Der Begriff "`Klasse"' stammt aus der Mathematik und beschreibt Menge von Objekten,
-        die alle eine gewisse Aussage erfüllen \cite{oberschelp:Mengenlehre}.
-        Eine Klasse kann eindeutig gebildet werden.
-
-        Diese Definition wird für das \gls{wccs} erweitert, was durch Abbildung \ref{image:conceptClasses}
-        modelliert wird.
+        Der Begriff "`Klasse"' stammt aus der Mathematik und beschreibt eine Menge von Objekten,
+        die eine gemeinsame Aussage erfüllen \cite{oberschelp:Mengenlehre}.
+        Eine Klasse kann deshalb eindeutig gebildet werden.
+        Diese Definition erfährt für das \gls{wccs} eine Erweiterung,
+        die in Abbildung \ref{image:conceptClasses} modelliert wird.
 
         \begin{figure}[htb]
             \centering
             \includegraphics[width=\textwidth]{../resources/concept/classes.png}
-            \caption{Klassen}
+            \caption{Klassen im Kontext des \acrshortpl{wccs}}
             \label{image:conceptClasses}
         \end{figure}
 
-        Wie in Kapitel \ref{section:classificationEntities} beschrieben,
-        werden im konkreten Fall Seiten, Inhalte und Referenzen klassifiziert.
-        Das System kennt deshalb drei Arten von Klassen: Seitenklassen, Inhaltsklassen
-        und Referenzklassen.
+        Die zu klassifizierenden Entitäten sind Seiten, Inhalte und
+        Referenzen\footnote{vgl. Kapitel \ref{section:classificationEntities}},
+        weshalb das System drei Arten von Klassen kennt:
+
+        \begin{enumerate}
+            \item Seitenklassen,
+            \item Inhaltsklassen und
+            \item Referenzklassen.
+        \end{enumerate}
+
         Jeder Klasse ist gemein, dass sie einen Namen und einen bis zu einen Selektor hat.
         Selektoren stellen Aussage dar, die Elemente einer Klasse erfüllen müssen,
         wie in mathematischer Definition erklärt.

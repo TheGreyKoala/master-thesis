@@ -1,5 +1,7 @@
 !- Kapitel 1+2 überarbeiten
 !- Alle Kapitel schön schreiben
+--> Weiter bei 3.2.1
+
 !- Deckblatt
 ?- Spezifikation der APIs erstellen und in Anhang
 ?- JSON-Schema für DSL Generat & Page Objekt?
