@@ -1,4 +1,3 @@
-!- Abstract
 !- Kapitel 1+2 überarbeiten
 !- Alle Kapitel schön schreiben
 !- Deckblatt
@@ -6,9 +5,7 @@
 ?- JSON-Schema für DSL Generat & Page Objekt?
 !- Im Konzeptkapitel steht, dass Features in einer Collection alle dieselbe Klasse haben, aber durch die Möglichkeit der Nachbesserung kann das umgangen werden!
 !- Beschriftungen von Bildern etc. checken
-?- Abkürzungsverzeichnis
 !- Ganzes Dokument auf Rechtschreibfehler prüfen
-?- Das Dokument in Parts einteilen?
 !- TODOs im Quelltext
 
 !- Ganzes System nochmal durchtesten
@@ -90,7 +87,7 @@ x---- Das ist falsch, weil wir eine ID vorgeben wollen und Requests idempotent s
 x---- POST ist nicht idempotent sondern soll _immer_ anlegen
 x---- Muss umgestellt werden auf PUT /sites/{id}/pages/{page-id}
 
-
+x!- Abstract
 x!- Lösungskonzept
 x!- Lösungsdetails
 x!- Ergebnisse
