@@ -1,2 +1,27 @@
 \subsection{Xtext}
-    Xtext bla \cite{bettini:xtext}
+    Xtext ist ein Framework zur Entwicklung von \gls{dsl} und ihrer Integration
+    in die Entwicklungsumgebung Eclipse,
+    Dies beinhaltet die automatische Generierung eines Parsers,
+    das Bauen und Speichern des abstrakten Syntaxbaumes eines Programmes,
+    Hilfsmittel zum Schreiben eines Code-Generators oder Interpreters
+    sowie eine automatische Umsetzung gängiger Funktionen von
+    Entwicklungsumgebungen wie Quelltexthervorhebung und Autovervollständigung
+    \cite[Kapitel 1]{bettini:xtext}.
+
+    Zur Erweiterung und Anpassung dieser Artefakte ist die Sprache Xtend vorgesehen.
+    Dabei handelt es sich um eine Java-ähnliche \glspl{gpl},
+    die dessen Bibliotheken und Typsystem verwendet,
+    aber mehr Sprachmittel bietet, wie zum Beispiel Typinferenz.
+    Sie wurde als Proof-of-Concept selbst mit Xtext entwickelt
+    \cite[Kapitel 3]{bettini:xtext}.
+
+    Die Entwicklung einer \gls{dsl} mit Xtext erfordert lediglich die Definition
+    einer Grammatik, auf dessen Basis das Framework unter anderem die genannten 
+    Artefakte generiert.
+    Regeln in dieser Grammatik werden über Anweisungen definiert,
+    die der erweiterten Backus-Naur-Form ähneln.
+    Zur Generierung eines Parsers setzt Xtext auf
+    ANTLR\footnote{vgl. \url{http://www.antlr.org/}},
+    welches einen LL(*) Algorithmus implementiert
+    % TODO: Außerdem Referenz auf https://www.eclipse.org/Xtext/documentation/index.html
+    \cite{parr:antlr}.

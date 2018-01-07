@@ -3,7 +3,7 @@
 <node TEXT="Xtext" FOLDED="false" ID="ID_1353891829" CREATED="1515256253966" MODIFIED="1515256257710" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" fit_to_viewport="false"/>
+    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24.0 pt">
@@ -70,7 +70,7 @@
 <node TEXT="Open Source Eclipse Framework" ID="ID_1011800155" CREATED="1515258280386" MODIFIED="1515258287271"/>
 <node TEXT="Implementierung von DSLs" ID="ID_1273287057" CREATED="1515258291166" MODIFIED="1515258296679"/>
 <node TEXT="Implementierung einer Integration der Sprache in Eclipse" ID="ID_1192514068" CREATED="1515258300430" MODIFIED="1515258326407"/>
-<node TEXT="Behandlet komplette Infrastruktur" ID="ID_184412907" CREATED="1515258356206" MODIFIED="1515258364383">
+<node TEXT="Behandlet komplette Infrastruktur" FOLDED="true" ID="ID_184412907" CREATED="1515258356206" MODIFIED="1515258364383">
 <node TEXT="Parser" ID="ID_558542734" CREATED="1515258369807" MODIFIED="1515258371399"/>
 <node TEXT="AST" ID="ID_1316353608" CREATED="1515258791499" MODIFIED="1515258804740">
 <node TEXT="Wird von Xtext gebaut" ID="ID_1493068636" CREATED="1515258804981" MODIFIED="1515258810508"/>
