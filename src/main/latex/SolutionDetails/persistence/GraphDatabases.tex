@@ -1,1 +1,72 @@
 \subsection{Graphdatenbanken}
+    Zur Familie der NoSQL-Datenbanken gehören auch Graphdatenbanken,
+    die Informationen in Form eines gerichteten Graphens speichern.
+    Anders als relationale Datenbanken besitzen diese Graphen kein Schema
+    und basieren auf dem "`Property Graph Model"'.
+    Bei diesem besteht der Graph klassisch aus Knoten und Kanten
+    (in diesem Kontext auch "`Beziehungen"'),
+    die aber beide eine beliebige Menge an Informationen in Form
+    von Schlüssel-Wert-Paaren speichern können.
+    Beziehungen sind außerdem benannt, stets gerichtet und haben immer einen
+    Star- und einen Endknoten
+    \cite[Kapitel 1]{robinson:graphdatabases}.
+    In dem vom \gls{wccs} verwendeten Graphdatenbanksystem Neo4J sind Knoten ebenfalls benannt.
+    Sie können dazu eine beliebige Menge von "`Labels"' besitzen
+    \cite[Kapitel 1.2.1.4]{neo4j:documentation}.
+
+    Anders als in relationalen und vielen anderen NoSQL-Datenbanken,
+    sind Beziehungen in Graphdatenbanken also First-Class-Citiziens,
+    wodurch ihre Abfrage und Auswertung ohne komplexe Aggregierungsfunktionen möglich ist.
+    Dadurch eigenen sie sich besser für verbundene Daten,
+    auf denen oft gemeinsam Abfragen geschehen
+    \cite[Kapitel 2]{robinson:graphdatabases}
+    \cite[Kapitel 11.2]{sadalage:nosql}.
+
+    Weitere Stärken sind
+    \cite[Kapitel 1]{robinson:graphdatabases}
+    \cite[Kapitel 11.1]{sadalage:nosql}:
+    
+    \begin{enumerate}
+        \item   Auch bei größer werdenden Datenmenge gleichbleibende Performanz,
+                da Beziehungen nicht berechnet werden müssen.
+        \item   Größere Flexibilität bei der Datenmodellierung da zum Beispiel
+                neue Beziehungstypen einfach und ohne Risiko oder Anpassungen eingeführt werden können.
+        \item   Gute Integration in agile Entwicklungsmethoden.
+    \end{enumerate}
+    
+    Eine Herausforderung bei der Nutzung von Graphdatenbanken ist die Skalierung,
+    da Knoten prinzipiell zu jedem anderen Knoten eine Beziehung erhalten können
+    und das Aufteilen der Datenbank auf mehrere Server dadurch erschwert wird
+    \cite[Kapitel 11.2.5]{sadalage:nosql}.
+
+    Graphdatenbanken sind aus verschiedenen Gründen geeignet für die Anforderungen des \gls{wccs}.
+    Innerhalb einer Datenbank werden verschiedene Klassifikationen gespeichert,
+    die verschiedene Schema besitzen können, da sie verschiedene Seitenklassen besitzen können.
+    Diese sind darüber hinaus frei definierbar und deshalb aus Sicht der Datenbank unvorhersehbar.
+    Bei der Verwendung einer relationalen Datenbank hätte es deshalb zwei Alternativen gegeben:
+    
+    Pro Seiten-, Inhalts-, und Referenzklasse werden zur Laufzeit nach Bedarf Datenbanktabellen angelegt,
+    die das Schema der jeweiligen Klasse wiederspiegeln und über Fremdschlüssel zum Beispiel die Beziehung
+    zwischen Parent und Child Feature realisieren.
+    Tiefe Klassenstrukturen erfordern bei diesem Ansatz aufwändige JOINS.
+    Eine Änderung der Klasse eines Features hieße den Datensatz in eine andere Tabelle zu verschieben
+    und alle Fremdschlüssel entsprechend zu aktualisieren.
+    Vereinzelte Ausnahmen auf Seiten, wie zum Beispiel zusätzliche Informationen heißt bei diesem Ansatz
+    eine Erweiterung der betroffenen Klasse und aller Datensätze.
+
+    Eine Alternative bei relationalen Datenbank wäre die Speicherung der Daten in sehr abstrakten Tabellen
+    wie "`Page"' und "`Feature"'.
+    Die Beziehung zwischen Parent und Child Feature wäre hierbei in einer weiteren Tabelle gespeichert,
+    die Paare aus Schlüsseln der Tabelle Feature speichert, wobei einer das Parent und der andere das
+    Child Feature identifiziert.
+    Die Auflösung dieser Beziehungen für eine ganze Seite würde sich sehr komplex erweisen.
+    Beide Ansätze sind theoretisch denkbar, scheinen aber keine optimale Lösung darzustellen.
+    
+    Graphdatenbanken haben den Vorteil, dass sie das Netzwerk, welches aus den Verweisen zwischen
+    Webseiten entsteht, sehr direkt und natürlich abbilden können.
+    Außerdem sind Beziehungen, wie zum Beispiel zwischen Parent und Child Feature,
+    sehr leicht auszuwerten, was oben bereits beschrieben wurde.
+    Des Weiteren sind Ausnahmen in Seiten leicht zu realisieren,
+    da der Graph nur um entsprechende Knoten und Beziehungen erweitert werden muss.
+
+    Dies wird in den folgenden Kapiteln noch deutlicher.
