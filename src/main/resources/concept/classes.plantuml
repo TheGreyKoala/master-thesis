@@ -3,7 +3,6 @@
 hide circle
 hide empty methods
 left to right direction
-skinparam linetype ortho
 scale 3.25
 
 abstract class Class {
@@ -26,7 +25,7 @@ abstract class Feature
 Class <|-- ContentClass
 Class <|-- PageClass
 Class <|-- ReferenceClass
-Class "0..n" -- "0..1" Selector : > has
-ContentClass "1" -- "0..n" Feature : > specifies
-PageClass "1" -- "0..n" Feature : > specifies
+Class "0..n" --> "0..1" Selector : > is recognized by
+ContentClass "1" --> "0..n" Feature : > specifies
+PageClass "1" --> "0..n" Feature : > specifies
 @enduml

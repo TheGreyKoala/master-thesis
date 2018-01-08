@@ -27,10 +27,10 @@ class CollectionFeature<T extends ScalarFeature> {
     items : List<T>
 }
 
-ScalarFeature "0..1" <-- "1" CollectionFeature : < contains
+ScalarFeature "0..n" <-- "0..1" CollectionFeature : < contains
 Feature <|-- CollectionFeature
 Feature <|-- ScalarFeature
 ScalarFeature <|-- Content
 ScalarFeature <|-- Reference
-ScalarFeature "0..n" --> "0..1" Selector : < has
+ScalarFeature "0..n" --> "0..1" Selector : > is recognized by
 @enduml

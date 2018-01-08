@@ -8,3 +8,5 @@
 - Richtung sinnvoll
 - Linien-Style sinnvoll
 - Unterschrift
+
+textwidth=455.24417pt
