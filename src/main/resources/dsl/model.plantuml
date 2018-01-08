@@ -4,5 +4,5 @@
 !include selectors.plantuml
 
 top to bottom direction
-scale 3840*2160
+scale 3.25
 @enduml

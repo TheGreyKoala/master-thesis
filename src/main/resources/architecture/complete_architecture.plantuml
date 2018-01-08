@@ -2,6 +2,6 @@
 !include wccs_internal_architecture.plantuml
 !include external_architecture.plantuml
 
-scale 3840*2160
+scale 3.25
 skinparam componentStyle uml2
 @enduml

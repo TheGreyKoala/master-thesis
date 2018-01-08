@@ -2,7 +2,7 @@
 hide circle
 hide empty methods
 left to right direction
-scale 3840*2160
+scale 3.25
 
 abstract class ContentSelector
 class CssSelector

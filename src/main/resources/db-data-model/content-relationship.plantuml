@@ -4,7 +4,7 @@
 !include FeatureRelationship.plantuml
 !include Page.plantuml
 
-scale 3840*2160
+scale 3.25
 hide circle
 hide empty methods
 left to right direction

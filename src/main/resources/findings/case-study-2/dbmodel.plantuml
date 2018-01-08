@@ -1,5 +1,5 @@
 @startuml
-scale 3840*2160
+scale 3.25
 left to right direction
 
 object ":Page" as page {

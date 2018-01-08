@@ -4,7 +4,7 @@ hide circle
 hide empty methods
 left to right direction
 skinparam linetype ortho
-scale 3840*2160
+scale 3.25
 
 abstract class Class {
     name : String

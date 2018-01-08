@@ -4,7 +4,7 @@
 !include Page.plantuml
 !include Resource.plantuml
 
-scale 3840*2160
+scale 3.25
 hide circle
 hide empty methods
 left to right direction

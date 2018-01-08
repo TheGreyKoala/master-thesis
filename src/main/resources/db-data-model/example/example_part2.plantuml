@@ -3,7 +3,7 @@
 !include r1.plantuml
 !include r2.plantuml
 
-scale 3840*2160
+scale 3.25
 left to right direction
 
 generalInformationContent --> image : rel9 : References

@@ -6,7 +6,7 @@
 !include c4.plantuml
 !include c5.plantuml
 
-scale 3840*2160
+scale 3.25
 top to bottom direction
 
 object "c1_text :Text" as pageHeadingText {
