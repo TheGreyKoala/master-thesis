@@ -1,16 +1,18 @@
 \section{Architektur}
     \label{section:Architecture}
-    Das \gls{wccs} verwendet eine Microservices-Architektur.
-    Dieses Muster wird in diesem Kapitel zuerst vorgestellt.
-    Anschließend erläutert es die konkrete Architektur des Systems.
+    Das \gls{wccs} verwendet eine Microservices-Architektur,
+    weshalb dieses Muster im folgenden Kapitel kurz vorgestellt wird.
+    Anschließend erfolgt die Erläuterung der konkreten Architektur des \glspl{wccs}.
 
-    \subsection{Microservices Architekturen}
+    \subsection{Microservices-Architekturen}
+        % TODO: Paragraphen?
         \label{section:conceptMicroServices}
-        Mit "`Microservices"' wird ein Architekturmuster beschrieben
-        dessen grundlegende Idee ist, anstatt eines monolithischen Systems
+        Mit "`Microservices"' wird ein Architekturmuster beschrieben,
+        dessen grundlegende Idee ist anstatt eines monolithischen Systems
         ein verteiltes System zu nutzen, bei dem mehrere Prozesse gemeinsam
         eine größere Aufgabe bearbeiten.
-        Diese Idee ist durchaus nicht neu.
+        Diese Idee ist durchaus nicht neu
+        \cite{tanenbaum:distributedSystems}.
         Jeder Prozess wird dabei als "`Service"' bezeichnet und ist darauf
         fokussiert genau eine Aufgabe zu erfüllen.
         Diese Aufgaben sollten möglichst klein sein,
@@ -20,142 +22,162 @@
         und definierte Schnittstellen
         \cite[Kapitel 1.1]{newman:microservices}.
 
-        Dieses Vorgehen bietet verschiedene Vorteile.
-        Jeder Service kann verschiedene Technologien,
+        Dieses Vorgehen bietet mehrere Vorteile.
+        Jeder Service kann verschiedene Technologien einsetzen,
         was zum Beispiel die verwendete Programmiersprache und eingesetzte Frameworks betrifft.
-        Services können unabhängig von einander die Werkzeuge verwenden,
+        Services können also unabhängig von einander die Werkzeuge verwenden,
         die am besten zur Erfüllung ihrer Aufgabe geeignet sind
         \cite[Kapitel 1.2.1]{newman:microservices}.
-
         Die Belastbarkeit des Gesamtsystems steigt,
         da der Ausfall eines Services nicht den Ausfall des restlichen Systems
         zur Folge haben muss
         \cite[Kapitel 1.2.2]{newman:microservices}.
-        
-        Es ist sinnvoll Services zustandslos zu halten,
-        weil sie dann einfach und unabhängig von einander skaliert werden können.
-        Im Gegensatz zu Monolithen muss also nicht das ganze System bei Bedarf skaliert werden,
-        sondern nur die Komponenten, die es erfordern
+        Werden Services zustandslos gehalten,
+        können sie außerdem einfach und unabhängig von einander skaliert werden.
+        Im Gegensatz zu Monolithen muss also nicht das ganze System,
+        sondern nur die Komponenten, die es erfordern, skaliert werden.
         \cite[Kapitel 1.2.3]{newman:microservices}.
-
-        Einzelne Services können außerdem leichter und mit weniger Risiko
-        verteilt werden, als monolithische Systeme
+        Ein weiterer Vorteil einzelner Services ist,
+        dass sie leichter und mit weniger Risiko als monolithische Systeme
+        verteilt werden können
         \cite[Kapitel 1.2.4]{newman:microservices}.
-
-        Die Entwicklungsarbeit kann leichter aufgeteilt und organisiert werden,
+        Die Entwicklungsarbeit kann zudem leichter aufgeteilt und organisiert werden,
         da für jeden Service ein kleines Team die Verantwortung übernehmen kann.
-        Dessen Arbeit ist einfacher, da es nur ihren Service detailliert kennen muss
-        und nicht das gesamte System, um Änderungen durchzuführen
+        Dessen Arbeit ist einfacher, da es für Änderungen nur ihren Service detailliert kennen muss
+        und nicht das gesamte System
         \cite[Kapitel 1.2.5]{newman:microservices}.
-
         Der modulare Aufbau eines solchen Systems erlaubt außerdem Services
         in Zukunft unterschiedlich wiederzuverwenden
         \cite[Kapitel 1.2.6]{newman:microservices}.
-
-        Ihre geringe Größe macht eine Neuimplementierung einfach
-        \cite[Kapitel 1.2.7]{newman:microservices}
+        Bei der Einhaltung einer stabilen Schnittstelle gilt das auch bei einer
+        kompletten Neuimplementierung, die durch die geringe Größe von
+        Services praktikabel ist
+        \cite[Kapitel 1.2.7]{newman:microservices}.       
 
         \citet[Kapitel 6.1-6.3]{wolff:microservices} beschreibt aber auch
-        Herausforderungen, die die Umsetzung einer Microservices Architektur mit sich bringen.
+        Herausforderungen, die die Umsetzung einer Microservices-Architektur mit sich bringen.
         Dies sind vor allem die Latenz und die Unzuverlässigkeit bei der Kommunikation,
         die durch das Netzwerk entstehen.
         Die Entwicklung von Microservices stellt außerdem höhere Anforderungen an die
         verwendete Infrastruktur und den Grad der Automatisierung.
 
     \subsection{Architektur}
-        % TODO Sollte WCCS component lieber WCCS service sein? Was mit DSL oder Crawler? Was wären das dann?
-        Architektur wird in zwei Schritten vorgestellt.
-        Zunächst ein Blick in den internen Aufbau und anschließend auf die Zusammenhänge mit der Außenwelt.
+        Die Architektur des \glspl{wccs} wird in zwei Schritten vorgestellt.
+        Zunächst liegt der Fokus auf dem internen Aufbau des Systems,
+        anschließend auf den Zusammenhängen und Interaktionen mit außenstehenden Systemen.
+        Da diese Sichten nicht vollständig von einander zu trennen sind,
+        tauchen einige Komponenten in beiden Varianten auf.
         
-        Abbildung \ref{image:wccsInternalArchitecture} legt den Fokus auf die
-        internen Abläufe und Komponenten.
+        \paragraph{Interner Aufbau}
+        Das \gls{wccs} besteht aus mehreren Komponenten,
+        von denen einige Services im Sinne einer Microservices-Architektur darstellen.
+        Eine Übersicht der Komponenten ist in Abbildung \ref{image:wccsInternalArchitecture} zu sehen.
 
         \begin{figure}
             \centering
             \includegraphics[scale=\imageScalingFactor]{../resources/architecture/wccs_internal_architecture.png}
-            \caption{Interne Architkektur von WCCS}
+            \caption{Interner Aufbau des \acrshortpl{wccs}}
             \label{image:wccsInternalArchitecture}
         \end{figure}
 
-        Das \gls{wccs} besteht aus fünf Services im Sinne einer Micro-Services-Architektur.
-        Dem Classification Storage, der Classification Storage API, dem Classification Service, dem
-        Annotation Service und der Web App.
+        Die fünf Services des Systems sind
 
-        Der Service Classification Storage stellt die Persistenz bereit und speichert
+        \begin{enumerate}
+            \item der {\classificationStorage},
+            \item die {\classificationStorageAPI},
+            \item der {\classificationService},
+            \item der {\annotationService} und
+            \item die {\webAppService}.
+        \end{enumerate}
+
+        Diese Services kommunizieren über HTTP
+        und stellen eine Menge von (RESTful) Webservices dar.
+
+        Der {\classificationStorage} stellt die Persistenz bereit und speichert
         Klassifikationen in einer Datenbank.
         Seine Schnittstelle entspricht der der verwendeten Datenbank und ist deshalb
         technisch orientiert.
-        Mehr dazu in Kapitel \ref{section:solutionDetailsPersistence}.
+        Eine ausführliche Darstellung dieser Komponente erfolgt in
+        Kapitel \ref{section:solutionDetailsPersistence}.
 
-        Die Classification Storage bietet eine fachliche Schnittstelle für die Datenhaltung.
-        Er übersetzt deshalb fachliche Anfragen in Anfragen in der Sprache der Datenbank.
-        Dementsprechend ist die konkrete Implementierung dieses Services abhängig vom Classification Storage.
-        Die Schnittstelle der API - eine REST-Schnittstell - ist allerdings fachlich und deshalb
-        unabhängig. Mehr zu diesem Service steht in  Kapitel \ref{section:solutionDetailsStorageAPI}.
+        Die {\classificationStorageAPI} bietet eine fachliche Schnittstelle zur Datenbank
+        und übersetzt fachlich orientierte Anfragen in technische Anfragen an die Datenbank und führt diese aus.
+        Dementsprechend ist die konkrete Implementierung dieses Services abhängig vom {\classificationStorage}
+        und der verwendeten Datenbank.
+        Die Schnittstelle der {\classificationStorageAPI}
+        ist hingegen unabhängig von der konkreten Datenhaltung,
+        da sie sich an der fachlichen Domäne orientiert.
+        Drittsysteme nutzen deshalb vorrangig diese Komponente, um die Klassifikation einer Webseite zu beziehen.
+        Details der {\classificationStorageAPI} beschreibt Kapitel \ref{section:solutionDetailsStorageAPI}.
 
-        Der Classification Service führt die eigentliche Klassifizierung durch
-        und speichert das Ergebnis über die Classification Storage API.
-        Der Service kann ebenfalls über eine REST-Schnittstelle angesprochen werden.
-        Mehr zum Service steht in Kapitel \ref{section:solutionDetailsClassificationService}.
+        Der {\classificationService} führt die eigentliche Klassifizierung durch
+        und speichert das Ergebnis über die {\classificationStorageAPI} dauerhaft.
+        Seine Schnittstellen ist ebenfalls fachlich orientiert.
+        Kapitel \ref{section:solutionDetailsClassificationService} geht ausführlicher auf diese Komponente
+        des Systems und ihre Arbeitsweise ein.
 
-        Der Annotation Service transformiert eine Klassifikation,
-        die er über den Classification Storage bezieht,
+        Der {\annotationService} transformiert eine Klassifikation,
+        die er über die {\classificationStorageAPI} bezieht,
         in eine Menge von Annotationen.
         Neben der Abfrage von Annotationen bietet seine Schnittstelle auch
-        die Möglichkeit solche zu aktualisieren.
-        Das technische Format orientiert sich an dem der Annotation Library.
-        Mehr steht in Kapitel \ref{section:solutionDetailsAnnotationService}.
+        die Möglichkeit solche zu aktualisieren und damit die Klasse eines Features zu modifizieren.
+        Mehr über diesen Service, seine Arbeitsweise und die Rolle seiner Schnittstelle
+        erläutert Kapitel \ref{section:solutionDetailsAnnotationService}.
 
-        Der verbliebene Service - die Web App - ist im Kern ein Web-Server,
-        der die Web Anwendung bereitstellt,
-        mit der der Nutzer die Klassifikation prüfen kann.
-        Diese bezieht die Anwendung über die Classification Storage API ab.
+        Der verbliebene Service -- die {\webAppService} -- ist im Kern ein Webserver,
+        der die Webanwendung bereitstellt,
+        mit der ein Nutzer Klassifikationen prüfen kann.
+        Diese bezieht die Anwendung über die {\classificationStorageAPI}.
 
         Neben diesen Services besitzt das System weitere Komponenten:
-        Die Web Content Class Definition Language und das Plugin für die
-        Annotation Library.
-        Die Sprache nutzt der Admin, um eine Konfigurationsdatei für den
-        Classification Service zu erstellen.
-        Mehr zur Sprache in Kapitel \ref{section:solutionDetailsDSL}.
-        Das Annotator Plugin stellt eine Integration des \gls{wccs} in
-        Annotator dar.
-        Es bezieht die Annotationen einer Seite über den Annotation Service
-        und Informationen über bekannte Klassen vom Classification Service.
-        Beides ist notwendig, um einem Anwender die Klassifikation zu visualisieren
-        und modifizierbar zu machen.
-        Details in Kapitel \ref{section:solutionDetailsAnnotatorPlugin}.
 
-        Die bisherige Betrachtung beantwortet noch nicht die Fragen,
-        von wem der Classification Service angesprochen wird und wer das Annotator Plugin einbindet.
-        Genauso ist noch offen, welche weiteren Beziehungen zur Umgebung bestehen.
+        \begin{enumerate}
+            \item Die \gls{wccdl} und
+            \item das {\annotatorPlugin}.
+        \end{enumerate}
 
-        Das stellt Abbildung \ref{image:wccsExternalArchitecture} dar
-        und enthält neben einigen Komponenten des \gls{wccs} vor allem auch
-        externe Komponenten.
+        Die Sprache nutzt ein Entwickler, um ein {\classificationModel} für den
+        {\classificationService} zu erstellen.
+        Eine ausführliche Beschreibung der Sprache geschieht in Kapitel \ref{section:solutionDetailsDSL}.
+
+        Das {\annotatorPlugin} stellt eine Integration des \glspl{wccs} in Annotator dar.
+        Es bezieht die Annotationen einer Webseite über den {\annotationService}
+        und Informationen über bekannte Klassen vom {\classificationService}.
+        Beides ist notwendig, um die Visualisierung und Korrektur einer Klassifikation über Annotationen
+        zu ermöglichen.
+        Diese Komponente wir in Kapitel \ref{section:solutionDetailsAnnotatorPlugin} näher betrachtet.
+
+        \paragraph{Zusammenhänge und Interaktionen mit der Außenwelt}
+        Die bisherige Betrachtung beantwortet zum Beispiel noch nicht die Frage,
+        welche Komponente das Annotator Plugin einbindet und welche sonstigen
+        Beziehungen zur Außenwelt das \gls{wccs} besitzt.
+        Antworten liefert Abbildung \ref{image:wccsExternalArchitecture},
+        die dazu zwischen externen Komponenten und solchen des \glspl{wccs}
+        unterscheidet und ihre Beziehungen darstellt.
 
         \begin{figure}
             \centering
             \includegraphics[scale=\imageScalingFactor]{../resources/architecture/external_architecture.png}
-            \caption{Externe Architkektur von WCCS}
+            \caption{Zusammenhänge und Interaktionen des \acrshortpl{wccs} mit der Außenwelt}
             \label{image:wccsExternalArchitecture}
         \end{figure}
 
         Eine zentrale externe Komponente ist die Webseite,
-        die Inhalte aus einem \gls{cms} - im konkreten Fall {\wordpress} -
-        darstellt und vom Classification Service klassifiziert wird.
-        Dazu startet der Admin den WordPress Crawler, der ebenfalls ein Teil des \gls{wccs} ist.
-        Diese Komponente findet Webseiten über {\wordpress} und beauftragt den
-        Classification Service diese zu klassifizieren.
-        Obwohl Crawler Teil des \gls{wccs} ist, steht sie etwas außerhalb,
-        da sie nur mit {\wordpress} funktioniert. Für andere Systeme muss ein anderes Tool
-        entwickelt werden. Deshalb ist sie nicht so allgemeingültig.
-        Konzeptionell gibt es aber immer so eine Komponente.
-        Mehr in Kapitel \ref{section:solutionDetailsCrawler}.
+        die Inhalte aus einem \gls{cms} -- im konkreten Fall {\wordpress} --
+        darstellt und vom {\classificationService} klassifiziert wird.
+        
+        Dazu startet ein Nutzer den {\wordpressCrawler}, der ebenfalls ein Teil des \glspl{wccs} ist.
+        Diese Komponente findet Webseiten über {\wordpress}' RESTful Webservice und beauftragt den
+        {\classificationService} diese zu klassifizieren.
+        Obwohl der {\wordpressCrawler} zum \gls{wccs} gezählt wird,
+        stellt er nur eine Beispielimplementierung dar,
+        da er aufgrund seiner engen Kopplung zu {\wordpress} weniger allgemeingültig ist.
+        Unabhängig davon ist die konzeptionelle Notwendigkeit einer Komponente,
+        die zu klassifizierende Webseiten ermittelt\footnote{vgl. Kapitel \ref{section:conceptCrawler}}.
+        Der {\wordpressCrawler} wird in Kapitel \ref{section:solutionDetailsCrawler} nochmals betrachtet.
 
-        Nach der Klassifizierung kann eine externe Komponente das Annotator Plugin
-        einbinden und damit die Annotationen visualisieren.
-        Diese Komponente heißt deshalb Annotation Viewer und wird von einem Redakteur
-        verwendet.
-
-        Letzendlich können beliebige Drittsysteme die Classification Storage API
-        nutzen, um Klassifikationen abzufragen und weiterzuverarbeiten.
+        Nach ihrer Klassifizierung kann eine Webseite das {\annotatorPlugin} einbinden
+        und damit die Klassifikation über Annotationen visualisieren.
+        Nutzen können dann die Klassifikation prüfen und bei Bedarf modifizieren,
+        wozu sie die Funktionen des {\annotatorPlugin}s verwenden.
+        % TODO: Benutzt der User die Webseite oder das Plugin? Oder beides? Ist das Bild korrekt?

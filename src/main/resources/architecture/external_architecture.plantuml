@@ -2,31 +2,26 @@
 scale 3.25
 skinparam componentStyle uml2
 
-actor Admin
-actor "Classification Processing System" as classification_processing_system
-actor Reviewer
+actor "WCCS Power User" as Admin
+actor "WCCS User" as Reviewer
 
 ' External Components
-[Annotation Viewer] <<external component>> as annotation_viewer
 [WordPress] <<external component>> as wordpress
 [Web Page] <<external component>> as web_page
 
 ' WCCS Components
 [Annotator Plugin] <<WCCS component>> as annotator_plugin
 [Classification Service] <<WCCS component>> as classification_service
-[Classification Storage API] <<WCCS component>> as classification_storage_api
 [WordPress Crawler] <<WCCS component>> as wp_crawler
 
-
-Admin --> wp_crawler : Startet Klassifiziedrung mit
+Admin --> wp_crawler : runs classification through
 'Beziehung zwischen Annotator Plugin und Classification Service bewusst weggelassen
-annotation_viewer -(0- annotator_plugin : Verwendet
-annotation_viewer --> web_page : Zeigt Annotationen einer
-classification_processing_system -(0- classification_storage_api
-classification_service --> web_page : Klassifiziert
-Reviewer --> annotation_viewer : Verwendet
-web_page --> wordpress : Inhalte aus
-wp_crawler -(0- classification_service : Ruft auf
-wp_crawler --> web_page : Findet
-wp_crawler -(0- wordpress : Findet Webseiten über
+classification_service --> web_page : classifies
+Reviewer --> web_page : reviews classification through
+Reviewer --> annotator_plugin
+web_page --> wordpress : shows content from
+web_page -(0- annotator_plugin : includes
+wp_crawler -(0- classification_service : calls
+wp_crawler --> web_page : discovers
+wp_crawler -(0- wordpress : implements discovery through
 @enduml

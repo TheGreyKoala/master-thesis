@@ -2,7 +2,8 @@
 scale 3.25
 skinparam componentStyle uml2
 
-actor Admin
+actor "WCCS Power User" as Admin
+actor "Third Party System" as classification_processing_system
 
 [Annotator Plugin] <<component>> as annotator_plugin
 [Annotation Service] <<component>> as annotation_service
@@ -12,13 +13,14 @@ actor Admin
 [Classification Storage] <<component>> as classification_storage
 [Web App] <<component>> as web_app
 
-Admin --> web_app : Prüft Klassifikation mit
-Admin --> dsl : Konfiguriert Klassifizierung mit
-annotation_service -(0- classification_storage_api
-annotator_plugin -(0- annotation_service : Integriert WCCS in Annotator
-annotator_plugin -(0- classification_service
-classification_service -(0- classification_storage_api
-classification_storage_api -(0- classification_storage
-dsl --> classification_service : Erzeugt Konfiguration für
-web_app -(0- classification_storage_api
+Admin --> web_app : examines classification with
+Admin --> dsl : creates classification model with
+annotation_service -(0- classification_storage_api : reads and writes classification through
+annotator_plugin -(0- annotation_service : integrates WCCS in Annotator through
+annotator_plugin -(0- classification_service : reads classification model from
+classification_service -(0- classification_storage_api : writes classification through
+classification_storage_api -(0- classification_storage : stores classifications in
+classification_storage_api -0)- classification_processing_system  : accesses classification through
+dsl --> classification_service : generates configuration for
+web_app -(0- classification_storage_api : reads classification through
 @enduml
