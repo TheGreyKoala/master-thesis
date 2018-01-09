@@ -1,31 +1,44 @@
 \section{Visualisierung, Nachbesserung und Prüfung der Klassifikation}
     \label{section:conceptVisualization}
+    Es ist möglich, dass eine Klassifizierung ein teilweise unerwartetes Ergebnis liefert,
+    weil zum Beispiel Selektoren im Klassifizierungsmodell unzutreffend sind.
+    Das \gls{wccs} bietet deshalb Möglichkeiten,
+    um eine Klassifikation zu visualisieren und zu prüfen.
 
-    \subsection{Web Annotationen}
+    \subsection{Web-Annotationen}
         \label{section:conceptWebAnnotations}
-        Die Visualisierung der Klassifikation geschieht über Web Annotationen.
-        % TODO: LINK AUF W3C Standard.
-        Dadurch werden die klassifizierten Inhalte direkt in der Seite selbst hervorgehoben.
+        % TODO: LINK AUF W3C Standard (https://www.w3.org/annotation/), aber den verwenden wir gar nicht?
+        Die Visualisierung der Klassifikation geschieht über Web-Annotationen,
+        wodurch die klassifizierten Inhalte und Referenzen direkt in der Webseite hervorgehoben werden.
+        Der Inhalt der Annotation ist die Klasse des annotierten Elementes.
+        Beispiele annotierter Webseiten zeigen die Abbildungen
+        \ref{image:findingTeachersAnnotationsOverview},
+        \ref{image:annotatorPluginViewer} und \ref{image:annotatorPluginEditor}.
 
-        Eine Annotation ist dabei eine Referenz oder ein Content Feature ohne eigene Content Features.
-        Andernfalls würden sich die Annotationen ggf. mehrfach überlagern und man würde nichts mehr erkennen.
-        Eine Überlagerung ist zwar nicht ausgeschlossen, ist durch diese Maßnahme aber unwahrscheinlicher.
-        Außerdem ist die speziellste Klasse eines Features eh am interessantesten.
-        Der Inhalt der Annotation ist die Klasse des jeweiligen Features.
+        Eine Annotation spiegelt ein {\referenceFeature} oder ein
+        {\contentFeature} ohne untergeordnete {\contentFeature}s wieder.
+        Wäre jedes {\contentFeature} durch eine Annotation hervorgehoben,
+        überlagerten sich die Annotationen unter Umständen mehrfach,
+        wodurch sich die Übersichtlichkeit
+        und damit der Nutzen der Annotationen deutlich verschlechtern würde.
+        Durch Annotationen wird somit die Klassifikation auf der feingranularsten Ebene visualisiert.
+        Eine Überlagerung ist aber weiterhin möglich,
+        wenn ein {\contentFeature} ausschließlich untergeordnete {\referenceFeature}s besitzt,
+        weil dann die Annotation des textuellen Inhalts teilweise durch die
+        der Referenzen überlagert wird.
+        Eine Unterscheidung ist trotzdem möglich\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotatorPlugin}}.
+        
+        Neben der Visualisierung dienen Annotationen auch der Korrektur der Klassifikation.
+        Bearbeitet ein Nutzer nämlich eine Annotation,
+        ändert er damit die Klasse des Features.
 
-        Neben der Visualisierung dienen Annotationen auch der Nachbesserung der Klassifikation.
-        Bearbeitet ein Nutzer eine Annotation, verändert er damit die Klasse des Features,
-        was dann so auch persistiert wird.
-
-        Das \gls{wccs} stellt ein entsprechende Erweiterung der JavaScript-Bibliothek Annotator bereit.
-
-        % TODO: Noch erwähnen, dass Klassifizierung nicht getriggert wird?
-        % TODO: SCREENSHOT?
+        Diese Funktion realisiert das \gls{wccs} über eine Erweiterung der JavaScript-Bibliothek
+        Annotator\footnote{vgl. \ref{section:solutionDetailsAnnotatorPlugin}}.
     
     \subsection{Webanwendung}
-        Über Web Annotationen ist es nicht möglich alle Details einer Klassifikation darzustellen.
-        Oder einen Überblick über alle klassifizierten Seiten zu erhalten.
+        Über Web-Annotationen ist es nicht möglich anschaulich alle Details einer Klassifikation darzustellen
+        oder einen Überblick über alle klassifizierten Seiten zu geben.
         Zu diesem Zweck stellt das \gls{wccs} deshalb auch eine Webanwendung bereit,
-        die diese Informationen liefert.
-
-        % TODO: SCREENSHOT?
+        die diese Lücken schließt.
+        Die Oberflächen dieser Anwendung sind in Kapitel \ref{section:solutionDetailsWebAppFunctions}
+        enthalten.
