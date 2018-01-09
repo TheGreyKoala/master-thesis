@@ -1,6 +1,6 @@
 \subsection{Domänenspezifische Sprachen}
-    Domänenspezifische Sprachen (engl. Domain specific languages (DSLs))
-    sind spezielle Sprachen zum Ausdrücken der Programme einer speziellen
+    Domänenspezifische Sprachen
+    sind spezielle Programmiersprachen zum Ausdrücken der Programme einer eingegrenzten
     Problemdomäne \cite[Kapitel 2.2]{voelter:DslEngineering}.
 
     Im Gegensatz zu \glspl{gpl} sind \glspl{dsl} nicht zwangsläufig Turing-Vollständig
@@ -9,8 +9,9 @@
     weshalb sie eng mit deren Konzepten und Abstraktionen verbunden ist
     und in Form von speziellen Sprachkonzepten wiederspiegelt.
     Technische und unnötige Details blendet sie aus und überträgt diese Verantwortung
-    auf die Execution Engine, d.h. einen Interpreter oder einer Repräsentation in einer
-    niedrigeren Sprache, zu der sie transformiert wird.
+    auf die Execution Engine.
+    Dabei kann es sich konzeptionell um einen Interpreter oder eine Repräsentation in einer
+    niedrigeren Sprache handeln.
     Dadurch kann eine \gls{dsl} die Programme ihrer Domäne kürzer und mit einer besseren Semantik
     als \glspl{gpl} ausdrücken \cite[Kapitel 2.2]{voelter:DslEngineering}.
 
@@ -19,48 +20,41 @@
     da der Entwickler sich stärker auf die eigentliche Problemstellung und weniger
     auf unterstützende technische Aspekte konzentrieren kann.
     Der Quelltext wird dadurch bei gleichbleibender Semantik kürzer und besser les- sowie wartbar.
-    Dies wird auch durch die eingeschränkten Möglichkeiten des Entwicklers,
-    durch die er weniger Fehler produzieren kann, unterstützt.
+    Dies wird auch durch die eingeschränkten Möglichkeiten des Entwicklers unterstützt,
+    durch die er weniger Fehler produzieren kann.
     Die stärkere Semantik erleichtert die Implementierung von Analysen und die Formulierung
     hilfreicher Fehlermeldungen.
-    Sowohl der Bau als auch Verwendung einer \gls{dsl} fördert das Verständnis der Domäne
+    Sowohl der Bau als auch die Verwendung einer \gls{dsl} fördert das Verständnis der Domäne
     der Entwickler, steigert die Kommunikation und erlaubt die Einbeziehung von Domänenexperten
     \cite[Kapitel 2.5]{voelter:DslEngineering}.
-    Aspekte, die auch in \citet{evans:DomainDrivenDesign} Domain Driven Design eine zentrale Rolle spielen.
+    Aspekte, die auch in Evans' \cite{evans:DomainDrivenDesign} Domain Driven Design eine zentrale Rolle spielen.
 
     % TODO: Vorteile aus SolutionConcept/DSL.tex hier hin? Oder zu Interpretation der Ergebnisse?
 
     \glspl{dsl} sind natürlich auch mit einigen Herausforderungen verbunden.
-    Dazu zählt zunächst der zusätzliche Aufwand, der durch den Entwurf und Bau einer \gls{dsl} entsteht,
-    der durch moderne Werkzeuge allerdings verringert werden kann.
-    Gleichzeitig erfordert der Entwurf einer guten Sprache Erfahrung,
-    da die Domäne nicht nur analysiert und modelliert werden muss,
-    sondern auch entschieden werden muss, welche Konzepte in welcher Form in die Sprache übernommen werden.
+    Dazu zählt zunächst der zusätzliche Aufwand, der durch den Entwurf und Bau einer \gls{dsl} entsteht.
+    Dieser kann durch moderne Werkzeuge allerdings verringert werden.
+    Gleichzeitig erfordert der Entwurf einer guten Sprache ein gewissess Maß an Erfahrung.
+    Entwickler müssen die Domäne verstehen und modellieren und entscheiden,
+    welche ihrer Konzepte in welcher Form in die Sprache übernommen werden.
     Iterative Vorgehen sind hierbei zu empfehlen.
-    Die Implementierung einer oftmals nur schwer portiert werden,
-    wodurch eine Abhängigkeit zum verwendet Werkzeug entsteht.
+    Die Implementierung kann oftmals nur schwer portiert werden,
+    wodurch eine Abhängigkeit zum verwendeten Werkzeug entsteht.
     Nicht zuletzt müssen die Nutzer der Sprache diese erlernen,
-    was ebenfalls Aufwand erzeugt.
-    Gleichzeitig kann sich das parallele Lernen der Domäne und der Sprache positiv auf einander auswirken
+    was ebenfalls Aufwand erzeugt
     \cite[Kapitel 2.6]{voelter:DslEngineering}.
 
-    \glspl{dsl} sollten generell nicht eingesetzt werden,
-    wenn ein kein gemeinsames Verständnis der Domäne und keine Möglichkeit dieses zu erlangen
-    existiert.
-    Außerdem sollte die Erfahrung der Entwickler in diesem Bereich ausreichend sein,
-    um erfolgreich zu sein.
-
-    Eine Umsetzung einer \gls{dsl} kann generell in zwei Formen geschehen:
+    Die Umsetzung einer \gls{dsl} kann generell in zwei Formen geschehen:
     Als "`Internal \gls{dsl}"' oder als "`External \gls{dsl}"'.
     Internal \glspl{dsl} nutzen die Sprachmöglichkeiten einer anderen Sprache
-    -- meist einer \gls{gpl} --, wodurch sie sich in diese einbetten und
-    Programme schnell den Eindruck machen eine ganz neue Sprache zu verwenden.
-    Technisch stellen sie aber nur eine geschickte Nutzung der Sprachmöglichkeiten
-    einer anderen Sprache, kombiniert mit einigen die Domäne modellierenden Programmierschnittstellen, dar.
+    -- meist einer \gls{gpl} --, wodurch sie sich in diese einbetten.
+    Genau genommen stellen sie keine neue Sprache,
+    sondern nur eine geschickte Nutzung der Sprachmöglichkeiten
+    der Wirtssprache dar, die mit einigen die Domäne modellierenden Programmierschnittstellen kombiniert wird.
     Sie besitzen keinen eigenen Compiler oder Interpreter und stellen deshalb immer gültige Programme
-    in der Wirtssprache dar.
+    der Wirtssprache dar.
     Ihr Vorteil ist ihre vergleichsweise leichte Umsetzung sowie die Möglichkeit das Umfeld der Sprache,
-    wie Standardbibliotheken leicht nutzen zu können
+    wie Standardbibliotheken, leicht nutzen zu können
     \cite[Kapitel 2.8.1]{voelter:DslEngineering}.
 
     External \glspl{dsl} stellen hingegen komplett eigenständige Programmiersprachen dar,
@@ -68,5 +62,4 @@
     wodurch die Domäne oftmals simpler wiedergespiegelt werden kann.
     Sie erfordern allerdings mehr Aufwand, zum Beispiel bei der Definition der Grammatik
     und der Implementierung eines Generators oder Interpreters.
-
-    Bei der entwickelten Sprache handelt es sich um eine externe \gls{dsl}.
+    Bei der \gls{wccdl} handelt es sich um eine External \gls{dsl}.
