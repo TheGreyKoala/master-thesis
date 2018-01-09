@@ -49,53 +49,59 @@
         wie ein Kopfbereich, leicht einer Klassifizierung unterzogen werden können.
         Gleichzeitig macht es das \gls{wccs} vollkommen unabhängig vom verwendeten \gls{cms}.
 
-    \subsection{Allgemeiner Ablauf}
+    \subsection{Ablauf}
         \label{section:solutionConceptClassificationAlg}
-        % TODO: erwähnen, dass mit Spezifikation konfiguriert
         Der allgemeine Ablauf der Klassifizierung lässt sich leicht und in wenigen Sätzen beschreiben.
-        Da als Quelle die Live-Seite herangezogen wird, ist Eingabe die \gls{url} dieser Seite.
-
-        Das System bestimmt zunächst die Klasse der Seite, indem die verschiedenen Selektoren der bekannten
-        Seitenklassen gegen sie geprüft werden.
-        Dann werden die Features dieser Klasse auf der Seite ermittelt,
+        Zur Durchführung einer Klassifizierung erwartet das \gls{wccs} die \gls{url} einer Webseite,
+        da sie dessen \gls{html}-Repräsentation als Datenquelle verwendet.
+        Basierend auf dem bereitgestellten Klassifizierungsmodell
+        bestimmt das System zunächst die Klasse der Seite,
+        indem es die Selektoren der bekannten Seitenklassen gegen sie prüft.
+        Anschließend ermittelt das \gls{wccs} die Features dieser Klasse auf der vorliegenden Webseite,
         indem die Selektoren der Features auf der Seite angewandt werden.
-        Für jedes Content Feature wird die Ermittlung der Features rekursiv wiederholt.
-        Anschließend wird die gesamte Klassifikation persistiert.
+        Für jedes {\contentFeature} sucht es außerdem rekursiv nach allen {\childFeature}s.
+        Ist dieser Prozess beendet, werden die gesammelten Informationen in Form einer Klassifikation
+        dauerhaft persistiert.
 
-    \subsection{Unterstützte Selektoren}
+    \subsection{Selektoren}
         \label{section:conceptSupportedSelectors}
-        Das Klassifizierungssystem unterstützt drei Selektoren,
-        die durch die gewählte Datenquelle begründet sind.
-        Eine andere Quelle hätte womöglich zu anderen Selektoren geführt.
+        Das \gls{wccs} unterstützt drei Arten von Selektoren,
+        die zum Teil durch die gewählte Datenquelle begründet sind:
 
-        Die Selektoren sind ein CSS-Selektor, ein XPath-Selektor und ein URL-Selektor
-        und werden jetzt vorgestellt.
+        \begin{enumerate}
+            \item CSS
+            \item XPath
+            \item Reguläre Ausdrücke auf \glspl{url}
+        \end{enumerate}
 
-        % TODO: CSS wählt immer einen Knoten, Xpath Knoten oder Text
+        \paragraph{\cssSelector}
+        Zur Bestimmung beider Arten von Features unterstützt das \gls{wccs} zunächst
+        die Auswertung von {\cssSelector}en, die durch das \gls{w3c} standardisiert
+        sind\footnote{vgl. Kapitel \ref{section:wwwTechnicalFoundations}}.
+        Durch einen einzelnen {\cssSelector} können potenziell viele Elemente im \gls{html}-Dokument
+        erfasst werden, wodurch {\collectionFeature}s realisierbar sind.
+        Jedes selektierte Element stellt dabei genau ein Feature dar.
+        Im Falle eines {\contentFeature} speichert es den textuellen Inhalt dieses Elementes.
+        Für {\referenceFeature}s ermittelt das \gls{wccs} die {\resource},
+        die durch dieses Element angesprochen wird.
+        % TODO Diese letzte Unterscheidung muss schon hier stehen, kommt das später nochmal irgendwo?
 
-        \paragraph{CSS-Selektor}
-        Der CSS-Selektor kann für Features verwendet werden und benutzt
-        die durch das \gls{w3c} standardisierten CSS-Selektoren
-        (siehe Kapitel \ref{section:wwwTechnicalFoundations} und \cite{w3c:cssSelectors}),
-        um einen oder mehrere Nodes im \gls{html}-Dokument auszuwählen.
-        Da diese Selektoren auf mehrere Nodes zutreffen können,
-        sind Collection Featues direkt unterstützt.
+        Das \gls{wccs} folgt bei der Auswertung eines {\collectionFeature}s der Logik des \glspl{w3c}.
+        Das bedeutet, dass der Selektor auf das gesamte Dokument angewandt,
+        aber nur Elemente innerhalb des Elementes des {\parentFeature}s -- dem Kontextelement --
+        im Ergebnis enthalten sind \cite{w3c:selectorsAPI}.
+        Bei den Features der Seitenklasse wird hingegen die gesamte Seite als Kontext verwendet,
+        weshalb keine Filterung der Ergebnisse des Selektors stattfindet.
+        
+        Durch dieses Vorgehen können sich wiederholende Strukturen auf einer Webseite
+        korrekt durch Elemente eines {\collectionFeature}s dargestellt werden.
+        Zur Veranschaulichung dient der Ausschnitt eines \gls{html}-Dokumentes
+        in Listing \ref{listing:conceptCssSelectorExample}.
 
-        Das \gls{wccs} folgt bei der Auswertung eines CSS-Selektors der Logik des \glspl{w3c}
-        \cite{w3c:selectorsAPI}.
-        Das bedeutet, dass der Selektor für das gesamte Dokument ausgeführt,
-        aber nur Elemente innerhalb des Parent Features im Ergebnis landen.
-        Für Features der ersten Ebene wird document als Kontext-Node genommen.
-        Dadurch ist sichergestellt, dass sich wiederholende Strukturen richtig zugeordnet werden können.
-
-        Dazu ein Beispiel. Angenommen es gibt ein CollectionFeature mit dem CSS-Selektor
-        "`article"'. Dieser wählt die drei article-Nodes aus.
-        Die Klasse dieses Features hat wiederum ein Feature "`heading"' mit dem Selektor
-        "`h3"'.
-        Da dieser im Kontext des jeweiligen article-Nodes ausgeführt wird,
-        ist klar, welche Überschrift zu welchem Artikel gehört.
-
-        \begin{lstlisting}
+        \begin{lstlisting}[
+            label=listing:conceptCssSelectorExample,
+            caption=Beispiel einer sich wiederholenden Struktur in einem \acrshort{html}-Dokument,
+            style=html]
 <article>
     <h3>Article 1 Heading<h3>
 </article>
@@ -107,61 +113,101 @@
 </article>
         \end{lstlisting}
 
-        \paragraph{XPath-Selektor}
-        Der XPath-Selektor ist ebenfalls für Features geeignet und wertet auf dem
-        HTML-Dokument XPath-Ausdrücke aus, um Nodes zu selektieren.
-        Im Vergleich zu CSS ist XPath in manchen Belangn mächtiger.
-        Zum Beispiel erlaubt es den aktuellen Node über "`self"' zu matchen,
-        Siblings des aktuellen Nodes zu selektieren
-        oder Nodes in anderen Teilen des Dokumentes zu selektieren \cite{w3c:xpath}.
-        Ein XPath-Selektor verwendet ebenfalls document bzw. den Node des Parent Features als
-        Kontext Node.
-        Die über CSS-Selektoren garantierte Relativität kann vom Nutzer mit den oben genannten Mitteln
-        durch XPath-Selektoren allerdings umgangen werden,
-        wodurch er mehr Möglichkeiten, aber auch mehr Verantwrotung erhält.
+        Dieses Beispiel enthält mehrere Artikel, die jeweils eine Überschrift besitzen.
+        Die Artikel können über den Namen ihres Elementes angesprochen werden,
+        das heißt der {\cssSelector} des {\collectionFeature}s ist \texttt{article}.
+        Die Klasse dieses Features enthält ihrerseits ein Feature für die Überschrift,
+        welches den Selector \texttt{h3} verwendet.
+        Dieser Selektor wird im Kontext des Elementes seines {\parentFeature}s ausgeführt,
+        das heißt im Kontext eines \texttt{article}-Elementes.
+        Dadurch erfasst er immer nur das \texttt{h3} innerhalb des \texttt{article}s,
+        wodurch gewährleistet ist, dass ausschließlich die Überschrift des aktuellen Artikels erfasst wird.
+        Das \gls{wccs} kann jedem Artikel also die korrekte Überschrift zuordnen.
+        % TODO: Braucht man dieses Bsp. oder reicht das in der Einleitung?
+
+        \paragraph{\xpathSelector}
+        Eine weitere Möglichkeit sowohl {\contentFeature}s als auch {\referenceFeature}s
+        zu erfassen, ist die Nutzung von XPath-Ausdrücken,
+        die dazu auf dem \gls{html}-Dokument angewandt
+        werden\footnote{Kapitel \ref{section:solutionDetailsClassificationServiceClassification}
+        beschreibt, wie dies möglich ist, obwohl \gls{html}-Dokumente oftmals kein
+        valides XML verwenden.}.
+
+        Mit XPath können analog zu CSS \gls{html}-Elemente der Seite erfasst werden
+        \cite{w3c:xpath},
+        weshalb auch die Logik des \glspl{wccs} in diesem Fall identisch ist.
+        Das heißt unter anderem, dass auch hier das Element des {\parentFeature}s
+        als Kontextelement verwendet wird.
+        Das Ergebnis eines XPath-Ausdruckes kann aber auch reiner Text sein
+        \cite{w3c:xpath},
+        der vom \gls{wccs} je nach Art des Features als Inhalt oder als Ziel einer
+        Referenz gewertet wird.
+
+        Im Vergleich zu CSS ist XPath in einigen Belangen mächtiger.
+        Zum Beispiel erlaubt es die Erfassung des aktuellen Kontextelementes
+        oder dessen Geschwister \cite{w3c:xpath}.
+        Die garantierte Relativität eines {\cssSelector}s ist durch
+        einen {\xpathSelector} also nicht immer gegeben,
+        wodurch der Verfasser eines Klassifizierungsmodells mehr Möglichkeiten,
+        aber auch mehr Verantwortung erhält.
 
         \paragraph{\gls{url}-Pattern-Selektor}
-        Ein \gls{url}-Pattern-Selektor ist für Seiten und Referenzen geeignet.
-        Bei diesem Selektor handelt es sich um einen regulären Ausdruck,
-        der im Falle von Seiten auf deren \gls{url} angewandt wird.
-        Gibt es ein Match, wird die Seite entsprechend klassifiziert.
+        Das \gls{wccs} bietet die Möglichkeit reguläre Ausdrücke auf \glspl{url} anzuwenden,
+        was sich zur Klassifizierung einer Seite als Ganzes und von {\referenceFeature}s eignet.
+
+        Im Falle von Seiten wird der Ausdruck lediglich auf die \gls{url} angewandt
+        und eine Übereinstimmung als Erfüllung des Selektors interpretiert.       
         
-        Zur Klassifizierung von Referenzen wird der Selektor auf die \gls{url} aller Knoten
-        innerhalb des Parent Features angewandt, die eine {\resource} referenzieren.
-        Gibt es ein Match, wird der Node als entsprechendes Referenz Feature erkannt.
-        Da alle Nodes geprüft werden, sind Collection Features kein Problem.
+        Zur Klassifizierung von Referenzen wird der Selektor auf die \glspl{url} aller Knoten
+        innerhalb des Kontextelementes angewandt, die eine {\resource} referenzieren.
+        Jedes Element, welches eine Übereinstimmung mit dem regulären Ausdruck besitzt,
+        wird vom \gls{wccs} als {\referenceFeature} klassifiziert.
+        Mit dem {\urlSelector} sind demnach auch {\collectionFeature}s realisierbar.
 
-        Dieser Selektor ist sinnvoll, um zum Beispiel externe Links anders als interne zu klassifizieren.
+        % TODO: Hier oder bei den Ergebnissen? Dieser Selektor ist sinnvoll, um zum Beispiel externe Links anders als interne zu klassifizieren.
 
-    \subsection{Datenmodell des Klassifizierungsergebnisses}
+    \subsection{Datenmodell einer Klassifikation}
         \label{section:conceptPageDataModel}
-        % TODO: Muss das ggf. höher, vllt. direkt nach Klassen, Features, Selektoren?
-        % TODO: Muss der RangeSelector vielleicht doch enthalten sein?
-        Dieses Kapitel beschreibt anhand Abbildung \ref{image:conceptPageDataModel}
-        das Modell einer Klassifikation einer Seite.
+        Die vom \gls{wccs} erzeugten Klassifikationen folgen einem abstrakten Datenmodell,
+        welches in Abbildung \ref{image:conceptPageDataModel} dargestellt ist.
 
         \begin{figure}[htb]
             \centering
             \includegraphics[scale=\imageScalingFactor]{../resources/concept/page.png}
-            \caption{Datenmodell eines Klassifizierungsergebnisses}
+            \caption{Datenmodell einer Klassifikation}
             \label{image:conceptPageDataModel}
         \end{figure}
 
-        Oben in der Hierarchie steht die Seite,
-        zu der ihre \gls{url} und ihre Klasse gespeichert wird.
-        Außerdem hat sie einen Status, der nach der Klassifizierung auf
-        "`Classified"' gesetzt ist.
-        Des weiteren speichert eine Seite in zwei getrennten Listen ihre
-        Content- und Reference Features.
-        Elemente dieser Listen können Content oder Reference Objekte oder Listen
-        dieser Objekte sein. Listen spiegeln CollectionFeatures wieder.
-        Jedes Feature speichert seinen Namen und seine Klasse.
-        Content Features darüber hinaus ihren textuellen Inhalt % TODO WARUM?!
-        und Reference Features die \gls{url} der referenzierten {\resource}.
-        Features speichern außerdem einen Selektor, bei dem es sich nicht um den Selektor
-        handelt, der während der Klassifizierung zu ihrer Ermittlung verwendet wurde.
-        Stattdessen identifiziert dieser Selektor den zum Feature gehörenden Node eindeutig im HTML-Dokument.
-        Das ist später z. B. für die Visualisierung der Klassifikation hilfreich.
-        Außerdem bietet es Drittsystemen die Möglichkeit leicht festzustellen,
-        ob sich der Inhalt eines Contents oder das Ziel einer Referenz seit der Klassifizierungssystem
-        geändert hat.
+        Eine Klassifikation beschreibt zunächst die betroffene Webseite,
+        indem sie ihre \gls{url}, Klasse und Status speichert,
+        der nach einer Klassifizierung generelle den Wert "`Classified"' hat.       
+        Des Weiteren enthält sie in zwei getrennten Listen die {\contentFeature}s
+        und {\referenceFeature}s der Seite, was in Abbildung \ref{image:conceptPageDataModel}
+        durch die Vererbungshierarchie zwischen \texttt{Page} und \texttt{FeatureCapable}
+        dargestellt wird.
+        Elemente dieser Listen können \texttt{Content}- oder \texttt{Reference}-Objekte
+        oder Listen solcher Objekte sein,
+        wodurch zwischen {\scalarFeature}s und {\collectionFeature}s unterschieden wird.
+
+        {\contentFeature}s speichern ihren textuellen Inhalt,
+        {\referenceFeature}s wiederum ihre \gls{url}.
+        Dadurch stellt eine Klassifikation eine Momentaufnahme der relevanten Inhalte
+        einer Webseite dar und spiegelt Änderungen an der Seite nicht
+        automatisch wieder.
+        Außerdem erlaubt es Drittsystemen die konkreten Inhalte und Referenzen
+        direkt zu nutzen, ohne sie von der Webseite erneut zu beziehen.
+        
+        Neben diesen individuellen Informationen enthält jedes Feature
+        seinen Namen, seine Klasse und einen Selektor.
+        Dabei handelt es sich nicht um den Selektor des Klassifizierungsmodells,
+        mit dem das Feature erfasst wurde,
+        sondern um einen Ausdruck, der das zugehörige Element im \gls{html}-Dokument eindeutig identifiziert.
+        Auch jeder Eintrag eines {\collectionFeature}s besitzt demnach einen anderen Selektor.
+        Dieser Selektor ermöglicht die spätere Visualisierung einer
+        Klassifikation\footnote{vgl. Kapitel \ref{section:conceptVisualization} und
+        \ref{section:solutionDetailsAnnotationServiceMapping}}
+        und bietet Drittsystemen eine Möglichkeit zu prüfen,
+        ob der klassifizierte Inhalt immer noch aktuell ist.
+        Das Format des Selektors wird an dieser Stelle nicht weiter spezifiziert,
+        da mehrere Methoden denkbar sind, um eine eindeutige Identifizierung eines Features
+        umzusetzen\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceClassification}} .

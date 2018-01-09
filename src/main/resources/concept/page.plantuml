@@ -37,8 +37,8 @@ abstract class Selector {
 Content --|> FeatureCabable
 Feature <|-- Content
 Feature <|-- Reference
-Feature "1" --> "1" Selector : > Has
-FeatureCabable "1" --> "0..n" Content : > Has
+Feature "1" --> "1" Selector : > is uniquely recognized by
+FeatureCabable "1" --> "0..n" Content : > owns
 Page --|> FeatureCabable
-Reference "0..n" <-- "1" FeatureCabable : < Has
+Reference "0..n" <-- "1" FeatureCabable : < owns
 @enduml
