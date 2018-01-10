@@ -1,17 +1,17 @@
-\subsection{IDE Features}
-    Zu einer Sprache gehört auch guter Tool-Support.
-    Das heißt Entwickler wollen eine professionelle
-    integrierte Entwicklungsumgebung (IDE),
-    die coole Features für die Sprache bietet.
+\subsection{Integration in Eclipse}
+    Die Nutzung einer Programmiersprache wird durch eine gute Integration in eine
+    Entwicklungsumgebung effektiver.
+    \citet[Kapitel 12.]{voelter:DslEngineering} zählen eine Reihe von
+    Funktionen auf, die solche Werkzeuge bieten können.
+    Dazu zählen bspw. die Autovervollständigung und farbliche Hervorhebung von Quelltext
+    sowie Refaktorisierungsfunktionen.
+    Für viele dieser Mittel generiert Xtext eine Integration
+    in die Entwicklungsumgebung Eclipse,
+    die bei Bedarf erweitert werden kann\footnote{vgl. Kapitel \ref{section:solutionDetailsDslXtext}}.
 
-    \citet{voelter:DslEngineering} beschreibt folgende Features:
-    Code Completion, Syntax Coloring, Go-to-Definition und Find References,
-    Pretty Printing, Quick Fixes, Refactoring,Labels und Icons, Outline
-    Code Folding, Tooltips, Visualizations, Diff and Merge.
-    Vieles davon setzt Xtext von Haus aus um.
-
-    Zusätzlich implementiert wurde die farbliche Hervorhebung von Selektoren,
-    sowie die Autovervollständigung für die Klammern, in die Selektoren geschrieben werden,
-    weil es dafür keine Taste auf der Tastatur gibt.
-    Außerdem sind die Fehlermeldungen für die verschiedenen Validitätsprüfungen aussagekräftig.
+    Diese Möglichkeit wurde genutzt, um Selektoren farblich im Editor hervorzuheben.
+    Des Weiteren wurde die Autovervollständigung für die Klammern um Selektoren ergänzt,
+    da sie auf vielen Tastaturlayouts nicht vorhanden sind.
+    Eine dritte Ergänzung sind sprechende Fehlermeldungen für die implementierten
+    semantischen Validierungen\footnote{vgl. Kapitel \ref{section:solutionDetailsDslStaticSemantics}}.
     % TODO: Ggf. Screenshots
