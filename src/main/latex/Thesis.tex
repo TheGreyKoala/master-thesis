@@ -89,7 +89,6 @@
 }
 
 \lstdefinestyle{pseudo} {
-	language = Java,
 	basicstyle = \ttfamily,
 	numberstyle = \footnotesize,
 	showspaces = false,
@@ -103,7 +102,9 @@
 	breakatwhitespace = true,
 	upquote=true,
 	keywordstyle=\color{blue},
-	stringstyle=\color{my-string-color}
+	stringstyle=\color{my-string-color},
+	emph={function,for,if,in,is},
+	emphstyle={\color{blue}}
 }
 
 \lstdefinestyle{html} {
@@ -172,6 +173,7 @@
 \newacronym{cms}{CMS}{Content Management System}
 \newacronym{css}{CSS}{Cascading Style Sheets}
 \newacronym{dsl}{DSL}{domänenspezifische Sprache}
+\newacronym{dom}{DOM}{Document Object Model}
 \newacronym{gpl}{GPL}{General Purpose Language}
 \newacronym{html}{HTML}{Hypertext Markup Language}
 \newacronym{ksw}{KSW}{Kultur- und Sozialwissenschaften}

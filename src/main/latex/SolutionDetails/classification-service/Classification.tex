@@ -1,112 +1,101 @@
-\subsection{Klassifizierung}
+\subsection{Klassifizierung einer Webseite}
     \label{section:solutionDetailsClassificationServiceClassification}
-    Dieser Abschnitt geht detaillierter auf die tatsächliche Klassifizierung ein
-    und beschreibt einige Implementierungsaspekte.
+    Dieser Abschnitt geht detaillierter auf die Klassifizierung einer Webseite ein
+    und beschreibt einige Aspekte der Umsetzung.
 
     \paragraph{Ablauf}
     Die Klassifizierung folgt einem Algorithmus,
     der rekursiv die Features einer Seitenklasse abarbeitet und nach Entsprechungen
-    auf der aktuellen Seite sucht.
-    Dieser Algorithmus wird für jeden \gls{url} einer Webseite im  Request durchgeführt.
+    auf der Webseite sucht.
     Er ist in Listing \ref{listing:classificationAlg} skizziert.
 
     \lstinputlisting[
         label=listing:classificationAlg,
-        caption=Klassifizierungsalgorithmus,
+        caption=Der Klassifizierungsalgorithmus,
         style=pseudo
     ]{../resources/classification.code}
 
-    Wie in Kapitel \ref{section:conceptClassificationDataSource} beschrieben
-    nutzt die Klassifizierung das HTML-Dokument einer Seite.
-    Deshalb wird die Webseite zunächst über ihre \gls{url} geöffnet und ihr HTML-Dokument geparst,
-    wodurch ein HTML-DOM entsteht.% TODO Referenz: (https://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/)
-    Anschließend wird die Klasse der Seite ermittelt, indem der Selektor jeder bekannten
-    Seitenklasse auf die Seite angewandt wird, bis ein Treffer gefunden wurde.
-    Bei dem Selektor handelt es sich konkret um einen \gls{url}-Pattern-Selektor,
-    weshalb dieser Selektor als regulärer Ausdruch interpretiert wird,
-    der auf die \gls{url} angewandt wird.
-    Danach werden die Features der Klasse auf der Seite ermittelt,
-    wozu die Funktion "`classify"' aufgerufen wird.
-    Diese erwartet eine Liste an Feature-Definitionen und einen HTML-Node,
-    der als Kontextobjekt dient und innerhalb dem nach Features gesucht wird.
-    Im ersten Schritt ist dies das "`document"' Objekt. %TODO: Referenz
+    Die Klassifizierung nutzt die HTML-Repräsentation einer
+    Webseite\footnote{vgl. Kapitel \ref{section:conceptClassificationDataSource}},
+    weshalb diese zunächst über ihre \gls{url} bezogen und geparst wird,
+    wodurch ein \gls{dom} entsteht.
+    Mit diesem können Inhalt, Struktur und Aussehen der Webseite
+    dynamisch abgefragt werden \cite{w3c:dom}.
+
+    Anschließend wird die Klasse der Seite ermittelt,
+    indem bis zur ersten Übereinstimmung der Selektor jeder bekannten
+    Seitenklasse auf die Webseite angewandt wird.
+
+    Danach beginnt die Ermittlung der Features der ermittelten Seitenklasse.
+    Dazu ruft der Algorithmus die Funktion \texttt{classify} auf,
+    die eine Liste der zu suchenden Features und ein HTML-Element erwartet.
+    Letzteres bestimmt den Kontext, in dem die Suche stattfindet\footnote{vgl. Kapitel \ref{section:conceptSupportedSelectors}}.
+    Im ersten Schritt ist dies das DOM-Objekt \texttt{document},
+    welches das gesamte HTML-Dokument wiederspiegelt \cite[Kapitel 1.4]{w3c:dom}.
+
     Für jedes Feature durchläuft die Funktion die gleichen Schritte.
-    Zunächst sucht sie innerhalb des Kontextobjektes nach allen Knoten,
+    Zunächst sucht sie innerhalb des Kontextobjektes nach allen Elementen,
     die dem Selektor des aktuellen Features entsprechen.
-    Falls das Feature ein Skalarfeature ist, verwirft sie alle gefundenen Knoten bis auf den ersten.
-    Die an diesem Punkt erhaltenen Knoten werden mit der Klasse des Features klassifiziert,
-    was für jeden Knoten gespeichert wird.
-    Neben dieser Information wird außerdem der eindeutige Selektor des Knotens bestimmt und ebenfalls gespeichert.
-    Siehe Kapitel \ref{section:conceptPageDataModel}.
-    Ist da Feature ein ContentFeature, ruft sich die Funktion rekursiv für jeden gefundenen Knoten selbst auf.
-    Dazu verwendet es die Features der aktuellen Feature-Klasse sowie de aktuellen Knoten als Parameter.
+    Falls das Feature ein {\scalarFeature} ist, behält sie allerdings nur den ersten Treffer.
+    Die an diesem Punkt erhaltenen Elemente werden mit der Klasse des Features klassifiziert.
+    Neben dieser Information wird außerdem der eindeutige Selektor jedes Elementes bestimmt
+    und ebenfalls gespeichert\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}}.
+    Handelt es sich um ein {\collectionFeature}, ruft sich \texttt{classify} anschließend rekursiv für jedes klassifizierte Element auf.
+    In jedem Aufruf verwendet sie als Parameter die {\childFeature}s der Klasse sowie das klassifizierte HTML-Element.
 
     \paragraph{Browserautomatisierung}
-    Die Herausforderung bei der Implementierung des oben beschriebenen Algorithmus
-    ist die Auswertung der Selektoren und das damit verbundenen Parsen des \gls{html}-Dokumentes.
-    Das \gls{wccs} setzt zur Bewältigung dieser Aufgabe auf die Automatisierung eines Browsers.
+    Die Herausforderung bei der Implementierung dieses Algorithmus
+    ist die Auswertung der Selektoren und das dazu notwendige Parsen des \gls{html}-Dokumentes.
+    Das \gls{wccs} setzt zur Bewältigung dieser Aufgabe auf die Automatisierung eines Webbrowsers.
     Konkret verwendet es die Bibliothek
     Puppeteer\footnote{\url{https://github.com/GoogleChrome/puppeteer}},
-    mit deren Hilfe sich der Browser Google Chrome in einem "`Headless"'-Modus starten und anschließend steuern lässt.
-    Das bedeutet, dass der Browser ohne Oberfläche gestartet wird und über eine API gesteuert werden kann.
-    %TODO: Referenz: https://developers.google.com/web/updates/2017/04/headless-chrome
-    Die von Puppeteer und Headless Chrome bereitgestellte API ist bereits mächtig und ausgereift genug,
-    um die Anforderungen des \gls{wccs} zu erfüllen.
+    mit deren Hilfe sich der Browser Google Chrome ohne die Anzeige einer graphischen Oberfläche starten
+    und anschließend programmatisch steuern lässt.
 
     Der wichtigste Vorteil der Nutzung eines echten Browsers ist seine ausgereifte und umfangreiche Implementierung
-    als Parser von \gls{html}, CSS-Selektoren und XPath, sowie der Auswertung von CSS und XPath-Ausdrücken.
-    Ein weiterer Vorteil ist, dass der Browser das JavaScript auf der Seite ausführt,
-    was den Inhalt der Seite ggf. entscheidend beeinflust in Bezug auf die Klassifizierung.
-    % TODO: Erwähnen, dass das für spätere Skript-Selektoren auch nützlich ist?
+    als Parser von \gls{html}, CSS und XPath.
+    Des Weiteren führt der Webbrowser das auf der Seite enthaltene JavaScript aus,
+    wodurch sich auch der Inhalt verändern kann.
 
     \paragraph{Selektoren}
-    Dank der Verwendung von Puppeteer erweist sich die Umsetzung der Selektoren weitaus einfacher.
-    Der CSS-Selektor kann auf die Methode "`querySelectorAll"' zurückgreifen,
-    die sowohl auf dem document als auch auf beliebigen \gls{html}-Nodes verfügbar ist.
-    % TODO: Referenz: https://www.w3.org/TR/2013/REC-selectors-api-20130221/
-    Das in Listing \ref{listing:classificationAlg} dargestellte Verfahren wird also unterstützt.
-    Diese Methode nimmt einen CSS-Selektor als String entgegen und führt ihn im Kontext des
-    Nodes, auf dem sie aufgerufen wurde, aus.
-    Ihr Ergebnis sind alle Knoten innerhalb des Kontextobjektes,
-    auf die der Selektor zutrifft.
-    Wie in Kapitel \ref{section:conceptSupportedSelectors} erläutert,
-    wertet diese Methode den Selektor global aus, liefert allerdings nur Nodes,
-    die Kinder des Kontextobjektes sind.
+    Dank Puppeteer kann zur Umsetzung der Selektoren auf standardisierte Schnittstellen
+    genutzt werden, die die benötigten Informationen liefern.
+    Der {\cssSelector} kann auf die Methode \texttt{querySelectorAll} zurückgreifen,
+    die sowohl auf \texttt{document} als auch auf beliebigen \gls{html}-Elementen verfügbar ist
+    \cite[Kapitel 6.1]{w3c:selectorsAPI}.
+    Diese Methode wertet CSS-Ausdrücke auf der Webseite aus und gibt alle gefundenen Elemente zurück,
+    die Kinder des Elementes sind, auf dem sie aufgerufen
+    wurde\footnote{vgl. Kapitel \ref{section:conceptSupportedSelectors}}.
 
-    Ein XPath-Selector wird hingegen über die Methdoe "`evaluate"' des document Objektes realisiert.
+    Der {\xpathSelector} wird hingegen über die Methdoe \texttt{evaluate} des Objektes \texttt{document} realisiert.
     % TODO: Ref: https://developer.mozilla.org/en-US/docs/Web/API/Document/evaluate
     Diese Methode erwartet neben dem XPath-Ausdruck auch ein Kontextobjekt,
-    sodass auch hier der beschriebene Algorithmus leicht realisiert werden kann.
-    
-    % TODO: Soll das vielleicht ins Konzept-Kapitel?
-    Das Ergebnis eines XPath-Ausdruckes kann eine Liste von Nodes, ein String,
-    ein Boolean oder eine Number sein.
-    Boolean und Number werden vom System nicht unterstützt und als "`Kein Match gefunden"' gewertet.
-    Bei Nodess läuft der Algorithmus wie im Listing beschrieben weiter.
-    Bei Strings wird die Rekursion allerdings unterbrochen, da kein neuer Knoten vorhanden ist.
-    Auch wenn die Klasse des Strings Features hat, sind diese dann nicht in der Klassifikation.
-    Der String wird entwendet als textueller Inhalt des Features (siehe unten) oder als Ziel
-    eines ReferenceFeatures genutzt.
-    Der eindeutige Selektor wird auf Basis des Parent Nodes ermittelt, da dieser den Text enthält.
-    Start- und Endoffset bestimmen, wo im innerText des Nodes sich der String befindet.
+    sodass auch hier der beschriebene Algorithmus leicht umgesetzt werden kann.
+    Das Ergebnis dieser Methode kann abhängig vom XPath-Ausdruck eine Liste von HTML-Elementen, eine Zeichenkette,
+    ein boolescher Wert oder eine Zahl sein.
+    Die beiden zuletzt genannten werden vom \gls{wccs} nicht unterstützt und als keine Übereinstimmung mit dem Selektor gewertet.
+    Bei HTML-Elementen wird der Algorithmus wie beschrieben weiter durchlaufen.
+    Im Falle von Zeichenketten wird die Rekursion allerdings unterbrochen, da kein neues Element vorhanden ist,
+    welches den Suchraum weiter einschränken könnte.
+    Abhängig von der Art des Features wird die Zeichenkette als textueller Inhalt
+    oder als \gls{url} einer referenzierten {\resource} interpretiert.
 
-    Der \gls{url}-Pattern-Selektor ist für Seiten in Features unterschiedlich implementiert.
-    Für Seiten wird er einfach auf die \gls{url} angewandt, wie in Listing \ref{listing:classificationAlg} zu sehen.
-    Für Features arbeitet er anders.
-    Zunächst werden innerhalb des Kontextobjektes alle Nodes gesucht, die {\resources} referenzieren.
-    Das sind alle Nodes, die eines der Attribute "`href"', "`src"' oder "`srcset"' besitzen.
+    Der {\urlSelector} ist für Webseiten und Features unterschiedlich implementiert.
+    Im Falle von Seiten wird der reguläre Ausdruck auf ihre \glspl{url} angewandt.
+    Für Features werden zunächst alle Elemente innerhalb des Kontextobjektes gesucht, die {\resources} referenzieren.
+    Das sind diejenigen Elemente, die das Attribute \texttt{href}, \texttt{src} oder \texttt{srcset} besitzen.
     % TODO: Ref: (siehe Mindmap
-    Um diese Nodes zu finden wird zunächst wird der CSS-Selektor "`[href], [src], [srcset]"' auf dem Kontextobjekt angewandt.
-    Anschließend wird für jeden gefundenen Node der Wert des jeweiligen Attributes ausgelesen
-    und der reguläre Ausdruck des \gls{url}-Selektors auf ihm angewandt.
-    Bei einem Match wird der Node ins Ergebnis aufgenommen.
+    Um diese Elmente zu finden wird der {\cssSelector} \texttt{[href], [src], [srcset]} auf dem Kontextobjekt ausgeführt.
+    Anschließend wird für jeden Treffer der Wert des gefundenen Attributes ausgelesen
+    und der reguläre Ausdruck des {\urlSelector}s auf ihm angewandt.
+    Bei einer Übereinstimmung wird das Element in die Ergebnismenge aufgenommen.
 
-    Aus diesen Beschreibungen folgt, dass Selektoren selbst keine Unterscheidung bzgl.
+    Aus diesen Beschreibungen folgt, dass Selektoren selbst keine Unterscheidung bez.
     der Kardinalität eines Features machen.
-    Stattdessen liefern sie immer alle Treffer und überlassen dem Aufrufer die Aufgabe zu entscheiden,
-    welche Nodes er verwendet.
+    Stattdessen liefern sie immer alle Treffer und überlassen dem Aufrufer die Aufgabe, zu entscheiden,
+    welche Elemente er verwendet.
     Das wird auch in Listing \ref{listing:classificationAlg} deutlich.
-    
+
     \paragraph{Textueller Inhalt oder Ziel eines Features}
     Wie in Kapitel \ref{section:conceptPageDataModel} beschrieben speichert
     ein Content Feature seinen textuellen Inhalt und ein Reference Feature die \gls{url} seines Ziels.
