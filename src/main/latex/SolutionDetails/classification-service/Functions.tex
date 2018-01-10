@@ -1,17 +1,16 @@
 \subsection{Funktionen und Schnitstellen}
     \label{section:solutionDetailsClassificationServiceFunctions}
-    Der Classification Service biete verschiedene Funktionen,
-    die über eine REST-Schnittstelle angesprochen werden können.
-    In diesem Abschnitt werden die Funktionen und die zugehörigen
-    REST-Endpunkte beschrieben.
-    Diese Beschreibung enthält die \gls{url}, die HTTP-Methode,
-    verallgemeinerte Ein- bzw. Ausgabedokumente und den HTTP-Status
-    der Antwort im Erfolgsfall.
+    Die Beschreibung des {\classificationService}s beginnt mit einem
+    Überblick über seine Funktionen und Schnittstellen.
+    Die Schnittstellenbeschreibungen beschränken sich auf die wichtigsten
+    Parameter und betrachten keine Fehlerfälle,
+    da eine entsprechende Beschreibung zu umfangreich wäre.
+    % TODO: OpenAPI Beschreibung?
 
     \paragraph{Klassifizierung}
-    Die Hauptaufgabe des Classification Services ist die Klassifizierung einer Webseite
+    Die Hauptaufgabe des {\classificationService}s ist die Klassifizierung einer Webseite
     und die Speicherung der resultierenden Klassifikation.
-    Dazu bietet sie den Endpunkt in Tabelle \ref{table:startClassificationInterface}.
+    Diese Funktion kann über die Schnittstelle in Tabelle \ref{table:startClassificationInterface} genutzt werden.
 
     \begin{table}[htb]
         \centering
@@ -21,48 +20,52 @@
         \hline
         \textbf{Methode} & \texttt{POST}\\
         \hline
-        \textbf{Eingabedokument} & \lstinputlisting{../resources/classification-service/tasks.json}\\
+        \textbf{Eingabedokument} & \lstinputlisting[title=ClassificationServiceTasks]{../resources/classification-service/tasks.json}\\
         \hline
-        \textbf{Status} & \texttt{202 (Accepted)}\\
+        \textbf{Statuscode} & \texttt{202 (Accepted)}\\
         \hline
         \end{tabular}
         \caption{Schnittstelle zum Starten einer Klassifizierung}
         \label{table:startClassificationInterface}
     \end{table}
 
-    Das Eingabedokument kann sowohl mehrere Sites als auch mehrere Seiten innerhalb einer Sites enthalten.
-    Dadurch können dem Service in einer Anfrage mehrere zu klassifizierende Seiten genannt werden.
-    Die Site wird nur für die spätere Zuordnung z. B. in der WebApp benötigt und kann beliebig sein.
+    Das Eingabedokument spezifiziert die Webseiten,
+    die vom {\classificationService} strukturiert werden sollen.
+    Neben den \glspl{url} der Webseiten enthält es außerdem Informationen über ihre Site,
+    damit in der Webanwendung\footnote{vgl. Kapitel \ref{section:solutionConceptWebApp}}
+    eine Zuordnung der klassifizierten Seiten zu ihrer Site möglich ist.
+    In einem Dokument können beliebig viele Sites und Webseiten spezifiziert werden.
 
-    \paragraph{Klassifizierungsmodell abfragen}
-    Der Service biete außerdem die Möglichkeit die aktuellen Klassen,
-    die er für eine Klassifizierung verwendet abzufragen.
-    Diese Funktion wird später zum Beispiel vom Annotator Plugin genutzt,
-    um die Auswahlboxen zu füllen. Siehe Kapitel \ref{section:solutionDetailsAnnotatorPlugin}.
-    Dazu bietet der Service drei Endpunkte, die sich nur in ihrer \gls{url} unterscheiden.
-    Tabelle \ref{table:getClassesInterface} zeigt die Schnittstelle.
+    \paragraph{{\classificationModel} abfragen}
+    Der Service bietet außerdem die Möglichkeit die ihm bekannten Klassen abzufragen,
+    was das {\annotatorPlugin}\footnote{vgl. Kapitel \ref{section:conceptWebAnnotations}}
+    für seine Korrekturfunktion nutzt.
+    Zur Verwendung dieser Funktion stehen drei Schnittstellen bereit,
+    die sich nur in einem Teil ihrer \gls{url} unterscheiden und deshalb gemeinsam in
+    Tabelle \ref{table:getClassesInterface} dokumentiert sind.
 
     \begin{table}[htb]
         \centering
         \begin{tabular}{|l|l|}
         \hline
-        \textbf{Endpunkt} & \texttt{http://<HOST>:44284/[page | content | reference]-class}\\
+        \textbf{Endpunkt} & \texttt{http://<HOST>:44284/[page | content | reference]-classes}\\
         \hline
         \textbf{Methode} & \texttt{GET}\\
         \hline
-        \textbf{Status} & \texttt{200 (OK)}\\
+        \textbf{Statuscode} & \texttt{200 (OK)}\\
         \hline
-        \textbf{Ausgabedokument} & \lstinputlisting{../resources/classification-service/classes.json}\\
+        \textbf{Ausgabedokument} & \lstinputlisting[title=ClassificationServiceClasses]{../resources/classification-service/classes.json}\\
         \hline
         \end{tabular}
-        \caption{Schnittstelle zum Abfragen des aktuellen Klassifizierungsmodells}
+        \caption{Schnittstelle zum Abfragen des {\classificationModel}s}
         \label{table:getClassesInterface}
     \end{table}
 
     Das Ausgabedokument kapselt die Klassen in einem neuen Dokument,
-    welches neben den eigentlichen Klassen auch die Anzahl aller Klassen enthält.
-    Das wurde gemacht, um schon jetzt kompatibel für eine Paginierung des Ergebnisses zu sein.
-    Das Feld "`total"' enthält dann die Anzahl aller Klassen.
-    Das Feld "`classes"' enthält die Klassen gesammelt in einem Array.
-    Ein einzelnes Klassenobjekt folgt dem des DSL Generats.
-    Siehe Kapitel \ref{section:solutionDetailsDslGeneration}.
+    welches neben den eigentlichen Klassen in \texttt{classes}
+    auch die Anzahl aller Klassen in \texttt{total} enthält.
+    Dadurch kann die Schnittstelle zu einem späteren Zeitpunkt z. B. um eine
+    seitenweise Abfrage erweitert werden,
+    ohne das Ausgabedokument inkompatibel zu früheren Version zu verändern.
+    Die Klassen verwenden das Format des generierten
+    {\classificationModel}s\footnote{vgl. Kapitel \ref{section:solutionDetailsDslGeneration}}.
