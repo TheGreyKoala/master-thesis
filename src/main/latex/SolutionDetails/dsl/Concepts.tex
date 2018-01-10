@@ -1,50 +1,56 @@
 \subsection{Sprachkonzepte}
     \label{solutionDetails:dslConcepts}
-    Dieses Kapitel beschreibt, wie sich die Konzepte der Domäne
-    (siehe z. B. Kapitel \ref{section:conceptClassesFeaturesSelectors})
-    in Sprachkonzepten wiederspiegeln.
-    Auch hier erfolgt die Beschreibung getrennt für die Konzepte Klassen,
-    Features und Selektoren.
-
-    Für diese Konzepte bietet die Sprache Linguistic Abstractions
-    \cite[Kapitel 4.1, 4.1.2]{voelter:DslEngineering}.
-    % TODO: Erklären!
-
-    Abbildung \ref{image:dslClasses} zeigt das Modell der Konzepte für Klassen.
+    Die \gls{wccdl} spiegelt ihre
+    Domäne\footnote{vgl. Kapitel \ref{section:conceptClassesFeaturesSelectors}}
+    durch Linguistic Abstractions für Klassen, Features und Selektoren wieder.
+    Die folgende Beschreibung ihrer Sprachkonzepte orientiert sich deshalb an diesen
+    Domänenkonzepten.
+    
+    \paragraph{Klassen}
+    Abbildung \ref{image:dslClasses} modelliert,
+    wie das Konzept der Klassen in der \gls{wccdl} abgebildet wird.
 
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/dsl/classes.png}
-        \caption{Klassen in der DSL}
+        \caption{Klassen in der \acrshort{wccdl}}
         \label{image:dslClasses}
     \end{figure}
 
-    Klassen werden durch das abstrakte Konzept "`Class"' dargestellt,
-    von denen es gemäß der Domänenkonzepte drei konkrete Ausprägungen in der Sprache
-    existieren: "`PageClass"', "`ContentClass"' und "`ReferenceClass"'.
-    Sämtliche Klassendefinitionen sind in Konzept "`ClassificationModel"' enthalten.
+    Zentraler Bestandteil der Sprache ist dazu das abstrakte Konzept \texttt{Class},
+    welches gemäß der Domänenkonzepte in drei konkrete Ausprägungen unterteilt wird:
+    \texttt{PageClass}, \texttt{ContentClass} und \texttt{ReferenceClass}.
+    Jedes in der \gls{wccdl} geschriebene Programm ist eine Sammlung
+    von Klassendefinitionen und enthält deshalb genau ein \texttt{ClassificationModel},
+    das wiedrum beliebig viele Instanzen der genannten Konzepte beinhalten kann.
 
-    Jede Klasse besitzt einen Namen und einen Selektor,
-    der ausgenommen von PageClass optional ist.
-    Selektoren werden durch das Konzept "`Selector"' repräsentiert.
-    Für Content- und ReferenceClass stellt ein Selektor einen Standardwert
-    für Features mit dieser Klasse dar.
+    Klassen besitzen einen Namen und einen Selektor,
+    der -- ausgenommen von Seitenklassen -- optional ist.
+    Die Sprache enthält hierzu das entsprechende Konzept \texttt{Selector},
+    welches weiter unten vorgestellt wird.
     Da nicht jeder Selektor für jede Klasse geeignet ist,
-    erwarten die einzelnen Klassentypen verschiedene Selektortypen:
-    "`PageSelector"', "`ContentSelector"' und "`ReferenceSelector"'.
-    Auf Selektoren wird weiter unten eingegangen.
+    verwenden die einzelnen Klassentypen verschiedene Selektortypen,
+    wobei es sich um \texttt{PageSelector}, \texttt{ContentSelector}
+    und \texttt{ReferenceSelector} handelt,
+    die ebenfalls später genauer thematisiert werden.
+    Wieso der Selektor Teil der Typinformation von \texttt{ContentClass}
+    und \texttt{ReferenceClass} ist,
+    wird bei der unteren Diskussion der Features ersichtlich.
 
-    Seiten- und Inhaltsklassen können Features besitzen.
-    Für diese Eigenschaft führt die Sprache das Konzept "`FeatureCapableClass"' ein,
-    welches eine Ableitung von "`Class"' darstellt.
-    Page- und ContentClass erben deshalb nicht direkt von "`Class"',
-    sondern sondern indirekt über "`FeatureCapableClass"'.
+    Lediglich Seiten- und Inhaltsklassen können Features besitzen,
+    weshalb die Sprache das Konzept \texttt{FeatureCapableClass} einführt,
+    um diese Eigenschaft auszudrücken.
+    Aus diesem Grund sind \texttt{PageClass} und \texttt{ContentClass}
+    Ableitungen von \texttt{FeatureCapableClass}, welches
+    wiederum eine Spezialisierung von \texttt{Class} ist.
 
-    Gleichzeitig sind nur Inhalts- und Referenzklassen geeignet als Klassen
-    von Features. Für diese Eigenschaft enthält die Sprache das Konzept "`FeatureClass"',
-    welches ebenfalls von "`Class"' erbt und das Oberkonzept von Content- und ReferenceClass ist.
+    Auf der anderen Seite sind nur Inhalts- und Referenzklassen als Klasse eines Features geeignet.
+    Für diese Eigenschaft enthält die Sprache deshalb das Konzept \texttt{FeatureClass},
+    welches ebenfalls von \texttt{Class} erbt und
+    von dem sowohl \texttt{ContentClass} als auch \texttt{ReferenceClass} ableiten.
 
-    Features werden in der Sprache durch das gleichnamige abstrakte Konzept repräsentiert,
+    \paragraph{Features}
+    Die \gls{wccdl} repräsentiert Features über das gleichnamige Sprachkonzept,
     was Abbildung \ref{image:dslFeatures} veranschaulicht.
 
     \begin{figure}[htb]
@@ -55,19 +61,34 @@
     \end{figure}
 
     Analog zum Domänenkonzept besitzt jedes Feature in der Sprache einen Namen
-    und eine Klasse, welche vom oben vorgestellten Typ "`FeatureClass"' sein muss.
-    An dieser Stelle ist also eine Cross-Reference. Die einzige, die notwendig ist.
-    Des Weiteren kann ein Feature einen Selektor besitzen, der den Selektor der
-    Klasse überschreibt (siehe Konzeptkapitel, oder?).
-    Da nicht jeder Selektor ist für jedes Feature geeignet ist (hängt von FeatureClass ab),
-    führt die Sprache hierfür das Konzept "`FeatureSelector"' ein (sieh unten).
-    Die Sprache besitzt zwei konkrete Ableitung von "`Feature"':
-    "`ScalarFeature"' und "`CollectionFeature"', die die entsprechend ein- bzw. mehrelementige Features darstellen.
-    Aus Sicht der Sprache ist das lediglich ein Flag, weshalb keine großartige Unterscheidung notwendig ist.
-    Eine Unterscheidung zwischen Content- und ReferenceFeatures ist nicht notwendig,
-    da das klar durch die konkrete FeatureClass festgelegt ist.
+    und eine Klasse, welche vom oben vorgestellten Typ \texttt{FeatureClass} sein muss.
+    Des Weiteren kann ein Feature einen Selektor besitzen,
+    um den der Klasse für sich zu überschreiben.
+    Da nicht jede Selektorart für Features geeignet ist,
+    führt die Sprache das Konzept \texttt{FeatureSelector} ein,
+    um eine Unterscheidung zwischen geeigneten und ungeeigneten Arten möglich zu machen.
+    Auf \texttt{FeatureSelector} wird weiter unten genauer eingegangen.
+    In Bezug auf den Selektor eines Features ist außerdem relevant,
+    ob dieser für die Klasse des Features geeignet ist.
+    Das heißt, ob der Selektor zum Beispiel ein \texttt{ContentSelector} ist,
+    wenn es sich bei der Klasse um eine Inhaltsklasse handelt.
+    Dies wird sichergestellt,
+    indem der Typ des Selektors Teil der Typinformation von
+    \texttt{Feature} ist und sowohl die Eigenschaften \texttt{class} als auch
+    \texttt{selector} diesen verwenden und damit zueinander passen müssen.
 
-    Zuletzt bietet die Sprache Konzepte zur Definition von Selektoren,
+    Ob es sich bei einem Feature um ein {\scalarFeature} oder ein {\collectionFeature} handelt,
+    ist aus Sicht der Sprache lediglich eine boolesche Eigenschaft und erfordert
+    keine weitere Unterscheidung.
+    Das ist eine Abweichung vom Modell des Domänenkonzeptes, die dadurch begründet ist,
+    dass die Sprache Features lediglich deklariert und nicht sicherstellen muss,
+    dass die Elemente eines {\collectionFeature}s die gleiche Klasse verwenden.
+    Eine Unterscheidung zwischen {\contentFeature}s und {\referenceFeature}s
+    ist ebenfalls nicht notwendig,
+    da diese Information klar aus der verwendeten \texttt{FeatureClass} hervorgeht.
+
+    \paragraph{Selektoren}
+    Des Weiteren bietet die \gls{wccdl} Konzepte zur Definition von Selektoren,
     die vereinzelt schon angesprochen wurden.
     Eine vollständige Übersicht bietet Abbildung \ref{image:dslSelectors}.
 
@@ -78,18 +99,19 @@
         \label{image:dslSelectors}
     \end{figure}
 
-    Das abstrakte Konzept "`Selector"' entspricht dem gleichnamigen Domänenkonzept.
-    Die Sprache enthält abstrakte Ableitungen von diesem Konzept,
-    mit denen Selektoren nach ihrer Eignung für die verschiedenen Klassentypen
-    getrennt werden. Deshalb gibt es "`PageSelector"', "`ContentSelector"' und "`ReferenceSelector"'.
-    Die vom Klassifizierungssystem unterstützten Selektoren wurden schon in Kapitel
-    \ref{section:conceptSupportedSelectors} beschrieben.
-    Dementsprechend bietet die Sprache drei konkrete Selektoren:
-    "`CssSelector"', "`XPathSelector"' und "`UrlPatternSelector"'.
+    Das abstrakte Konzept \texttt{Selector} entspricht dem gleichnamigen Domänenkonzept
+    und unterteilt sich in weitere abstrakte Konzepte,
+    mit denen Selektoren nach ihrer Eignung für die verschiedenen Klassentypen getrennt werden.
+    Diese Konzepte sind \texttt{PageSelector}, \texttt{ContentSelector} und \texttt{ReferenceSelector}.
+    Die vom Klassifizierungssystem unterstützten
+    Selektoren\footnote{vgl. Kapitel \ref{section:conceptSupportedSelectors}}
+    spiegelt die \gls{wccdl} mit den konkreten Konzepten
+    \texttt{CssSelector}, \texttt{XPathSelector} und \texttt{UrlPatternSelector} wieder,
+    die die zuvor genannten Konzepte spezialisieren.
+    Dadurch wird eindeutig abgebildet, welche Selektorarten für welche Klassentypen geeignet sind.
 
-    Wie oben beschrieben ist ein weiterer relevanter Aspekt, welche Selektoren
-    für Features geeignet sind.
-    Da Features nur Inhalts- oder Referenzklassen sein können,
-    sind entsprechend nur ContentSelector und ReferenceSelector für Features geeignet.
-    Deshalb stellen diese Konzepte Ableitungen vom abstrakten Konzept "`FeatureSelector"' dar,
-    welches wie oben erwähnt in Feature genutzt wird.
+    Ein weiterer relevanter Aspekt ist die Eignung der Selektoren für Features,
+    wozu das bereits erwähnte Konzept \texttt{FeatureSelector} existiert.
+    Da Features nur Inhalts- oder Referenzklassen verwenden können,
+    leiten nur \texttt{ContentSelector} und \texttt{ReferenceSelector} von diesem ab.
+    

@@ -2,22 +2,23 @@
 hide circle
 hide empty methods
 scale 3.25
+skinparam linetype ortho
 
 abstract class Class {
     name: String
     selector: Selector
 }
 
-abstract class ClassificationModel {
+class ClassificationModel {
     classes: List<Class>
 }
 
-class ContentClass {
-    selector: ContentSelector
+class ContentClass<T extends ContentSelector> {
+    selector: T
 }
 
-abstract class FeatureClass {
-    selector: FeatureSelector
+abstract class FeatureClass<T extends FeatureSelector> {
+    selector: T
 }
 
 abstract class FeatureCapableClass {
@@ -28,19 +29,19 @@ class PageClass {
     selector: PageSelector
 }
 
-class ReferenceClass {
-    selector: ReferenceSelector
+class ReferenceClass<T extends ReferenceSelector> {
+    selector: T
 }
 
 abstract class Selector
-abstract class Feature
+class Feature
 
 Class <|-- FeatureClass
 Class <|-- FeatureCapableClass
-Class "0..1" -- "0..1" Selector : > hat
-ClassificationModel "1" -- "0..n" Class : > enthält
+Class "1" --> "0..1" Selector : > specifies
+ClassificationModel "1" --> "0..n" Class : > contains
 FeatureCapableClass <|-- ContentClass
-FeatureCapableClass "1" -- "0..n" Feature : > hat
+FeatureCapableClass "1" --> "0..n" Feature : > declares
 FeatureCapableClass <|-- PageClass
 FeatureClass <|-- ContentClass
 FeatureClass <|-- ReferenceClass
