@@ -1,65 +1,72 @@
 \subsection{Generierung}
     \label{section:solutionDetailsDslGeneration}
-    Alle Klassendefinitionen eines Projektes werden in ein JSON-Dokument generiert
-    und in einer Datei gespeichert.
-    Listing \ref{listing:dlsGenerationGlobal} zeigt die oberste Ebene dieses Dokumentes.
+    Ein {\classificationModel} wird in ein JSON-Dokument übersetzt,
+    wozu ein entsprechender Generator implementiert wurde.
+    Listing \ref{listing:dlsGenerationGlobal} zeigt die Struktur der
+    obersten Ebene eines solchen Dokumentes.
 
     \lstinputlisting[
         label=listing:dlsGenerationGlobal,
-        caption=Erste Ebene
+        caption=Oberste Ebene eines generierten {\classificationModel}s,
+        style=json
     ]{../resources/dsl/generation/global.json}
 
     Im generierten Zustand werden die Klassendefinitionen weiterhin nach
     Seiten-, Inhalts- und Referenzklassen unterteilt,
-    was im JSON-Dokument durch die Eigenschaften "`pageClasses"',
-    "`contentClasses"' und "`referenceClasses"' geschieht.
-    Jedes Objekte in diesen Properties ist eine Klasse.
+    was im JSON-Dokument durch die Schlüssel \texttt{pageClasses},
+    \texttt{contentClasses} und \texttt{referenceClasses} geschieht.
+    Ihre zugewiesenen Objekte enthalten wiederum Schlüssel-Wert-Paare,
+    wobei der Schlüssel in diesem Fall der Name einer Klasse und der
+    Wert die Klasse selbst ist.
     Listing \ref{listing:dlsGenerationPageClass} zeigt dies am Beispiel
-    der Seitenklasse "`Service"'.
+    der Seitenklasse \texttt{Service}.
 
     \lstinputlisting[
         label=listing:dlsGenerationPageClass,
-        caption=Page Class
+        caption=Beispiel einer Seitenklasse eines generierten {\classificationModel}s,
+        style=json
     ]{../resources/dsl/generation/page-class.json}
 
-    Der Name der Klasse wird an zwei Stellen verwendet.
-    Zum einen als Name des Objektes, sodass eine Klasse anhand
-    ihres Namens direkt und eindeutig angesprochen werden kann,
-    ohne alle Klassen nach dem Namen zu filtern.
-    Außerdem wird der Name im Objekt selbst unter der Eigenschaft "`name"'
-    gespeichert, sodass das Objekt alleine auch identifizierbar ist.
-    Anschließend folgt die Eigenschaft "`selector"',
-    die den Selektor der Klasse speichert.
-    Dieses Objekt speichert den Typ des Selektors und seinen Wert.
-    Die verwendeten Werte für den Typ entsprechen den Namen der Sprachkonzepte:
-    "`CssSelector"', "`UrlPatternSelector"' und "`XPathSelector"'.
-    Im Beispiel ist zu sehen, dass das verwendete \gls{url} Pattern
-    escaped wurde, da einige Zeichen ansonsten von JSON-Interpretern
-    als Steuerzeichen interpretiert würden. %TODO: LINK AUF JSON ESCAPE SPEC!
-    Dieses escapen passiert automatisch während der Generierung und muss nicht
-    vom Entwickler vorgenommen werden.
-    Der Selektor einer Klasse ist niemals undefiniert, kann aber ein leeres Objekt sein.
-    In diesem Fall ist der Selektor vom Feature zu beziehen.
+    Der Name der Klasse ist in ihr unter dem Schlüssel \texttt{name} gespeichert,
+    sodass das Objekt auch ohne seinen Kontext identifizierbar ist.
 
-    Seiten und Inhaltsklassen können Features enthalten.
-    Im JSON-Dokument werden diese nach Content und Reference Features unterteilt
-    und in den Eigenschaften "`contents"' und "`references"' gespeichert.
-    Die Struktur eines Features im JSON-Dokument zeigt Listing
-    \ref{listing:dlsGenerationFeature} am Beispiel des Content Features "`pageHeading"'.
+    Unter \texttt{selector} ist der Selektor der Klasse gespeichert,
+    was seinen Typ und seinen Wert umfasst.
+    Der Selektor einer Klasse ist niemals undefiniert,
+    kann im Falle von Inhtals- oder Referenzklassen aber ein leeres Objekt sein.
+    Dann ist der Selektor vom Feature zu beziehen.
+    Der Typ eines Selektors ist immer "`CssSelector"', "`UrlPatternSelector"' oder "`XPathSelector"'.
+
+    Im Beispiel ist zu sehen, dass der reguläre Ausdruck im Selektor codiert wurde.
+    Andernfalls würden JSON-Parser z. B. die Rückwärtsschrägstriche als besondere Zeichen interpretieren.
+    Der JSON-Standard \cite[Kapitel 7]{rfc:8259} spezifiziert einige Zeichen,
+    die innerhalb von Zeichenketten so codiert werden müssen.
+    Diese Aufgabe übernimmt der entwickelte Generator,
+    sodass Nutzer der \gls{wccdl} sich darum nicht kümmern müssen.
+    Im Klassifizierungsmodell lautet der Selektor deshalb \verb+\/service\/?$+.
+
+    Seiten- und Inhaltsklassen können Features enthalten,
+    die im JSON-Dokument ihrer Art entsprechend in \texttt{contents}
+    oder \texttt{references} gespeichert sind.
+    Die Struktur eines generierten Features zeigt Listing
+    \ref{listing:dlsGenerationFeature} am Beispiel des {\contentFeature}s \texttt{pageHeading}.
 
     \lstinputlisting[
         label=listing:dlsGenerationFeature,
-        caption=Feature
+        caption=Beispiel eines Features eines generierten {\classificationModel}s,
+        style=json
     ]{../resources/dsl/generation/page-heading-feature.json}
 
-    Wie schon bei Klassen wird der Name des Features sowohl als Name des Objektes
+    Wie schon bei Klassen wird der Name des Features sowohl als Schlüssel des Objektes
     als auch innerhalb des Objektes selbst verwendet.
-    Neben dem Namen enthält ein Feature die Eigenschaft "`class"',
-    welche den Namen ihrer Klasse speichert. Dabei handelt es sich immer
-    um den Namen einer Klasse aus "`contentClasses"' oder "`referenceClasses"'.
+    Außerdem besitzt es die Eigenschaft \texttt{class},
+    die den Namen der Klasse des Features speichert. Dabei handelt es sich immer
+    um den Namen einer Klasse aus \texttt{contentClasses} oder \texttt{referenceClasses}.
     Das JSON-Dokument ist also in sich geschlossen und hat keine Verweise auf andere {\resources}.
-    Darüber hinaus besitzt jedes Feature die Eigenschaft "`isCollection"',
-    die entweder "`true"' oder "`false"' sein kann und definiert,
-    ob es sich um ein Collection Feature handelt oder nicht.
+    Darüber hinaus besitzt jedes Feature die Eigenschaft \texttt{isCollection},
+    die entweder \texttt{true} oder \texttt{false} sein kann und definiert,
+    ob es sich um ein {\scalarFeature} oder ein {\collectionFeature} handelt.
     Wie Klassen enthält auch ein Feature einen Selektor.
     Ist dieser leer, ist der Selektor der Klasse zu verwenden.
+    {\childFeature}s werden innerhalb eines Features ebenfalls unter \texttt{contens} bzw.
+    \texttt{references} abgelegt.

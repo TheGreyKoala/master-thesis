@@ -9,6 +9,8 @@
 !- Beschriftungen von Bildern etc. checken
 !- Ganzes Dokument auf Rechtschreibfehler prüfen
 !- TODOs im Quelltext
+!- Keywords der PDF
+!- Abkürzungen (z. B. etc. prüfen.; bzgl. ist falsch --> bez. ist richtig)
 
 !- Ganzes System nochmal durchtesten
 !- Auslieferung zusammenpacken

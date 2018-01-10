@@ -23,6 +23,7 @@
 \usepackage{listingsutf8}
 \usepackage{subcaption}
 \usepackage{color}
+\definecolor{my-string-color}{RGB}{0,128,7}
 
 \lstdefinelanguage{wccdl}{
 	morekeywords={
@@ -63,7 +64,7 @@
 	breakatwhitespace = true,
 	upquote=true,
 	keywordstyle=\color{blue},
-	stringstyle=\color{green}
+	stringstyle=\color{my-string-color}
 }
 
 \lstdefinestyle{wccdl} {
@@ -81,7 +82,7 @@
 	breakatwhitespace = true,
 	upquote=true,
 	keywordstyle=\color{blue},
-	stringstyle=\color{green},
+	stringstyle=\color{my-string-color},
 	commentstyle=\color{red}
 }
 
@@ -100,7 +101,7 @@
 	breakatwhitespace = true,
 	upquote=true,
 	keywordstyle=\color{blue},
-	stringstyle=\color{green}
+	stringstyle=\color{my-string-color}
 }
 
 \lstdefinestyle{html} {
@@ -118,9 +119,27 @@
 	breakatwhitespace = true,
 	upquote=true,
 	keywordstyle=\color{blue},
-	stringstyle=\color{green},
+	stringstyle=\color{my-string-color},
 	emph={article},
 	emphstyle={\color{blue}}
+}
+
+\lstdefinestyle{json} {
+	language = Java,
+	basicstyle = \ttfamily,
+	numberstyle = \footnotesize,
+	showspaces = false,
+	showtabs = false,
+	showstringspaces = false,
+	frame = single,
+	tabsize = 4,
+	captionpos = b,
+	breaklines = true,
+	numbers = left,
+	breakatwhitespace = true,
+	upquote=true,
+	keywordstyle=\color{blue},
+	stringstyle=\color{my-string-color}
 }
 
 \lstset {
@@ -136,7 +155,8 @@
 	numbers = none,
 	breakatwhitespace = true,
 	upquote=true,
-	keywordstyle=\color{blue}
+	keywordstyle=\color{blue},
+	stringstyle=\color{my-string-color}
 }
 
 \usepackage{graphicx}
@@ -243,15 +263,15 @@ Universitätsstraße 1\newline
 
 	\newpage
 
-	%\include{FernUniRelaunch}
-	%\input{ProblemAnalysis/ProblemAnalysis}
-	%\input{SolutionConcept/SolutionConcept}
+	\include{FernUniRelaunch}
+	\input{ProblemAnalysis/ProblemAnalysis}
+	\input{SolutionConcept/SolutionConcept}
 	\input{SolutionDetails/SolutionDetails}
-	%\input{Findings/Findings}
-	%\input{Discussion/FindingsDiscussion}
-	%\input{ending/SummaryAndOutlook}
+	\input{Findings/Findings}
+	\input{Discussion/FindingsDiscussion}
+	\input{ending/SummaryAndOutlook}
 	\appendix
-	%\input{Appendix/Appendix}
+	\input{Appendix/Appendix}
 	\sloppy
 	\printbibliography[heading=bibintoc]
 \end{document}
