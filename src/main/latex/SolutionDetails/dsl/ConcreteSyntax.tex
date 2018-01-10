@@ -1,129 +1,124 @@
 \subsection{Konkrete Syntax und deren Grammatik}
-    Dieses Kapitel geht auf die konkrete Syntax der DSL
-    und deren Grammatik ein.
-    Die vollständige Grammatik ist in Anhang \ref{appendix:dsl}
-    in Listing \ref{listing:dlsGrammar} zu finden.
-    
-    Zur Veranschaulichung zeigt Listing \ref{listing:dlsExample} dazu ein Beispiel.
-    Da es sich um eine deklarative Sprache handelt,
-    sind wie zu sehen viele Schlüsselwörter beschreibend formuliert und verwenden
-    den Indikativ anstelle des Imperativs.
-    Die Intention der konkreten Syntax ist es, eine Klassendefinition
-    so zu formulieren, dass sie als englischer Satz gelesen werden kann.
+    Ein wichtiges Merkmal einer Programmiersprache ist ihre konkrete Syntax.
+    Dieses Kapitel präsentiert die Syntax der \gls{wccdl} und erläutert ihre Grammatik.    
+    Als Einstieg zeigt Listing \ref{listing:dlsExample}
+    dazu ein Beispielhaftes {\classificationModel},
+    welches in der \gls{wccdl} geschrieben wurde.
 
     \lstinputlisting[
         label=listing:dlsExample,
-        caption=Beispielhafte Klassendeklaration,
-        language=wccdl,
+        caption=Ein {\classificationModel} in der \acrshort{wccdl},
+        style=wccdl,
         inputencoding=utf8/latin1
     ]{../resources/dsl/example.wccd}
-    
-    Dieses Beispiel definiert die Seitenklasse Service mit einem \gls{url}-Pattern-Selektor
-    und den beiden Features pageHeading und images.
-    Erstere hat die Inhaltsklasse PageHeading, die ebenfalls im Beispiel definiert wird.
-    Das Feature definiert einen eigenen CSS-Selektor.
-    Das Feature image ist hingegen ein Referenzfeature vom Typ Image und überschreibt
-    den Selektor der Klasse mit einem eigenen.
 
-    Wie aus dem Beispiel hervor geht, ist ein Programm in der DSL eine Sammlung
-    von Klassendefinitionen, die deklarativ beschrieben werden.
-    Die formale Grammatik einer solchen Definition zeigt Listing \ref{listing:dlsGrammarClasses}.
+    Dieses Beispiel definiert die Seitenklasse \texttt{Service} inkl.
+    ihres {\urlSelector}s und den beiden Features \texttt{pageHeading} und \texttt{images}.
+    Erstere besitzt die Inhaltsklasse \texttt{PageHeading}, die ebenfalls im Beispiel definiert wird,
+    und überschreibt deren Selektor mit einem individuellen {\cssSelector}.
+    Das Feature \texttt{image} ist hingegen ein {\referenceFeature} vom Typ
+    \texttt{Image} und überschreibt den Selektor ihrer Klasse ebenfalls.
+
+    Die Intention der Syntax ist eine Klassendefinition
+    als englischsprachigen Satz lesen zu können.
+    Viele Schlüsselwörter -- im Listing blau dargestellt --
+    sind deshalb beschreibend und verwenden
+    den Indikativ anstelle des Imperativs.  
+
+    Die Beschreibung der Grammatik dieser Syntax erfolgt schrittweise
+    und orientiert sich wieder an den Konzepten der
+    Domäne\footnote{vgl. Kapitel \ref{section:conceptClassesFeaturesSelectors}}.
+    
+    \paragraph{Klassen}
+    Listing \ref{listing:dlsGrammarClasses} enthält die Parserregeln,
+    die die allgemeine Syntax von Klassendefinitionen bestimmen.
 
     \lstinputlisting[
         label=listing:dlsGrammarClasses,
-        caption=Klassen in der Grammatik der DSL,
-        language=wccdl,
+        caption=Klassen in der Grammatik der \acrshort{wccdl},
         inputencoding=utf8/latin1,
         style=Xtext
     ]{../resources/dsl/grammar/classes.xtext}
 
     Jede Klassendefinition beginnt mit einer Folge von Schlüsselwörtern,
     die festlegen, um welche Art von Klasse es sich handelt.
-    Die Definition einer Seitenklassen wird demnach mit "`page class"',
-    die einer Inhaltsklassen durch "`content class"' und die einer
-    Referenzklassen durch "`reference class"' angefangen.
-    Anschließend folgt der Name der Klasse, der ein Identifier gemäß
-    der Xtext-Terminal Rule ID sein muss.
-
+    Die Definition einer Seitenklassen beginnt demnach mit \texttt{page class},
+    die einer Inhaltsklassen mit \texttt{content class} und die einer
+    Referenzklassen mit \texttt{reference class}.
+    Anschließend folgt der Name der Klasse, der eine Zeichenkette gemäß
+    der Xtext-Terminal-Rule \texttt{ID} sein muss. % TODO: Referenz?
     Dem Namen kann die Definition des Selektors folgen,
-    was durch die Schlüsselwortsequenz "`is recognized by"' geschieht.
-    Jede Klasse verwendet dabei eine andere Regel,
+    was durch die Schlüsselwortsequenz \texttt{is recognized by} geschieht.
+    Jede Klasse referenziert dazu eine andere Parserregel,
     wodurch syntaktisch sichergestellt ist, dass nur semantisch korrekte Selektoren
     verwendet werden.
-    Die Syntax eines Selektors wird weiter unten beschrieben.
+    Diese Regeln werden später erörtert.
     Bei Inhalts- und Referenzklassen ist der Selektor optional,
-    was man im Beispiel an der Klasse Image sieht.
-    In der Grammatik wird das durch die entsprechende Kardinalität deutlich.
-    Bei Seitenklassen ist der Selektor nicht optional.
-    
-    Im Falle von Seiten- und Inhaltsklassen kann anschließend optional die Deklaration von Features folgen.
-    Bei Referenzen ist da gemäß Konzept nicht möglich.
-    Die Deklaration der Features wird durch das Schlüsselwort "`classifies"' eingeleitet.
-    Dem muss mindestens eine Featuredeklaration folgen, es können aber beliebig viele sein.
+    was man im Beispiel an der Klasse \texttt{Image} sieht und
+    die Grammatik durch die Kardinalität in den Regeln \texttt{ContentClass}
+    und \texttt{ReferenceClass} erlaubt.
+    Bei Seitenklassen ist der Selektor hingegen zwingend erforderlich.
+    Im Falle von Seiten- und Inhaltsklassen kann ebenfalls optional die Deklaration von Features folgen.
+    Bei Referenzen sieht die Grammatik das gemäß der Domäne nicht vor.
 
-    Die formale Grammatik eines Features ist in Listing \ref{listing:dlsGrammarFeatures} zu sehen.
+    \paragraph{Features}
+    Die Deklaration von Features wird durch das Schlüsselwort \texttt{classifies} eingeleitet,
+    dem mindestens eine Deklaration folgen muss.
+    Der entsprechende Teil der Grammatik ist in Listing \ref{listing:dlsGrammarFeatures} zu sehen.
 
     \lstinputlisting[
         label=listing:dlsGrammarFeatures,
-        caption=Features in der Grammatik der DSL,
-        language=wccdl,
+        caption=Features in der Grammatik der \acrshort{wccdl},
         inputencoding=utf8/latin1,
         style=Xtext
     ]{../resources/dsl/grammar/features.xtext}
 
-    Eine Deklaration eines Features beginnt mit der Angabe des Namens des Features
-    (in der Grammatik durch die Regeln "`ScalarFeature"' und "`CollectionFeature"' realisiert),
-    wobei wiederum auf die Terminal-Regel ID zurückgegriffen wird.
-    Anschließend folgt das Schlüsselwort "`as"' welches die Angabe der Klasse
-    des Features einleitet.
-    Soll das Feature allerdings ein CollectionFeature sein, folgt zunächst das
-    Schlüsselwort "`many"' und anschließend erst der Name der Klasse.
-    Dies muss gemäß Konzept eine FeatureClass sein, was entweder eine
-    Inhalts- oder eine Referenzklasse sein kann.
-    Der Klasse kann ein Selektor folgen.
-    Bei ScalarFeatures wird dies durch das Schlüsselwort "`by"',
-    im Falle von CollectionFeatures hingegen durch "`each by"' begonnen.
-    Der Selektor muss ein FeatureSelector sein.
-    Darunter fallen alle Selektoren, die zum Selektieren von Contents oder References geeignet sind.
-    Leider kann die Regel FeatureSelector nicht auf ContentSelector | ReferenceSelector verweisen,
-    weil dadurch eine Doppeldeutigkeit entstünde, die Xtext nicht auflösen kann.
-    Im Beispiel definieren beide Features der Seitenklasse einen Selektor.
+    Eine Deklaration eines Features beginnt mit der Angabe des Namens,
+    wozu die entsprechenden Parserregeln \texttt{ScalarFeature} und \texttt{CollectionFeature}
+    wiederum auf die Regel \texttt{ID} zurückgreifen.    
+    Anschließend folgt das Schlüsselwort \texttt{as}, welches der Angabe der Klasse
+    des Features vorangeht.
+    Soll das Feature ein {\collectionFeature} sein, folgt allerdings zunächst das
+    Schlüsselwort \texttt{many} und anschließend erst der Name der Klasse.
+    Dazu definieren die beiden Regeln einen Querverweis zu einer \texttt{FeatureClass},
+    die ihrerseits zu den oben gezeigten Parserregeln \texttt{ContentClass} oder
+    \texttt{ReferenceClass} delegiert.
+    Dadurch ist sichergestellt, dass nur Inhalts- oder Referenzklassen für Features verwendet werden können.
+    Der Klasse kann ein Selektor folgen,
+    was bei {\scalarFeature}s durch \texttt{by} und bei
+    {\collectionFeature}s durch \texttt{each by} begonnen wird.
+    Der Selektor muss ein \texttt{FeatureSelector} sein,
+    worunter alle Selektoren fallen, zu denen die Regeln \texttt{ContentSelector}
+    und \texttt{ReferenceSelector} delegieren.
+    Welche dies sind, erklärt der nächste Abschnitt.
+    Es sei hier noch erwähnt, dass \texttt{FeatureSelector} nicht zu
+    \texttt{ContentSelector} und \texttt{ReferenceSelector} delegieren kann,
+    was semantisch korrekter wäre,
+    weil dadurch eine unauflösbare Doppeldeutigkeit für den Parser entstünde.
 
+    \paragraph{Selektoren}
     Die Syntax von Selektoren ist für Klassen und Features identisch
-    und ist durch die Grammatik in Listing \ref{listing:dlsGrammarSelectors} definiert.
+    und ist durch den Abschnitt der Grammatik in Listing \ref{listing:dlsGrammarSelectors} definiert.
 
     \lstinputlisting[
         label=listing:dlsGrammarSelectors,
-        caption=Selektoren in der Grammatik der DSL,
-        language=wccdl,
+        caption=Selektoren in der Grammatik der \acrshort{wccdl},
         inputencoding=utf8/latin1,
         style=Xtext
     ]{../resources/dsl/grammar/selectors.xtext}
 
     Die Definition eines Selektors beginnt mit einem Schlüsselwort,
     welches die Art des konkreten Selektors bestimmt.
-    In der Grammatik passiert das durch die Regeln
-    CssSelector, UrlPatternSelector und XPathSelector.
-    Demnach beginnt ein Selektor mit "`css"', "`url pattern"' oder "`xpath"'.
+    In der Grammatik ist das durch die Regeln
+    \texttt{CssSelector}, \texttt{UrlPatternSelector} und \texttt{XPathSelector} definiert.
+    Demnach beginnt ein Selektor mit \texttt{css}, \texttt{url pattern} oder \texttt{xpath}.
     Anschließend folgt in jedem Fall die Definition des Selektors,
     die durch {\flqq } und {\frqq } umschlossen wird.
     Dazwischen können beliebige Zeichen folgen, wobei die Definition mindestens ein Zeichen umfassen muss.
-    Ausgenommen sind Zeichen für Backspace, Formfeed, Linebreak, Carriage Return und Tab.
-    Kein Zeichen muss escaped werden, wie in anderen Sprachen.
-    Das macht die Formulierung besonders einfach.
-    Zum Beispiel im UrlPatternSelector muss der Back-Slash nicht escaped werden.
-    Das ist gut, weil \glspl{url} enthalten oft einen Slash, der in Regex
-    durch Backslash escaped werden muss.
-    Der Backslash muss aber nicht escaped werden, was in anderen Sprachen notwendig wäre.
-    Dies wird durch die Terminal Regel SELECTOR\_VALUE in der Grammatik umgesetzt.
-    Hier wird bewusst nicht die Xtext-Regel STRING verwendet.
-    Da müssen Backslash sowie einfache und doppelte Anführungszeichen escaped werden.
-    Erlaubt außerdem Zeilenumbrüche innerhalb des Textes zu haben,
-    was Selektoren ohne spezielle Nachbehandlung kaputt machen könnte (Regex oder XPath erauben kein Zeilenumbruch).
-    Außerdem macht es die Selektoren schlechter lesbar.
-    Es werden keine Anführungszeichen verwendet, weil damit viele Strings verbinden
-    und ggf. gewisse Erwartungen nicht erfüllt werden. Wie z.B. Dinge escapen zu müssen.
-    Außerdem escaped ein Backslash vor dem schließenden Anführungszeichen dieses Zeichen
-    und der Text wird nicht abgeschlossen. Also auch ein technischer Grund.
-    Und es ist semantisch nicht unbedingt ein String.
-    Sprache könnte auch erweitert werden, sodass Code da drin syntaktisch geprüft wird.
+    Ausgenommen sind nur die Zeichen Backspace, Formfeed, Linebreak, Carriage Return und Tab.
+    Anstelle der Xtext-Terminal-Rule \texttt{STRING} wird hier eine individuelle Regel verwendet.
+    Die durch \texttt{STRING} definierten Zeichenketten müssen einige Zeichen codieren,
+    wie den Rückwärtsschrägstrich oder die einfachen und doppelten Anführungszeichen.
+    Das erschwert die Definition von Selektoren, die von diesen Zeichen gebrauch machen.
+    Durch die Definition einer eigenen Regel kann die \gls{wccdl} ihren Nutzern diese Komplexität
+    ersparen und im Generierungsprozess\footnote{vgl. Kapitel \ref{section:solutionDetailsDslGeneration}} behandeln.
