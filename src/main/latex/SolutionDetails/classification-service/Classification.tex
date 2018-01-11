@@ -97,55 +97,72 @@
     Das wird auch in Listing \ref{listing:classificationAlg} deutlich.
 
     \paragraph{Textueller Inhalt oder Ziel eines Features}
-    Wie in Kapitel \ref{section:conceptPageDataModel} beschrieben speichert
-    ein Content Feature seinen textuellen Inhalt und ein Reference Feature die \gls{url} seines Ziels.
-    Bei Content Features gilt allerdings die Einschränkung, dass nur solche Features ihren textuellen Inhalt speichern,
-    deren Klasse selbst keine Content Features besitzt.
-    Der Grund ist, dass durch Child Features der Text spezieller klassifiziert und in diesen Features
+    Ein {\contentFeature} speichert seinen textuellen Inhalt und ein {\referenceFeature}
+    die \gls{url} seines Zieles\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}}.
+    Bei {\contentFeature}s gilt allerdings die Einschränkung, dass nur solche ihren textuellen Inhalt speichern,
+    bei denen sich kein {\contentFeature} unter den {\childFeature}s befindet.
+    Der Grund ist, dass durch solche {\childFeature}s der Text spezieller klassifiziert und
     feingranularer gespeichert werden kann.
-    Die entsprechenden Werte für Inhalt und Ziel müssen während der Klassifizierung ermittelt werden.
 
-    Für Text eines Content Features ist die Eigenschaft "`innerText"' des zugehörigen Nodes.
-    Anders als "`textContent"' enthält diese Eigenschaft nur den gerenderten Text, d.h. das, was ein Webseitenbesucher sieht.
-    % TODO: Ref: https://html.spec.whatwg.org/#the-innertext-idl-attribute
-    Die Eigenschaft "`textContent"' enthält auch Kommentare, style und script-Tags oder Zeilenumbrüche des Quelltextes.
-    Für den vorliegenden Anwendungsfall ist "`innerText"' deshalb besser geeignet.
+    Inhalt und Ziel müssen während der Klassifizierung ermittelt werden.
+    Für {\contentFeature}s nutzt das \gls{wccs} die Eigenschaft \texttt{innerText} des HTML-Elementes.
+    Anders als \texttt{textContent} enthält diese Eigenschaft nur den gerenderten Text,
+    wodurch \texttt{style}- und \texttt{script}-Elemente sowie Kommentare und Zeilenumbrüche im Quelltext
+    ausgeschlossen werden
+    \cite[Kapitel 3.2.7]{whatwg:html}.
+    Für den Anwendungsfall des \gls{wccs} ist \texttt{innerText} deshalb besser geeignet als \texttt{textContent}.
+    Die \gls{url} einer {\resource} bezieht das \gls{wccs} aus dem Attribut
+    \texttt{href}, \texttt{src} oder \texttt{srcset} des klassifizierten HTML-Elementes.
 
     \paragraph{Bestimmung eines eindeutigen Selektors}
-    Am Ende der Klassifizierung liegt ein Dokument vor, dass dem Datenmodell aus Kapitel \ref{section:conceptPageDataModel} entspricht.
-    Dazu muss für jeden Node ein eindeutiger Selektor ermittelt werden,
-    der zwei Anwendungsfälle hat.
-    Annotator soll ihn Nutzen, die Knoten hervorzuheben.
-    Drittsysteme sollen bei Bedarf den aktuellen Text / Ziel des Knotes ermittelt können.
-    Das \gls{wccs} folgt dabei dem Format von Annotator, welches wiederum auf der Selection DOM-API basiert.
-    % TODO: Ref: https://developer.mozilla.org/en-US/docs/Web/API/Selection
-    Ein Selektor ist demnach ein RangeSelector.
-    Die Range besteht zwischen zwei Punkten,
-    die über XPath-Selektoren und start und endOffset bestimmt werden.
-    Zur Bestimmung der Werte gibt es API, die man nutzen kann, um z. B. einen Node auszuwählen.
-    Das ist das was man bräuchte.
-    Allerdings geht Annotator anders vor.
-    Annotator bestimmt den ersten Text-Node und geht solange immer tiefer
-    in die ersten Child-Nodes, bis es einen Text-Node findet.
-    Der wird dann ausgewählt.
-    Das Ergebnis ist, dass Ranges, die über die API ermittelt wurden,
-    nicht mit Annotator kompatibel sind und Bereichne nicht richtig hervorgehoben werden.
-    Die Logik von Annotator könnte jetzt nachgebaut werden, aber das wäre semantisch falsch.
-    Wir selektieren einen meistens einen ganzen Node und wollen für den den Selektor.
-    Nicht für den ersten Text Node, der ggf. erst im Dritten Child Node kommt.
-    Das wäre auch für Drittsysteme schwer, die die schwere Logik immer nachbauen müssten.
-    Das \gls{wccs} verwendet einen Mittelweg, der beide Fälle gut genug abdeckt.
-    Der XPath selektiert immer den konkreten Node und ist meistens für Start und Ende gleich.
-    Er folgt dem Algorithmus von Annotator, welcher sich die Vaterkette der Nodes hocharbeitet,
-    die Namen der besuchten Nodes durch einen Slash getrennt aneinanderhängt
-    und außerdem die Position eines Nodes innerhalb des Parents anhängt.
-    Beispiel: /html[1]/body[1]/div[2]/header[1].
-    Startoffset ist 0, Endoffset ist die Länge von innerText.
-    Das ist leicht erklär- und nachvollziehbar für Drittsysteme und führt bei Annotator meistens zum richtigen Ergebnis.
-    Ein Spezialfall ist, wenn über XPath ein String ausgewählt wurde.
-    Xpath ist weiterhin der des Nodes, Startoffset ist aber die Startposition des Strings innerhalb des innerTextes des Nodes.
-    Endoffset ist startOffset + Länge des Strings.
-    Sie markieren also die Position des String innerhalb des innerTexts.
-    Das ist immernoch gut für Drittsysteme, führt bei Annotator aber manchmal zu leichten Verschiebungen der Hervorhebung.
+    Eine vollständige Klassifikation enthält für jedes Feature auch einen eindeutigen
+    Selektor des klassifizierten HTML-Elementes\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}}.
+
+    Da diese Information von Annotator benötigt wird,
+    um Annotationen zu erzeugen,
+    orientiert sich das \gls{wccs} für den Aufbau und das Format eines Selektors
+    an dieser Bibliothek.
+    Ein Selektor besteht demnach aus vier Elementen:
+    Zwei XPath-Ausdrücken, die ein Start- und ein Endelement identifizieren
+    sowie zwei numerischen Angaben, die Positionen in diesen Elementen festlegen
+    \footnote{vgl. \url{http://docs.annotatorjs.org/en/v1.2.x/annotation-format.html}}.
+    Dadurch kann Annotator eine Annotation an einer beliebigen Stelle eines Elementes beginnen
+    und innerhalb eines anderen Elementes beenden.
+    Im Falle des \glspl{wccs} sind Start- und Endelement immer identisch,
+    da mit den Selektoren des {\classificationModel}s genau ein Element
+    oder Text innerhalb genau eines Elementes erfasst wird.
+    Die Versatzangaben bestimmen dabei, welcher Bereich dieses Elementes klassifiziert wurde.
+
+    Mit der Selection API des \glspl{w3c} \cite{w3c:selectionAPI} lassen sich diese Angaben bestimmen,
+    was dem \gls{wccs} prinzipiell eine einfache und standardisierte Methode eröffnet.
+    Annotator folgt allerdings einem eigenen Algorithmus,
+    der nach eigenen Versuchen andere Resultate liefert als die Selection API.
+    Selektoren, die mit der Selection API bestimmt wurden,
+    setzt Annotator deshalb nicht den Erwartungen entsprechend in Annotationen um.
+
+    Würde das \gls{wccs} bei der Bestimmung eines eindeutigen Selektors Annotators
+    Algorithmus folgen, müssten Drittsysteme diesen kennen,
+    um die Angaben korrekt interpretieren zu können.
+    Das \gls{wccs} verwendet deshalb einen Mittelweg,
+    der sowohl gute Ergebnisse in Annotator liefert,
+    als auch leicht durch Drittsysteme nachvollzogen werden kann.
+    Die XPath-Ausdrücke sind absolute Angaben, die immer dasselbe Element erfassen und aufgrund ihrer Standardisierung
+    für jedes Drittsystem eindeutig zu interpretieren sind.
+    Das \gls{wccs} folgt bei der Berechnung dieser Ausdrücke Annotators Vorgehen,
+    um eine größtmögliche Kompatibilität zu erzielen.
+    Wurde durch den Selektor des {\classificationModel}s ein vollständiges Element klassifiziert,
+    ist der Versatz im Startelement 0, im Endelement die Länge der Eigenschaft \texttt{innerText} dieses Elementes.
+    Das führt bei Annotator meist zum richtigen Ergebnis.
+    Falls durch einen {\xpathSelector} eine Zeichenkette in einem Element erfasst wurde,
+    berechnen sich Start- und Endversatz wie folgt, wobei die Variable \texttt{text} den klassifizierten Text bezeichnet:
+
+    \begin{lstlisting}
+startOffset = node.innerText.indexOf(text)
+endOffset = startOffset + text.length
+    \end{lstlisting}
+    
+    Diese Berechnung ist leicht nachzuvollziehen,
+    führt bei Annotator in manchen Fällen aber zu leicht verschobenen
+    Annotationen\footnote{vgl. Kapitel \ref{chapter:Findings}}.
 
     % TODO: Ist das interessant? \paragraph{Limitierung der gleichzeitig ausgeführten Klassifizierungen}
