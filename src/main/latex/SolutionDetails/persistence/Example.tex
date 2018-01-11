@@ -1,62 +1,64 @@
-\subsection{Beispiel einer konkreten Klassifikation}
+\subsection{Beispiel}
     \label{section:solutionDetailPersistenceDataModelExample}
-    Dieses Kapitel stellt ein Beispiel für eine konkrete Klassifikation vor,
-    die nach dem oben beschriebenen Modell in der Datenbank gespeichert wird.
-    % TODO: Erwähnen, dass hier eine Seite der KSW genutzt wird?
-    Abbildung \ref{image:dbDataModelExampleOverviewPart1} zeigt den ersten Teil dieses Beispiels.
-    Hier wird zunächst auf die ausführliche Startellung der Eigenschaften der Beziehungen verzichtet.
+    Um das eben beschriebene Datenmodell greifbarer zu machen,
+    präsentiert dieses Kapitel, wie eine konkrete Klassifikation als
+    Graph im {\classificationStorage} gespeichert wird.
+    Spätere Erklärungen nehmen auf dieses Beispiel ebenfalls Bezug.
+
+    Eine Übersicht der Knoten des Beispielgraphs wurde aus Gründen
+    der Übersichtlichkeit auf die Abbildungen \ref{image:dbDataModelExampleOverviewPart1}
+    und \ref{image:dbDataModelExampleOverviewPart2} verteilt.
+    Sie sind über den \texttt{Content}-Knoten \texttt{c5} verbunden
+    und verzichten zunächst auf die ausführliche Darstellung der Eigenschaften der Beziehungen.
 
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/example/example_part1.png}
-        \caption{Beispiel Teil 1}
+        \caption{Beispiel eines Graphs im {\classificationStorage} (1)}
         \label{image:dbDataModelExampleOverviewPart1}
     \end{figure}
 
-    Die klassifizierte Seite wurde als "`GettingStarted"' erkannt und besitzt drei skalare Content Features,
-    die jeweils durch einen Content Knoten repräsentiert werden und die mit der Seite über
-    Owns Beziehungen verknüpft sind.
-    Die Contents c1 und c2 beinhalten Text und sind deshalb mit entsprechenden Text Knoten verbunden.
-    Hingegen hat c3 zwei eigene Content Features und hat deshalb keinen Text. % TODO Siehe da wo erklärt, dass das doof wäre (oben irgendwo)
-    Diese Child Features c4 und c5 besitzen ihrerseits wieder Text.
+    Die betroffene Webseite wurde als "`GettingStarted"' klassifiziert und besitzt drei skalare {\contentFeature}s,
+    für die \texttt{Content}-Knoten existieren.
+    Der \texttt{Page}-Knoten ist mit ihnen über \texttt{Owns}-Beziehungen verbunden.
+    Die Inhalte \texttt{c1} und \texttt{c2} beinhalten Text und sind deshalb mit entsprechenden \texttt{Text}-Knoten verbunden.
+    Hingegen hat \texttt{c3} zwei {\childFeature}s (\texttt{c4} und \texttt{c5}), die seinen Text feingranular speichern
+    und deshalb ihrerseits mit \texttt{Text}-Knoten verbunden sind.
 
-    Ein weiterer Teil des Beispiels ist zur besseren Übersichtlichkeit in
-    Abbildung \ref{image:dbDataModelExampleOverviewPart2} zu sehen.
+    In Abbildung \ref{image:dbDataModelExampleOverviewPart2} ist zu sehen,
+    dass \texttt{c5} neben seinem Text auch zwei {\resources} referenziert,
+    die durch entsprechende \texttt{Resource}-Knoten dargestellt werden.
 
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/example/example_part2.png}
-        \caption{Beispiel Teil 2}
+        \caption{Beispiel eines Graphs im {\classificationStorage} (2)}
         \label{image:dbDataModelExampleOverviewPart2}
     \end{figure}
 
-    Hier ist zu sehen, dass c5 neben seinem Text auch zwei {\resource} referenziert,
-    die durch entsprechende Knoten dargestellt werden.
-    Bei diesen Referenzen handelt es sich um ein Collection Feature,
-    was durch Abbildung \ref{image:dbDataModelExampleRel10} ersichtlich wird.
+    Bei diesen Referenzen handelt es sich um ein {\collectionFeature},
+    was aus Abbildung \ref{image:dbDataModelExampleRel10} hervorgeht,
+    die eine Beziehung zu einem \texttt{Resource}-Knoten detailliert darstellt.
 
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/example/c5-r2.png}
-        \caption{Detailansicht der Beziehung rel10}
+        \caption{Beispiel einer Beziehung zu einer {\resource} im {\classificationStorage}}
         \label{image:dbDataModelExampleRel10}
     \end{figure}
 
-    Neben den konkreten Belegungen der verschiedenen anderen Eigenschaften ist nämlich
-    die Eigenschaft isCollection auf true gesetzt.
-    Des Weiteren wird hier deutlich, wie die Informationen des eindeutigen Selektors des Nodes gespeichert werden.
-    Wie zuvor beschreiben handelt es sich dabei um einen XPath Selektor,
-    weshalb start- und endSelectorValue XPath-Ausdrücke enthalten.
+    Die Eigenschaft \texttt{isCollection} besitzt nämlich den Wert \texttt{true}.
+    Des Weiteren wird hier deutlich, wie die Informationen des eindeutigen Selektors gespeichert werden.
+    Wie zuvor beschreiben\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceClassification}}
+    handelt es sich dabei um zwei XPath-Ausdrücke und um zwei Versatzangaben.
 
-    Analog dazu sieht auch eine konkrete Beziehung zu einem Content Feature aus,
-    wie aus Abbildung \ref{image:dbDataModelExampleRel1} ersichtlich wird.
+    Dem Datenmodell folgend ist eine konkrete Beziehung zu einem \texttt{Content}-Knoten
+    sehr ähnlich aufgebaut, was aus Abbildung \ref{image:dbDataModelExampleRel1} hervorgeht.
+    Sie verzichtet lediglich auf die Speicherung der Klasse.
 
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/example/p-c1.png}
-        \caption{Detailansicht der Beziehung rel1}
+        \caption{Beispiel einer Beziehung zu einem {\contentFeature} im {\classificationStorage}}
         \label{image:dbDataModelExampleRel1}
     \end{figure}
-
-    Die Daten folgen dem gleichen Konzept, wie im vorherigen Kapitel beschrieben,
-    wird die Klasse allerdings nicht in der Beziehung, sondern im Knoten gespeichert.

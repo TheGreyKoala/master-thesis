@@ -1,101 +1,118 @@
 \subsection{Datenmodell}
     \label{section:solutionDetailsPersistenceDataModel}
-    Dieses Kapitel beschreibt, wie eine Klassifikation in der Datenbank modelliert wird.
-    Dabei orientiert es sich an dem Vorgehen in https://neo4j.com/developer/guide-data-modeling/
-    und geht deshalb zunächst darauf ein, welche Entitäten durch Knoten dargestellt werden.
-    Anschließend, wie die Beziehungen aussehen.
-
-    Zur Veranschaulichung zeigt Abbildung \ref{image:dbDataModelOverview} eine Übersicht des Datenmodells.
+    Die Struktur der Graphen im {\classificationStorage} unterscheidet
+    sich von den bisher vorgestellten Datenmodellen.
+    Die Beschreibung dieser Struktur geht zunächst auf die Entitäten ein,
+    die Knoten im Graphen darstellen.
+    Anschließend folgt die Betrachtung der Beziehungen.
+    Abbildung \ref{image:dbDataModelOverview} zeigt zur Veranschaulichung
+    der Ausführungen eine Übersicht dieses Datenmodells.
 
     \begin{figure}
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/nodes.png}
-        \caption{Übersicht der Nodes und ihrer Beziehungen}
+        \caption{Das Datenmodell im {\classificationStorage}}
         \label{image:dbDataModelOverview}
     \end{figure}
 
-    Entitäten, die als Node umgesetzt werden, sind Seiten, Content Features,
-    der Text eines Content Features, referenzierte {\resources} und Sites.
-    Diese erhalten die entsprechenden Labels Page, Content, Text, Reference und Site.
-    Eine Seite kann als {\resource} existieren, bevor sie selbst klassifiziert wird.
-    In diesem Fall erhält der Knoten zum Zeitpunkt der Klassifizierung zusätzlich auch das Label Page.
+    \paragraph{Knoten}
+    Tabelle \ref{image:solutionDetailsPersistenceEntities} zeigt darüber hinaus,
+    welche Entitäten einer Klassifikation als Knoten in der Datenbank dargestellt werden
+    und welche Labels diese Knoten erhalten.
+    Eine Ausnahme stellen Seiten dar,
+    da sie erst als referenzierte {\resources} in die Datenbank aufgenommen werden können,
+    bevor sie selbst einer Klassifizierung unterzogen werden.
+    In diesem Fall erhält die Seite erst das Label \texttt{Resource} und anschließend zusätzlich
+    das Label \texttt{Page}.
 
-    Ein Seitenknoten speichert die \gls{url} der Seite, die auch als eindeutiger Identifier innerhalb der Datenbank dient,
-    und die Klasse der Seite.
+    \begin{table}[htb]
+        \centering
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Entität}                         & \textbf{Label} \\ \hline
+            Seite                                    & Page           \\ \hline
+            {\contentFeature}                        & Content        \\ \hline
+            Textueller Inhalt eines {\contentFeature}s & Text         \\ \hline
+            Referenzierte {\resource}                & Resource       \\ \hline
+            Site                                     & Site           \\ \hline
+        \end{tabular}
+        \caption{Abbildung von Entitäten im Graphen des {\classificationStorage}s}
+        \label{image:solutionDetailsPersistenceEntities}
+    \end{table}
 
-    Der Knoten einer {\resource} enthält lediglich ihre \gls{url}, die wiederum als eindeutiger Schlüssel dient.
-    Wie später deutlich wird, kann er für alle Referenzen, die diese {\resource} als Ziel haben, genutzt werden.
+    Sites werden durch Knoten mit dem gleichnamigen Label gespeichert und enthalten lediglich einen
+    Kennzeichner, der sie identifizierbar macht.
 
-    Knoten mit dem Label "`Content"' enthalten eine Prüfsumme über sich selbst, die innerhalb der Datenbank als Schlüssel Verwendung findet.
-    Im späteren Verlauf geht Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage} darauf ein,
-    wieso diese Eigenschaft des Weiteren benötigt wird.
-    Für skalare Content Features existiert exakt ein Knoten.
-    Für CollectionFeatures existiert ein Knoten pro Element der Liste.
+    Ein Seitenknoten speichert neben der Klasse der Seite auch ihren \gls{url},
+    der ihn innerhalb der Datenbank eindeutig kennzeichnet.
+    Der Knoten einer {\resource} enthält lediglich ihre \gls{url}, die auch hier diese Rolle einnimmt.
 
-    Der Text eines Content Featuers wird in einem separaten Knoten gespeichert,
-    der neben dieser Information nichts speichert und deshalb auch eindeutig über den Text identifiziert wird.
-    Zwischen diesen beiden Knoten existiert deshalb eine Beziehung, die das Label Reads besitzt.
-    Jeder Content Knoten ist maximal mit einem Textknoten verbunden.
-    Der Grund für die Auslagerung ist, dass es viele Features geben kann, die den gleichen textuellen Inhalt besitzen.
-    Die Intention ist diese Eigenschaft im Graphen explizit zu machen,
-    sodass sie leicht für komplexere Analysen genutzt werden kann.
-    Ein Anwendungsfall ist z. B. Informationen aus einer Datenbank,
-    die auf verschiedene Seiten ausgegeben werden.
-    Ein Text Knoten hat in diesem Fall viele eingehende Beziehungen,
-    sodass leicht herausgefunden werden kann, auf welchen Seiten er enthalten ist.
-    Eine explizite Beziehung ist dabei semantisch ausdrucksstärker und effizienter,
-    als ein einfacher String-Vergleich, der über mit allen Knoten gemacht wird.
-    Durch die Beziehung hat man die Info direkt.
-    String-Vergleich ist auch dann nicht mehr sinnvoll, wenn man alle Knoten haben möchte,
-    die sich einen Text teilen.
-    Dann müsste man sehr viele Vergleiche durchführen.
-    Durch die Beziehung ist es einfach nur alle Text Nodes, die mehrere einkommende Kanten haben.
+    Im Falle von {\contentFeature}s besitzt jedes {\scalarFeature} und jedes Element eines {\collectionFeature}s
+    im Graphen einen Knoten mit dem Label \texttt{Content}.
+    Diese enthalten neben der Klasse des Features eine Prüfsumme über das Feature,
+    die innerhalb der Datenbank als Schlüssel solcher Knoten Verwendung findet.
+    Das Schreiben einer Klassifikation macht diese Eigenschaft ebenfalls erforderlich,
+    was später behandelt wird\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage}}.
 
-    Zu guter Letzt speichern Site Knoten die ID der Site, wodurch der Knoten eindeutig identifiziert wird.
-    Jede Seite kann mit beliebig vielen Page Knoten verbunden sein.
-    Diese Beziehungen haben das Label Owns.
+    Der Text eines {\contentFeature}s wird hingegen in einem separaten Knoten mit dem Label \texttt{Text} gespeichert,
+    der neben dieser Information nichts speichert und deshalb auch eindeutig über den Text identifiziert werden kann.
+    Der Grund für die Auslagerung des Textes ist, dass es viele Features geben kann, die den gleichen textuellen Inhalt besitzen.
+    Diese Eigenschaft soll der Graph durch Beziehungen explizit machen,
+    sodass sie leicht für Analysen genutzt werden kann.
+    Eine Beziehung ist semantisch ausdrucksstärker als ein identischer Wert einer Eigenschaft mehrerer Knoten.
+    Die Auswertung ist zugleich effizienter als ein Vergleich aller Knoten bzgl. einer solchen Eigenschaft.
 
-    Sowohl Seiten als auch Content Features können Content Features enthalten.
-    Eine Seite ist zu jedem Content Feature mit einer eigenen Beziehung verbunden,
-    die ebenfalls das Label Owns besitzt.
-    Das gleiche gilt für Contents und ihre eigenen Content Features.
-    Eine genauere Darstellung dieser Beziehung bietet Abbildung \ref{image:dbDataModelContentRelationship}.
+    \paragraph{Kanten}
+    Seiten und {\contentFeature}s sind in der Lage {\contentFeature}s zu enthalten.
+    In der Datenbank ist ein \texttt{Page}-Knoten mit all seinen \texttt{Content}-Knoten
+    durch eine Beziehung mit dem Label \texttt{Owns} verbunden.
+    Das Gleiche gilt für \texttt{Content}-Knoten, um {\childFeature}s zu referenzieren.
+    Eine genauere Darstellung dieser Beziehung bietet Abbildung \ref{image:dbDataModelContentRelationship},
+    in der sie als \texttt{FeatureRelationship} modelliert wird.
 
     \begin{figure}
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/content-relationship.png}
-        \caption{Content Features}
+        \caption{Beziehung zu einem Content-Knoten im Graphen des {\classificationStorage}s}
         \label{image:dbDataModelContentRelationship}
     \end{figure}
 
-    Eine Beziehung zwischen Page und Content bzw. Content und Content
-    wird hier als FeatureRelationship bezeichnet.
-    Eine solche Beziehung besitzt eine Reihe von Eigenschaften.
-    Sie speichert den Namen des Features (name),
-    ob es sich um ein Element eines CollectionFeatures handelt (isCollection)
-    und den eindeutigen Selektor des Nodes, der zum Feature gehört
-    (start-, endSelectorType; start-, endSelectorValue; start- endSelectorOffset, ).
-    Bei Collection Features existieren viele ausgehende Kanten für ein Feature.
-    Jede dieser Beziehungen speichert den gleichen Namen und hat isCollection auf true gesetzt.
-    Es ist sinnvoll diese Informationen nicht im Content Knoten, sondern in der Beziehung zu speichern,
-    um den Knoten besser wiederverwendbar zu machen.
-    Details werden in Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage} erklärt.
+    Die Beziehung speichert eine Reihe an Informationen.
+    Neben dem Namen des Features und der Angabe,
+    ob es sich um ein Element eines {\collectionFeature}s handelt,
+    sind dies die Bestandteile des eindeutigen Selektors des
+    klassifizierten Elementes\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceClassification}}.
+    Obwohl die beiden XPath-Ausdrücke identisch sind\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceClassification}},
+    werden sie einzeln in der Beziehung gespeichert, damit das Datenmodell der Datenbank
+    nicht angepasst werden muss, falls diese Prämisse in Zukunft ungültig wird.
+    Im Falle eines {\collectionFeature}s hat ein Knoten pro Element des Features eine solche
+    ausgehende Kante, die alle den gemeinsamen Namen des Features speichern.
+    Wie später gezeigt wird, ist es sinnvoll diese Informationen nicht im \texttt{Content}-Knoten
+    zu speichern, um ihre Wiederverwendbarkeit zu
+    steigern\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage}}.
 
     Referenzen werden in der Datenbank durch eine Kombination aus
-    {\resource} Knoten und Beziehungen zu diesen Knoten dargestellt.
-    Page und Content Knoten können demanch eine ausgehende Beziehung zu einem
-    {\resource} Knoten haben, die mit References markiert ist.
+    \texttt{Resource} Knoten und Beziehungen zu diesen Knoten dargestellt.
+    Durch eine Beziehung mit dem Label \texttt{References} zeigen
+    \texttt{Page}- oder \texttt{Content}-Knoten an,
+    dass sie ein {\referenceFeature} besitzen, dessen Ziel diese {\resource} ist.
     Abbildung \ref{image:dbDataModelResourceRelationship} stellt diese Beziehung in den Fokus.
 
     \begin{figure}
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/resource-relationship.png}
-        \caption{Reference Features}
+        \caption{Beziehung zu einem {\resource}-Knoten im Graphen des {\classificationStorage}s}
         \label{image:dbDataModelResourceRelationship}
     \end{figure}
 
-    Wie zu sehen ist, handelt es sich bei einer ReferenceRelationship ebenfalls
-    um eine FeatureRelationship, weshalb sie ebenfalls die oben beschriebenen Informationen speichert.
-    Zusätzlich enthält sie aber auch die Klasse der Referenz.
-    Diese kann nicht im {\resource} Knoten gespeichert werden,
-    da der Knoten für viele Referenzen dienen kann und die Klasse nicht überall identisch sein muss.
+    Wie zu sehen ist, handelt es sich bei einer solchen \texttt{ReferenceRelationship} ebenfalls
+    um eine \texttt{FeatureRelationship}, weshalb sie ebenfalls die oben beschriebenen Informationen speichert.
+    Zusätzlich enthält sie aber auch die Klasse des {\referenceFeature}s.
+    Diese kann nicht im \texttt{Resource}-Knoten gespeichert werden,
+    weil er Ziel vieler Referenzen mit unterschiedlichen Klassen sein kann.
+
+    Besitzt ein {\contentFeature} textuellen Inhalt,
+    ist der entsprechende \texttt{Content}-Knoten über eine \texttt{Reads}-Beziehung
+    mit einem \texttt{Text}-Knoten verbunden.
+    Durch \texttt{Owns}-Kanten modellieren \texttt{Site}-Knoten,
+    welche Seiten ihnen angehören.

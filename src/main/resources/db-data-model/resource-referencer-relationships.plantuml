@@ -3,6 +3,6 @@
 !include Page.plantuml
 !include Resource.plantuml
 
-Content --> Resource : References
-Page --> Resource : References
+Content "0..n" --> "0..n" Resource : > references
+Page "0..n" --> "0..n" Resource : > references
 @enduml
