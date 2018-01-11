@@ -1,161 +1,175 @@
 \subsection{Aktualisierung einer Klassifikation}
     \label{section:solutionDetailsClassificationStorageAPIUpdatePage}
-    Dieses Kapitel beschreibt, wie der Service eine Klassifikation in der Datenbank aktualisiert.
-    Der verwendete Algorithmus muss einige Sonderfälle beachten,
+    Beim Aktualisieren einer Klassifikation muss die {\classificationStorageAPI}
+    einige einige Sonderfälle beachten,
     um zum Beispiel die Idempotenz der Operation sicherzustellen.
-    Zur besseren Veranschaulichung verwendet dieses Kapitel das Beispiel
-    aus Kapitel \ref{section:solutionDetailPersistenceDataModelExample}
+    Dieses Kapitel beschreibt die notwendigen Maßnahmen und verwendet
+    zur Veranschaulichung das Beispiel
+    aus Kapitel \ref{section:solutionDetailPersistenceDataModelExample}.
 
-    \paragraph{Fälle}
+    \paragraph{Arten einer Aktualisierung}
     Zur Beschreibung des Vorgehens bei einer Aktualisierung einer Klassifikation,
-    sollte zunächst die Frage geklärt sein, wie eine Änderung an einer Klassifikation aussehen kann.
-    Es lassen sich diese Fälle identifizieren:
+    wird zunächst die Frage beantwortet, welche Arten einer Änderung
+    die {\classificationStorageAPI} unterscheidet.
+    Dabei handelt es sich um die folgenden Szenarien:
 
     \begin{enumerate}
-        \item Ein neues Content Feature wurde auf einer beliebigen Ebene hinzugefügt
-        \item Eine Referenz zu einer bisher unbekannten {\resource} wurde auf einer beliebigen Ebene hinzugefügt
-        \item Eine Referenz zu einer bereits bekannten {\resource} wurde auf einer beliebigen Ebene hinzugefügt
-        \item Ein Feature inklusive seiner Child Features wurde auf einer beliebigen Ebene gelöscht
-        \item Die Klasse einer Seite wurde verändert
+        \item Ein neues {\contentFeature} wurde auf einer beliebigen Ebene hinzugefügt.
+        \item Eine Referenz zu einer bisher unbekannten {\resource} wurde auf einer beliebigen Ebene hinzugefügt.
+        \item Eine Referenz zu einer bereits bekannten {\resource} wurde auf einer beliebigen Ebene hinzugefügt.
+        \item Ein Feature inklusive seiner Child Features wurde auf einer beliebigen Ebene gelöscht.
+        \item Die Klasse einer Seite wurde verändert.
     \end{enumerate}
 
-    Wie im weiteren Verlauf deutlich wird,
-    händelt der Service Änderungen an Features als eine Kombination aus
-    Hinzufügen von Knoten für die neue Version und Löschen der Knoten der alten Version.
-    Es wird außerdem deutlich, warum das für eine Seite nicht so gemacht wird.
+    Änderung an Features, wie das Setzen einer anderen Klasse,
+    interpretiert der Service als Löschung eines Features und Hinzufügen eines neuen Features.
+    Im weiteren Verlauf dieses Kapitels wird deutlich werden,
+    warum er sich so verhält und wieso das bei Seiten nicht der Fall ist.
 
     \paragraph{Herausforderung}
-    Anstatt alle vorhandenen Knoten und Kanten einer Seite zu löschen
-    und neu anzulegen, was sehr viel I/O verursachen würde,
-    versucht der Algorithmus stattdessen den vorhandenen Graphen anzupassen,
+    Bei jeder Änderung den gesamten Graphen zu löschen und neu anzulegen,
+    ist in­ef­fi­zi­ent und verursacht viele Operationen auf Datenträgern.
+    Stattdessen versucht die {\classificationStorageAPI} den vorhandenen Graphen anzupassen,
     sodass er die übermittelte Klassifikation korrekt wiederspiegelt.
-    
     Die Herausforderung dabei ist, dass der Service
-    die einzelnen Schritte, die von der alten zur neuen Version der Klassifikation
-    führen, nicht live verfolgen und entsprechende Anweisungen für die Datenbank generieren kann.
-    Stattdessen erhält der Service die vollständige neue Version
-    und muss die Änderungsschritte für das "`Object-Graph-Mapping"' selbst rekonstruieren.
+    die einzelnen Schritte von der alten zur neuen Version der Klassifikation nicht verfolgen konnte.
+    Stattdessen erhält er das fertige Ergebnis und muss diese Schritte selbst rekonstruieren.
 
     \paragraph{Lösungsidee}
     Anstatt die Differenz zwischen der alten und der neuen Klassifikation zu ermitteln,
-    um entpsrechende Anpassungsanweisungen zu generieren,
-    begegnet die Classification Storage API dieser Herausforderung,
-    indem sie den Algorithmus aus Kapitel \ref{section:solutionDetailsStorageAPIInitialWrite}
-    jedes Mal ausführt und dabei Datenbankanweisungen generiert,
+    um entsprechende Anpassungsanweisungen zu generieren,
+    begegnet die {\classificationStorageAPI} dieser Herausforderung auf eine andere Art und Weise.
+    Sie führt auch in diesem Fall den Algorithmus aus Kapitel \ref{section:solutionDetailsStorageAPIInitialWrite}
+    aus und generiert dabei Datenbankanweisungen,
     die nur bei Bedarf Änderungen an Knoten und Kanten vornehmen oder diese neu anlegen.
-    Dadurch ist der Algorithmus unabhängig vom aktuellen Datenbankzustand.
-    Zwei Beispiele sollen diese Idee verdeutlichen.
+    Teilgraphen gelöschter Features sind dadurch leicht zu erkennen,
+    was im weiteren Verlauf ersichtlich wird.
+    Durch diese Methode ist der Algorithmus unabhängig vom aktuellen Datenbankzustand.
+    Zwei Beispiele sollen die Idee verdeutlichen.
 
-    \paragraph{Beispiel 1 -- Eine unveränderte Seite}
+    \paragraph{Beispiel 1 -- Eine unveränderte Klassifikation}
     Zunächst wird der Fall betrachtet, dass eine Klassifikation unverändert erneut in die Datenbank geschrieben wird.
-    Im Detail wird dazu das Feature c1 aus dem Beispiel in Kapitel
+    Im Detail wird dazu das Feature \texttt{c1} aus dem Beispiel in Kapitel
     \ref{section:solutionDetailPersistenceDataModelExample} betrachtet.
     Zunächst wird für diesen Knoten festgestellt,
-    dass ein Text-Knoten mit dem passenden Inhalt existiert und wiederverwendet werden kann.
-    Ebenso existiert bereits ein passender Content-Knoten und eine Reads-Beziehung (rel4) zwischen diesen Knoten.
-    Am Ende stellt der Algorithmus fest, dass sowohl der Page-Knoten als auch
-    die Beziehung zu c1 nicht neu angelegt werden müssen.
-    Insgesamt hat der Algorithmus also die gesamte zu schreibende Klassifikation abgearbeitet
+    dass ein \texttt{Text}-Knoten mit dem passenden Inhalt existiert und wiederverwendet werden kann.
+    Ebenso existiert bereits ein passender \texttt{Content}-Knoten und eine \texttt{Reads}-Beziehung (\texttt{rel4}) zwischen diesen Knoten.
+    Am Ende stellt der Algorithmus fest, dass sowohl der \texttt{Page}-Knoten als auch
+    die Beziehung zu \texttt{c1} nicht neu angelegt werden müssen.
+    Insgesamt hat der Algorithmus also die gesamte Klassifikation abgearbeitet
     und hat keine Schreiboperationen in der Datenbank durchgeführt.
-    Genau genommen wird diese Logik nicht durch den Kontrollfluss im Service umgesetzt,
-    sondern durch die Datenbankanweisungen, die durch diesen erzeugt werden.
-    % TODO: Erwähnen, welche Funktionen passende STatements erzeugen müssen.
+    Diese Logik wird nicht durch den Kontrollfluss im Service umgesetzt,
+    sondern durch die Datenbankanweisungen, die durch die Funktionen
+    \texttt{contentNode},
+    \texttt{contentRelationship},
+    \texttt{pageNode},
+    \texttt{referenceRelationship},
+    \texttt{resourceNode}
+    \texttt{textNode} und
+    \texttt{textRelationship} in den Listings
+    \ref{listing:storeClassificationPageFlow} und
+    \ref{listing:storeClassificationContentReferenceFunctions}
+    erzeugt werden.
 
-    \paragraph{Beispiel 2 -- Eine veränderte Seite}
+    \paragraph{Beispiel 2 -- Eine veränderte Klassifikation}
     Nun wird an einem zweiten Beispiel gezeigt,
     wie das Vorgehen bei einer Änderung ist.
-    Dazu wird angenommen, dass sich die Klasse von c1 verändert hat.
-    Wie zuvor wird der Text-Knoten wiederverwendet,
+    Dazu wird angenommen, dass sich die Klasse von \texttt{c1} verändert hat.
+    Wie zuvor wird der \texttt{Text}-Knoten wiederverwendet,
     da sich der Inhalt des Features nicht verändert hat.
-    Anders als zuvor wird aber kein passender Content Knoten gefunden,
-    weshalb ein neuer Knoten c1' erzeugt wird, der die neuen Informationen enthält.
-    Genauso wird eine neue Kante rel4' ausgehend von c1' zu c1\_text erzeugt.
-    Am Ende wird der Page-Knoten wiederverwendet,
-    allerdings existiert keine Kante von p zu c1'.
-    Diese wird deshalb in Form von rel1' angelegt,
-    wohingegen rel1, die zum veralteten c1 führt, gelöscht wird.
-    Da c1 ebenfalls verwaist ist, wird er inklusive rel4 gelöscht.
+    Anders als zuvor wird aber kein passender \texttt{Content}-Knoten gefunden,
+    weshalb ein neuer Knoten \texttt{c1'} erzeugt wird, der die neuen Informationen enthält.
+    Genauso wird eine neue Kante \texttt{rel4'} ausgehend von \texttt{c1'} zu \texttt{c1\_text} erzeugt.
+    Am Ende wird der \texttt{Page}-Knoten wiederverwendet.
+    Allerdings existiert keine Kante von \texttt{p} zu \texttt{c1'}.
+    Diese wird deshalb in Form von \texttt{rel1'} angelegt,
+    wohingegen \texttt{rel1}, die zum veralteten \texttt{c1} führt, gelöscht wird.
+    Der Knoten \texttt{c1} ist nun verwaist, da er von keinem \texttt{Page}-Knoten erreichbar ist.
+    Er kann daher inklusive \texttt{rel4} gelöscht werden.
+    Im Falle neuer Features verhält sich der Service analog.
 
-    Einer analogen Logik folgend geht der Service auch für neue Content oder
-    Reference Features vor.
-    
     \paragraph{Konsequenz für den Graphen}
     Das bis hierhin beschriebene Verfahren hat bereits eine wichtige
-    Konsequenzen für den Graphen.
-    Sowohl Text- als auch Content-Knoten können nämlich mehrere einkommende Kanten besitzen.
-    Für Text-Knoten ist das der Fall, wenn es mehrere Features mit identischen Inhalt gibt
-    und für Content-Knoten, wenn es mehrere identische Content Features gibt.
-    Das soll wiederum am Beispiel von c1 verdeutlicht werden,
-    welches die Überschrift der Seite p mit dem textuellen Inhalt "`Einstieg"' darstellt.
-    Angenommen es existiert eine zweite Seite p',
-    die ebenfalls diese Überschrift besitzt.
-    Das beschriebene Verfahren legt dann keinen neuen Content-Knoten an,
-    sondern lediglich eine Kante, die von p' zu c1 führt.
-    Da der Selektor des Features an der Kante gespeichert wird, ist das ohne weiteres möglich.
-    Genauso dürfen Name des Features oder isCollection anders sein.
-    Eine Abzweigung findet immer an dem Punkt statt,
-    ab dem sich zwei Seiten unterscheiden.
-    Das heißt es ist auch möglich, dass nur Child Features tieferer Ebenen
-    von verschiedenen Parent Features referenziert werden.
+    Konsequenz für den Graphen.
+    Sowohl \texttt{Text}- als auch \texttt{Content}-Knoten können nämlich mehrere einkommende Kanten besitzen.
+    Für \texttt{Text}-Knoten ist das der Fall, wenn mehrere {\contentFeature}s mit dem gleichen textuellen Inhalt existieren.
+    Für \texttt{Content}-Knoten, wenn es mehrere komplett identische {\contentFeature}s gibt.
+    Das soll wiederum am Beispiel von \texttt{c1} verdeutlicht werden,
+    welches die Überschrift der Seite \texttt{p} mit dem textuellen Inhalt "`Einstieg"' darstellt.
+    Angenommen es existiert eine zweite Seite \texttt{p'},
+    die ebenfalls diese Überschrift besitzt und die identisch klassifiziert wird.
+    Das beschriebene Verfahren legt dann keinen neuen \texttt{Content}-Knoten an,
+    sondern lediglich eine Kante, die von \texttt{p'} zu \texttt{c1} führt.
+    Da der eindeutige Selektor des Features an der Kante gespeichert wird, ist das ohne Weiteres möglich.
+    Genauso dürfen der Name des Features oder die Eigenschaft \texttt{isCollection} anders sein.
+    Teilgraphen können also auf beliebigen Ebenen von mehreren Klassifikationen geteilt werden.
+    Eine Abzweigung findet dabei immer an dem Punkt statt,
+    ab dem sich die klassifizierten Seiten unterscheiden.
     Das wird im weiteren Verlauf noch deutlicher gezeigt.    
-    Diese Eigenschaft ist nützlich für identische und sich oft wiederholende Bereiche,
-    wie Header oder Footer, die dann nur einmalig gespeichert werden und außerdem
-    Überschneidungen explizit und leicht auswertbar machen.
+    Diese Eigenschaft ist nützlich für identische Inhalte
+    verschiedener Webseiten, wie Kopf- oder Fußbereiche.
+    Diese brauchen dann nur einmalig gespeichert werden.
+    Außerdem macht der Graph diese Überschneidungen explizit wodurch sie leicht
+    ermittelt werden können.
+    % TODO: Was ist mit Resource Knoten? Die doch auch. Steht das irgendwo?
 
     \paragraph{Einschränkungen beim Teilen von Knoten}
     Das gerade beschriebene Teilen von Knoten ist nicht in jedem Fall gestattet.
     Es gibt drei Ausnahmen, die es zu behandeln gilt.
 
-    Es kann der Fall eintreten, dass zwei identische Parent Features
-    ein identisches Child Feature haben,
-    welches innerhalb der Parents aber durch einen anderen Namen referenziert wird.
-    In diesem Fall darf der Knoten des Parent Features nicht geteilt werden,
-    was anhand eines Beispiels deutlich wird.
-    Angenommen c5 und c3 existieren identisch auf den Seiten p und p',
-    aber in p' ist der Name von c5 anders, nämlich c5'.
-    Würde c3 wiederverwendet, existierten zwei Kanten von c3 zu c5,
-    die sich nur im Namen des Features von c5 unterscheiden.
-    Mit dem bisherigen Datenmodell wäre es nicht möglich festzustellen,
-    welche Kante auf welcher Seite gültig ist.
-    Anstelle die \gls{url} der Seite in den Kanten zu speichern,
-    erzeugt der Algorithmus eine Kopie von c3,
-    die eine Kante zu c5 besitzt und den richtigen Namen speichert.
-
-    Durch die Änderung eines Features kann es außerdem passieren,
-    dass ein zuvor geteilter Knoten nicht mehr geteilt werden darf.
-    Zuvor wurde der Fall beschrieben, dass sich c1,
-    also die Überschrift, auf zwei Seiten gleicht und c1 deshalb von beiden Seiten
-    verwendet wird.
-    Falls sich der Text der Überschrfit anschließend auf eine Seite ändert,
-    ist c1\_text nicht mehr für beide Seiten zutreffend.
-    Dieser Text-Knoten darf aber nicht angepasst werden,
-    da er in dieser Form von der anderen Seite benötigt wird.
-    Der Algorithmus legt deshalb eine Kopie von c1\_text und c1 an,
-    was oben bereits beschrieben wurde.
-
-    Der letzte Sonderfall tritt für ein Parent Feature ein,
-    sobald sich irgendeins seiner Child Features verändert hat.
-    Das heißt, es ist ein neues Child Feature hinzugekommen oder
-    ein bestehendes wurde verändert bzw. gelöscht.
-    Das betroffene Child Feature darf nicht angepasst werden,
-    da es in der jetzigen Form noch von anderen Seiten benötigt werden könnte.
-    Das Parent Feature muss in diesem Fall dupliziert werden,
-    sodass die Kopie die Änderung am Child Feature beinhalten kann,
-    ohne das Original zu beeinträchtigen.
-    Auch dieser Fall lässt sich gut veranschaulichen.
-    Angenommen die Seiten p und p' referenzieren beide c3 und teilen sich damit
-    dieses Feature inklusive seiner Child Features.
-    Ändert sich nun beispielsweise die Klasse von c5 auf p',
-    ist das Vorgehen folgendermaßen:
-    Nachdem festgestellt wurde, dass r1, r2 und c5\_text wiederverwendet werden können,
-    wird ein neuer Knoten c5' angelegt, der die neue Klasse enthält
-    und die zuvor genannten Knoten analog zu c5 referenziert.
-    Anschließend erstellt der Algorithmus c3', eine exakte Kopie von c3,
-    der ausgehende Kanten zu c4 und c5' erhält.
-    Abschließend wird eine Kante von p' zu c3' erstellt und die Kante zu c3 dafür gelöscht.
-
-    Durch diese letzte Prämisse ist auch der Fall abgedeckt,
-    dass ein Feature gelöscht wurde.
+    \begin{enumerate}
+        \item Es kann der Fall eintreten, dass zwei Klassifikationen Features besitzen,
+        die sich lediglich im Namen eines {\childFeature}s unterscheiden,
+        welches ansonsten aber ebenfalls identisch ist.
+        In diesem Fall darf der Knoten des {\parentFeature}s nicht geteilt werden,
+        was anhand eines Beispiels deutlich wird.
+        Angenommen \texttt{c3} existiert identisch auf den Seiten \texttt{p} und \texttt{p'}.
+        Auf der zweiten Seite besitzt \texttt{c3} ebenfalls ein Feature,
+        welches \texttt{c5} exakt gleich ist.
+        Allerdings heißt es auf dieser Seite \texttt{c5'}.
+        Eine Wiederverwendung von \texttt{c3} hätte in diesem Fall zur Folge,
+        dass zwei Kanten zwischen \texttt{c3} und \texttt{c5} existieren würden,
+        deren einziger Unterschied die Eigenschaft \texttt{name} wäre.
+        Mit dem verwendeten Datenmodell wäre es nicht möglich festzustellen,
+        welche Kante zu welcher Klassifikation gehört,
+        d. h. welche Klassifikation das Feature \texttt{c5} und welche \texttt{c5'} nennt.
+        Anstelle die jeweilige \gls{url} der Seite in den Kanten zu speichern,
+        erzeugt der Algorithmus für \texttt{p'} eine Kopie von \texttt{c3}
+        und eine Kante von diesem neuen Knoten zu \texttt{c5},
+        welche den Namen \texttt{c5'} speichert.
+        \item Durch die Änderung eines Features kann es außerdem passieren,
+        dass ein zuvor geteilter Knoten nicht mehr geteilt werden darf.
+        Oben wurde der Fall beschrieben, dass \texttt{c1}
+        von zwei Klassifikationen verwendet wird.
+        Falls sich der Text der Überschrfit auf \texttt{p'} ändert,
+        ist \texttt{c1\_text} nicht mehr für beide Seiten zutreffend.
+        Der Inhalt dieses \texttt{Text}-Knotens darf aber nicht angepasst werden,
+        weil er für \texttt{p} weiterhin korrekt ist.
+        Der Algorithmus legt deshalb eine Kopie von \texttt{c1\_text} und \texttt{c1} an
+        und erzeugt entsprechende Verbindungen zwischen ihnen und zu \texttt{p'}.
+        \item Der letzte Sonderfall tritt für ein Parent Feature ein,
+        sobald sich irgendeins seiner Child Features verändert hat.
+        Das heißt, es ist ein neues Child Feature hinzugekommen oder
+        ein bestehendes wurde verändert bzw. gelöscht.
+        Das betroffene Child Feature darf nicht angepasst werden,
+        da es in der jetzigen Form noch von anderen Seiten benötigt werden könnte.
+        Das Parent Feature muss in diesem Fall dupliziert werden,
+        sodass die Kopie die Änderung am Child Feature beinhalten kann,
+        ohne das Original zu beeinträchtigen.
+        Auch dieser Fall lässt sich gut veranschaulichen.
+        Angenommen die Seiten p und p' referenzieren beide c3 und teilen sich damit
+        dieses Feature inklusive seiner Child Features.
+        Ändert sich nun beispielsweise die Klasse von c5 auf p',
+        ist das Vorgehen folgendermaßen:
+        Nachdem festgestellt wurde, dass r1, r2 und c5\_text wiederverwendet werden können,
+        wird ein neuer Knoten c5' angelegt, der die neue Klasse enthält
+        und die zuvor genannten Knoten analog zu c5 referenziert.
+        Anschließend erstellt der Algorithmus c3', eine exakte Kopie von c3,
+        der ausgehende Kanten zu c4 und c5' erhält.
+        Abschließend wird eine Kante von p' zu c3' erstellt und die Kante zu c3 dafür gelöscht.
+        Durch diese letzte Prämisse ist auch der Fall abgedeckt,
+        dass ein Feature gelöscht wurde.
+    \end{enumerate}
 
     \paragraph{Abschließende Operationen}
     Der einzige offene Punkte der Liste am anfang des Kapitels ist die Änderung der Klasse der Seite.
@@ -192,7 +206,7 @@
     Die Anweisung muss alle Child Features abdecken, damit im Falle einer Differenz eines Childs,
     auch die Beziehungen zu den restlichen Childs vom kopierten Parent ausgehend angelegt werden.
     Bei separaten Anweisungen für jedes Child Feature, wäre das nicht möglich.
-    Die Checksumme wird deshalb über das gesamte Content Feature inklusive aller seiner Child Features gebildet.
+    Die Checksumme wird deshalb über das gesamte {\contentFeature} inklusive aller seiner Child Features gebildet.
     Andere Methoden, um dies zu erreichen, erweisen sich als zu komplex und ineffizient.
     Der Grund dafür ist die eindimensionale Natur eines MERGE-Statements.
     Dadurch ist es nicht möglich ein einzelnes Statement zu formulieren,

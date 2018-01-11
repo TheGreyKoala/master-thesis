@@ -1,20 +1,96 @@
 \subsection{Funktionen und Schnitstellen}
-    Die Intention der Classification Storage API ist es,
-    fachliche Anfragen an die Datenbank in technische Datenbankanfragen zu übersetzen,
-    sodass die technischen Details der Datenbank vor dem restlichen System verborgen bleiben.
-    Zu diesem Zweck bietet der Service eine REST-Schnittstelle,
-    die die unterstützen Operationen beschreibt.
-    Dieser Schnitstelle und den fachlichen Funktionen widmet sich dieses Kapitel.
-    Die \glspl{url} der Schnittstelle sind hierarchisch aufgebaut.
-    Die folgenden Ausführungen folgen dieser Hierarchie und beginnen deshalb mit der obersten Funktion.
+    Die Intention der {\classificationStorageAPI} ist es,
+    fachliche Anfragen an das System in Anfragen an die Datenbank zu übersetzen,
+    sodass deren technischen Details verborgen bleiben.
+    Dieses Kapitel widmet sich der Schnittstelle der {\classificationStorageAPI},
+    deren \glspl{url} hierarchisch aufgebaut sind.
+    Die Beschreibung erfolgt anhand dieser Hierarchie
+    und verwendet das bekannte Format\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceFunctions}}.
 
-    \paragraph{Format einer Seite}
-    Zunächst soll aber geklärt werden, wie die Classification Storage API das Datenmodell einer Seite
-    (siehe Kapitel \ref{section:conceptPageDataModel}) konkret umsetzt.
-    % TOODO: KONKRETES FORMAT EINER SEITE
+    \paragraph{Format einer Klassifikation}
+    Zunächst muss aber geklärt werden, wie die {\classificationStorageAPI} das Datenmodell einer
+    Klassifikation\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}} konkret als JSON-Dokument umsetzt.
+    Listing \ref{listing:solutionDetailsStorageAPIPageFormatPage} zeigt die oberste Ebene,
+    die die Informationen zur Seite enthält.
+    Features speichert es in den Objekten \texttt{contents} und \texttt{references},
+    deren Inhalt in Listing \ref{listing:solutionDetailsStorageAPIPageFormatConten}
+    und \ref{listing:solutionDetailsStorageAPIPageFormatReference} ausgelagert wurde.
+
+    \begin{lstlisting}[
+        label=listing:solutionDetailsStorageAPIPageFormatPage,
+        caption=Format einer Klassifikation in der {\classificationStorageAPI} (1),
+        style=json
+    ]
+{
+    "class": "Service",
+    "url": "http://www.fernuni-hagen.de/KSW/portale/babw/service/",
+    "status": "Classified",
+    "contents": { ... },
+    "references": { ... }
+}
+    \end{lstlisting}
+
+    Listing \ref{listing:solutionDetailsStorageAPIPageFormatConten}
+    zeigt ein beispielhaftes {\contentFeature},
+    wobei der Selektor ausgelassen wurde.
+    Dieser wird später vorgestellt.
+
+    \begin{lstlisting}[
+        label=listing:solutionDetailsStorageAPIPageFormatConten,
+        caption=Format einer Klassifikation in der {\classificationStorageAPI} (2),
+        style=json
+    ]
+"heading": {
+    "class": "PageHeading",
+    "content": "Service",
+    "selector": { ... },
+    "contents": { ... },
+    "references": { ... }
+}
+    \end{lstlisting}
+
+    Ein {\referenceFeature}, welches gleichzeitig ein {\collectionFeature} ist,
+    zeigt Listing \ref{listing:solutionDetailsStorageAPIPageFormatReference}.
+    Der Unterschied zu einem {\scalarFeature} (wie dem oberen) ist,
+    dass das Feature kein Objekt, sondern ein Array ist,
+    welches wiederum {\scalarFeature}s enthält.
+
+    \begin{lstlisting}[
+        label=listing:solutionDetailsStorageAPIPageFormatReference,
+        caption=Format einer Klassifikation in der {\classificationStorageAPI} (3),
+        style=json
+    ]
+"fernUniLinks": [{
+    "class": "FernUniInternalLink",
+    "destination": "http://[ ... ]/babw/service/kontakt/",
+    "selector": { ... }
+}]
+    \end{lstlisting}
+
+    Das Format des eindeutigen Selektors eines Features ist für {\contentFeature}s
+    und {\referenceFeature}s identisch.
+    Listting \ref{listing:solutionDetailsStorageAPIPageFormatSelector} zeigt ein entsprechendes Beispiel.
+
+    \begin{lstlisting}[
+        label=listing:solutionDetailsStorageAPIPageFormatSelector,
+        caption=Format einer Klassifikation in der {\classificationStorageAPI} (4),
+        style=json
+    ]
+"type": "RangeSelector",
+"startSelector": {
+    "type": "XPathSelector",
+    "value": "/html[1]/body[1]/div[1]/[ ... ]/h3[1]",
+    "offset": 0
+},
+"endSelector": {
+    "type": "XPathSelector",
+    "value": "/html[1]/body[1]/div[1]/[ ... ]/h3[1]",
+    "offset": 7
+}
+    \end{lstlisting}
 
     \paragraph{Sites abfragen}
-    Die Classification Storage API erlaubt es alle bekannten Sites abzurufen.
+    Die {\classificationStorageAPI} erlaubt es alle bekannten Sites abzurufen.
     Dazu bietet sie die Schnittstelle in Tabelle \ref{table:getSitesInterface}.
 
     \begin{table}[htb]
@@ -25,20 +101,20 @@
         \hline
         \textbf{Methode} & \texttt{GET}\\
         \hline
-        \textbf{Status} & \texttt{200 (OK)}\\
+        \textbf{Statuscode} & \texttt{200 (OK)}\\
         \hline
         \textbf{Ausgabedokument} & \lstinputlisting[title=Test123]{../resources/classification-storage-api/sites.json}\\
         \hline
         \end{tabular}
-        \caption{Schnittstelle zum Holen aller Sites}
+        \caption{Schnittstelle zum Abfragen aller Sites}
         \label{table:getSitesInterface}
     \end{table}
 
-    Das Ausgabedokument sammelt alle Sites im Array "`sites"', wobei jedes Objekt die ID der jeweiligen Seite enthält.
+    Das Ausgabedokument sammelt alle Sites im Array \texttt{sites}, wobei jedes Objekt die ID der jeweiligen Seite enthält.
 
     \paragraph{Seiten einer Site abfragen}
-    Interessant an einer Site ist die Information, welche Seiten zu ihr gehören.
-    Diese lässt sich über die Schnittstelle in Tabelle \ref{table:getSitePagesInterface} für eine spezifische Site abfragen.
+    Interessant an einer Site ist die Information, welche klassifizierten Webseiten zu ihr gehören.
+    Diese lässt sich über die Schnittstelle in Tabelle \ref{table:getSitePagesInterface} für eine spezifische Site ermitteln.
 
     \begin{table}[htb]
         \centering
@@ -48,25 +124,24 @@
         \hline
         \textbf{Methode} & \texttt{GET}\\
         \hline
-        \textbf{Status} & \texttt{200 (OK)}\\
+        \textbf{Statuscode} & \texttt{200 (OK)}\\
         \hline
-        \textbf{Ausgabedokument} & \lstinputlisting{../resources/classification-storage-api/site-pages.json}\\
+        \textbf{Ausgabedokument} & \lstinputlisting[title=PagesOfSite]{../resources/classification-storage-api/site-pages.json}\\
         \hline
         \end{tabular}
-        \caption{Schnittstelle zum Holen aller Seiten einer Site}
+        \caption{Schnittstelle zum Abfragen aller klassifizierter Webseiten einer Site}
         \label{table:getSitePagesInterface}
     \end{table}
 
     Wie zu sehen ist, muss die Anfrage-\gls{url} die ID der Site beinhalten.
-    Die Seiten einer Site sind im Ausgabedokument im Array "`pages"' abgelegt.
-    Jede Seite enthält ihre \gls{url}, ihre Klasse und ihren Status.
+    Die Seiten einer Site sind im Ausgabedokument im Array \texttt{pages} abgelegt.
+    Jede Seite enthält ihren \gls{url}, ihre Klasse und ihren Status.
     Informationen über ihre Features sind nicht enthalten,
     da der Fokus wie beschrieben auf der fachlichen Frage besteht,
-    welche Seiten zu einer Site gehören.
-    Die vollständige Klassifikation einer Site kann über die folgende Schnittstelle bezogen werden.
+    welche Webseiten zu einer Site gehören.
 
     \paragraph{Klassifikation einer Seite}
-    Die interessanteste Information die das \gls{wccs} liefern kann,
+    Die interessanteste Information, die die {\classificationStorageAPI} liefern kann,
     ist selbstverständlich die vollständige Klassifikation einer Seite.
     Diese kann für eine spezifische Webseite über zwei Schnittstellen ermittelt werden.
     Beide werden in Tabelle \ref{table:getFullPageInterface} vorgestellt.
@@ -79,28 +154,28 @@
         \hline
         \textbf{Methode} & \texttt{GET}\\
         \hline
-        \textbf{Status} & \texttt{200 (OK)}\\
+        \textbf{Statuscode} & \texttt{200 (OK)}\\
         \hline
-        \textbf{Ausgabedokument} & Page\\
+        \textbf{Ausgabedokument} & Klassifikation\\
         \hline
         \end{tabular}
-        \caption{Schnittstelle zum Holen der Klassifikation einer Seite}
+        \caption{Schnittstelle zum Abfragen der Klassifikation einer Webseite}
         \label{table:getFullPageInterface}
     \end{table}
 
     Die Anfrage-\gls{url} kann die Informationen der Site beinhalten,
     wodurch die bisher verfolgte Hierarchie der {\resources} fortgesetzt wird.
-    Die ID eine Seite (ihre \gls{url}), die in jeden Fall enthalten sein muss, identifiziert sie allerdings eindeutig,
+    Die \gls{url} einer Seite identifiziert sie allerdings eindeutig,
     weshalb die Site auch ausgelassen werden kann.
-    Das macht sich zum Beispiel das Annotator Plugin zunutze,
-    die die Site der Seite, auf dem es ausgeführt wird, nicht bestimmen kann
-    (siehe Kapitel \ref{section:solutionDetailsAnnotatorPlugin}).
-    Die Antwort ist in beiden Fällen eine vollständige Seite,
-    wie am Anfang diese Kapitels vorgestellt wurde.
+    Das macht sich zum Beispiel das {\annotatorPlugin} zunutze,
+    welches die Site der aktuellen Webseite nicht bestimmen
+    kann\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotatorPlugin}}.
+    Die Antwort ist in beiden Fällen eine vollständige Klassifikation,
+    wie sie am Anfang dieses Kapitels vorgestellt wurde.
 
     \paragraph{Klassifikation einer Seite speichern}
-    Neben dem Lesen einer Klassifikation unterstützt die Schnittstelle natürlich auch das Schreiben einer Klassifikation,
-    worauf der Classification Service und das Annotator Plugin zurückgreifen.
+    Neben dem Lesen einer Klassifikation unterstützt die Schnittstelle auch das Schreiben einer Klassifikation,
+    worauf der {\classificationService} und das {\annotatorPlugin} zurückgreifen.
     Auch hierfür bietet die Komponente zwei Schnittstellen, die in Tabelle \ref{table:writePageInterface} zu sehen sind.
 
     \begin{table}[htb]
@@ -111,15 +186,15 @@
         \hline
         \textbf{Methode} & \texttt{PUT}\\
         \hline
-        \textbf{Eingabedokument} & Page\\
+        \textbf{Eingabedokument} & Klassifikation\\
         \hline
-        \textbf{Status} & \texttt{201 (Created)} oder \texttt{204 (No Content)}\\
+        \textbf{Statuscode} & \texttt{201 (Created)} oder \texttt{204 (No Content)}\\
         \hline
         \end{tabular}
-        \caption{Schnittstelle zum Schreiben der Klassifikation einer Seite}
+        \caption{Schnittstelle zum Schreiben der Klassifikation einer Webseite}
         \label{table:writePageInterface}
     \end{table}
 
-    Wie beim Lesen einer Klassifikation kann die Anfrage-\gls{url} optional auch die Site-Informationen enthalten.
-    Als Eingabe erwartet der Service eine Seite, wie sie oben beschrieben wurde.
-    Der Status der Antwort zeigt an, ob eine neue Klassifikation angelegt oder eine vorhandenen aktualisiert wurde.
+    Wie beim Lesen einer Klassifikation kann die Anfrage-\gls{url} optional auch die ID der Site enthalten.
+    Als Eingabe erwartet der Service eine vollständige Klassifikation im oben beschriebenen Format.
+    Der Statuscode zeigt an, ob eine neue Klassifikation angelegt (201) oder eine vorhandenen aktualisiert wurde (204).

@@ -1,6 +1,6 @@
 !- Kapitel 1+2 überarbeiten
 !- Alle Kapitel schön schreiben
---> Weiter bei 4.2.2, Textueller Inhalt ...
+--> Weiter bei 4.4.3, Der letzte Sonderfall
 
 !- Deckblatt
 ?- Spezifikation der APIs erstellen und in Anhang
