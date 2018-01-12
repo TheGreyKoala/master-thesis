@@ -147,91 +147,159 @@
         weil er für \texttt{p} weiterhin korrekt ist.
         Der Algorithmus legt deshalb eine Kopie von \texttt{c1\_text} und \texttt{c1} an
         und erzeugt entsprechende Verbindungen zwischen ihnen und zu \texttt{p'}.
-        \item Der letzte Sonderfall tritt für ein Parent Feature ein,
-        sobald sich irgendeins seiner Child Features verändert hat.
-        Das heißt, es ist ein neues Child Feature hinzugekommen oder
-        ein bestehendes wurde verändert bzw. gelöscht.
-        Das betroffene Child Feature darf nicht angepasst werden,
-        da es in der jetzigen Form noch von anderen Seiten benötigt werden könnte.
-        Das Parent Feature muss in diesem Fall dupliziert werden,
-        sodass die Kopie die Änderung am Child Feature beinhalten kann,
-        ohne das Original zu beeinträchtigen.
+        \item Der letzte Sonderfall tritt ein, wenn sich {\childFeature}s ändern,
+        also wenn ein neues hinzukommt oder ein bestehendes verändert oder gelöscht wird.
+        Sowohl der Knoten des {\parentFeature}s als auch der eines veränderten {\childFeature}s
+        dürfen nicht angepasst werden, da sie in der jetzigen Form noch von anderen
+        Klassifikationen benötigt werden könnten.
+        Der Knoten des {\parentFeature}s muss in diesem Fall dupliziert werden,
+        sodass die Änderung übernommen werden kann,
+        ohne den jetzigen Stand für andere Klassifikationen zu beeinträchtigen.
         Auch dieser Fall lässt sich gut veranschaulichen.
-        Angenommen die Seiten p und p' referenzieren beide c3 und teilen sich damit
-        dieses Feature inklusive seiner Child Features.
-        Ändert sich nun beispielsweise die Klasse von c5 auf p',
-        ist das Vorgehen folgendermaßen:
-        Nachdem festgestellt wurde, dass r1, r2 und c5\_text wiederverwendet werden können,
-        wird ein neuer Knoten c5' angelegt, der die neue Klasse enthält
-        und die zuvor genannten Knoten analog zu c5 referenziert.
-        Anschließend erstellt der Algorithmus c3', eine exakte Kopie von c3,
-        der ausgehende Kanten zu c4 und c5' erhält.
-        Abschließend wird eine Kante von p' zu c3' erstellt und die Kante zu c3 dafür gelöscht.
-        Durch diese letzte Prämisse ist auch der Fall abgedeckt,
-        dass ein Feature gelöscht wurde.
+        Angenommen die \texttt{Page}-Knoten \texttt{p} und \texttt{p'} referenzieren beide \texttt{c3} und teilen sich damit
+        dieses Feature inklusive seiner {\childFeature}s.
+        Ändert sich nun die Klasse von \texttt{c5} in \texttt{p'},
+        darf \texttt{c5} nicht angepasst werden, weil sich seine Klasse in \texttt{p} nicht verändert hat.
+        Das Vorgehen ist stattdessen folgendermaßen:
+        Nachdem festgestellt wurde, dass \texttt{r1}, \texttt{r2} und \texttt{c5\_text} wiederverwendet werden können,
+        wird ein neuer Knoten \texttt{c5'} angelegt, der eine Kopie von \texttt{c5} ist, aber die neue Klasse enthält.
+        Die zuvor genannten Knoten referenziert \texttt{c5'} analog zu \texttt{c5}.
+        Anschließend erstellt der Algorithmus \texttt{c3'}, eine exakte Kopie von \texttt{c3}.
+        Für \texttt{c3'} werden außerdem Kanten zu \texttt{c4} und \texttt{c5'} angelegt.
+        Abschließend wird eine Kante von \texttt{p'} zu \texttt{c3'} erstellt und die Kante zu \texttt{c3} dafür gelöscht.
+        Jede Klassifikation enthält dann die jeweils korrekten Informationen.
+        Wird ein Feature ergänzt oder entfernt, referenziert der kopierte Knoten des {\parentFeature}s
+        entsprechend einen Knoten mehr oder weniger als das original.
     \end{enumerate}
 
     \paragraph{Abschließende Operationen}
-    Der einzige offene Punkte der Liste am anfang des Kapitels ist die Änderung der Klasse der Seite.
-    Dieser kann sehr einfach begegnet werden, indem die Klasse der Seite jedes mal neu gesetzt wird.
+    Von den zu Beginn dieses Kapitels beschriebenen Arten einer Aktualisierung wurde ein Fall bisher nicht betrachten.
+    Das ist die Änderung der Klasse einer Seite.
+    Anders als Features besitzen Seiten in der Datenbank eine global gültige Klasse,
+    weshalb keine Kopie angelegt werden muss.
+    Auch dann nicht, wenn die Seite Ziel verschiedener Referenzen ist,
+    da die Klasse einer Referenz in einer Kante gespeichert wird.
+    Stattdessen kann ein \texttt{Page}-Knoten direkt angepasst werden.
     Nach der Ausführung des beschriebenen Algorithmus kann die Datenbank
-    Content- und {\resource}-Knoten enthalten, die keine eingehenden Knoten besitzen.
-    Sie verletzen nicht die Konsistenz irgendeiner Klassifikation, da sie verwaist sind,
-    sind aber trotzdem überflüssig.
-    Aus diesem Grund setzt der Algorithmus abschließend eine Anweisung an die Datenbank,
-    die Teilgraphen sucht, die von keiner Seite aus erreichbar sind, und löscht.
-    Außerdem wird ein Knoten für die Site sowie eine Kante zur Seite sichergestellt.
+    Teilgraphen enthalten, die von keinem \texttt{Page}-Knoten erreicht werden können.
+    Sie werden also von keiner Klassifikation mehr benötigt.
+    Solche Bereiche verletzen nicht die Konsistenz irgendeiner Klassifikation,
+    sind aber obsolet, weshalb sie automatisch gelöscht werden.
+    Abschließend wird außerdem ein Knoten für die Site sowie eine Kante zum \texttt{Page}-Knoten sichergestellt.
 
     \paragraph{Datenbankanweisungen}
-    Wie bereits erwähnt wurde, wird die oben beschriebene Logik nicht innerhalb
-    des Services umgesetzt, sondern durch die Datenbankanweisungen, die es generiert.
-    Deshalb sollen diese Anweisungen ebenfalls kurz erläutert werden.
-    
-    Eine Schlüsselrolle spielt das MERGE-Statement,
-    welches Muster im Graphen sucht und bei Bedarf anlegt.
-    %TODO: Referenz: https://neo4j.com/docs/developer-manual/3.3/cypher/clauses/merge/
+    Den beschriebenen Algorithmus realisiert die {\classificationStorageAPI}
+    zu großen Teilen ausschließlich über Datenbankanweisungen,
+    die an dieser Stelle deshalb ebenfalls kurz erläutert werden.
+    Eine Schlüsselrolle spielt dabei Cyphers \texttt{MERGE}-Anweisung,
+    die Muster im Graphen sucht und bei Bedarf anlegt
+    \cite[Kapitel 3.3.16]{neo4j:documentation}.
+
     Die in Listing \ref{listing:storeClassificationContentReferenceFunctions} genutzten
-    Funktionen textNode und resourceNode erzeugen deshalb simple Anweisungen:
-    \texttt{MERGE (t:Text {value: \$t.value})} und \texttt{MERGE (r:Resource {url: \$r.destination})},
-    wobei "`\$t"' und "`\$r"' Objekte sind, die der Datenbank inklusive der Anweisungen übergeben werden.
-    Die Eigenschaften "`value"' bzw. "`url"' dienen also der eindeutigen Identifizierung von
-    Text- und {\resource}-Knoten, was auch schon in Kapitel
-    \ref{section:solutionDetailsPersistenceDataModel} erklärt wurde
-    und weshalb diese Eigenschaft über Unique Property Constraints sichergestellt wird
-    (siehe Kapitel \ref{section:solutionDetailsPersistenceDatabse}).
+    Funktionen \texttt{textNode} und \texttt{resourceNode} erzeugen simple Anweisungen,
+    die nach einem \texttt{Text}-Knoten mit spezifischem Inhalt bzw.
+    einem \texttt{Resource}-Knoten mit einer gewissen \gls{url} suchen,
+    und bei Bedarf anlegen:
 
-    Für Content Nodes wird die Anweisung
-    \texttt{MERGE (c:Content {checksum: \$c.checksum, class: \$c.class})} erzeugt,
-    wobei die Checksumme das eigentliche Kriterium der eindeutigen Identifizierung darstellt.
-    Die Anweisung muss alle Child Features abdecken, damit im Falle einer Differenz eines Childs,
-    auch die Beziehungen zu den restlichen Childs vom kopierten Parent ausgehend angelegt werden.
-    Bei separaten Anweisungen für jedes Child Feature, wäre das nicht möglich.
-    Die Checksumme wird deshalb über das gesamte {\contentFeature} inklusive aller seiner Child Features gebildet.
-    Andere Methoden, um dies zu erreichen, erweisen sich als zu komplex und ineffizient.
-    Der Grund dafür ist die eindimensionale Natur eines MERGE-Statements.
+    \begin{lstlisting}[
+        style=cypher,
+        label=listing:solutionDetailsClassificationStorageAPIStatementsTextResource,
+        caption=Datenbankanweisungen für \texttt{Text}- \texttt{Resource}-Knoten
+    ]
+MERGE (t:Text {value: $t.value}) // Merge a Text node
+MERGE (r:Resource {url: $r.destination}) // Merge a Resource node
+    \end{lstlisting}
+    
+    Die gesuchten Werte speichern die Objekte \verb+$t+ und \verb+$r+,
+    die der Datenbank mit den Anweisungen genannt werden.
+
+    Für jeden \texttt{Content}-Knoten wird die folgende Anweisung erzeugt,
+    wobei die speziellen Informationen jedes Knotens im Objekt \verb+$c+
+    abgelegt werden.
+
+    \begin{lstlisting}[
+        style=cypher,
+        label=listing:solutionDetailsClassificationStorageAPIStatementsContent,
+        caption=Datenbankanweisung für \texttt{Content}-Knoten
+    ]
+MERGE (c:Content {checksum: $c.checksum, class: $c.class})
+    \end{lstlisting}
+
+    Die Anweisung sucht nach Übereinstimmungen mit vorhandenen \texttt{Content}-Knoten,
+    wobei sie sicherstellen muss, dass dieses auch die {\childFeature}s beinhaltet.
+    Wie oben beschrieben muss sie nämlich auch bei einer Abweichung in dieser Menge einen neuen Knoten anlegen.
+    Dazu wird im Algorithmus  eine Prüfsumme über das gesamte Feature inkl. seiner {\childFeature}s gebildet,
+    die dann als Suchkriterium der \texttt{MERGE}-Anweisung dient.
+    Ausgenommen von der Prüfsumme ist lediglich der eindeutige Selektor eines Features,
+    da er in der eingehenden Kante des \texttt{Content}-Knotens gespeichert wird
+    und deshalb nicht in allen Features übereinstimmen muss.
+
+    Andere Methoden, um das mit der Prüfsumme verfolgte Ziel zu erreichen,
+    sind zu komplex und ineffizient, um praktikabel zu sein.
+    Der Grund dafür ist die eindimensionale Natur einer \texttt{MERGE}-Anweisung.
     Dadurch ist es nicht möglich ein einzelnes Statement zu formulieren,
-    dass n ausgehende Kanten zu n verschiedenen Knoten matcht.
-    Mehrere Kanten und Knoten können nur über verallgemeinerte Statements gematcht werden,
-    was für den vorliegenden Fall nicht ausreichend ist.
-    Mit MERGE-Statements können aber auch Ketten der Form a-b-c formuliert werden,
+    welches ausgehend von einem \texttt{Content}-Knoten für alle {\childFeature}s
+    Kanten, Knoten und deren individuellen Eigenschaften umfasst.
+    Das wäre im vorliegenden Fall aber notwendig.
+    Allerdings können mit \texttt{Merge}-Anweisungen eindimensionale Pfade formuliert werden,
     was auf den ersten Blick eine Alternative zur Prüfsumme darstellt.
-    Nämlich dann, wenn neben der ausgehenden Kante vom Parent zum Child Feature,
-    auch eine "`Rückkante"' vom Child zum Parent existieren würde.
-    Dann könnte eine Kette der Form parent-child1-parent-child2-parent-child3 formuliert werden.
-    Allerdings hilft das nicht im Falle eines gelöschten Child Features weiter,
-    da dieses nicht in der Kette auftaucht, die aber trotzdem gefunden wird.
-    Um diesen Fall abzufangen müssten die Child Features zusätzlich einen Ring bilden,
-    wodurch allerdings ihre Position in der Kette relevant werden würde.
+    Nämlich dann, wenn zwischen den Knoten eines Parent und eines {\childFeature}s
+    zwei Kanten mit entgegengesetzten Richtungen existieren.
+    Für das Beispiel aus Kapitel \ref{section:solutionDetailPersistenceDataModelExample} könnte dann
+    die Kette \texttt{c3 -> c4 -> c3 -> c5 -> c3} formuliert werden,
+    die alle für eine Übereinstimmung relevanten Informationen der Knoten und Kanten enthält.
+    Allerdings können damit nicht alle Fälle abgedeckt werden.
+    Wird zum Beispiel \texttt{c5} gelöscht, sähe die Kette folgendermaßen aus:
+    \texttt{c3 -> c4 -> c3}.
+    Die \texttt{MERGE}-Anweisung würde dieses Muster finden und keine Aktionen veranlassen,
+    sodass die Löschung von \texttt{c5} im Graphen wiederspiegelt wird.
+    Um diesen Fall abzufangen, müssten die Knoten der {\childFeature}s einen Ring bilden.
+    Aus Sicht der \texttt{MERGE}-Answeisung wäre die Position der Knoten in diesem Ring
+    für eine Übereinstimmung allerdings relevant.
     Insgesamt ist dieser Ansatz nicht sinnvoll umsetzbar,
-    weshalb die sich für die Prüfsumme entschieden wurde.
+    weshalb sich für die Einführung einer Prüfsumme entschieden wurde.
+    Dadurch können kürzere Anweisungen generiert werden, die die Datenbank besser puffern
+    und schneller ausführen kann.
+    Außerdem besitzt der Graph weitaus weniger komplexe Strukturen.
+    Auch die ersten beiden Ausnahmen beim Teilen von Knoten werden durch diesen Ansatz
+    automatisch korrekt behandelt.
 
-    Diese Prüfsumme und ihre Eindeutigkeit machen sich auch die Funktionen
-    contentRelationship, referenceRelationship und textRelationship zunutze.
-    Mit dieser Eigenschaft und der jeweiligen eindeutigen Eigenschaft des zweiten
-    Knotens, können sie MATCH-Statements formulieren,
-    die die beiden Knoten einer Beziehung finden.
-    Anschließend wird zwischen diesen Knoten wiedrum ein MERGE generiert,
-    der die gewünschte Beziehung zwischen ihnen beschreibt.
-    Dies gilt analog auch für Seiten-Knoten, ihrer eindeutigen \gls{url}
-    und ihre ausgehenden Beziehungen.
-    Außerdem werden dadurch die oben beschriebenen Ausnahmen für das Teilen von Knoten sehr leicht händelbar.
+    Die Prüfsumme und ihre Eindeutigkeit machen sich auch die Funktionen
+    \texttt{contentRelationship}, \texttt{referenceRelationship} und \texttt{textRelationship} zunutze.
+    Zum Anlegen einer Referenz eines Features reichen bspw. folgende Anweisungen.
+
+\begin{lstlisting}[
+        style=cypher,
+        label=listing:solutionDetailsClassificationStorageAPIReference,
+        caption=Datenbankanweisungen für Referenzen
+    ]
+MATCH
+    (c:Content {checksum: $c.checksum})
+    (r:Resource {url: $r.destination})
+MERGE (c)-[:References {
+    name: $ref.name
+    class: $ref.class
+    isCollection: $ref.isCollection
+    selectorType: $ref.selector.type
+    startSelectorType: $ref.selector.startSelector.type
+    startSelectorValue: $ref.selector.startSelector.value
+    startSelectorOffset: $ref.selector.startSelector.offset
+    endSelectorType: $ref.selector.endSelector.type
+    endSelectorValue: $ref.selector.endSelector.value
+    endSelectorOffset: $ref.selector.endSelector.offset
+}]->(r)
+    \end{lstlisting}
+
+    Hier werden zunächst Start- und Endknoten über eine \texttt{MATCH}-Anweisung ermittelt.
+    Für den \texttt{Resource}-Knoten geschieht dies über seine \gls{url},
+    beim \texttt{Content}-Knoten kann die Prüfsumme genutzt werden.
+    Über eine \texttt{MERGE}-Anweisung wird anschließend sichergestellt,
+    dass eine Kante mit den entsprechenden Eigenschaften zwischen ihnen
+    existiert\footnote{Ändern sich diese Informationen der Kante, wurde aufgrund der abweichenden
+    Prüfsumme an dieser Stelle bereits ein neuer \texttt{Content}-Knoten angelegt,
+    der noch keine Verbindung zum \texttt{Resource}-Knoten besitzt.
+    Die alte Referenz ist dann Teil eines verwaisten Teilgraphs und wird gelöscht.}.
+    Analog verfahren \texttt{contentRelationship} und \texttt{textRelationship}.
+
+    Die Knoten und Kanten von Sites und Seiten werden über eine einfache \texttt{MERGE}-Anweisung erzeugt,
+    die den gezeigten stark ähneln und deshalb hier nicht explizit erläutert werden.
