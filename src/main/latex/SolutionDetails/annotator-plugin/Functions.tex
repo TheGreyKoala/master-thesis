@@ -1,46 +1,45 @@
 \subsection{Funktionen}
-    Die Aufgabe des Annotator Plugins besteht aus zwei Teilen.
-    Zum einen soll sie die Klasse eines Features visualisieren
-    und zum anderen soll es diese Klasse durch den Nutzer editierbar machen.
-
+    Das {\annotatorPlugin} soll die Klasse eines Features visualisieren und gleichzeitig
+    durch den Benutzer editierbar machen.
     Die Visualisierung besteht aus zwei Teilen und ist in Abbildung
     \ref{image:annotatorPluginViewer} dargestellt.
 
     \begin{figure}[htb]
         \centering
-        \includegraphics[width=0.5\textwidth]{../resources/annotator-plugin/viewer.png}
-        \caption{Ergänzung des Annotation Viewers}
+        \includegraphics[scale=\screenshotScaleFactor]{../resources/annotator-plugin/viewer.png}
+        \caption{Visualisierung einer Klassifikation durch eine Annotation}
         \label{image:annotatorPluginViewer}
     \end{figure}
 
     Der Name der Klasse ist im Text der Annotation
-    enthalten\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceFunctions}}.
-    Der Nutzer kann diesen Text editieren.
+    enthalten\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceFunctions}},
+    der durch den Nutzer beliebig editiert werden kann.
     Diese Änderung wird zwar nicht
-    persistiert\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}}
-    ist aber in der Annotation bis zum Neuladen der Seite sichtbar.
-    Aus diesem Grund wird die Klasse nochmals in einem zweiten Feld angezeigt,
-    welches durch das Plugin ergänzt und auf Basis des Feldes
-    "`wccs.featureClass"'\footnote{vlg. Kapitel \ref{section:solutionDetailsAnnotationServiceFunctions}}
-    in der Annotation befüllt wird.
+    persistiert\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}},
+    ist aber in der Annotation bis zum Neuladen der Webseite sichtbar.
+    Aus diesem Grund wird die Klasse nochmals in einem zweiten unveränderlichen Bereich angezeigt,
+    welches durch das Plugin ergänzt wird.
+    Die Klasse bezieht das Plugin aus dem Feld \texttt{wccs.featureClass}
+    der Annotation\footnote{vlg. Kapitel \ref{section:solutionDetailsAnnotationServiceFunctions}}.
 
-    Beim Editoeren wird dieser Bereich zu einer Auswahlliste,
-    wie Abbildung \ref{image:annotatorPluginEditor} zeigt.
+    Wie Abbildung \ref{image:annotatorPluginEditor} zeigt,
+    wird dieser zweite Bereich beim Editieren der Annotation zu einer Auswahlliste.
 
     \begin{figure}[htb]
         \centering
-        \includegraphics[width=0.5\textwidth]{../resources/annotator-plugin/editor.png}
-        \caption{Ergänzung des Annotation Editors}
+        \includegraphics[scale=\screenshotScaleFactor]{../resources/annotator-plugin/editor.png}
+        \caption{Korrektur einer Klassifikation durch eine Annotation}
         \label{image:annotatorPluginEditor}
     \end{figure}
 
     Der Nutzer erhält dadurch die Möglichkeit die Klasse des Features zu bearbeiten.
-    Die Einträge der Auswahlliste sind je nachdem,
-    ob es sich um ein Content oder ein Reference Feature handelt,
-    Inhalts- oder Referenzklassen.
-    Diese Information wird aus dem Feld "`wccs.featureKind"' der Annotation bezogen.
-    Die Klassen werden beim Initialisieren des Plugins einmalig beim
-    Classification Service angefragt\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceFunctions}}.
-    Beim Speichern der Annotation wird die ausgewählte Klasse im Feld "`wccs.featureClass"' gespeichert,
-    welches im Anschluss vom Annotation Service ausgelesen
-    wird\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}}.
+    Die Einträge der Auswahlliste sind je nach Art des Features
+    Inhalts- oder Referenzklassen, die das {\annotatorPlugin} während seiner
+    Initialisierung einmalig vom {\classificationService}
+    bezieht\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceFunctions}}.
+    Um welche Art von Feature es sich handelt ermittelt das Plugin anhand des Feldes
+    \texttt{wccs.featureKind} der Annotation.
+    Beim Speichern wird die ausgewählte Klasse im Feld \texttt{wccs.featureClass} gespeichert.
+    Die aktualisierte Annotation wird dann an den {\annotationService} übermittelt,
+    welcher die Klasse aus besagtem Feld ausliest und das Feature entsprechend
+    aktualisiert\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}}.

@@ -1,5 +1,5 @@
 \subsection{Einbindung des Plugins}
-    Das Plugin kann prinzipiell in jede beliebige Webseite eingebunden werden,
+    Das {\annotatorPlugin} kann in jede Webseite eingebunden werden,
     die Annotator verwendet.
     Dazu sind die folgenden Schritte notwendig.
 
@@ -9,43 +9,40 @@
     und die Annotator Stylesheets\footnote{\url{http://assets.annotateit.org/annotator/v1.1.0/annotator.min.css}}
     korrekt in die Seite eingebunden sind.
 
-    \paragraph{Einbinden des \gls{wccs}-Annotator-Plugins}
-    Des Weiteren muss das Annotator Plugin des \gls{wccs} im head der Seite über ein
-    script Tag engebunden werden.
+    \paragraph{Einbinden des {\annotatorPlugin}s}
+    Des Weiteren muss das Annotator Plugin über ein \texttt{script}-Tag
+    im \texttt{head}-Element der Webseite engebunden werden.
 
-    \paragraph{Einbinden weiterer Style-Definitionen}
+    \paragraph{Einbinden weiterer Styledefinitionen}
     Anschließend sollten die Styledefinition aus Listing \ref{listing:annotatorCustomStyles}
-    dem head der Webseite hinzugefügt werden,
-    da Annotator das HTML der Seite bearbeitet und andernfalls Designprobleme auftreten können.
+    dem \texttt{head}-Element der Webseite hinzugefügt werden,
+    da Annotator die Struktur der Seite bearbeitet und andernfalls Designprobleme auftreten können.
 
     \lstinputlisting[
         label=listing:annotatorCustomStyles,
-        caption=Eigene Styles für Annotator,
-        style=pseudo
-    ]{../resources/annotator-plugin/custom-styles.html}
+        caption=Zusätzliche Styledefinitionen zur Nutzung des {\annotatorPlugin}s,
+        style=html
+    ]{../resources/annotator-plugin/custom-styles.css}
 
     \paragraph{Annotator Initialisierung}
     Anschließend muss der Initialisierungsaufruf von Annotator ergänzt werden,
-    sodass Annotator das neue Plugin verwendet.
-    Listing \ref{listing:annotatorInitialization} zeigt eine Beispielhafte
-    Initialisierung von Annotator, die das \gls{wccs}-Plugin integriert.
+    sodass es das neue Plugin verwendet.
+    Listing \ref{listing:annotatorInitialization} zeigt dazu ein Beispiel.
 
     \lstinputlisting[
         label=listing:annotatorInitialization,
-        caption=Angepasste Annotator-Initialisierung,
-        style=pseudo
+        caption=Initialisierung von Annotator zur Nutzung des {\annotatorPlugin}s,
+        style=js
     ]{../resources/annotator-plugin/annotator-initialize.js}
 
-    Nachdem Annotator auf dem body der Webseite initialisiert wurde,
+    Nachdem Annotator auf dem \texttt{body}-Element der Webseite initialisiert wurde,
     werden die verschiedenen Plugins registriert.
     Begonnen wird mit dem
     Storage Plugin\footnote{vgl. \url{http://docs.annotatorjs.org/en/v1.2.x/plugins/store.html}},
-    welches für den Annotation Service konfiguriert wird.
+    welches für den {\annotationService} konfiguriert wird.
     Entsprechend der vorgestellten Schnittstelle dieser
     Komponente\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceFunctions}}
     legt die Konfiguration des Plugins den Präfix von Anfrage-\glspl{url} fest.
-    Diese beinhaltet die kodierte \gls{url} der aktuellen Seite,
-    welche als Schlüssel der Seite fungiert.
-    Anschließend wird das \gls{wccs}-Annotator-Plugin über den Schlüssel "`wccs"' inkludiert.
+    Anschließend wird das {\annotatorPlugin} über den Schlüssel \texttt{wccs} inkludiert.
     Zuletzt konfiguriert das Skript das
     Permissions Plugin\footnote{vgl. \url{http://docs.annotatorjs.org/en/v1.2.x/plugins/permissions.html}}.
