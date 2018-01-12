@@ -1,48 +1,48 @@
 \subsection{Funktionen und Schnittstellen}
     \label{section:solutionDetailsAnnotationServiceFunctions}
-    Der Annotation Service ist für die Umformung einer Klassifikation zu
-    einer Menge von Annotationen zuständig und kann Änderungen an einer
-    Annotation in eine Änderung an der Klassifikation übersetzen.
-    Hierzu bietet er eine REST-Schnittstelle, die gleichzeitig auch die Annotator Storage API implementiert.
-    % TODO: Link
-    Dieser Schnittstelle und der verbunden Funktionen widmet sich dieses Kapitel.
+    Der {\annotationService} implementiert vor allem die
+    Annotator Storage API\footnote{vgl. \url{http://docs.annotatorjs.org/en/v1.2.x/storage.html}},
+    um die Nutzung dieser Bibliothek zu ermöglichen.
+    Gleichzeitig ist seine Schnittstelle allgemein gehalten,
+    sodass sie auch von anderen Systemen sinnvoll genutzt werden kann.
+    Die Beschreibung der einzelnen Funktionen erfolgt in diesem Kapitel und
+    gleicht in ihrem Format ähnlichen vorangegangenen
+    Erläuterungen\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceFunctions}}.
 
     \paragraph{Format einer Annotation}
-    Zunächst wird allerdings beschrieben, welches konkrete technische Format eine Annotation besitzt.
-    Dieses folgt dem vorgegebenen Format von Annotator und ergänzt es um einige spezifische Angaben.
-    Das vollständige Format, wie es vom Annotation Service erzeugt und akzeptiert wird,
-    ist in Listing \ref{listing:annotationServiceAnnotationFormat} zu sehen.
+    Annotationen tauscht der Service in einem JSON-Dokument aus,
+    welches dem Format von Annotator folgt und um einige spezifische Angaben ergänzt.
+    Jede Annotation spiegelt genau eine Feature der Klassifikation wieder.
+    Eine Übersicht bietet Listing \ref{listing:annotationServiceAnnotationFormat}.
 
     \lstinputlisting[
         label=listing:annotationServiceAnnotationFormat,
-        caption=Format einer Annotation
+        caption=Format einer Annotation,
+        style=json
     ]{../resources/annotation-service/annotation.json}
 
-    Die ID einer Annotation wird vom Service automatisch generiert.
-    Dieser Prozess wird in Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}
-    genau erklärt.
-    Das Feld "`text"' bestimmt den Inhalt der Annotation, der dem Nutzer sichtbar ist.
-    Die vom Service erzeugten Annotationen beinhalten immer den Namen des verknüpften Features und dessen Klasse.
-    Die Angaben im Feld "`ranges"' mappen 1:1 auf den eindeutigen Selektor jedes Features.
-    Durch das Feld "`user"' identifiziert Annotator den Ersteller der Annotation,
-    der in diesem Fall immer der imaginäre technische Benutzer "`wccs"' ist.
-    Da im Feld "`permissions"' lediglich das Recht "`admin"' auf diesen Nutzer beschränkt wurde,
+    Die ID einer Annotation wird vom {\annotationService} automatisch
+    generiert\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}}.
+    Das Feld \texttt{text} bestimmt den Inhalt der Annotation,
+    der hier immer der Namen des Features und dessen Klasse ist.
+    Die Angaben im Feld \texttt{ranges} spiegeln den eindeutigen Selektor des Features wieder.
+    Durch das Feld \texttt{user} identifiziert Annotator den Ersteller der Annotation,
+    der in diesem Fall immer der imaginäre technische Benutzer \texttt{wccs} ist.
+    Da im Feld \texttt{permissions} lediglich das Recht \texttt{admin} auf diesen Nutzer beschränkt wurde,
     kann jeder die Annotation lesen und bearbeiten.
-    Änderungen an den Rechten bleiben aber dem Nutzer "`wccs"' vorbehalten.
-    Die Eigenschaft "`wccs"' ist nicht durch das Format von Annotator vorgegeben,
-    sondern stellt eine Ergänzung des \gls{wccs} dar.
-    Dieses speichert, ob es sich beim verknüpften Feature um ein Content oder ein Reference Feature handelt,
+    Änderungen an den Rechten bleiben aber dem Nutzer \texttt{wccs} vorbehalten.
+    Die Eigenschaft \texttt{wccs} ist nicht durch Annotator vorgegeben,
+    sondern stellt eine Ergänzung des \glspl{wccs} dar.
+    Es speichert, ob es sich um ein {\contentFeature} oder ein {\referenceFeature} handel,
     und welche Klasse dieses besitzt.
 
     \paragraph{Bereitstellung von Metainformationen}
     Um der Annotator Storage API zu genügen,
-    muss ein Endpunkt existieren, der ein JSON-Dokument liefert,
-    welches Informationen über die Version der implementierten Schnittstelle enthält.
-    % TODO: Referenz: http://docs.annotatorjs.org/en/v1.2.x/storage.html#root
+    muss ein Endpunkt existieren,
+    der Informationen über die Version der implementierten Schnittstelle
+    enthält\footnote{vgl. \url{http://docs.annotatorjs.org/en/v1.2.x/storage.html\#root}}.
     Die entsprechende Schnittstelle ist in Tabelle
     \ref{table:annotationServiceMetaInterface} dokumentiert.
-
-    % TODO: Erwähnen, dass die Page ID die URL ist. Oder den Parameter gleich PAGE_URL nennen.
 
     \begin{table}[htb]
         \centering
@@ -52,24 +52,24 @@
             \hline
             \textbf{Methode} & \texttt{GET}\\
             \hline
-            \textbf{Status} & \texttt{200 (OK)}\\
+            \textbf{Statuscode} & \texttt{200 (OK)}\\
             \hline
             \textbf{Ausgabedokument} & \lstinputlisting[title=AnnotationServiceMetaInfo]{../resources/annotation-service/meta.json}\\
             \hline
         \end{tabular}
-        \caption{Schnittstelle zum Abfragen von Metainformationen über den Annotation Service}
+        \caption{Schnittstelle zum Abfragen von Metainformationen über den {\annotationService}}
         \label{table:annotationServiceMetaInterface}
     \end{table}
 
+    Annotator erwartet von der konfigurierten Datenhaltung,
+    dass sie die Annotationen genau einer Seite enthält.
+    Die Anfrage-\gls{url} enthält deshalb die \gls{url} der klassifizierten Seite.
+
     \paragraph{Annotationen einer Seite abrufen}
-    Zentrale Aufgabe des Services ist die Bereitstellung der Annotationen einer Seite.
-    Auf diese Funktion greift zum Beispiel das Annotator Plugin zurück
-    (siehe Kapitel \ref{section:solutionDetailsAnnotatorPlugin}).
-    Hierfür stellt der Serivce den in Tabelle \ref{table:getAllAnnotationsInterface}
-    dargestellten Endpunkt bereit, der die entsprechende Funktion der Annotator Storage API
-    umsetzt.
-    % TODO: Referenz: http://docs.annotatorjs.org/en/v1.2.x/storage.html#index
-    
+    Zentrale Aufgabe des {\annotationService}s ist die Bereitstellung der Annotationen einer Seite.
+    Hierfür bietet der Service die in Tabelle \ref{table:getAllAnnotationsInterface}
+    dargestellte Schnittstelle.
+
     \begin{table}[htb]
         \centering
         \begin{tabular}{|l|l|}
@@ -78,24 +78,23 @@
             \hline
             \textbf{Methode} & \texttt{GET}\\
             \hline
-            \textbf{Status} & \texttt{200 (OK)}\\
+            \textbf{Statuscode} & \texttt{200 (OK)}\\
             \hline
             \textbf{Ausgabedokument} & \texttt{Array von Annotationen}\\
             \hline
         \end{tabular}
-        \caption{Schnittstelle zum Abfragen aller Annotationen einer Seite}
+        \caption{Schnittstelle zum Abfragen aller Annotationen einer Klassifikation}
         \label{table:getAllAnnotationsInterface}
     \end{table}
 
-    Die \gls{url} der Seite, für die die Annotationen angefragt werden,
-    wird in der Anfrage-\gls{url} codiert.
-    Die Antwort ist ein JSON-Array von Annotationen, wie sie im ersten Abschnitt vorgestellt wurden.
+    Die Anfrage-\gls{url} identifiziert die klassifizierte Seite,
+    an deren Annotationen Interesse besteht,
+    über deren \gls{url}.
+    Die Antwort des Services ist ein Array von Annotationen, wie sie im ersten Abschnitt vorgestellt wurden.
 
-    \paragraph{Einzelne Annotation lesen}
-    Eine einzelne Annotation kann anhand ihrer ID beim Service angefragt werden.
-    Der Endpunkt, der die entsprechende Storage API Funktion implementiert,
-    % TODO: Referenz: http://docs.annotatorjs.org/en/v1.2.x/storage.html#read
-    ist in Tabelle \ref{table:getAnnotationInterface} zu sehen.
+    \paragraph{Einzelne Annotation abfragen}
+    Über die Schnittstelle in Tabelle \ref{table:getAnnotationInterface} kann eine einzelne
+    Annotation anhand ihrer ID angefragt werden.
 
     \begin{table}[htb]
         \centering
@@ -105,25 +104,20 @@
             \hline
             \textbf{Methode} & \texttt{GET}\\
             \hline
-            \textbf{Status} & \texttt{200 (OK)}\\
+            \textbf{Statuscode} & \texttt{200 (OK)}\\
             \hline
             \textbf{Ausgabedokument} & \texttt{Annotation}\\
             \hline
         \end{tabular}
-        \caption{Schnittstelle zum Abfragen einer Annotation}
+        \caption{Schnittstelle zum Abfragen einer einzelnen Annotation}
         \label{table:getAnnotationInterface}
     \end{table}
 
-    Wie zu sehen ist, wird an die Anfrage-\gls{url} einfach die ID der Annotation gehangen.
-    Die Antwort besteht aus einer einzelnen Annotation.
-
     \paragraph{Einzelne Annotation aktualisieren}
-    Eine einzelne Annotation kann auch aktualisiert werden,
-    was zur Aktualisierung des entsprechenden Features der Seite führt
-    (siehe Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}).
-    Der Endpunkt in Tabelle \ref{table:putAnnotationInterface} implementiert
-    die entsprechende Storage API Funktion.
-    % TODO: Referenz: http://docs.annotatorjs.org/en/v1.2.x/storage.html#update
+    Änderungen an einer Annotation können dem {\annotationService} über die Schnittstelle
+    in Tabelle \ref{table:putAnnotationInterface} mitgeteilt werden.
+    Als Resultat wird die Klasse des verknüpften Features
+    überschrieben\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}}.
 
     \begin{table}[htb]
         \centering
@@ -135,15 +129,14 @@
             \hline
             \textbf{Eingabedokument} & \texttt{Annotation}\\
             \hline
-            \textbf{Status} & \texttt{303 (See Other)}\\
+            \textbf{Statuscode} & \texttt{303 (See Other)}\\
             \hline
         \end{tabular}
-        \caption{Schnittstelle zum Aktualisieren einer Annotation}
+        \caption{Schnittstelle zum Schreiben einer Annotation}
         \label{table:putAnnotationInterface}
     \end{table}
 
-    In der Anfrage muss eine Annotation im oben beschriebenen Format enthalten sein.
-    Die Antwort enthält im Header "`Location"' die \gls{url} zum Lesen der geschriebenen
-    Annotation, wie es die Storage API vorschreibt.
+    Die Anfrage muss eine Annotation im oben beschriebenen Format enthalten.
+    Die Antwort des Services enthält im Header \texttt{Location} die \gls{url} der geschriebenen Annotation.
 
     % TODO: Schnittstelle so, dass später auch anderes Format für Annotationen möglich
