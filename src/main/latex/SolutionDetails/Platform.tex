@@ -1,16 +1,13 @@
-\section{Plattform}
-    Die verschiedenen Services des \gls{wccs} sind als
-    setzen auf der Docker Plattform\footnote{vgl. \url{https://www.docker.com}} auf,
-    wodurch sie von einander isoliert betrieben werden sowie einfach einzeln
-    gestoppt, gestartet und skaliert werden können.
-
-    Konkret laufen
-    der Annotation Service,
-    der Classification Service,
-    der Classification Storage,
-    die Classification Storage API,
-    und die Webanwendung in Docker Containern.
-    Diese werden über das Tool Docker Compose\footnote{vgl. \url{https://docs.docker.com/compose}}
-    gebaut, ausgeführt und über ein virtuelles Netzwerk verbunden.
-    Die enthaltene Konfiguration mappt die Ports der Services
-    1:1 auf die gleichen Ports des Host-Systems.
+\section{Betrieb}
+    Die verschiedenen Services des
+    \glspl{wccs}\footnote{vgl. Kapitel \ref{section:solutionConceptWCCSArch}}
+    setzen auf der Docker Plattform\footnote{vgl. \url{https://www.docker.com}} auf
+    und laufen in einzelnen Containern.
+    Dadurch sind sie von einander isoliert und können unabhängig von einander
+    betrieben, gestoppt, gestartet und skaliert werden.
+    Das Werkzeug Docker Compose\footnote{vgl. \url{https://docs.docker.com/compose}}
+    setzt die einzelnen Container zu einem System zusammen,
+    indem es sie baut, ausführt und über ein virtuelles Netzwerk verbindet.
+    Nach außen sind die Services über die Ports erreichbar,
+    die in ihren Schnittstellenbeschreibungen dokumentiert wurden.
+    Bei Bedarf kann dies über Docker Compose angepasst werden.
