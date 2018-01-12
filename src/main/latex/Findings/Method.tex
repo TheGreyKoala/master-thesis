@@ -1,53 +1,51 @@
 \section{Vorgehen}
     \label{section:findingsMethod}
-    Vor den eigentlichen Ergebnissen soll an dieser Stelle
-    das Vorgehen beschrieben werden.
-
-    Einge Studienportale der Fakultät \gls{ksw} der {\fernUni}
-    besitzen Übersichtsseiten aller Lehrenden und Betreuenden
-    in dem jeweligen Portal.
+    Einige Studienportale der Fakultät \gls{ksw} der {\fernUni}
+    besitzen Übersichtsseiten aller Lehrenden und Betreuenden des Portals,
+    die im Folgenden zusammengefasst auch als "`Mitarbeiter"' bezeichnet werden.
     Das erste Fallbeispiel klassifiziert diese Seiten.
-    Auf Basis der Seite des Studienportal "`B.A. Bildungswissenschaft"'
-    wird dazu ein Modell der Seite erstellt,
-    welches dann in eine Menge von Klassendefinitionen in der \gls{wccdl} überführt wird,
+    Auf Basis der Seite des Studienportals
+    \gls{babw}\footnote{\url{http://www.fernuni-hagen.de/KSW/portale/babw/einstieg/lehrende-und-betreuende-im-b-a-bildungswissenschaft/}}
+    wird dazu ein konzeptionelles Modell solcher Seiten erstellt,
+    welches dann in {\classificationModel} überführt wird,
     sodass alle relevanten Inhalte dieser Seite erfasst werden.
     Ziel ist es zu zeigen, dass das System erfolgreich auf einer einzelnen Seite angewandt werden kann.
-    Andernfalls wäre es zu nichts nutze.
 
-    Anschließend wird die Klassendefinition einzeln auf die Pendants der restlichen Sites angewandt,
-    ohne im Vorfeld irgendwelche Anpassungen vorzunehmen,
-    da dies ein Vorgehen in der Praxis darstellt.
+    Anschließend wird das {\classificationModel} einzeln auf die Pendants der restlichen Sites angewandt,
+    ohne im Vorfeld irgendwelche Anpassungen vorzunehmen.
     Dieser Schritt legt dar, wie einfach sich Konfigurationen auf mehrere vermeintlich
     sehr ähnliche Webseiten anwenden lässt und welcher zusätzliche Aufwand für Anpassungen entsteht.
-    Die Zahl der Unterschiede im Modell der Seiten und der unzutreffenden Selektoren ist ein Indikator hierfür.
+    Die Zahl der Unterschiede im konzeptionellen Modell der Seiten und der unzutreffenden Selektoren ist ein Indikator hierfür.
 
-    Der letzte Abschnitt des ersten Fallbeispiels wiederholt den vorherigen,
+    Der letzte Schritt des ersten Fallbeispiels wiederholt den vorangegangenen,
     unterscheidet sich aber dahingehend, dass alle Klassifikationen
     gemeinsam in einer Datenbank gespeichert werden.
     Die Anzahl der resultierenden Knoten und Kanten in der Datenbank
-    gibt Aufschluss darüber, wie effektiv die Möglichkeit Knoten in mehreren Seiten
+    gibt Aufschluss darüber, wie effektiv die Möglichkeit, Knoten in mehreren Klassifikationen
     zu verwenden, in der Praxis ist und welche Informationen daraus gezogen werden können.
 
     Das zweite Fallbeispiel klassifiziert Übersichtsseiten mit aktuellen Nachrichten
     der Fakultät und der einzelnen Studienportale.
-    Wie später gezeigt wird, gibt es auf diesen Seiten im Vergleich zum ersten Beispiel
-    wichtige Unterschiede in der HTML-Struktur -- auf der die Klassifizierung letztendlich basiert --,
-    weshalb mit diesem Beispiel gezeigt werden soll, inwieweit das System mit dieser Struktur zurecht kommt.
-    Gleichzeitig verwendet es einige Klassendefinitionen aus dem ersten Beispiel wieder,
-    und definiert lediglich spezielle Klassen selbst.
-    Nach der Klassifizierung einer einzelnen Seite des Portals "`B.A. Bildungswissenschaft"'
+    Die HTML-Struktur dieser Seiten besitzt im Vergleich zum ersten Beispiel wichtige Unterschiede.
+    Das zweite Fallbeispiel soll deshalb herausfinden, inwieweit das System mit dieser Struktur zurecht kommt.
+    Zur Klassifizierung verwendet es einen Teil des {\classificationModel}s aus dem ersten Beispiel
+    und ergänzt lediglich spezielle Klassen.
+    Nach der Klassifizierung einer einzelnen Seite des Portals \gls{babw}
     werden alle Nachrichtenübersichtsseiten dieser Site gemeinsam klassifiziert,
     was wiederum neue Resultate ergeben wird.
 
-    Die Ergebnisse bestehen in beiden Beispielen aus
-    den entwickelten Klassendefinitionen,
-    Kennzahlen über die angelegten Koten und Kanten in der Datenbank,
-    Auffälligkeiten in der Klassifikation und der Visualisierung durch Annotationen
-    inkl. einer Erklärung, wodurch diese begründet sind.
+    Die Ergebnisse bestehen in beiden Beispielen aus 
 
-    Da kein schreibender Zugriff auf die Quellen der klassifizierten Webseiten bestand,
-    wurde zur Anzeige der Annotationen eine Komponente entwickelt,
-    die eine angefragte Webseite herunterlädt,
-    ihren Quelltext derart verändert,
-    dass sie das Annotator Plugin enthält
-    und das Ergebnis an den aufrufenden Browser gibt.
+    \begin{enumerate}
+        \item dem verwendeten {\classificationModel},
+        \item Kennzahlen über Graphen der Datenbank,
+        \item Auffälligkeiten in Klassifikationen,
+        \item Auffälligkeiten in der Visualisierung der Klassifikationen durch Webannotationen und
+        \item Ursachen dieser Unregelmäßigkeiten.
+    \end{enumerate}
+
+    Während der Versuche bestand kein schreibender Zugriff auf die Quellen der klassifizierten Webseiten.
+    Zur Anzeige der Annotationen wurde deshalb ein zusätzlicher Service implementiert -- der Annotation Viewer.
+    Dieser lädt die HTML-Repräsentation einer Webseite herunter und ergänzt sie,
+    sodass sie das Annotator Plugin einbindet\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotatorPluginIntegration}}.
+    Das Ergebnis gibt sie an den Aufrufer -- sinnvollerweise ein Webbrowser -- weiter.
