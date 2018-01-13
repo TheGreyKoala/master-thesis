@@ -1,55 +1,59 @@
 \subsection{Kennzahlen}
-    Nach jeder Klassifizierung wurden eine Kennzahlen anhand des
-    resultierenden Graphens in der Datenbank ermittelt.
-    Dies geschah sowohl für die einzelnen Datenbanken
-    als auch der gemeinsamen.
-    Die folgenden Tabellen sind daher folgendermaßen aufgebaut:
-    Die erste Spalte beschreibt die Kennzahl.
-    Dann folgen vier Spalten, die den Wert der Kennzahl für die einzelnen Sites enthalten
-    Anschließend für jede Kennzahl die Summe der Site-Wert präsentiert.
-    Diese kann mit der letzten Spalte verglichen werden,
-    die den Wert der Kennzahl für den Fall,
-    dass sich alle Klassifikationen in einer Datenbank befinden, enthält.
+    Nach jeder Klassifizierung wurden einige Kennzahlen des
+    resultierenden Graphs ermittelt.
+    Dies geschah im Fall einzelner Datenbanken und im Fall
+    einer gemeinsamen.
+    Zum besseren Verständnis der präsentierten Zahlen wird
+    zunächst die konkrete Struktur der Graphen beschrieben.
 
-    Eine ausführliche Interpretation dieser Zahlen geschieht in Kapitel \ref{section:findingsInterpretation}.
-    Trotzdem wird auch hier schon die Bedeutung einiger Kennzahlen kurz hervorgehoben.
-
-    Zur besseren Verständnis der präsentierten Kennzahlen,
-    veranschaulichen Abbildung
-    \ref{image:findingTeachersFiguresDbModel1}
-    und \ref{image:findingTeachersFiguresDbModel2},
-    wie der Graph der Klassifikation aufgebaut ist.
-    Beide sind durch den Content Knoten mit der Klasse "`Teacher"' verbunden.
-    Verzichtet wird auf die Darstellung von Referenzen,
-    da diese lediglich Kanten von den dargestellten Content Knoten
-    zu Resource Knoten sind.
-    Welche Content Klassen welche Referenzen besitzen können,
-    ist zusammen mit dem Klassifikationsmodell ersichtlich.
+    \paragraph{Struktur eines Graphs}
+    Abbildung \ref{image:findingTeachersFiguresDbModel1}
+    und \ref{image:findingTeachersFiguresDbModel2} zeigen,
+    wie der Graph einer Klassifikation in diesem Fallbeispielt aufgebaut ist.
+    Beide sind durch den \texttt{Content}-Knoten mit der Klasse \texttt{Teacher} verbunden.
+    Referenzen sind in den Abbildungen nicht zu sehen,
+    da sie lediglich Kanten von einem Knoten zu einer {\resource} darstellen
+    und die Darstellungen unnötig vergrößern würden.
+    Anhand des {\classificationModel}s und der beiden Abbildungen ist
+    offensichtlich, welche der zu sehenden Knoten Referenzen besitzen.
+    Bei {\collectionFeature}s ist immer ein stellvertretendes Element zu sehen.
 
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/findings/case-study-1/dbmodel/dbmodel1.png}
-        \caption{DB Model 1}
+        \caption{Struktur des Graphs einer Seite über Lehrende und Betreuende (1)}
         \label{image:findingTeachersFiguresDbModel1}
     \end{figure}
 
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/findings/case-study-1/dbmodel/dbmodel2.png}
-        \caption{DB Model 2}
+        \caption{Struktur des Graphs einer Seite über Lehrende und Betreuende (2)}
         \label{image:findingTeachersFiguresDbModel2}
     \end{figure}
 
+    \paragraph{Präsentation der Kennzahlen}
+    Die folgenden Tabellen präsentieren die gesammelten Kennzahlen.
+    Sie sind folgendermaßen aufgebaut:
+    Die erste Spalte benennt die Kennzahl.
+    Dann folgen vier Spalten, die den Wert der Kennzahl für die einzelnen Sites enthalten.
+    Diese Zahlen werden in der Spalte "`Summe"' aufaddiert,
+    um sie mit der letzten Spalte zu vergleichen.
+    Diese gibt den Wert der Kennzahl für den Fall der gemeinsam genutzten Datenbank an.
+    Eine ausführliche Interpretation dieser Zahlen geschieht in Kapitel \ref{section:findingsInterpretation}.
+    Trotzdem wird hier schon die Bedeutung einiger Kennzahlen kurz hervorgehoben.
+
     Tabelle \ref{table:findingsTeachersFiguresNodesByLabel}
-    zeigt wie oft die verschiedenen Labels für Knoten verwendet wurden.
-    Die Kennzahl "`Content"' ist in diesem Fall gleichzusetzen mit
-    der Anzahl der Content Features in der Klassifikation.
+    gruppiert die Knoten der Datenbank nach ihren Labels und zeigt,
+    wie oft jedes Label oder jede Kombination von Labels Verwendung fand.   
+    Für die einzelnen Klassifikationen gibt "`Content"' außerdem an,
+    wie viele {\contentFeature}s sie enthalten.
 
     \begin{table}[htb]
         \centering
         \begin{tabular}{|l|c|c|c|c|c|c|}
             \hline
-            \multicolumn{1}{|c|}{\textbf{Label}} & \textbf{BaBw} & \textbf{BaPVS} & \textbf{BscPsy} & \textbf{MaBm} & \textbf{Summe} & \textbf{Alle} \\ \hline
+            \multicolumn{1}{|c|}{\textbf{Label}} & \textbf{\gls{babw}} & \textbf{\gls{bapvs}} & \textbf{\gls{bscpsy}} & \textbf{\gls{mabm}} & \textbf{Summe} & \textbf{Alle} \\ \hline
             Content                                     & 270           & 275            & 176             & 128           & 849            & 824           \\ \hline
             Page + Resource                             & 1             & 1              & 1               & 1             & 4              & 4             \\ \hline
             Resource                                    & 133           & 159            & 89              & 71            & 452            & 430           \\ \hline
@@ -58,7 +62,7 @@
             \hline
             \textbf{Summe}                              & 510           & 505            & 342             & 257           & 1614           & 1546          \\ \hline
         \end{tabular}
-        \caption{Anzahl der Knoten nach Label}
+        \caption{Knoten gruppiert nach Labels für Seiten über Lehrende und Betreuende}
         \label{table:findingsTeachersFiguresNodesByLabel}
     \end{table}
 
@@ -71,7 +75,7 @@
         \centering
         \begin{tabular}{|l|c|c|c|c|c|c|}
         \hline
-            \textbf{Klasse}  & \multicolumn{1}{l|}{\textbf{BaBw}} & \multicolumn{1}{l|}{\textbf{BaPVS}} & \multicolumn{1}{l|}{\textbf{BscPsy}} & \multicolumn{1}{l|}{\textbf{MaBm}} & \multicolumn{1}{l|}{\textbf{Summe}} & \multicolumn{1}{l|}{\textbf{Alle}} \\ \hline
+            \textbf{Klasse}  & \multicolumn{1}{l|}{\textbf{\gls{babw}}} & \multicolumn{1}{l|}{\textbf{\gls{bapvs}}} & \multicolumn{1}{l|}{\textbf{\gls{bscpsy}}} & \multicolumn{1}{l|}{\textbf{\gls{mabm}}} & \multicolumn{1}{l|}{\textbf{Summe}} & \multicolumn{1}{l|}{\textbf{Alle}} \\ \hline
             Brand              & 1                                  & 1                                   & 1                                    & 1                                  & 4                                   & 4                                  \\ \hline
             ContactInformation & 55                                 & 67                                  & 33                                   & 24                                 & 179                                 & 178                                \\ \hline
             Fax                & 1                                  & 0                                   & 0                                    & 1                                  & 2                                   & 1                                  \\ \hline
@@ -101,7 +105,7 @@
         \centering
         \begin{tabular}{|l|c|c|c|c|c|c|}
             \hline
-            \multicolumn{1}{|c|}{\textbf{Kanten-Label}} & \textbf{BaBw} & \textbf{BaPVS} & \textbf{BscPsy} & \textbf{MaBm} & \textbf{Summe} & \textbf{Alle} \\ \hline
+            \multicolumn{1}{|c|}{\textbf{Kanten-Label}} & \textbf{\gls{babw}} & \textbf{\gls{bapvs}} & \textbf{\gls{bscpsy}} & \textbf{\gls{mabm}} & \textbf{Summe} & \textbf{Alle} \\ \hline
             Reads                                       & 105           & 69             & 75              & 56            & 305            & 284           \\ \hline
             References                                  & 180           & 209            & 110             & 86            & 585            & 582           \\ \hline
             Owns                                        & 320           & 335            & 200             & 144           & 999            & 996           \\ \hline
@@ -125,7 +129,7 @@
         \centering
         \begin{tabular}{|l|c|c|c|c|c|c|}
             \hline
-            \multicolumn{1}{|c|}{\textbf{Start-, Zielknoten-Label}} & \textbf{BaBw} & \textbf{BaPVS} & \textbf{BscPsy} & \textbf{MaBm} & \textbf{Summe} & \textbf{Alle} \\ \hline
+            \multicolumn{1}{|c|}{\textbf{Start-, Zielknoten-Label}} & \textbf{\gls{babw}} & \textbf{\gls{bapvs}} & \textbf{\gls{bscpsy}} & \textbf{\gls{mabm}} & \textbf{Summe} & \textbf{Alle} \\ \hline
             (:Content) $\rightarrow$ (:Content)                           & 260           & 260            & 162             & 115           & 797            & 794           \\ \hline
             (:Content) $\rightarrow$ (:Resource)                         & 172           & 201            & 102             & 78            & 553            & 550           \\ \hline
             (:Page) $\rightarrow$ (:Content)                              & 59            & 74             & 37              & 28            & 198            & 198           \\ \hline
@@ -146,7 +150,7 @@
         \centering
         \begin{tabular}{|l|c|c|c|c|c|c|}
             \hline
-            \multicolumn{1}{|c|}{\textbf{Knoten}} & \textbf{BaBw} & \textbf{BaPVS} & \textbf{BscPsy} & \textbf{MaBm} & \textbf{Summe} & \textbf{Alle} \\ \hline
+            \multicolumn{1}{|c|}{\textbf{Knoten}} & \textbf{\gls{babw}} & \textbf{\gls{bapvs}} & \textbf{\gls{bscpsy}} & \textbf{\gls{mabm}} & \textbf{Summe} & \textbf{Alle} \\ \hline
             Bild                                  & 0             & 1              & 1               & 0             & 2              & 2             \\ \hline
             ContactInformation                    & 0             & 3              & 0               & 0             & 3              & 3             \\ \hline
             E-Mail-Adresse                        & 0             & 1              & 1               & 0             & 2              & 14            \\ \hline

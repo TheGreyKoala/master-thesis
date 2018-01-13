@@ -3,10 +3,24 @@
     In diesem Fallbeispiel werden Übersichtsseiten
     über die Lehrenden und Betreuenden (Mitarbeiter) eines Studienportals
     der Fakultät \gls{ksw} der {\fernUni} klassifiziert.
-    Dazu wird zunächst ein konzeptionelles Modell dieser Seiten entwickelt,
-    auf dessen Basis anschließend ein {\classificationModel} entsteht.
-    Es folgt eine Präsentation einiger Kennzahlen der Datenbank
-    sowie von Auffälligkeiten in der Klassifikation und den dargestellten Annotationen.
+    Anhand der Seite des Portals \gls{babw} wird dazu zunächst ein
+    konzeptionelles Modell dieser Seiten sowie ein {\classificationModel} erstellt.
+    Nach der einzelnen Klassifizierung dieser Seite folgt die separate Klassifizierung
+    der Übersichtsseiten der Portale
+
+    \begin{itemize}
+        \item \gls{bapvs}\footnote{\url{http://www.fernuni-hagen.de/KSW/portale/bapvs/einstieg/lehrende-und-betreuende-im-b-a-pvs/}},
+        \item \gls{bscpsy}\footnote{\url{http://www.fernuni-hagen.de/KSW/portale/bscpsy/einstieg/lehrende-und-betreuende-im-b-sc-psychologie/}} und
+        \item \gls{mabm}\footnote{\url{http://www.fernuni-hagen.de/KSW/portale/mabm/einstieg/lehrende-und-betreuende-im-m-a-eeducation/}}.
+    \end{itemize}
+
+    Jede Klassifikation wird dabei in separaten Datenbanken gespeichert,
+    um die Graphen isoliert betrachten zu können.
+    Anschließend werden die Seiten aller Sites erneut klassifiziert und in
+    einer gemeinsamen Datenbank gespeichert,
+    um zu sehen, welchen Einfluss das auf die Graphen hat.
+    Zu jeder Klassifikation werden einige Kennzahlen der Datenbank präsentiert.
+    Anschließend erfolgt eine Betrachtung von Auffälligkeiten in den Klassifikationen und in den Annotationen.
 
     \input{Findings/teachers/Model}
     \input{Findings/teachers/Classes}

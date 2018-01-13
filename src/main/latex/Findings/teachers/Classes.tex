@@ -1,70 +1,66 @@
-\subsection{Klassifizierungsmodell}
-    Aus der obigen Analyse der Seite ist ein Klassifizierungsmodell hervorgegangen,
-    welches sich in allgemeine und spezielle Klassen aufteilen lässt.
-    Die Definition wurde entsprechend auf zwei Dateien aufgeteilt,
-    sodass sich die allgemeinen Klassen leicht übertragen lassen.
-    Zur Definition der Selektoren wurde diente die HTML-Struktur
-    eines Mitarbeiters, die beispielhaft in Listing
-    \ref{listing:findingsTeachersHtmlSource} dargestellt ist.
-    Konkrete Inhalte wurden aus Gründen der Übersichtlichkeit entfernt.
-    % TODO: Erwähnen, dass min. 1 Kontakt b anstatt strong verwendet?
-    Wie später ersichtlich wird, spielen die Zeilenumbrüche im p-Element
-    im Quelltext eine relevante Rolle, weshalb sie unverändert übernommen wurden.
-
-    \lstinputlisting[
-        label=listing:findingsTeachersHtmlSource,
-        caption=HTML-Struktur eines Lehrenden,
-        language=HTML
-    ]{../resources/findings/case-study-1/babw/teacher.html}
-
-    Die Klassen der allgemeinen Bereiche sind in Listing
-    \ref{listing:findingsTeachersCommon} aufgeführt.
-    Es folgt eine kurze Erläuterung,
-    welche Elemente der Seite die einzelnen Klassen darstellen.
+\subsection{Das {\classificationModel}}
+    Aus der obigen Analyse der Webseite ist hervorgegangen,
+    dass sie allgemeine und spezielle Bereiche enthält.
+    Das entstandene {\classificationModel} wurde deshalb in zwei Dateien aufgeteilt,
+    sodass die Klassen der allgemeinen Bereiche leicht wiederverwendet werden können.
+    Listing \ref{listing:findingsTeachersCommon} zeigt diesen allgemeinen
+    Teil des {\classificationModel}s.
 
     \lstinputlisting[
         label=listing:findingsTeachersCommon,
-        caption=Klassendefinition für allgemeine Bereiche,
+        caption=Das {\classificationModel} der Seite \"uber Lehrende und Betreuende (1),
         language=wccdl,
         inputencoding=utf8/latin1,
         style=wccdl
     ]{../resources/findings/case-study-1/classification-model/Common.wctd}
 
-    Die Klasse "`Header"' repräsentiert den Kopfbereich der Seite
+    Die Klasse \texttt{Header} repräsentiert den Kopfbereich der Seite
     und besitzt entsprechend Features,
     die das Logo sowie die Links klassifizieren.
-    Das Logo wird durch die Klase "`Brand"' modelliert,
-    die sowohl ein Feature für das Bild selbst als auch den Link enthält.
-    Für den Namen des Portals und den zugehörige Link existiert die Klasse "`Portal"'.
-    Die Überschrift der Seite wird als "`PageHeading"' klassifiziert und
-    der einleitende Absatz als "`Introduction"', die außerdem Links auf andere
-    Seiten der {\fernUni} erkennt.
-    Wie die Links im Kopfbereich werden sie als "`FernUniInternalLink"' klassifiziert.
-
-    Zusätzlich wird in dieser Datei für Bilder die Klasse "`Image"' definiert,
-    die in der zweiten Datei Verwendung findet.
-    Aus dieser geht auch hervor, wie die Navigationspunkte im linken Bereich erfasst werden.
-    Sie ist in Listing \ref{listing:findingsTeachersSpecial} zu sehen.
+    Das Logo wird durch die Inhaltsklasse \texttt{Brand} modelliert,
+    die sowohl ein {\referenceFeature} für das Bild selbst als auch den Link enthält.
+    Für den Namen des Portals und den zugehörige Link existiert die Klasse \texttt{Portal}.
+    Die Überschrift der Seite wird als \texttt{PageHeading} klassifiziert und
+    der einleitende Absatz als \texttt{Introduction}.
+    Diese Klasse erkennt durch das Feature \texttt{links} außerdem Verweise auf andere Seiten der {\fernUni}.
+    Wie die Links im Kopfbereich werden sie als \texttt{FernUniInternalLink} klassifiziert.
+    Für Bilder wird in dieser Datei die Referenzklasse \texttt{Image} definiert,
+    die auch in der zweiten Datei Verwendung findet.
+    Aus dieser Datei, die in Listing \ref{listing:findingsTeachersSpecial} zu sehen,
+    geht auch hervor, wie die Navigationspunkte im linken Bereich erfasst werden.
 
     \lstinputlisting[
         label=listing:findingsTeachersSpecial,
-        caption=Klassendefinition für Lehrende und Betreuende,
+        caption=Das {\classificationModel} der Seite \"uber Lehrende und Betreuende (2),
         language=wccdl,
         inputencoding=utf8/latin1,
         style=wccdl
     ]{../resources/findings/case-study-1/classification-model/Teachers.wctd}
 
-    Zunächst wird die Seitenklasse "`Teachers"' definiert,
-    inklusive einiger Features für die allgemeinen Bereiche der Seite,
-    wofür die Klassen der vorangegangenen Datei genutzt werden.
-    Eines dieser Features ist "`sidebarNavigationLinks"',
-    welches die Navigationslinks auf der linken Seite als "`FernUniInternalLink"'
+    Sie beginnt mit der Seitenklasse \texttt{Teachers},
+    die Features für die allgemeinen Bereiche der Seite enthält.
+    Diese verwenden die Klassen der vorangegangenen Datei.
+    Eines dieser Features ist \texttt{sidebarNavigationLinks},
+    welches die Verweise auf der linken Seite als \texttt{FernUniInternalLink}
     klassifiziert.
-    Ein einzelner Mitarbeiter wird durch die Klasse "`Teacher"' dargestellt
-    sowie sein Name durch "`TeacherName"'.
-    Ein Lehrgebiet mit Namen und Link wird als "`SubjectArea"' bzw. "`SubjectAreaNem"' klassifiziert.
-    Die Kontaktinformationen eines Mitarbeiters kapselt die Klasse "`ContactInformation"',
-    wobei die einzelnen Angaben durch die Klassen "`Phone"', "`Email"', "`Fax"' und "`Room"'
-    repräsentiert werden.
+    Ein einzelner Mitarbeiter wird durch die Klasse \texttt{Teacher} dargestellt,
+    sein Name durch \texttt{TeacherName}.
+    Ein Lehrgebiet wird als \texttt{SubjectArea} klassifiziert,
+    ihr Name wiederum als \texttt{SubjectAreaName}.
+    Die Kontaktinformationen eines Mitarbeiters kapselt die Klasse \texttt{ContactInformation},
+    wobei die einzelnen Angaben als \texttt{Phone}, \texttt{Email}, \texttt{Fax} oder \texttt{Room}
+    klassifiziert werden.
 
-    % TODO: Erwähnen, dass die Klassen iterativ erstellt wurden?
+    Für spätere Erläuterungen ist es interessant zu wissen,
+    wie die HTML-Repräsentation eines Mitarbeiters ist.
+    Diese ist in Listing \ref{listing:findingsTeachersHtmlSource} zu sehen.
+    Konkrete Inhalte wurden aus Gründen der Übersichtlichkeit entfernt.
+    Physische Zeilenumbrüche (keine \texttt{br}-Elemente) im \texttt{p}-Element
+    spielen später allerdings eine Rolle,
+    weshalb sie unverändert übernommen wurden.
+
+    \lstinputlisting[
+        label=listing:findingsTeachersHtmlSource,
+        caption=HTML-Repräsentation eines Mitarbeiters des \gls{babw},
+        style=html
+    ]{../resources/findings/case-study-1/babw/teacher.html}

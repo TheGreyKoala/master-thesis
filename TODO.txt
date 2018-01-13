@@ -1,6 +1,6 @@
 !- Kapitel 1+2 überarbeiten
 !- Alle Kapitel schön schreiben
---> Weiter bei 5.2.1
+--> Weiter bei Die Knoten mit dem Label „Content“
 
 !- Deckblatt
 ?- Spezifikation der APIs erstellen und in Anhang

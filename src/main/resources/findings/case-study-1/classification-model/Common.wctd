@@ -19,8 +19,7 @@ content class Portal
 	is recognized by css « section#inner-headline a.content »
 	classifies homepage as FernUniInternalLink by xpath « . »
 
-reference class Image
-	is recognized by css « img »
+reference class Image is recognized by css « img »
 
 reference class FernUniInternalLink
 	is recognized by url pattern
