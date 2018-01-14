@@ -1,17 +1,15 @@
-\subsection{Unregelmäßigkeiten in der Klassifikation des Portals "`MaBm"'}
+\subsection{Unregelmäßigkeiten in der Klassifikation des Portals "`\gls{mabm}"'}
     Nicht zuletzt enthält auch die Klassifikation des Portals
-    "`M.A. Bildung und Medien: eEducation"'
+    \gls{mabm}
     zwei Auffälligkeiten,
     die hier kurz aufgezeigt werden.
 
-    \paragraph{Zwei Lehrende ohne Lehrgebiet}
+    \paragraph{Zwei Mitarbeiter ohne Lehrgebiet}
     Im Falle zweier Mitarbeiter wurde kein Lehrgebiet erkannt.
-    Der Grund ist eine erneute andere Struktur des \glspl{html}.
+    Der Grund ist eine erneut andere Struktur des \glspl{html}.
     In diesen Fällen ist der Link auf das Lehrgebiet
-    in ein strong Element eingebettet, weshalb es nicht erkannt wurde.
+    in ein \texttt{strong}-Element eingebettet, weshalb es nicht erkannt wurde.
 
-    \paragraph{Inkorrekte Nabem zweier Mitarbeiter}
-    Bei den gleichen Mitarbeitern enthält ihr Name außerdem ihr Lehrgebiet.
-    Wie beschrieben enthält das strong Element das Lehrgebiet,
-    aber auch den Namen des Mitarbeiters.
-    Der Selektor des Namens des Mitarbeiters erfasst genau dieses strong Element.
+    \paragraph{Inkorrekte Namen zweier Mitarbeiter}
+    Dieses \texttt{strong}-Element wurde vom Selektor des Mitarbeiternamens erfasst,
+    weshalb die Namen dieser Mitarbeiter auch das Lehrgebiet umfassen.
