@@ -9,8 +9,8 @@ page class NewsOverview
 			« #pagination > span.current + a.inactive »
 		portal as Portal
 		previousPage as FernUniInternalLink by xpath
-			« //div[@id='pagination']/span[@class='current']|\label{line:newsWctdInvalidSelectorStart}|
-				/preceding-sibling::a[1][@class='inactive'] »|\label{line:newsWctdInvalidSelectorEnd}|
+			« //div[@id="pagination"]/span[@class="current"]|\label{line:newsWctdInvalidSelectorStart}|
+				/preceding-sibling::a[1][@class="inactive"] »|\label{line:newsWctdInvalidSelectorEnd}|
 		sidebarNavigationLinks as many FernUniInternalLink each by css
 			« ul.menu a »
 
@@ -19,7 +19,7 @@ content class News
 	classifies
 		date as NewsDate
 		heading as NewsHeading
-//		section as many NewsSection
+//		sections as many NewsSection
 
 content class NewsDate is recognized by xpath
 	« following-sibling::p[@class="datum"] »
@@ -30,4 +30,4 @@ content class NewsHeading
 	classifies
 		newsDetailPage as FernUniInternalLink
 
-// content class NewsSection
+content class NewsSection

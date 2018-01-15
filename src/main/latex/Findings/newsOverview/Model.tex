@@ -1,18 +1,14 @@
-\subsection{Modell der Seite}
-    % TODO: UML Diagramm der Seite, dann ist es auch ein Modell
+\subsection{Das konzeptionelle Modell der Webseite}
     Abbildung \ref{image:findingNewsModelOverview} zeigt einen
-    Ausschnitt der zu klassifizierenden Seite,
-    anhand dessen das Modelld er Seite erläutert wird.
-    Eine schematische Darstellung ist außerdem in Abbildung
+    Ausschnitt der zu klassifizierenden Webseite,
+    anhand dessen das konzeptionelle Modell der Seite erläutert wird.
+    Eine Darstellung des Modells ist außerdem in Abbildung
     \ref{image:findingNewsModelUml} zu sehen.
-    Aufgrund der nachfolgend beschriebenen Überschneidungen zum
-    ersten Fallbeispiel, verzichtet dieses auf die Wiederholung
-    identischer Elemente.
 
     \begin{figure}[htb]
         \centering
         \includegraphics[width=\textwidth]{../resources/findings/case-study-2/news-overview.png}
-        \caption{Ausschnitt aus einer Seite: Aktuelles}
+        \caption{Aktuelle Meldungen im \gls{babw}}
         \label{image:findingNewsModelOverview}
     \end{figure}
 
@@ -21,16 +17,18 @@
     Das betrifft den Kopfbereich, den Namen des Portals,
     die seitlichen Navigationspunkte und die Überschrift der Seite.
     Im Vergleich zum ersten Beispiel gibt es hier nur wenige inhaltliche,
-    keine konzeptionellen Unterschide.
+    aber keine konzeptionellen Unterschiede,
+    weshalb auf diese Bereiche nicht weiter eingegangen wird und Abbildung
+    \ref{image:findingNewsModelUml} sie nicht modelliert.
 
-    Diese werden erst im mittleren Bereich ersichtlich,
+    Unterschiede werden erst im mittleren Bereich ersichtlich,
     wo die Auflistung der einzelnen Nachrichten erfolgt.
     Jede Nachricht besitzt ein Datum, eine Überschrift und beliebig viele Absätze,
-    die Text, Links etc. enthalten.
+    die ihrerseits Text, Links usw. enthalten.
     Die Überschrift ist gleichzeitig auch ein Link auf die Einzelseite der Meldung.
-    Diese Seite enthält nicht alle Meldungen.
-    Stattdessen werden sie auf mehrere Seiten verteilt.
-    Zwei Links, die in Abbildung \ref{image:findingNewsModelOverview} nicht zu sehen ist,
+    Die Meldungen des Portals werden nicht alle auf einer Nachrichtenseite dargestellt,
+    sondern auf mehrere verteilt.
+    Zwei Links, die in Abbildung \ref{image:findingNewsModelOverview} nicht zu sehen sind,
     führen einen Besucher der Webseite zur nächsten bzw. vorherigen Übersichtsseite.
     Dabei handelt es sich um eigenständige Seiten mit individuellen \glspl{url},
     die aber alle dem beschriebenen Modell folgen.
@@ -38,6 +36,6 @@
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/findings/case-study-2/model.png}
-        \caption{Schematische Darstellung einer Nachrichtenübersichtsseite}
+        \caption{Konzeptionelles Modell der Seite über aktuelle Meldungen}
         \label{image:findingNewsModelUml}
     \end{figure}

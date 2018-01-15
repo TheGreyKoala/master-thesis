@@ -1,51 +1,36 @@
 \subsection{Kennzahlen}
-    % TODO: Modell der Datenbank, um Labels etc. besser zu verstehen
-    Anders als die Seite aus dem ersten Fallbeispiel wiederholt sich
-    eine Nachrichtenseite nicht nur in mehreren Sites,
-    sondern auch innerhalb einer Site.
+    Auch in diesem Fallbeispiel wurde eine Reihe an Kennzahlen ermittelt,
+    die in diesem Kapitel präsentiert werden.
 
-    Die Klassifizierung wurde deshalb nicht auf allen Sites wiederholt,
-    da keine neuen Erkentnisse zu erwarten sind.
-    Ebenso wurden keine elementar anderen Ergebnisse für den Fall erwartet,
-    alle Nachrichtenseiten in getrennten Datenbanken zu speichern.
-
-    Mehr Potenzial für neue Ergebnisse scheint hingegen die Speicherung
-    der Klassifikationen mehrerer Seiten eines Portals in einer Datenbank.
-    Dieser Versuch wurde für das Portal "`B.A. Bildungswissenschaft"' durchgeführt,
-    welches zu diesem Zeitpunkt fünf Nachrichtenübersischtsseiten enthielt.
-
-    Die Aufteilung der Label auf die verschiedenen Knoten in in Tabelle
-    \ref{table:findingsNewsFiguresNodesByLabel} zu sehen.
-    Die Häufigkeit der Inhaltsklassen stellt Tabelle
-    \ref{table:findingsNewsFiguresContentNodesByClass} dar.
-    Tabelle \ref{table:findingNewsFiguresEdgesByLabel} zeigt die Aufteilung
-    der Labels auf die Kanten der Datenbank und Tabelle
-    \ref{table:findingsNewsFiguresEdgesByStartEndNodeLabel}
-    stellt heraus, welche Knotenarten diese Kanten verbinden.
-    Zuletzt betrachtet Tabelle \ref{table:findingsNewsFiguresSharedNodes}
-    die Frage, welche Knoten mehrfach referenziert wurden.
-
-    Zur besseren Verständnis der präsentierten Kennzahlen,
-    veranschaulicht Abbildung
-    \ref{image:findingNewsFiguresDbModel}
-    wie der Graph der Klassifikation aufgebaut ist.
-    Wegen der beschriebenen Überschneidung mit Fallbeispiel 1 im Kopfbereich,
-    sind diese identischen Elemente nicht dargestellt.
-    Verzichtet wird ebenso auf die Darstellung von Referenzen,
-    da diese lediglich Kanten von den dargestellten Content Knoten
-    zu Resource Knoten sind.
-    Welche Content Klassen welche Referenzen besitzen können,
-    ist zusammen mit dem Klassifikationsmodell ersichtlich.
+    \paragraph{Struktur eines Graphs}
+    Zum Verständnis der Zahlen trägt Abbildung \ref{image:findingNewsFiguresDbModel} bei,
+    welches den Aufbau des Graphs visualisiert.
+    Wegen der beschriebenen Überschneidung mit dem ersten Fallbeispiel,
+    sind die entsprechenden Knoten hier nicht nochmals dargestellt.
+    Wie im vorherigen Beispiel wird außerdem auf die Darstellung von
+    Referenzen verzichtet.
 
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/findings/case-study-2/dbmodel.png}
-        \caption{Nachrichten DB Model}
+        \caption{Struktur des Graphs einer Seite über aktuelle Meldungen}
         \label{image:findingNewsFiguresDbModel}
     \end{figure}
 
+    \paragraph{Präsentation der Kennzahlen}
+    Die folgenden Tabellen präsentieren die gesammelten Kennzahlen.
     Die Bedeutung einzelner Kennzahlen wurde bereits beim ersten Beispiel erläutert,
     die entsprechend auch hier gelten.
+    Die Gruppierung der Knoten nach ihren Labels ist in Tabelle
+    \ref{table:findingsNewsFiguresNodesByLabel} zu sehen.
+    Die Häufigkeit der Inhaltsklassen stellt Tabelle
+    \ref{table:findingsNewsFiguresContentNodesByClass} dar.
+    Tabelle \ref{table:findingNewsFiguresEdgesByLabel} gruppiert die Kanten der Datenbank
+    nach ihren Labels und Tabelle
+    \ref{table:findingsNewsFiguresEdgesByStartEndNodeLabel}
+    stellt heraus, welche Knotenarten diese Kanten verbinden.
+    Zuletzt betrachtet Tabelle \ref{table:findingsNewsFiguresSharedNodes}
+    die Frage, welche Knoten mehrfach referenziert wurden.
 
     \begin{table}[htb]
         \begin{subtable}[c]{0.3\textwidth}
@@ -61,7 +46,7 @@
                 \hline
                 \textbf{Summe}  & 260                                  \\ \hline
             \end{tabular}
-            \subcaption{Anzahl der Knoten nach Label}
+            \subcaption{Knoten gruppiert nach Labels für Seiten über aktuelle Meldungen}
             \label{table:findingsNewsFiguresNodesByLabel}
         \end{subtable}
         \begin{subtable}[c]{0.3\textwidth}
@@ -79,7 +64,7 @@
                 \hline
                 \textbf{Summe}  & 260                                  \\ \hline
             \end{tabular}
-            \subcaption{Content Knoten aufgeteilt nach Klassen}
+            \subcaption{\texttt{Content}-Knoten gruppiert nach ihrer Klasse für Seiten über aktuelle Meldungen}
             \label{table:findingsNewsFiguresContentNodesByClass}
         \end{subtable}
         \begin{subtable}[c]{0.3\textwidth}
@@ -93,7 +78,7 @@
                 \hline
                 \textbf{Summe} & 312                                  \\ \hline
                 \end{tabular}
-            \subcaption{Kanten nach Label}
+            \subcaption{Kanten gruppiert nach Labels für Seiten über aktuelle Meldungen}
             \label{table:findingNewsFiguresEdgesByLabel}
         \end{subtable}
 
@@ -110,7 +95,7 @@
                 (:Site) $\rightarrow$ (:Page)           & 5                                    \\ \hline
                 \textbf{Summe}                    & 232                                  \\ \hline
             \end{tabular}
-            \subcaption{Kanten nach Start und Zielknoten}
+            \subcaption{Kanten gruppiert nach Labels der Start- und Zielknoten für Seiten über aktuelle Meldungen}
             \label{table:findingsNewsFiguresEdgesByStartEndNodeLabel}
         \end{subtable}
         \begin{subtable}[c]{0.5\textwidth}
@@ -128,9 +113,9 @@
                 :Text           & 2                                    \\ \hline
                 \textbf{Summe}  & 16                                   \\ \hline
                 \end{tabular}
-            \subcaption{Mehrfach referenzierte Knoten}
+            \subcaption{Knoten mit mehreren eingehenden Kanten für Seiten über aktuelle Meldungen}
             \label{table:findingsNewsFiguresSharedNodes}
         \end{subtable}
         \label{table:findingsNewsFigures}
-        \caption{Kennzahlen der Nachrichtenübersichtsseiten}
+        \caption{Kennzahlen der Seiten über aktuelle Meldungen}
     \end{table}
