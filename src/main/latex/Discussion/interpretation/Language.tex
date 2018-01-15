@@ -1,7 +1,7 @@
 \subsection{Eignung der domänenspezifischen Sprache}
     % TODO: Vorteile aus SolutionConcept/DSL.tex hier hin? Oder zu Grundlagen über DSLs bzw. im Solution Details Abschnitt der DSL?
     \label{section:discussionInterpretationLanguage}
-    Die Analyse der entwickelten Sprache orientiert sich
+    Die Analyse der \gls{wccdl} orientiert sich
     an den Design Dimensionen von \cite{voelter:DslEngineering}.
 
     \paragraph{Ausdrucksstärke}
@@ -9,7 +9,7 @@
     wie kompakt Programme einer Problemdomäne in dieser Sprache
     formuliert werden können.
     Zur Vergleichbarkeit zweier Sprachen bezüglich ihrer Ausdrucksstärke
-    stellt \citet[Kapitel 4.1]{voelter:DslEngineering} die folgende
+    stellen \citet[Kapitel 4.1]{voelter:DslEngineering} die folgende
     Definition auf, wobei
     $P_D$ die Menge aller Programme der Domäne,
     $P_L$ die Menge aller in einer Sprache formulierbaren Programme und
@@ -31,27 +31,27 @@
     wenn eine Sprache textuell und die andere graphischer Natur ist.
     Viele Modellierungssprachen sind deshalb schwer mit der \gls{wccdl} zu vergleichen.
     Allerdings konnten zwei geeignete Kandidaten gefunden werden.
-    Das erste ist PlantUML\footnote{vgl. \url{http://plantuml.com/}},
+    Der erste ist PlantUML\footnote{vgl. \url{http://plantuml.com/}},
     ein Werkzeug und eine Sprache zur textuellen Beschreibung und anschließender
-    graphischer Generierung von UML-Diagrammen.
+    Generierung graphischer UML-Diagramme.
     Die zweite Sprache wurde bei Recherchen auf
-    GitHub\footnote{\url{https://github.com/sabrams/web-miner}} gefunden
+    GitHub\footnote{vgl. \url{https://github.com/sabrams/web-miner}} gefunden
     und verfolgt ein sehr ähnliches Ziel wie die \gls{wccdl}.
-    Sie ist eine interne Ruby DSL.
-    Auch wenn keine offizielle Arbeit oder eine Dokumentation dieser Sprache
-    gefunden wurde und sie möglicherweise unvollständig ist,
-    vermittelt sie trotzdem, wie das Vorhaben der \gls{wccdl}
-    in einer anderen Sprache aussehen kann und ist deshalb für einen
-    Vergleich geeignet.
-
-    Als Vergleich dient ein Beispiel in
+    Sie ist eine interne Ruby DSL, die trotz ihrer etwaigen Unvollständigkeit sowie der fehlenden
+    offiziellen wissenschaftlichen Arbeit oder Dokumentation
+    für einen Vergleich mit der \gls{wccdl} geeignet ist.
+    Sie vermittelt nämlich, wie das Vorhaben der \gls{wccdl}
+    in einer anderen Sprache aussehen kann.
+    Als Vergleich dient ein Beispiel im
     Testcode\footnote{vgl. \url{https://github.com/sabrams/web-miner/blob/master/features/mine_according_to_command_file.feature}}
     dieser DSL, welches in Listing \ref{listing:discussionExpressivityExampleRubyDsl}
     zu sehen ist.
 
     \lstinputlisting[
         label=listing:discussionExpressivityExampleRubyDsl,
-        caption=Beispiel zum Vergleich der Ausdrucksstärke in einer Ruby DSL
+        caption=Programm in einer Ruby DSL zum Vergleich der Ausdrucksstärke,
+        style=pseudo,
+        language=Ruby
     ]{../resources/discussion/interpretation/language/expressivity-example.rb}
 
     Ein äquivalentes Konstrukt in PlantUML zeigt Listing
@@ -59,7 +59,8 @@
 
     \lstinputlisting[
         label=listing:discussionExpressivityExamplePlantUml,
-        caption=Beispiel zum Vergleich der Ausdrucksstärke in PlantUML
+        caption=Programm in PlantUML zum Vergleich der Ausdrucksstärke,
+        style=plantuml
     ]{../resources/discussion/interpretation/language/expressivity-example.plantuml}
 
     Nicht zuletzt zeigt Listing \ref{listing:discussionExpressivityExampleWccs}
@@ -67,8 +68,7 @@
 
     \lstinputlisting[
         label=listing:discussionExpressivityExampleWccs,
-        caption=Beispiel zum Vergleich der Ausdrucksstärke in WCCDL,
-        language=wccdl,
+        caption=Programm in der \acrshort{wccdl} zum Vergleich der Ausdrucksstärke,
         inputencoding=utf8/latin1,
         style=wccdl
     ]{../resources/discussion/interpretation/language/expressivity-example.wctd}
@@ -76,21 +76,22 @@
     Obwohl sich auch die \gls{wccdl} in diesem Beispiel kompakt ausdrückt,
     braucht sie mehr Code als die anderen beiden Sprachen.
     Auch ohne genaue Analyse sollte diese geringere Ausdrucksstärke
-    allgemeingültig für die \gls{wccdl} sein,
-    da sie anders als ihre Kontrahenten für jedes Feature eine definierte Klasse
-    benötigt (im Beispiel "`Object"').
+    allgemeingültig für die \gls{wccdl} sein.
+    Anders als ihre Kontrahenten benötigt sie z. B. für jedes Feature eine definierte Klasse
+    (im Beispiel \texttt{Object}).
     Außerdem ist die Definition einer einzelnen Klasse,
-    eines einzelnen Features und eines Selektors in etwa gleich lang oder länger.
+    eines einzelnen Features oder eines Selektors in etwa gleich lang oder länger,
+    als in der Vergleichssprachen.
 
     Der Grund sind die langen Schlüsselwortsequenzen,
-    die zum Beispiel auch im Selektor der Seitenklasse "`Teacher"'
-    im ersten Fallbeispiel erkennbar sind.
-    An dieser Klasse und ihrem Pendant "`News"' aus dem zweiten Beispiel
-    wird außerdem deutlich, dass der Sprache ein Vererbungskonzept fehlt,
-    wodurch identische Features wiederholt werden müssen
-    und sich die Ausdrucksstärke der Sprache verringert.
+    die zum Beispiel auch im Selektor der Seitenklasse \texttt{Teacher}
+    erkennbar sind.
+    An dieser Klasse und ihrem Pendant \texttt{News}
+    wird außerdem deutlich, dass der Sprache ein Vererbungskonzept fehlt.
+    Identische Features müssen nämlich wiederholt werden,
+    wodurch sich die Ausdrucksstärke der Sprache verringert.
 
-    Eine Kritik der Ausdrucksstärke ist berechtigt,
+    Eine Kritik der Ausdrucksstärke der \gls{wccdl} ist berechtigt,
     allerdings muss beachtet werden,
     dass dieses Merkmal in Konflikt mit einigen nun folgenden
     Eigenschaften steht, die positiver bewertet werden.
@@ -98,14 +99,14 @@
     % TODO: Namespace?
 
     \paragraph{Abdeckung der Domäne}
-    Die Abdeckung ihrer Domäne einer Sprache beschreibt
+    Die Abdeckung der Domäne einer Sprache beschreiben
     \citet[Kapitel 4.2]{voelter:DslEngineering} als den
     prozentualen Anteil an allen Programmen der Domäne,
     die durch die Sprache formuliert werden können.
-    Seine formale Definition lautet:
+    Die formale Definition lautet
 
     \begin{quote}
-        $C_D(L) = \frac{number of P_D programs expressable by L}{number of programs in domain D}$
+        $C_D(L) = \frac{number of P_D programs expressable by L}{number of programs in domain D}$.
     \end{quote}
 
     Eine volle Abdeckung ist demnach gegeben,
@@ -114,48 +115,50 @@
     Im Falle der \gls{wccdl} kann zumindest die Frage beantwortet werden,
     ob sie ihre Domäne voll abdeckt, das heißt, ob jede beliebige Struktur auf einer Webseite
     durch sie erfasst werden kann.
-    Wie das zweite Fallbeispiel zeigte, ist das nicht der Fall.
-    Gleichzeitig sollte nicht missachtet werden,
-    dass auch einige nicht triviale Strukturen durch sie abgedeckt sind.
-    Allerdings besteht auch eine gewisse Abhängigkeit zu den Fähigkeiten der Selektoren,
-    was in Kapitel \ref{section:discussionInterpretationSelectors}
-    nochmals aufgegriffen wird.
+    Wie das zweite Fallbeispiel zeigte, ist das nicht der Fall,
+    da kein allgemeiner Selektor gefunden werden konnte,
+    der die Absätze einer Nachricht korrekt erfasst.
+    Spezielle Klassen pro Meldung können dieses Problem zwar lösen,
+    sind aber nicht im eigentlichen Sinne des \glspl{wccs}.
+    Es wurden aber auch einige nicht triviale Strukturen durch die Sprache abgedeckt.
+    Selbstverständlich spielen bei dieser Frage auch die Fähigkeiten der Selektoren
+    eine Rolle\footnote{vgl. Kapitel \ref{section:discussionInterpretationSelectors}}.
 
     \paragraph{Vollständigkeit}
     Eine Sprache ist nach \citet[Kapitel 4.5]{voelter:DslEngineering}
-    vollständig wenn sie keine Code-Fragmente in niedrigeren Sprachen,
+    vollständig wenn ihr Generierungsergebnis keine manuell geschriebenen Codefragmente in niedrigeren Sprachen,
     Konfigurationsdateien oder ähnliches benötigt,
-    um ausführbare Programme zu formulieren.
-    Es kann argumentiert werden, dass die \gls{wccdl} zur Definition von
-    Selektoren auf niedrigere Sprachen angewiesen ist,
-    nämlich CSS, XPath und reguläre Ausdrücke.
-    Zum einen, weil sie keine eigenen Konzepte für diese Sprachen enthält,
-    sie weder einer syntaktischen noch semantischen Prüfungen unterzieht
-    und sie während der Generierung nicht auswertet,
-    sondern als simple Zeichenketten 1:1 übernimmt.
-    All dies geschieht erst durch das Klassifizierungssystem.
+    um die gleiche Semantik zu besitzen wie das Programm in der \gls{dsl}.
+    Formaler beschreiben sie diese Eigenschaft wie folgt:
 
-    Die Unvollständigkeit der Sprache an dieser Stelle ist nachvollziehbar,
-    weil warum das Rad neu erfinden?
-    % TODO: Buch nochmal genau lesen, ggf. Zitat.
+    \begin{quote}
+        Let us introduce a function $G$ ("code generator") that transforms
+        a program $p$ in $L_D$ to a program $q$ in $L_{D-1}$.
+        For a complete language, $p$ and $q$ have the same semantics, i.e.
+        $OB(p) == OB(G(p)) == OB(q)$ [...]. For incomplete languages
+        where $OB(G(p)) \subset OB(p)$ we have to write additional
+        code in $L_{D-1}$ to obtain a program in $D_{-1}$ that has the same semantics
+        as intended by the original program in $L_D$.
+    \end{quote}
 
-    %Die \gls{wccdl} ist vollständig, da zur Generierung keine Abhängigkeiten benötigt.
-    %Die Werte von Selektoren sollen CSS, XPath oder reguläre Ausdrücke sein,
-    %allerdings werden sie weder einer syntaktischen noch einer semantischen Prüfung unterzogen,
-    %sondern als beliebige Zeichenketten behandelt.
-    %Sie stellen also keine Verwendung von niedrigeren Sprachen dar.
-    % TODO: Stimmt das so, oder könnte die spätere Verwendung sie doch dazu machen?
-    % Vermutlich schon, aber das ist nicht schlimm, weil warum das Rad neu erfinden?
+    Die \gls{wccdl} ist vollständig, da das generierte JSON-Dokument eines
+    {\classificationModel}s mit diesem semantisch übereinstimmt.
 
     \paragraph{Konkreter Syntax}
-    Für den konkreten Syntax einer Sprache schlägt \citet[Kapitel 4.7]{voelter:DslEngineering}
+    Für den konkreten Syntax einer Sprache schlagen \citet[Kapitel 4.7]{voelter:DslEngineering}
     verschiedene Bewertungskriterien vor: Writeability, Readability, Learnability, Effectivness.
 
-    Ein Nachteil der langen Sequenzen von Schlüsselwörtern wird beim Schreiben des Codes
-    deutlich, allerdings relativiert sich dieser Nachteil durch die Unterstützung der Entwicklungsumgebung.
+    Der Nachteil der langen Sequenzen von Schlüsselwörtern wird beim Schreiben des Codes
+    deutlich, da auch einfache Konzepte vergleichsweise viel Code erfordern.
+    Allerdings relativiert sich dieser Nachteil durch die Unterstützung der Entwicklungsumgebung.
     Ein weiterer Nachteil beim Schreiben des Codes ist die fehlende Prüfung der
-    Werte der Selektoren, wodurch ihre Formulierung unnötig schwer und fehleranfällig wird.
+    Selektoren, wodurch ihre Formulierung unnötig schwer und fehleranfällig wird.
     Das gilt vor allem bei komplexeren Selektoren.
+    Die Zeichen zur Einklammerung von Selektoren sind auf vielen Tastaturlayouts nicht zu finden.
+    Das ist nachteilig, weil man auf die Autovervollständigung der Entwicklungsumgebung angewiesen ist.
+    Gleichzeitig erlauben sie die Nutzung vieler Zeichen ohne sie speziell Kennzeichnen zu müssen,
+    wie z. B. Anführungszeichen.
+    Im Vergleich zu anderen Sprachen ist das ein wichtiger Vorteil.
 
     Die vielen Schlüsselwörter sind aber auch ein Vorteil,
     da sich Programme nahezu wie ein Fließtext lesen lassen
@@ -164,28 +167,30 @@
     ist das sehr positiv zu bewerten.
     Beide Fallbeispiele zeigen aber auch Konstrukte,
     in denen die Lesbarkeit besser sein könnte.
-    Zum Beispiel bei der Klasse "`Portal"',
+    Zum Beispiel bei der Klasse \texttt{Portal},
     bei der nicht offensichtlich ist,
     dass sie selbst den Namen des Studienportals speichert,
-    der Link aber in einem Child Feature gespeichert wird.
-    Eingeschränkt wird die Lesbarkeit aber auch durch die Selektoren,
+    aber der Link in einem {\childFeature} gespeichert wird.
+    Eingeschränkt wird die Lesbarkeit aber durch die Selektoren,
     die in den Fallbeispielen schnell eine hohe Komplexität angenommen haben,
-    wie zum Beispiel bei der Klasse "`Phone"'.
+    wie zum Beispiel bei der Klasse \texttt{Phone}.
+    Bezüglich der Selektoren und ihrer Lesbarkeit ist aber nochmals
+    die fehlende Notwendigkeit, spezielle Zeichen zu kodieren, positiv hervorzuheben.
 
     Die Konzepte der Sprache sind leicht zu verstehen
     und durch die gebotene Autovervollständigung und einige
-    semantische Prüfungen, ist das Erlernen der Sprache vergleichsweise einfach.
-    Hinzu kommen allerdings die benötigten CSS-, XPath und RegEx-Kentnisse,
+    semantische Prüfungen, ist das Erlernen der Sprache einfach.
+    Hinzu kommen allerdings die benötigten Kenntnisse von CSS, XPath und regulären Ausdrücken,
     wodurch das formulieren von Selektoren erschwert wird.
 
     Für eine fundierte Bewertung der Effektivität der Sprache,
     also der Frage, wie gut typische Probleme der Domäne ausgedrückt werden können,
-    sind weitere Anwendungen auf noch mehr Seiten notwendig.
+    sind weitere Anwendungen auf noch mehr Webseiten notwendig.
     Das durch die Fallbeispiele erhaltene Bild ist zweiseitig:
     Viele Features und Klassen lassen sich durch simple Selektoren erfassen,
     einige erfordern jedoch komplexe Selektoren.
-    Dabei dürfte zumindest das bei der Klasse "`Portal"' angewandte Konstrukt,
-    um ein HTML-Node sowohl als Content als auch als Reference Feature zu nutzen,
+    Dabei dürfte zumindest das bei der Klasse \texttt{Portal} angewandte Konstrukt,
+    um ein HTML-Element sowohl als {\contentFeature} als auch als {\referenceFeature} zu nutzen,
     eine häufige Anforderung sein und sollte besser unterstützt werden.
 
     \paragraph{Struktur}
@@ -197,13 +202,12 @@
     da die Klassen leicht aufgeteilt und wiederverwendet werden konnten.
     Als Argument gegen Namensräume wurde die höhere Komplexität für
     Nicht-Programmierer genannt, was ein valider Punkt ist.
-    Allerdings steigt die Einstiegshürde für diese Gruppe wie erläutert bereits
-    durch die Selektoren und Namensräume würden diese Hürde womöglich nicht noch weiter anheben.
-
+    Allerdings steigt die Einstiegshürde für diese Gruppe bereits
+    durch die Selektoren. Namensräume würden diese Hürde womöglich nicht noch weiter anheben.
     Es ist außerdem nicht auszuschließen, dass in größeren Projekten
-    Namensräume und eine eingeschränkte Sichtbarkeit von Vorteil wäre,
-    damit, anders als die Beispielklassen "`NewsDate"' und "`TeacherName"',
-    Klassen mit abstrakten Namen nicht mit einem Präfix versehen werden müssen,
+    Namensräume und eine eingeschränkte Sichtbarkeit von Vorteil wären.
+    Anders als die Beispielklassen \texttt{NewsDate} und \texttt{TeacherName},
+    müssten Klassen mit abstrakten Namen dann nicht mit einem Präfix versehen werden,
     was durchaus aus schlechter Stil angesehen werden kann.
 
     Insgesamt ist festzuhalten, dass die \gls{wccdl} viele Problemstellungen der Domäne

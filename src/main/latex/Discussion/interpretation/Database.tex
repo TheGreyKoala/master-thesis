@@ -1,136 +1,147 @@
-\subsection{Vorteile einer Graphdatenbank}
-    Der erste Beweggrund für die Verwendung einer Graphdatenbank
-    ist die natürliche Modellierung und Speicherung von Verweisen
-    zwischen Seiten und auf sonstige {\resources}.
-    Des Weiteren sollte durch die Vermeidung von Duplikaten in der Datenbank
-    und der Möglichkeit einen Knoten mehrfach zu referenzieren,
-    die Möglichkeit entstehen weiterführende Analysen auf den klassifizierten
-    Inhalten auszuführen.
+\subsection{Eignung einer Graphdatenbank}
+    Die Nutzung einer Graphdatenbank für das \gls{wccs} hatte mehrere Beweggründe.
+    Dazu zählen die einfache, natürliche und schemalose Datenmodellierung
+    und die Möglichkeit Beziehungen sehr einfach auszuwerten.
+    Die Wiederverwendung von Knoten für mehrere Klassifikationen
+    bietet außerdem die Möglichkeit weiterführende Analysen auf den
+    klassifizierten Inhalten durchzuführen.
+    Dieses Kapitel bewertet die tatsächliche Eignung einer Graphdatenbank,
+    des verwendeten Datenmodells sowie des Algorithmus
+    zum Schreiben von Klassifikationen, der das Teilen von Knoten ermöglicht.
 
-    Das zweite Beispiel hat gezeigt,
-    wie Referenzen zwischen Seiten auf sehr einfache Art und Weise
-    die Reihenfolge der Übersichtsseiten und Navigationspfade explizit machen.
+    \paragraph{Referenzen zwischen Webseiten}
+    Das zweite Fallbeispiel hat gezeigt,
+    wie Referenzen zwischen Webseiten auf sehr einfache Art und Weise
+    Reihenfolgen und Navigationspfade (der Nachrichtenseiten) explizit machen.
     Eine Auswertung ist trivial, da lediglich ein- und ausgehenden Kanten gefolgt werden muss.
-    Andere Datenbankmodelle hätten komplexere Konstrukte erfordert,
-    um diese Informationen zu speichern oder hätten komplexere
-    Aggregierungsschritte zur Auswertung erfordert.
+    Andere Datenbankmodelle hätten komplexere Konstrukte
+    zur Speicherung oder zur Auswertung erfordert.
 
-    Betrachtet man Tabele \ref{table:findingsTeachersFiguresNodesByLabel} wird deutlich,
-    dass Text- und Resource-Knoten verhältnismäßig am meisten von der
-    Möglichkeit Knoten wiederzuverwenden profitieren.
+    \paragraph{Wiederverwendung von \texttt{Text}- und \texttt{Resource}-Knoten}
+    Betrachtet man Tabelle \ref{table:findingsTeachersFiguresNodesByLabel} wird deutlich,
+    dass \texttt{Text}- und \texttt{Resource}-Knoten verhältnismäßig am meisten von der
+    Wiederverwendbarkeit gebrauch machen.
     Das ist nicht verwunderlich, da sie jeweils genau einen Wert speichern,
     der sie identifiziert und keine ausgehenden Kanten besitzen,
     die seitenspezifische Informationen enthalten.
     Wie Tabelle \ref{table:findingsTeachersFiguresSharedNodes} belegt,
     steigt ihre Wiederverwendung bei mehreren Klassifikationen in einer Datenbank,
     was eine logische Konsequenz der größeren Informationsmenge ist.
-
-    Für Resource-Knoten ist dies aber nicht sofort ersichtlich,
-    zum Beispiel die Zahl der mehrfach referenzierten
-    Lehrgebiets-Resource-Knoten im Falle einer gemeinsamer Datenbank niedriger ist,
-    als die Summe der geteilten Knoten in einzelnen Datenbanken (30 vs. 36).
-    Gleichzeitig ist die Zahl der geteilten SubjectArea-Knoten aber höher,
-    die jeder einen Lehrgebietsknoten referenzieren.
-    Es wird also lediglich ein größerer Teilbaum geteilt.
-    Außerdem enthielten die einzelnen Datenbanken identische Resource-Knoten,
+    Für \texttt{Resource}-Knoten ist das aber nicht sofort ersichtlich, da
+    die Summe der mehrfach verwendeten \texttt{Resource}-Knoten von Lehrgebieten
+    im Falle einzelner Datenbanken höher ist, als im Fall einer gemeinsamen Datenbank (36 vs. 30).
+    Gleichzeitig ist die Zahl der geteilten \texttt{SubjectArea}-Knoten aber höher,
+    die jeder einen \texttt{Resource}-Knoten eines Lehrgebietes referenzieren.
+    Es wird also ein größerer Teil des Graphs wiederverwendet.
+    Außerdem enthielten die einzelnen Datenbanken identische \texttt{Resource}-Knoten,
     die in der gemeinsamen natürlich zusammengefasst werden konnten.
 
-    Resource-Knoten innerhalb einer Datenbank zu duplizieren
-    macht aus semantischen Gründen keinen Sinn,
-    da sie eine Entität der Domäne darstellen,
-    die genau ein mal existiert, was die Datenbank wiederspiegeln sollte
-    und außerdem die Möglichkeiten eines Graphens besser ausschöpft.
-
-    Nicht so eindeutig ist dies allerdings bei Text-Knoten.
+    \paragraph{Entbehrlichkeit von \texttt{Text}-Knoten}
+    Innerhalb einer Datenbank macht es aus semantischen Gründen keinen Sinn
+    \texttt{Resource}-Knoten zu duplizieren,
+    da sie eine Entität der Domäne darstellen.
+    {\resources} existieren genau ein mal, was die Datenbank wiederspiegeln sollte
+    und außerdem die Möglichkeiten eines Graphs besser ausschöpft.
+    Nicht so eindeutig ist dies allerdings bei \texttt{Text}-Knoten.
     Aus Tabelle \ref{table:findingsTeachersFiguresSharedNodes} geht hervor,
-    dass im ersten Fallbeispiel niemals ein Text-Knoten geteilt wurde.
-    Stattdessen konnte immer der Content-Knoten,
+    dass im ersten Fallbeispiel niemals ein \texttt{Text}-Knoten geteilt wurde.
+    Stattdessen konnte immer der \texttt{Content}-Knoten,
     der ihn referenziert, geteilt werden.
-    Deshalb ist die Zahl beider Knoten-Typen gesunken und die der geteilten
-    Content Knoten dafür gesteigen.
+    Deshalb ist die Zahl beider Knotentypen gesunken und die der geteilten
+    \texttt{Content}-Knoten dafür gestiegen.
     Tabelle \ref{table:findingsNewsFiguresSharedNodes}
     zeigt eine andere Situation beim zweiten Fallbeispiel.
-    Dort werden zwei Text-Knoten geteilt,
-    weil es mehrere News mit derselben ÜBerschrift gibt,
-    die aber unterschiedliche Detailseiten referenzieren,
-    weshalb der Content Knoten nicht teilbar ist.
-    Der tatsächliche Nutzen der Text-Knoten ist in diesen Beispielt trotzdem sehr gering,
-    weshalb der textuelle Wert eines Features besser im Content Knoten selbst aufgehoben ist.
-    Für die Schnittstellen des Systems ändert sich durch eine entsprechende Anpassung nichts,
-    allerdings vereinfacht sich dadurch das Datenmodell der Datenbank sowie
+    Dort werden zwei \texttt{Text}-Knoten geteilt,
+    weil es mehrere Nachrichten mit derselben Überschrift gibt.
+    Sie referenzieren aber unterschiedliche Detailseiten,
+    weshalb die Nachrichten unterschiedliche \texttt{Content}-Knoten besitzen.
+    Der tatsächliche Nutzen der \texttt{Text}-Knoten ist in diesen Beispielen trotzdem sehr gering.
+    Der textuelle Wert eines {\contentFeature}s ist deshalb im \texttt{Content}-Knoten selbst besser aufgehoben.
+    Für die Schnittstellen des \glspl{wccs} ändert sich durch eine entsprechende Anpassung nichts,
+    allerdings vereinfacht sich das Datenmodell der Datenbank sowie
     die generierten Datenbankanweisungen.
 
+    \paragraph{Hierarchieebene wiederverwendeter Teilgraphen}
     Bezüglich der Wiederverwendung von Teilgraphen ist außerdem ersichtlich,
-    dass dies häufig erst auf einer tiefen Ebene,
-    wie bei Content Knoten der Klasse "`SubjectAreaName"',
-    und seltener auf einer hohen Ebene,
-    wie bei einem Content Knoten der Klasse "`Teacher"' geschieht.
-    Betrachtet man die Inhalte der klassifizierten Webseiten von außen,
-    ist eine entsprechende Erwartung gerechtfertigt,
-    da sich zum Beispiel der Kopfbereich auf allen Seiten exakt wiederholt
-    oder mehrere Lehrende auf unterschiedlichen Seiten identisch aufgeführt werden.
-    Trotzdem werden solche Mitarbeiter und der Kopfbereich in der Datenbank
-    nicht auf Ebene der Teacher bzw. Header Knoten geteilt,
+    dass dies häufig erst auf einer tiefen Ebene geschieht.
+    \texttt{Content}-Knoten der Klasse \texttt{SubjectAreaName} werden bspw.
+    sehr viel häufiger von mehreren Klassifikationen verwendet als solche der
+    Klasse \texttt{Teacher}.
+    Betrachtet man die klassifizierten Webseiten,
+    ist eine entgegengesetzte Erwartung gerechtfertigt.
+    Der Kopfbereich wiederholt sich z. B. auf allen Seiten
+    und mehrere Mitarbeiter werden auf unterschiedlichen Webseiten identisch aufgeführt.
+    Trotzdem wird bei solche Mitarbeitern und dem Kopfbereich
+    nicht der \texttt{Teacher}- bzw. \texttt{Header}-Knoten geteilt,
     sondern nur ihre Unterknoten.
     Dafür gibt es zwei Gründe.
-    Zum einen müssen Features inklusive ihrer Child Features inhaltlich
-    exakt übereinstimmen, damit ihr Content Knoten mehrfach verwendet werden kann.
-    Die kleinste Abweichung macht die unmöglich,
-    da die Inhalte sich letztendlich unterscheiden und nur Teilaspekte übereinstimmen,
-    was die Datenbank wiederspiegeln muss.
-    Im Falle des Kopfbereiches im ersten Beispiel ist die \gls{url} des Logos
-    auf jeder klassifizierten Seite unterschiedlich.
+    Zum einen müssen Features inklusive ihrer {\childFeature}s inhaltlich
+    exakt übereinstimmen, damit ihr \texttt{Content}-Knoten mehrfach verwendet werden kann.
+    Die kleinste Abweichung macht dies unmöglich,
+    da die Inhalte sich letztendlich unterscheiden und nur Teilaspekte übereinstimmen.
+    Das muss die Datenbank wiederspiegeln.
+    Im Falle des Kopfbereiches im ersten Beispiel ist der \gls{url} des Logos
+    auf jeder Seite unterschiedlich.
     Das ist im zweiten Beispiel nicht der Fall,
     da alle Seiten zu einer Site in {\wordpress} gehören
     und deshalb das gleiche Bild referenzieren.
-    Entsprechend existiert in der Datenbank nur ein Header Knoten,
+    Entsprechend existiert in der Datenbank nur ein \texttt{Header}-Knoten,
     den alle Klassifikationen referenzieren.
-    
-    Die zweite Ursache sind die unterschiedlichen Positionen von identischen Inhalten
+    Die zweite Ursache sind unterschiedliche Positionen identischer Inhalte
     auf verschiedenen Webseiten.
-    Diese Positionen werden in Form eines eindeutigen Selektors in der eingehenden
-    Kante eines Content Knoten gespeichert\footnote{vgl. Kapitel \ref{section:solutionDetailsPersistenceDataModel}}.
+    Diese Positionen werden in Form des eindeutigen Selektors in der eingehenden
+    Kante eines \texttt{Content}-Knotens gespeichert\footnote{vgl. Kapitel \ref{section:solutionDetailsPersistenceDataModel}}.
     Diese Knoten sind prinzipiell also unabhängig von der konkreten Position
-    von mehreren Seiten gleichzeitig nutzbar.
-    Dies ändert sich allerdings, sobald ein Content Knoten Child Features referenziert,
-    da diese ausgehenden Kanten die \textit{absoluten} Selektoren der Child Features speichern.
-    Befindet sich ein Lehrender auf zwei Seiten also nicht an exakt der gleichen Position,
+    von mehreren Klassifikationen gleichzeitig nutzbar.
+    Dies ändert sich allerdings, sobald ein Inhalt {\childFeature}s besitzt.
+    Die ausgehenden Kanten zu diesen Features speichern ihre \textit{absoluten} Selektoren.
+    Befindet sich ein Mitarbeiter auf zwei Seiten also nicht an exakt der gleichen Position,
     sind die Selektoren seines Namens, seines Lehrgebietes etc. unterschiedlich.
-    Der Teacher Knoten kann dann nicht von beiden Seiten referenziert
+    Der \texttt{Teacher}-Knoten kann dann nicht von beiden Klassifikationen referenziert
     werden\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage}}.
     
+    \paragraph{Semantischer Inhalt und physische Struktur einer Webseite}
     Genau betrachtet spiegelt die Datenbank also lediglich die Struktur der Webseiten exakt wieder.
     Trotzdem lässt sich argumentieren, dass es fachlich konsistenter wäre,
-    wenn die Teacher Knoten im beschriebenen Fall geteilt werden würden.
-    Schon jetzt lässt sich zum Beispiel die Frage beantworten,
+    wenn die \texttt{Teacher}-Knoten im beschriebenen Fall geteilt werden würden.
+    Ein Beispiel verdeutlicht das:
+    Schon jetzt lässt sich die Frage beantworten,
     welche Mitarbeiter in einem gewissen Lehrgebiet arbeiten.
-    Dazu muss lediglich den eingehenden Kanten des entsprechenden
-    SubjectAreaName Knotens zu allen Teacher Knoten gefolgt werden.
+    Dazu muss lediglich den eingehenden Kanten eines
+    \texttt{SubjectAreaName}-Knotens über alle \texttt{SubjectArea}-Knoten
+    bis zu \texttt{Teacher}-Knoten gefolgt werden.
     Aus fachlicher Sicht ist es aber inkonsistent,
-    dass es mehrere SubjectArea Knoten gibt,
-    die denselben SubjectAreaName Knoten referenzieren und sie nicht
-    nur die ausgehenden Kanten eines SubjectArea Knotens betrachtet brauchen.    
+    dass man diese Suche nicht beim \texttt{SubjectArea}-Knoten
+    starten kann, weil mehrere dieser Knoten denselben
+    \texttt{SubjectAreaName}-Knoten verwenden.
+    Aus fachlicher Sicht existieren laut Datenbank also mehrere Lehrgebiete,
+    die denselben Namen tragen.
+    Hier wird ein Konflikt zwischen dem akkuraten Wiederspiegeln der Strukturen der Webseiten
+    und den semantischen Inhalt deutlich.
 
-    Ein erster Schritt hierzu ist anstatt absolute Selektoren
-    lediglich zum Parent Feature relative Selektoren in den Kanten zu speichern.
+    \paragraph{Alternativen}
+    Ein erster Schritt zur Auflösung dieses Konfliktes ist anstatt absolute Selektoren
+    lediglich zum {\parentFeature} relative Selektoren in den Kanten zu speichern.
     Allerdings hilft dies nicht, wenn die HTML-Struktur sich unterscheidet,
     weil dann auch die relative Position eines Elementes anders ist.
     Außerdem hätte dies zur Folge, dass zur Ermittlung der eindeutigen Position
-    eines Features, der gesamte Vaterpfad bis zur Seite abgelaufen werden muss,
-    um alle relativen Selektoren einzusammeln und zu verbinden.
+    eines Features, der gesamte Vaterpfad bis zur Seite abgelaufen werden muss.
     Eine weitere Alternative zum aktuellen Vorgehen,
     die auch diesen Nachteil umgeht,
     ist die Speicherung der absoluten Selektoren in Kanten,
-    die vom Page Knoten direkt zu Content Knoten führen.
+    die vom \texttt{Page}-Knoten direkt zu \texttt{Content}-Knoten führen.
     Die Teilbarkeit von Content Knoten hinge dann nur noch von den Inhalten und ihrer Klasse ab,
     da die Position komplett unabhängig gespeichert wird.
 
-    Insgesamt scheint eine Graphdatenbank geeignet,
-    die sie Beziehungen zwischen Seiten gut modelliert
-    und sich aus den Fallbeispielen bereits weiterführende Informationen ablesen lassen.
-    Das Teilen von Content Knoten hat aber auch zur Folge,
-    dass diese nicht unbedacht verändert werden können,
-    ohne Inkonsistenzen zu riskieren.
+    \paragraph{Änderung von Klassifikationen}
+    Durch den entwickelten Algorithmus zum Schreiben von Klassifikationen
+    wurde das Teilen von Knoten ermöglicht.
+    Eine nachteilige Folge ist allerdings,
+    dass Änderungen immer über diesen Algorithmus eingearbeitet werden müssen,
+    weil sonst Inkonsistenzen riskiert werden.
     Falls die Analysemöglichkeiten keine praktische Relevanz haben,
     ist deshalb ein anderer Datenbanktyp, wie zum Beispiel ein einfacher Document Store,
     in Betracht zu ziehen.
+
+    Insgesamt scheint eine Graphdatenbank trotz der genannten Nachteile geeignet
+    für den Anwendungsfall des \glspl{wccs}.
