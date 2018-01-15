@@ -1,5 +1,5 @@
 \section{Zusammenfassung}
-    Das Ziel dieser Arbeit ist die Konzeption und Entwicklung
+    Das Ziel dieser Arbeit war die Konzeption und Entwicklung
     eines Systems zur automatischen Klassifizierung der Inhalt
     von Webseiten, was unter anderem eine domänenspezifische
     Sprache zur Instrumentierung des Systems umfasst.
@@ -11,40 +11,42 @@
     die eine Migration von Inhalten von {\wordpress} zu
     {\imperia} beinhaltet.
     Die Herausforderung dabei ist die sehr schwache Strukturierung
-    dieser Inhalte, wodurch sie nicht ohne weiteres in
-    Dokumente in {\imperia} transformierbar sind.
-    Mithilfe des \gls{wccs} sollen die Inhalte in einer vorbereitenden
+    der Inhalte, wodurch sie nicht ohne Weiteres in
+    Dokumente in {\imperia} transformiert werden können.
+    Mithilfe des \glspl{wccs} sollen die Inhalte in einer vorbereitenden
     Maßnahme strukturiert werden, um diesem Problem zu begegnen.
 
-    Eine wichtige Komponente des Systems ist eine auf Xtext basierende
+    Eine wichtige Komponente des \gls{wccs} ist eine auf Xtext basierende
     domänenspezifische Sprache namens "`Web Content Class Definition Language"' (WCCDL).
     Diese erlaubt die Definition von fachlichen Seiten-, Inhalts- und
     Referenzklassen, in die die Inhalte eingeordnet werden.
     Definierbare Features dieser Klassen erlauben die Schaffung feingranularer
-    und hierarchischen Klassifikationen.
+    und hierarchischer Klassifikationen.
     Zur Einordnung von Inhalten in Klassen verwendet das System
-    CSS-, XPath und reguläre Ausdrücke, die in diesem Kontext als
+    CSS-, XPath- und reguläre Ausdrücke, die in diesem Kontext als
     Selektoren bezeichnet werden und
     ebenfalls Teil der Klassendefinitionen sind.
     Wichtige Merkmale der \gls{wccdl} sind ihre deklarative Natur
-    und ihr sehr lesbarer Text,
-    der durch die klare Fokussierung auf eine kleine Domäne ermöglicht wird.
+    und ihre Lesbarkeit,
+    die durch die klare Fokussierung auf eine kleine Domäne ermöglicht wird.
     Programme in dieser Sprache werden zu technischen
     Konfigurationsdateien für das Klassifizierungssystem übersetzt.
 
-    Dieses klassifiziert eine Webseite auf Basis ihrer
-    \gls{html}-Repräsentation und verwendet Browser-Automatisierung
+    Das \gls{wccdl} klassifiziert eine Webseite auf Basis ihrer
+    \gls{html}-Repräsentation und verwendet Browserautomatisierung
     zur Auswertung der Selektoren.
 
-    Klassifikationen können durch weitere Komponenten des \gls{wccs}
-    als Webannotationen auf der jeweiligen Webseite visualisiert werden,
+    Klassifikationen können durch weitere Komponenten des \glspl{wccs}
+    als Webannotationen auf der klassifizierten Webseite visualisiert werden,
     was einer Sichtung, ersten Prüfung und Durchführung kleinerer
     Korrekturen der Klassifikation dient.
 
-    Das \gls{wccs} speichert eine Klassifikation in einer Graphdatenbank,
+    Das \gls{wccs} speichert Klassifikationen in einer Graphdatenbank,
     wodurch die Referenzen zwischen Seiten und zu sonstigen {\resources}
     im \gls{www} leicht abzubilden sind.
-    Durch die Möglichkeit Knoten des Graphens in mehreren Klassifikationen
+    Darüber hinaus bietet eine Graphdatenbank Vorteile bei der Modellierung,
+    Speicherung und Abfrage von Klassifikationen.
+    Durch die Möglichkeit Knoten des Graphs in mehreren Klassifikationen
     zu verwenden, entsteht das Potential leicht weiterführende Erkenntnisse
     aus den Informationen zu ziehen.
 
@@ -52,11 +54,11 @@
     die gezeigt haben, dass das Konzept des Systems funktioniert,
     aber einige Sonderfälle noch nicht ausreichend abgedeckt sind.
 
-    Ein vergleich mit anderen System hat gezeigt,
+    Ein Vergleich mit anderen System hat gezeigt,
     dass die Sprache aufgrund ihrer Spezialisierung für ihren eigenen
     Anwendungsfall einige Vorteile bietet.
     Der Klassifizierungsansatz erfüllt die an ihn gestellten Anforderungen,
     ist aber weniger mächtig als komplexe Web Mining Werkzeuge.
     Ein gewisses Alleinstellungsmerkmal besitzt das \gls{wccs}
     bei der Anwendung als Werkzeug zur Prüfung der Konformität
-    einer Webseite bezüglich eines individuellen Schemas.
+    einer Webseite bezüglich eines individuellen inhaltlichen und strukturellen Schemas.

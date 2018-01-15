@@ -1,8 +1,6 @@
 \section{Ausblick}
     \label{section:endingOutlook}
-    Das \gls{wccs} bietet sehr viel Potenzial um ausgebaut zu werden.
-
-    Ein Erweiterung, von der die \gls{wccdl} profitieren würden,
+    Eine Erweiterung, von der die \gls{wccdl} profitieren würden,
     ist die Einführung eines Vererbungskonzeptes für Klassen,
     um Features und Selektoren wiederzuverwenden und die Ausdrucksstärke
     der Sprache damit zu erhöhen.
@@ -11,9 +9,9 @@
     welches sich syntaktisch gut einfügt.
     Außerdem erfordert es weitergehende semantische Prüfungen.
 
-    Wichtig aber auch herausfordernd ist außerdem die Einbettung
-    von Sprachen zur Unterstützung von CSS, XPath und regulären Ausdrücken,
-    sodass die Definition von Selektoren syntaktisch und semantisch geprüft werden kann
+    Interessant ist außerdem die Einbettung
+    von Sprachen zur Unterstützung von CSS-, XPath- und regulären Ausdrücken,
+    sodass Selektoren syntaktisch und semantisch geprüft werden können
     und ihre Formulierung durch die Entwicklungsumgebung unterstützt wird.
 
     Der Entwickler könnte außerdem durch ein Browser-Plugin
@@ -26,15 +24,15 @@
     in die Entwicklungsumgebung zu übertragen.
 
     Eine Möglichkeit die beschriebenen Sonderfälle besser abzudecken ist die
-    Einführung eines Skript-Selektors.
-    Das heißt zur Auswahl eines HTMl-Knotens ein JavaScript Fragment ausgeführt wird,
-    was prinzipiell dank der Browser-Automatisierung von Puppeteer möglich sein sollte.
-    Programmatisch sollten sich auch deutlich komplexere Strukturen einfangen lassen.
+    Einführung eines Skript-Selektors,
+    da sich programmatisch auch deutlich komplexere Strukturen klassifizieren lassen sollten.
+    Zur Auswahl eines \gls{html}-Elementes oder von Text würde also ein Stück JavaScript ausgeführt werden.
+    Dank der Browserautomatisierung durch Puppeteer ist dies möglich.
 
-    Eine weitere Maßnahme zu diesem Zweck ist die Einführung von Selektor-Ketten.
-    Das heißt ein Feature wird durch eine Reihe von Selektoren
-    ermittelt, wobei das Ergebnis eines Selektors als Kontext Knoten des nächsten fungiert.
-    Dadurch lässt sich der Suchraum mit verschiedenen Selektor-Typen eingrenzen,
+    Eine weitere Maßnahme zu diesem Zweck ist die Einführung von Selektorketten.
+    Ein Feature kann dann durch eine sequentiell ausgeführte Reihe von Selektoren
+    ermittelt werden, wobei das Ergebnis eines Selektors als Kontextelement des nächsten fungiert.
+    Dadurch lässt sich der Suchraum mit verschiedenen Selektortypen eingrenzen,
     ohne zusätzliche Features definieren zu müssen.
 
     In Kapitel \ref{section:discussionComparisonClassificationSystem}
@@ -52,20 +50,21 @@
 
     Darüber hinaus sind einige weitere kleinere Erweiterungen denkbar,
     die das Werkzeug verbessern.
-
-    Der Nutzen des Annotator Plugins kann zum Beispiel deutlich erhöht werden,
+    Der Nutzen des {\annotatorPlugin}s kann zum Beispiel deutlich erhöht werden,
     indem das Löschen und Anlegen von Annotationen unterstützt wird.
-    Außerdem wäre es denkbar neben den vordefinierten Klassen auch
+    Außerdem wäre es denkbar, neben den vordefinierten Klassen auch
     die Angabe eigener neuer Klassen zu erlauben.
 
-    Ein Grund der schwachen Ausdrucksstärke der Sprache ist die Notwendigkeit
-    jede Klasse einzeln bekannt zu machen.
+    Ein Grund der schwachen Ausdrucksstärke der Sprache ist die Notwendigkeit,
+    jede Klasse einzeln bekannt machen zu müssen.
+    Dem könnte durch die Einführung eingebetteter Klassendefinitionen begegnet werden.
+    Einmalig genutzte Klassen ohne Features können dadurch bei ihrer Verwendung
+    definiert werden.
+    Die Definition eines Features könnte dann folgendermaßen aussehen:
 
-    Zur Steigerung der Ausdrucksstärke der Sprache wäre es außerdem denkbar
-    einmalig genutzte Klassen ohne eigene Features nicht separat,
-    sondern zusammen mit ihrer Verwendung definieren zu können.
-    Das könnte zum Beispiel folgendermaßen aussehen:
-
-    \begin{lstlisting}[style=wccdl,language=wccdl,inputencoding=utf8/latin1]
-classifies myFeature as content class MyClass by css « p »
-    \end{lstlisting}
+    \lstinputlisting[
+        caption=Ausblick auf eingebettete Klassendefinitionen in der \acrshort{wccdl},
+        label=listing:outlookEmbeddedClasses,
+        inputencoding=utf8/latin1,
+        style=wccdl
+    ]{../resources/outlook/embedded-classes.wctd}

@@ -1,0 +1,2 @@
+page class MyPageClass
+    classifies myFeature as content class MyContentClass by css « p »
