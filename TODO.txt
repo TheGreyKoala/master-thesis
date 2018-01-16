@@ -1,5 +1,7 @@
 !- Kapitel 1+2 überarbeiten
 !- DSL erlaubt Kommentare!
+?- Durch Browserautomatisierung können auch verschiedene Geräte und damit verschiedene Inhalte klassifiziert werden
+--> Ist das für Interpretation wichtig?
 
 !- Deckblatt
 ?- Spezifikation der APIs erstellen und in Anhang
