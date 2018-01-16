@@ -67,46 +67,44 @@
 
     \subsection{Posts und Pages}
         \label{section:wordpressPostsPages}
-        {\wordpress} erlaubt die Pflege von Inhalten in Posts
-        und in Pages \cite{wordpress:Pages}.
+        {\wordpress} unterscheidet zwei Arten von Beiträgen,
+        auf denen eine Webseite basieren kann: Posts
+        und Pages \cite{wordpress:Pages}.
 
         \paragraph*{Posts}
-        Blog-Einträge und somit die Kernkompetenz von
-        {\wordpress} werden über Posts abgebildet.
-        Wie in Kapitel \ref{section:weblogSoftware} beschrieben werden sie
-        auf der Webseite nach ihrem Erstellungszeitpunkt absteigend sortiert dargestellt
-        und besitzen zwei Felder, die mit redaktionellen Inhalten gefüllt werden können:
-        Titel und Inhalt \cite{wordpress:Posts}.
-        
-        Darüber Hinaus stehen dem Anwender aber noch weitere Optionen zur
-        Verfügung, wie die Zuweisung einer oder mehrerer Kategorien oder Tags.
-        Über "`Custom Fields"' kann er zusätzliche Informationen an einem Post
-        speichern, die zum Beispiel von Plugins\footnote{vgl. Kapitel \ref{section:wordpressPlugins}}
-        genutzt werden.
-        In der Praxis speichern sie Metadaten des Posts und dienen nicht zur Strukturierung
-        der Inhalte des Posts \cite{wordpress:Posts}.
-        Aufgrund der Tatsache, dass jeder Post über dieselben Custom Fields verfügt,
-        ist ihre Eignung dafür auch fraglich.
-
-        Posts können verschiedene Post Types besitzen,
-        die auch durch eigene Typen ergänzt werden können.
-        Die standardmäßigen Post Types in {\wordpress} sind
+        Klassische Blog-Einträge werden in {\wordpress} "`Posts"' genannt.
+        Neben der Pflege des Titels und des Inhaltes eines Posts stehen dem
+        Anwender noch weitere Optionen zur Verfügung.
+        Ein Post kann in Kategorien einsortiert werden oder mit Schlagwörtern versehen werden.
+        Dadurch kann {\wordpress} Übersichtsseiten generieren,
+        die z. B. alle Posts einer Kategorie enthalten.
+        Über den eigentlichen Inhalt hinausgehende Informationen können
+        in sogenannten "`Custom Fields"' gespeichert werden.
+        Davon machen z. B. Plugins\footnote{vgl. Kapitel \ref{section:wordpressPlugins}} gebrauch
+        und speichern Metadaten des Posts in ihnen.
+        Jeder Post besitzt einen Post Type,
+        der eine Aussage über die Art des Beitrages macht.
+        {\wordpress} definiert einige Standardtypen,
+        lässt aber auch die Angabe eigener Typen zu.
+        Die Standardtypen sind
         \cite{wordpress:PostTypes}:
 
         \begin{itemize}
-            \item Post
-            \item Page
-            \item Attachment
-            \item Revision
-            \item Navigation Menu
-            \item Custom CSS
-            \item Changesets
+            \item Post,
+            \item Page,
+            \item Attachment,
+            \item Revision,
+            \item Navigation Menu,
+            \item Custom CSS und
+            \item Changesets.
         \end{itemize}
 
         Der Typ eines Posts ändert nichts an seinen redaktionellen Feldern.
-        Das heißt, es ist nicht möglich für einen eigenen neuen Post Type
-        neue Felder für die Strukturierung der Inhalte zu spezifizieren
+        Das heißt, unabhängig vom Post Type besitzt ein Beitrag nur
+        einen Title und Inhalt
         \cite{wordpress:Posts, wordpress:PostTypes}.
+        Stattdessen machen diese Typen deutlich,
+        dass {\wordpress} Posts auch zur Realisierung technischer Anforderung verwendet.
 
         \paragraph*{Pages}
         Neben Posts kennt {\wordpress} auch das Konzept einer Page,
@@ -128,9 +126,16 @@
         können aber lediglich mit Tags versehen werden.
         Die Einordnung in eine Kategorie ist nicht möglich
         \cite{wordpress:Pages}.
+        Wie aus der oben erfolgten Auflistung der Post Types hervorgeht,
+        sind Pages technisch gesehen lediglich Posts mit dem Post Type "`Page"'.
 
-        Technisch gesehen ist eine Page nur ein Post,
-        dessen Post Type "`Page"' ist.
+        {\wordpress} speichert alle Inhalte in einer relationalen Datenbank \cite{wordpress:Database}.
+        Posts und Pages teilen sich in dieser Datenbank eine Tabelle,
+        was ebenfalls verdeutlicht, dass Pages lediglich Posts eines speziellen Typs sind.
+        Der Inhalt eines Beitrages wird in der Datenbank als \gls{html}-Fragment abgelegt,
+        welches während der dynamischen Generierung in die Webseite übernommen wird.
+        Zusätzlich enthält ein Beitrag aber auch spezielles Markup,
+        welches von {\wordpress} während der Generierung interpretiert wird.
 
     \subsection{Vorlagen und Themes}
         \label{section:wordpressTemplatesThemes}
@@ -146,14 +151,14 @@
         und ihr Aussehen festzulegen.
         Dazu definieren sie das Gerüst der Webseite und enthalten Kommandos,
         um Inhalte aus der Datenbank auszulesen.
-        Eine Webseite wird auf Basis einer Vorlagen dynamisch von {\wordpress} generiert
+        Eine Webseite wird auf Basis einer Vorlage dynamisch von {\wordpress} generiert
         \cite{wordpress:Templates}.
 
         Vorlagen sind bei genauerem Hinsehen nichts anderes als PHP-Dateien,
         die \gls{html}, allgemeinen PHP-Code und sogenannte
         "`Template-Tags"' enthalten.
         Dabei handelt es sich lediglich um Aufrufe von
-        {\wordpress} eigenen PHP-Funktionen,
+        {\wordpress}-eigenen PHP-Funktionen,
         um Inhalte aus der Datenbank abzufragen.
         Während der Generierung -- technisch lediglich die Ausführung
         des PHP-Codes -- können Vorlagen andere Vorlagen inkludieren,
@@ -177,13 +182,19 @@
 
     \subsection{Plugins}
         \label{section:wordpressPlugins}
-        Es ist möglich {\wordpress} über sein Plugin-System funktional
-        zu erweitern \cite{wordpress:Plugins}.
-        Nicht selten schreiben Erweiterungen Anweisungen in den Inhalt
-        eines Beitrages, die sie zum Generierungszeitpunkt erkennen und auswerten.
-        Das heißt, dass diese Anweisungen in {\wordpress'} Datenbank stehen.
+        {\wordpress} besitzt ein Plugin-System,
+        über das es beliebig funktional erweitert werden kann,
+        ohne an {\wordpress}' eigenen Quellen Änderungen vorzunehmen.
+        Es existiert eine große Anzahl an freien Plugins,
+        die oft benötigte Funktionen implementieren.
+        Meist sind dies Funktionen, die über eine reine Weblog-Software hinausgehen.
 
         Ein Beispiel ist das Plugin
         "`Form Maker"'\footnote{\url{https://wordpress.org/plugins/form-maker/}},
-        welches Anweisungen wie \texttt{[Form id="1"]} in den Inhalt eines Beitrages
-        einfügt, um ein zuvor konfiguriertes Formular an die entsprechende Stelle einzubinden.
+        welches die Definition von Webformularen erlaubt,
+        die dann in beliebigen Beiträgen eingebettet werden können.
+        Wie viele andere Plugins schreibt es dazu eine spezielle Anweisung in den Inhalt des Beitrages,
+        die zum Zeitpunkt der Generierung ausgewertet wird.
+        Ein Beispiel für eine solche Anweisung ist \texttt{[Form id="1"]}.
+        Die Auswertung dieser Anweisung hat die Einbettung des \glspl{html}
+        des Formulars in die Webseite zur Folge.

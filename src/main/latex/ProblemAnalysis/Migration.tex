@@ -1,0 +1,38 @@
+\section{Eine Migration von {\wordpress} zu {\imperia}}
+    An einem Beispiel soll erklärt werden,
+    wie eine manuelle Migration der Inhalte einer Webseite von {\wordpress} zu {\imperia}
+    vonstatten gehen könnte und wo die größte Herausforderung dabei liegt.
+    Darauf basierend erklärt das nächste Kapitel,
+    welchem Aspekte dieses Prozesses sich diese Arbeit widmet.
+
+    Als Beispiel dient die Seite eines Mitarbeiters,
+    die schon aus Kapitel \ref{section:fernUniChallenges} bekannt ist.
+    Die Schritte, die ein {\editor} zur Migration dieser Seite durchführen muss,
+    sind schnell beschrieben:
+
+    \begin{enumerate}
+        \item   Der {\editor} öffnet die Seite des Mitarbeiters in {\wordpress}.
+        \item   Der {\editor} legt in {\imperia} ein neues Dokument an.
+                Die Wahl einer Vorlage trifft er autonom oder nach festgelegten Kriterien.
+        \item   \label{item:problemAnalysisManualMigrationSlectInfoStep}Der {\editor} kopiert den Namen, die Telefonnummer und die E-Mail-Adresse
+                des Mitarbeiters einzeln aus dem gemeinsamen Formularfeld in {\wordpress}
+                und fügt sie in die vorgesehenen Felder in {\imperia} ein.
+                Welche dies sind entscheidet er wiedrum autonom oder aufgrund einer Regel.
+        \item   Der {\editor} lädt das Bild des Mitarbeiters von {\wordpress} herunter
+                und fügt es in {\imperia} ein.
+        \item   Der {\editor} füllt bei Bedarf sonstige Felder in {\imperia},
+                für die es in {\wordpress} keine Entsprechung gab.
+        \item   Der {\editor} speichert das Dokument und gibt es frei.
+    \end{enumerate}
+
+    Prinzipiell kann jeder dieser Schritte über die Schnittstellen von {\wordpress}
+    und {\imperia} durch passende Migrationsskripte automatisiert werden.
+    Lediglich der \ref{item:problemAnalysisManualMigrationSlectInfoStep}. Schritt
+    birgt eine konzeptionelle Herausforderung für eine Automatisierung.
+    Nämlich, wie ein Migrationsskript entscheiden soll, was im Formularfeld in {\wordpress}
+    der Name, was die Telefonnummer und was die E-Mail-Adresse des Mitarbeiters ist.
+    Alles steht in einem gemeinsamen Formularfeld, weshalb die Informationen nicht
+    einzeln angesprochen werden können.
+    Vor allem unter dem Gesichtspunkt, dass das Feld ein Freitextfeld ist und prinzipiell beliebig gefüllt sein kann.
+    Ein Mensch kann diese Zuordnung leicht treffen,
+    eine Maschine muss hingegen instrumentiert werden.

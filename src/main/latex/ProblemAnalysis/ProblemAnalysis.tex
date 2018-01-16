@@ -4,45 +4,16 @@
     Eine ausführlichere Betrachtung folgt in diesem Kapitel.
     Dazu wird zunächst die Problemdomäne erläutert.
     Es folgt die Vorstellung der Content Management Systeme,
-    die sich an der {\fernUni} im Einsatz befinden.
-    % TODO: Hier muss was hin, wenn Bsp. kommt.
+    die sich an der {\fernUni} im Einsatz befinden
+    und wie eine manuelle Migration von einem System zum anderen
+    ablaufen kann.
     Basierend auf diesen Ausführungen wird anschließend
     die Herausforderung und die resultierende Problemstellung
-    detailliert diskutiert und formuliert.
+    detailliert diskutiert.
 
     \label{chapter:ProblemAnalysis}
     \input{ProblemAnalysis/WorldWideWeb}
     \input{ProblemAnalysis/Imperia}
     \input{ProblemAnalysis/WordPress}
-    % \section{Eine Migration von {\wordpress} zu {\imperia}}
-        % Wie würde eine manuelle Migration laufen?
-        % Ein Redakteur erhält Auftrag eine Seite zu migrieren
-        % Heißt, dass jemand einen Überblick hat, welche Seiten existieren, welche mirgriert werden sollen und welche nicht
-        % Redakteur muss Inhalte kopieren
-        % Macht er von Live-Seite oder WP-Vorschau. Im WP-Formular steht spezielles Markup von Plugins etc., dass er nicht versteht
-        % Öffnet Imperia
-        % Entscheidet selbst oder anhand von Regeln, zu welcher Kategorie die neue Seite gehört
-        % Oder ob WP-Seite auf mehrere Imperia Seiten aufgeteilt wird
-        % Kopiert Inhalte von WP-Seite in Imperia Formulare
-        % Entscheided selbst oder anhand von Regeln, wie Formulare mit Inhalten zu füllen sind
-        % Kopiert ggf. Medien und bindet sie ein
-        % Setzt Links auf andere Seiten
-        % Wenn Arbeit beendet, prüft ein zweiter Redakteur (4-Augen-Prinzip)
-
-        % Wie kann dieser Prozess automatisiert werden?
-        % - Tool kann WP-API nutzen, um WP-Seiten abzufragen (keine Herausforderung)
-        % - Tool kann für jede Seite n Dokumente in Imperia anlegen und füllen (keine Herausforderung)
-        % - Tool kann z. B. anhand der Kategorien einer WP-Seite bestimmen, welche Imperia Kategorien richtig sind
-        % - Woher soll Tool wissen, wie die Inhalte zu strukturieren sind, um das Dokument zu füllen?
-        % Es wird eine Lösung vorgestellt, die diese Strukturierung der Inhalte automatisiert.
-        % D.h., wie die Inhalte von Webseiten klassifiziert werden können.
-        % Review sollte weiterhin durch einen Menschen durchgeführt werden
-
-        % Dieses Kapitel zeigt also, dass die Klassifizierung der Inhalte eine Herausforderung ist
-        % Das nächste beleutet diese Frage dann etwas genauer,
-        % muss aber leider etwas angepasst werden.
-
-        % Das Kapitel "Anforderungen" sollte dann auch eine Ebene hoch gezogen werden,
-        % was auch eine _inhaltliche_ Anpassung erfordert.
-
+    \input{ProblemAnalysis/Migration}
     \input{ProblemAnalysis/WebpageClassification}
