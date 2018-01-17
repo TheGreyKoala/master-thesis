@@ -58,7 +58,7 @@
         Ihre persönliche Kennung halten User Agents zum Beispiel im
         HTTP-Header "`User-Agent"' fest \cite[Kapitel 5.5.3, Seite 46]{rfc:7231}.
 
-        Der Prozess, bei dem ein Agent über eine \gls{uri} auf eine {\resource}
+        Der Prozess, bei dem ein Agent über einen \gls{uri} auf eine {\resource}
         zugreift heißt "`Dereferencing the URI"' \cite[Kapitel 3.1]{w3c:wwwArch}.
         Wie dieser Prozess aussieht hängt von der Funktion des User Agents und der \gls{uri} ab
         \cite[Kapitel 3.1]{w3c:wwwArch}.
@@ -128,7 +128,7 @@
                 \hline
                 Metadaten des Dokumentes & head, title, style \\
                 \hline
-                Absätze & body, article, section \\
+                Absätze & body, article, section, h1 \\
                 \hline
                 Gruppierungen & p, ul, div \\
                 \hline
@@ -208,12 +208,12 @@
 
         \subsection{Dynamische Webseiten}
             Komplexe Webanwendungen sind auf die Möglichkeit angewiesen Geschäftslogik auszuführen.
-            Dafür kommen sowohl der Webserver als auch der User Agent infrage.
+            Dafür kommen sowohl der Webserver als auch der User Agent (Client) infrage.
 
             Der Server kann zur Bearbeitung einer Anfrage mit dem Inhalt einer Datei auf seinem Dateisystem antworten.
             Dies können zum Beispiel eine \gls{html}-Datei oder ein Bild sein.
             In diesem Fall spricht man von statischen Inhalten.
-            Wie eingangs erwähnt ist es ist allerdings auch möglich,
+            Wie eingangs erwähnt, ist es ist allerdings auch möglich,
             dass eine Webanwendung serverseitig Geschäftslogik zur Bearbeitung einer Anfrage ausführt.
             Die Antwort an den Client kann in diesem Fall weiterhin statisch oder
             durch die Webanwendung generiert worden sein.
@@ -231,7 +231,7 @@
             Elemente zu manipulieren, auf Nutzerinteraktion zu reagieren
             oder asynchrone HTTP-Anfragen zu starten \cite[Kapitel 8]{whatwg:html}\cite{whatwg:xhr}.
             Falls eine Webseite solche clientseitigen Mittel verwendet,
-            wird sie oft als dynamsiche Seite bezeichnet.
+            wird sie oft als dynamische Seite bezeichnet.
             
             Client- und serverseitige Programmteile funktionieren oftmals Hand in Hand,
             wie das folgende Beispiel illustriert:

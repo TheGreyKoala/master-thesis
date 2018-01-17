@@ -1,7 +1,6 @@
 \section{\wordpress}
     % TODO:
     % - Sites!!!
-    % - Datenquellen
     \label{section:WordPress}
     Das Open-Source-Projekt {\wordpress} startete 2003
     mit dem Ziel eine Anwendung zur einfachen Pflege eines Weblogs
@@ -175,7 +174,7 @@
         eine Webseite und ihr Layout umzusetzen,
         wird im Kontext von {\wordpress} als "`Theme"' bezeichnet.
         Ein Theme enthält demnach Vorlagen, Bilder und
-        JavaScript-, CSS-, oder PHP-Dateien.
+        JavaScript-, CSS-, und PHP-Dateien.
         Themes können {\resources} anderer Themes wiederverwenden oder überschreiben,
         wodurch Anpassungen an einem vorhandenen Theme einfach umzusetzen sind
         \cite{wordpress:Themes}.
@@ -188,13 +187,13 @@
         Es existiert eine große Anzahl an freien Plugins,
         die oft benötigte Funktionen implementieren.
         Meist sind dies Funktionen, die über eine reine Weblog-Software hinausgehen.
-
         Ein Beispiel ist das Plugin
         "`Form Maker"'\footnote{\url{https://wordpress.org/plugins/form-maker/}},
         welches die Definition von Webformularen erlaubt,
         die dann in beliebigen Beiträgen eingebettet werden können.
-        Wie viele andere Plugins schreibt es dazu eine spezielle Anweisung in den Inhalt des Beitrages,
-        die zum Zeitpunkt der Generierung ausgewertet wird.
-        Ein Beispiel für eine solche Anweisung ist \texttt{[Form id="1"]}.
-        Die Auswertung dieser Anweisung hat die Einbettung des \glspl{html}
-        des Formulars in die Webseite zur Folge.
+        Zur Nutzung eines Plugins wird meist eine spezielle Anweisung -- ein Shortcode --
+        in den Inhalt eines Posts oder einer Page geschrieben,
+        die zum Zeitpunkt der Generierung ausgewertet wird
+        \cite{wordpress:ShortcodeAPI}.
+        Beim Form Maker Plugin wäre dies zum Beispiel \texttt{[Form id="1"]},
+        wodurch das Formular mit der Kennung "`1"' in die Webseite integriert wird.
