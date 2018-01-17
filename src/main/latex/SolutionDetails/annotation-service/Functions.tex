@@ -28,9 +28,9 @@
     Die Angaben im Feld \texttt{ranges} spiegeln den eindeutigen Selektor des Features wieder.
     Durch das Feld \texttt{user} identifiziert Annotator den Ersteller der Annotation,
     der in diesem Fall immer der imaginäre technische Benutzer \texttt{wccs} ist.
-    Da im Feld \texttt{permissions} lediglich das Recht \texttt{admin} auf diesen Nutzer beschränkt wurde,
-    kann jeder die Annotation lesen und bearbeiten.
-    Änderungen an den Rechten bleiben aber dem Nutzer \texttt{wccs} vorbehalten.
+    Im Feld \texttt{permissions} werden die Rechte \texttt{admin} und \texttt{delete} auf diesen Nutzer beschränkt.
+    Jeder kann dadurch Annotation lesen und bearbeiten.
+    Änderungen an den Rechten sowie das Löschen einer Annotation bleibt aber dem Nutzer \texttt{wccs} vorbehalten.
     Die Eigenschaft \texttt{wccs} ist nicht durch Annotator vorgegeben,
     sondern stellt eine Ergänzung des \glspl{wccs} dar.
     Es speichert, ob es sich um ein {\contentFeature} oder ein {\referenceFeature} handel,

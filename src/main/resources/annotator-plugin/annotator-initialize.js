@@ -7,6 +7,6 @@ jQuery(function ($) {
         .addPlugin("wccs")
         .addPlugin("Permissions", {
             user: "editor",
-            permissions: { "admin": ["wccs"] }
+            permissions: { "admin": ["wccs"], "delete": ["wccs"] }
         });
 });

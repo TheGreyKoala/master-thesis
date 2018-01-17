@@ -9,7 +9,7 @@
       "endOffset": "<END_SELECTOR_OFFSET>"
     }],
   "user": "wccs",
-  "permissions": { "admin": ["wccs"] },
+  "permissions": { "admin": ["wccs"], "delete": ["wccs"] },
   "wccs": {
       "featureKind": "<content | reference>",
       "class": "<FEATURE_CLASS>"
