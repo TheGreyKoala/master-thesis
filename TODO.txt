@@ -18,26 +18,19 @@
 !-- Versionsnummern
 ?-- Namen der Services etc.
 
-
-
 - Classification Service
+!. Generierte Page enthält noch type und properties
 !- Konfigurationsdatei hat doofen Namen (besser: classification-model.json)
 !- Warum bricht der Browser schon bei 4 parallelen Seiten zusammen?
-
-- Annotation Viewer
-!- Wofür war die Anpassung in annotator-full.js? Die Macht das neue XPath Feature kaputt.
-    --> Ohne diesen Fix scheinen die Annotationen der Antworten der FAQs nicht angezeigt zu werden.
-!- Muss die Funktion zum Anlegen neuer Annotationen noch deaktiviert werden? Der Service unterstützt das nicht!
 
 - Sprache
 ?- Wenn in XPath ein String angegeben wird und darin ein \n, wird das zu viel escaped.
 
 - Web App
-!- In den Labels steht noch "Type"
 ?- Sollte die Detailseite auch die Selektoren und isCollection der Features beinhalten?
 
 - Crawler
--- Es steht an vielen Stellen noch wcts (z. B. die ausführbaren Skripte)
+?- Es gibt eine Workpool Klasse, mit der sich alles sehr viel schöner programmieren ließe
 
 - Ist es "Klassifizierungsmodell" oder "Klassenmodell"? Betrifft viele Stellen.
 
@@ -109,6 +102,17 @@ x!- ID einer Annotation enthält noch "properties"
 x!- if-Prüfung in Zeile 43 doof. Was, wenn annotation.wccs schon fehlt?
 x!- Plugin prüft auf featureKind == "property"
 
+- Annotation Viewer
+x!- Wofür war die Anpassung in annotator-full.js? Die Macht das neue XPath Feature kaputt.
+    --> Ohne diesen Fix scheinen die Annotationen der Antworten der FAQs nicht angezeigt zu werden.
+x!- Muss die Funktion zum Anlegen neuer Annotationen noch deaktiviert werden? Der Service unterstützt das nicht!
+    --> Das kann nicht deaktiviert werden, aber das Löschen
+x!- Annotator Plugin muss eine Abhängigkeit sein
+
+- WebApp
+x!- In den Labels steht noch "Type" und "properties"
+
 - Crawler
 x!- Findet der Crawler auch http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/page/2/
     --> NEIN
+!- Es steht an vielen Stellen noch wcts (z. B. die ausführbaren Skripte)
