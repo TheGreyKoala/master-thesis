@@ -1,0 +1,109 @@
+\documentclass[parskip=half]{scrartcl}
+
+% Direct input of special characters
+\usepackage[utf8]{inputenc}
+
+% Support west european fonts / languages
+\usepackage[T1]{fontenc}
+
+% Use german translations for titles etc. (e.g. Inhaltsverzeichnis instead of Table of contents)
+\usepackage[ngerman]{babel}
+
+% Koma page style
+\usepackage[automark]{scrlayer-scrpage}
+\pagestyle{scrheadings}
+
+\usepackage{listingsutf8}
+\usepackage{color}
+\definecolor{my-string-color}{RGB}{0,128,7}
+\definecolor{my-comment-color}{RGB}{64,128,128}
+
+
+\usepackage[margin=0.5cm]{geometry}
+\usepackage{nopageno}
+\usepackage{titling}
+
+% Support for links in pdf files
+\usepackage[
+    pdftex,
+    hypertexnames=false,
+    colorlinks=true,
+    ocgcolorlinks
+]{hyperref}
+
+\hypersetup{
+    unicode = {true},
+    pdftitle = {Erstellung einer domänenspezifischen Sprache zur automatische Klassifizierung der Inhalte von Webseiten},
+    pdfauthor = {Tim Gremplewski}
+    % TODO pdfsubject = {},
+    pdfkeywords = {
+        {Domain Specific Languages},
+        {Website Migration},
+        {FernUni in Hagen}
+    }
+}
+
+\parindent0mm
+
+\begin{document}
+    \section*{Inhalt und Kurzanleitung}
+    Dieses Dokument erläutert den Inhalt der CD-ROM und
+    die wichtigsten Schritte zur Nutzung der
+    Web Content Modeling Language und des
+    Web Content Classification Systems.
+
+    \subsection*{Inhalt der CD-ROM}
+        Auf dieser CD-ROM finden Sie:
+
+        \begin{itemize}
+            \item \textit{Masterarbeit-Gremplewski\_Tim-9514244.pdf} -- Eine digitale Version der Ausarbeitung
+            \item \textit{WCCS-Quellcode.zip} -- Der vollständige Quellcode des Web Content Classification Systems
+            \item \textit{WCCS-Auslieferung.zip} -- Eine installier- und ausführbare Version des Web Content Classification Systems
+        \end{itemize}
+
+    \subsection*{Installation und Nutzung der WCML}
+        Die Web Content Modeling Language wird als Eclipse Feature ausgeliefert
+        und kann als solches über den Installationsmechanismus von Eclipse eingespielt werden.
+        Die zu installierende Feature-Zip-Datei befindet sich im
+        Ordner \textit{wccs-web-content-modeling-language-1.0.0}
+        der Auslieferung.
+        Nach der Installation kann in Eclipse ein Projekt und darin \textit{.wcm}-Dateien angelegt werden.
+
+    \subsection*{Starten des WCCS'}
+        Zum Starten des WCCS' gehen Sie folgendermaßen vor:
+
+        \begin{enumerate}
+            \item   Entpacken Sie die Datei \textit{WCCS-Auslieferung.zip}
+            \item   Installieren Sie Docker\footnote{vgl. \url{https://docs.docker.com/engine/installation/}}
+                    und Docker Compose\footnote{vgl. \url{https://docs.docker.com/compose/install/}}
+            \item   Öffnen Sie die Datei \textit{docker-compose.yml} und nehmen Sie bei Bedarf folgende Anpassungen vor:
+                    \begin{enumerate}
+                        \item Port-Mapping der Services
+                        \item Pfad zu einem Klassifizierungsmodell (Zeile 20)
+                        \item Nutzername und Passwort des Datenbanksystems (Zeile 24, 35, 36)
+                        \item Pfad zum Speicherort der Datenbank (Zeile 30)
+                    \end{enumerate}
+            \item   Öffnen Sie eine Kommandozeile im Verzeichnis der entpackten Auslieferung
+            \item   \textit{Bei der erstmaligen Verwendung: } Führen Sie das Kommando \texttt{docker-compose build} aus
+            \item   Führen Sie das Kommando \texttt{docker-compose up} aus
+        \end{enumerate}
+
+    \subsection*{Verwendung des WordPress Crawlers und des Annotator Plugins}
+        Der WordPress Crawler und das Annotator Plugin befinden sich in den
+        Ordnern \textit{wccs-wordpress-crawler-1.0.0}
+        bzw \textit{wccs-annotator-plugin-1.0.0} der Auslieferung.
+        Ihre Nutzung ist bereits in den Kapiteln 4.6.2 und 4.8.1
+        der Ausarbeitung beschrieben.
+
+    \subsection*{Nutzung des Annotation Viewers}
+        Der Annotation Viewer wurde zur Durchführung der Fallbeispiele entwickelt,
+        ist aber trotzdem Teil der Auslieferung und kann für Testzwecke verwendet werden.
+        Starten Sie das WCCS und rufen Sie in einem Webbrowser folgende URL auf:
+        \texttt{http://<HOST>:<PORT>?url=<URL>}.
+        Der Platzhalter \texttt{HOST} ist durch den Hostnamen des Servers zu ersetzen,
+        auf dem das WCCS läuft. Die Portnummer ist standardmäßig 29136, kann aber in der
+        Datei \texttt{docker-compose.yml} angepasst worden sein.
+        Der Parameter \texttt{url} enthält die URL der klassifizierten Seite,
+        die aufgerufen werden soll.
+
+\end{document}

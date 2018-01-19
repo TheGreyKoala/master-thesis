@@ -11,6 +11,10 @@
 !- TODOs im Quelltext
 !- Keywords der PDF
 !- Abkürzungen (z. B. etc. prüfen.; bzgl. ist falsch --> bez. ist richtig)
+!- XPath Hack erklären
+?- Dateiendung erwähnen
+!- CD zusammenstellen
+!- Inhalt der CD erklären
 
 !- Ganzes System nochmal durchtesten
 !- Auslieferung zusammenpacken
@@ -19,9 +23,7 @@
 ?-- Namen der Services etc.
 
 - Classification Service
-!. Generierte Page enthält noch type und properties
-!- Konfigurationsdatei hat doofen Namen (besser: classification-model.json)
-!- Warum bricht der Browser schon bei 4 parallelen Seiten zusammen?
+?- Warum bricht der Browser schon bei 4 parallelen Seiten zusammen?
 
 - Sprache
 ?- Wenn in XPath ein String angegeben wird und darin ein \n, wird das zu viel escaped.
@@ -116,3 +118,7 @@ x!- In den Labels steht noch "Type" und "properties"
 x!- Findet der Crawler auch http://www.fernuni-hagen.de/KSW/portale/babw/service/aktuelles/page/2/
     --> NEIN
 !- Es steht an vielen Stellen noch wcts (z. B. die ausführbaren Skripte)
+
+- Classification Service
+x! Generierte Page enthält noch type und properties
+x!- Konfigurationsdatei hat doofen Namen (besser: classification-model.json)
