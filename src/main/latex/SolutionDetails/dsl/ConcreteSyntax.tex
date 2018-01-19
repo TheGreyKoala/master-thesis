@@ -2,7 +2,7 @@
     Ein wichtiges Merkmal einer Programmiersprache ist ihre konkrete Syntax.
     Dieses Kapitel präsentiert die Syntax der \gls{wccdl} und erläutert ihre Grammatik.    
     Als Einstieg zeigt Listing \ref{listing:dlsExample}
-    dazu ein Beispielhaftes {\classificationModel},
+    dazu ein beispielhaftes {\classificationModel},
     welches in der \gls{wccdl} geschrieben wurde.
 
     \lstinputlisting[
@@ -122,3 +122,8 @@
     Das erschwert die Definition von Selektoren, die von diesen Zeichen gebrauch machen.
     Durch die Definition einer eigenen Regel kann die \gls{wccdl} ihren Nutzern diese Komplexität
     ersparen und im Generierungsprozess\footnote{vgl. Kapitel \ref{section:solutionDetailsDslGeneration}} behandeln.
+
+    \paragraph{Kommentare}
+    Neben dem Terminal \texttt{ID} definiert Xtext standardmäßig auch Terminale für ein- und mehrzeilige Kommentare.
+    Ein {\classificationModel} kann deshalb auch beliebige Kommentare enthalten,
+    was ebenfalls in Listing \ref{listing:dlsExample} zu sehen ist.

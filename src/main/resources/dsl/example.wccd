@@ -1,7 +1,13 @@
+/*
+ * Classification model for a simple page
+ * that contains a heading and an image
+ */
+
 page class Service
     is recognized by url pattern « \/service\/?$ »
     classifies pageHeading as PageHeading by css « #content h3 »
                images as many Image each by css « #content img »
 
+// Feature classes
 content class PageHeading
 reference class Image is recognized by css « img »

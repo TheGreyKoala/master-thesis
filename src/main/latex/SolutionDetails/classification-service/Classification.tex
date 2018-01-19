@@ -67,8 +67,8 @@
     die Kinder des Elementes sind, auf dem sie aufgerufen
     wurde\footnote{vgl. Kapitel \ref{section:conceptSupportedSelectors}}.
 
-    Der {\xpathSelector} wird hingegen über die Methdoe \texttt{evaluate} des Objektes \texttt{document} realisiert.
-    % TODO: Ref: https://developer.mozilla.org/en-US/docs/Web/API/Document/evaluate
+    Der {\xpathSelector} wird hingegen über die Methode \texttt{evaluate} des Objektes \texttt{document} realisiert
+    \cite{w3c:domXPath}.
     Diese Methode erwartet neben dem XPath-Ausdruck auch ein Kontextobjekt,
     sodass auch hier der beschriebene Algorithmus leicht umgesetzt werden kann.
     Das Ergebnis dieser Methode kann abhängig vom XPath-Ausdruck eine Liste von HTML-Elementen, eine Zeichenkette,
@@ -79,6 +79,8 @@
     welches den Suchraum weiter einschränken könnte.
     Abhängig von der Art des Features wird die Zeichenkette als textueller Inhalt
     oder als \gls{url} einer referenzierten {\resource} interpretiert.
+    Durch die Verwendung von \texttt{document.evaluate} ist ein {\xpathSelector}
+    auf Möglichkeiten von XPath 1.0 eingeschränkt \cite{w3c:domXPath}.
 
     Der {\urlSelector} ist für Webseiten und Features unterschiedlich implementiert.
     Im Falle von Seiten wird der reguläre Ausdruck auf ihre \glspl{url} angewandt.

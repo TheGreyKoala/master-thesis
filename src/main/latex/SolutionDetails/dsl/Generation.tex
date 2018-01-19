@@ -44,6 +44,23 @@
     Diese Aufgabe übernimmt der entwickelte Generator,
     sodass Nutzer der \gls{wccdl} sich darum nicht kümmern müssen.
     Im Klassifizierungsmodell lautet der Selektor deshalb \verb+\/service\/?$+.
+    Eine Ausnahme hierbei ist allerdings der {\xpathSelector}.
+    XPath 1.0 kennt keine Codierung für besondere Zeichen,
+    wie z. B. \texttt{\textbackslash{n}} für Zeilenumbrüche.
+    Außerdem ist in dieser Version die Funktion
+    \texttt{codepoints-to-string} noch nicht enthalten,
+    mit der Unicode Codes in Zeichenketten umgewandelt werden können
+    \cite{w3c:xpath}
+    \cite[Kapitel 5.2.1]{w3c:xpathXquery}.
+    Um trotzdem Inhalte mit diesen Zeichen beschreiben zu können,
+    wird in {\xpathSelector}en der Rückwärtsschrägstrich während der
+    Generierung nicht codiert.
+    Das heißt, die Sequenz \texttt{\textbackslash{n}} wird genau so in das JSON-Dokument übernommen.
+    Der JSON-Parser setzt das Zeichen zu einem Zeilenumbruch um,
+    wodurch der XPath-Ausdruck einen tatsächlichen Umbruch enthält
+    und als solcher interpretiert wird.
+    Ein konkretes Anwendungsbeispiel für diese Ausnahme im Generator
+    ist im ersten Fallbeispiel\footnote{vgl. Kapitel \ref{section:findingsTeachersClassificationModel}} zu sehen.
 
     Seiten- und Inhaltsklassen können Features enthalten,
     die im JSON-Dokument ihrer Art entsprechend in \texttt{contents}

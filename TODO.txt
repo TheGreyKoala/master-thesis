@@ -1,5 +1,5 @@
 ?- Quellen von Wordpress zusammenfassen?
-!- DSL erlaubt Kommentare!
+
 ?- Durch Browserautomatisierung können auch verschiedene Geräte und damit verschiedene Inhalte klassifiziert werden
 --> Ist das für Interpretation wichtig?
 
@@ -11,16 +11,10 @@
 !- TODOs im Quelltext
 !- Keywords der PDF
 !- Abkürzungen (z. B. etc. prüfen.; bzgl. ist falsch --> bez. ist richtig)
-!- XPath Hack erklären
-?- Dateiendung erwähnen
+
 !- CD zusammenstellen
-!- Inhalt der CD erklären
 
 !- Ganzes System nochmal durchtesten
-!- Auslieferung zusammenpacken
-!-- Wie funktioniert das mit Xtext?
-!-- Versionsnummern
-?-- Namen der Services etc.
 
 - Classification Service
 ?- Warum bricht der Browser schon bei 4 parallelen Seiten zusammen?
@@ -122,3 +116,14 @@ x!- Findet der Crawler auch http://www.fernuni-hagen.de/KSW/portale/babw/service
 - Classification Service
 x! Generierte Page enthält noch type und properties
 x!- Konfigurationsdatei hat doofen Namen (besser: classification-model.json)
+
+x!- XPath Hack erklären
+x?- Dateiendung erwähnen
+x!- Inhalt der CD erklären
+x!- XPath muss 1.0 sein
+x!- DSL erlaubt Kommentare!
+
+!- Auslieferung zusammenpacken
+x!-- Wie funktioniert das mit Xtext?
+x!-- Versionsnummern
+x?-- Namen der Services etc.
