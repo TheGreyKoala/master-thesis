@@ -2,13 +2,11 @@
     \label{section:Imperia}
     % TODO: Wie werden Medien gespeichert?
     {\imperia} ist ein kommerzielles Enterprise Content Management und
-    Web Content Management System, welches seit 1995 entwickelt
-    \cite{imperia:about, imperia:historie} und von 
-    der {\fernUni} zur Pflege ihrer Webseiten genutzt wird
+    Web Content Management System \cite{imperia:about}, welches
+    von der {\fernUni} zur Pflege ihrer Webseiten genutzt wird
     \cite{fernUni:imperia}.
-
     Dieses Kapitel geht auf die wichtigsten Merkmale und Konzepte
-    dieses \gls{cms} ein.
+    dieses \glspl{cms} ein.
 
     \subsection{Statische Generierung}
         \label{section:imperiaStaticGeneration}
@@ -16,11 +14,10 @@
         Das bedeutet, dass es Inhalte basierend auf Vorlagen
         in Dateien generiert, die dann auf ein Zielsystem übertragen
         und dort beliebig und vor allem unabhängig von
-        {\imperia} genutzt werden können
-        \cite[Kapitel 1.1]{imperia:ecmd}.
-
+        {\imperia} genutzt werden können.
         Die Generierung der Dateien und deren Übertragung auf ein Zielsystem
-        werden zusammengefasst als "`Publizierung"' bezeichnet.
+        werden zusammengefasst als "`Publizierung"' bezeichnet
+        \cite[Kapitel 1.1]{imperia:ecmd}.
 
         % TODO Vorteile
 
@@ -30,12 +27,11 @@
         da sie zur Speicherung von Inhalten dienen
         \cite[Kapitel 1.1]{imperia:ecmd}.
         Dokumente werden beim Anlegen stets einer Kategorie zugewiesen,
-        die festlegt auf welcher Vorlage\footnote{vgl. Kapitel \ref{section:imperiaTemplates}}
+        die festlegt, auf welcher Vorlage
         das Dokument basiert.
-        Die Vorlage bestimmt wiederum welches Eingabeformular
+        Die Vorlage bestimmt wiederum, welches Eingabeformular
         {\editors} zur Pflege der Inhalte des Dokumentes verwenden
         \cite[Kapitel 1.1.4]{imperia:ecmd}.
-        
         {\imperia} speichert ein Dokument als simple Menge von
         Schlüssel-Wert-Paaren in einer relationalen Datenbank.
         Als Schlüssel -- auch Metavariablen genannt -- dienen die Namen der Felder des Eingabeformulars.
@@ -50,27 +46,25 @@
         Ein wichtiges Ziel von {\imperia} ist die Trennung von Inhalt
         und Layout einer Webseite.
         Zu diesem Zweck speichert es Inhalte layoutunabhängig
-        in Dokumenten\footnote{vgl. Kapitel \ref{section:imperiaDocuments}}.
-
+        in Dokumenten.
         Das Layout hingegen wird auf dem Dateisystem in Vorlagen festgehalten,
         die zwei Ziele verfolgen
         \cite[Kapitel 36]{imperia:ecmd}:
 
         \begin{enumerate}
-            \item {\editors}n ohne technische Kenntnisse eine einfache Pflege von Inhalten zu ermöglichen
-            \item Inhalte in das Layout zu integrieren
+            \item {\editors}n ohne technische Kenntnisse eine einfache Pflege von Inhalten zu ermöglichen und
+            \item Inhalte in das Layout zu integrieren.
         \end{enumerate}
 
         Zur Erfüllung des ersten Zieles kann jede Vorlage ein Eingabeformular
         und dessen Felder spezifizieren.
         Dazu stehen geläufige Komponenten wie Textfelder,
-        aber auch {\imperia} eigene Elemente zur Verfügung
+        aber auch {\imperia}-eigene Elemente zur Verfügung
         \cite[Kapitel 1.1.4]{imperia:ecmd}.
-        Jeder Kategorie wird eine Vorlage zugewiesen,
+        Jeder Dokumentenkategorie in {\imperia} wird eine Vorlage zugewiesen,
         wobei eine Vorlage von mehreren Kategorien genutzt werden kann.
-        Durch die Einteilung der Dokumente in Kategorien
-        \footnote{vgl. Kapitel \ref{section:imperiaDocuments}}
-        kann jedes Dokument somit einer Vorlage zugeordnet werden.
+        Durch die Einteilung der Dokumente in Kategorien,
+        kann jedes Dokument also einer Vorlage zugeordnet werden.
         Das durch diese Vorlage definierte Eingabeformular
         wird {\editors n} zur Pflege der Inhalte des Dokumentes präsentiert
         \cite[Kapitel 1.1.4]{imperia:ecmd}.
@@ -97,16 +91,12 @@
         \cite[Kapitel 36]{imperia:ecmd}.
 
     \subsection{Workflows}
-        Ein Dokument durchläuft von seiner Generierung bis zur
+        Ein Dokument durchläuft von seiner Erzeugung bis zur
         Publizierung mehrere Verarbeitungsschritte,
-        die in {\imperia} sogenannte Workflows festlegen.
-        Jeder Kategorie wird dazu ein Workflow zugewiesen,
-        den die Dokumente durchlaufen müssen.
-        Ein solcher Workflow legt unter anderem fest,
-        welche Schritte in welcher Reihenfolge
-        zu durchlaufen sind
+        die in {\imperia} durch sogenannte Workflows festgelegt werden.
+        Jeder Kategorie wird ein Workflow zugewiesen,
+        den die Dokumente durchlaufen müssen
         \cite[Kapitel 1.1.5]{imperia:ecmd}.
-
         Ein typischer Workflow ist der Folgende
         \cite[Kapitel 1.1]{imperia:ecmd}:
 
@@ -133,9 +123,9 @@
         der die zentralen Funktionen des Systems bereitstellt.
         Dazu gehören das Anlegen und Strukturieren von Projekten
         und Dokumenten sowie die Ausführung von Workflows.
-        Nicht zuletzt verwaltet er die Datenhaltung.
+        Außerdem verwaltet er die Datenhaltung.
 
-        Die verschiedenen Nutzer des Systems wie {\editors} und Administratoren
+        Die verschiedenen Nutzer des Systems
         verwenden für ihre Arbeit eine Weboberfläche,
         die über HTTP(S) mit dem Server kommuniziert.
         Über das gleiche Protokoll können auch Drittsysteme den Server

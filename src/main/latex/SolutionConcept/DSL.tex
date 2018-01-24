@@ -2,24 +2,22 @@
     Zur Spezifikation von Klassen, Features und Selektoren bietet das
     \gls{wccs} eine domänenspezifische Sprache
     -- die \gls{wccdl} --,
-    deren Rolle in diesem Kapitel kurz dargelegt wird.
+    deren Rolle in diesem Kapitel dargelegt wird.
 
     \subsection{Funktionen}
         Die Sprache greift die bereits beschriebenen
-        Konzepte\footnote{vgl. Kapitel \ref{section:conceptClassesFeaturesSelectors}}
+        Konzepte
         auf und bietet alle Mittel, um konkrete Klassendefinitionen zu erstellen.
         Da diese Definitionen dem Klassifizierungssystem als Modell dienen,
         wird ein Programm in der \gls{dsl} auch als "`Klassifizierungsmodell"' bezeichnet.
-
         Die \gls{wccdl} erlaubt die Definition von benannten Klassen,
         wobei sie die Unterscheidung zwischen Seiten-, Inhalts und Referenzklassen unterstützt.
         Des Weiteren bietet sie die Möglichkeit, einen Selektor für eine Klasse zu definieren,
         was im Falle von Seitenklassen zwingend erforderlich ist.
-
-        Entwickler sind außerdem in der Lage sowohl die {\scalarFeature}s
-        als auch die {\collectionFeature}s einer Klasse zu deklarieren,
-        wozu neben dem Namen und der Klasse auch ein optionaler Selektor gehört.
-        Ob ein Feature ein {\contentFeature} oder ein {\collectionFeature} ist,
+        Entwickler sind außerdem in der Lage, sowohl die {\scalarFeature}s
+        als auch die {\collectionFeature}s einer Klasse zu deklarieren.
+        Neben dem Namen und der Klasse des Features gehört dazu auch ein optionaler Selektor.
+        Ob ein Feature ein {\contentFeature} oder ein {\referenceFeature} ist,
         ermittelt die Sprache selbständig anhand der verwendeten Klasse.
 
     \subsection{Generierungsergebnis}
@@ -30,8 +28,8 @@
         dem gleichen Algorithmus
         folgt\footnote{vgl. Kapitel \ref{section:solutionConceptClassificationAlg}
         und \ref{section:solutionDetailsClassificationServiceClassification}},
-        weshalb es sinnvoll erscheint diese Logik in eine separate Komponente auszulagern
-        und nicht in die \gls{wccdl} aufzunehmen.
+        weshalb es sinnvoll erscheint, diese Logik in eine separate Komponente auszulagern,
+        von der die \gls{wccdl} unabhängig ist.
 
     % \subsection{Vorteile}
     %     Die Verwendung einer \gls{dsl} hat mehrere Vorteile.

@@ -11,45 +11,52 @@
         um Informationen über Beiträge und Seiten abzufragen:
 
         \begin{enumerate}
-            \item Die Datenbanktabelle \texttt{wp\_posts} \cite{wordpress:Database}
-            \item Einen RESTful Webservice \cite{wordpress:RestAPI}
+            \item Die Datenbanktabelle \texttt{wp\_posts} \cite{wordpress:Database} und
+            \item einen RESTful Webservice \cite{wordpress:RestAPI}.
         \end{enumerate}
 
         Beide Quellen stellen das \gls{wccs} vor Herausforderungen.
-        Die Inhalte der Datenbank verwenden neben \gls{html} zum Beispiel die speziellen
-        Auszeichnungssprachen der Plugins, die in einem Beitrag genutzt werden.
-        Diese müssten vom \gls{wccs} interpretiert werden,
-        um die Inhalte, die diese Plugins produzieren, zu erfassen.
+        Die Inhalte der Datenbank speichern neben \gls{html} die Shortcodes
+        von Plugins.
+        Diese müssen ausgewertet werden, damit das \gls{wccs} die erzeugten Inhalte
+        erfassen kann.
         Der RESTful Webservice übernimmt diese Aufgabe und übermittelt
         eine reine \gls{html}-Repräsentation des angeforderten Beitrages,
         was ein Argument für seine Verwendung ist.
-
-        Allerdings ist auch über diesen Dienst nur der spezielle Inhalt eines
+        Allerdings ist auch über diesen Dienst nur das spezielle \gls{html}-Fragment eines
         Posts oder einer Page zugänglich.
-        Das heißt, dass Inhalte, die in Templates definiert werden, über beide
-        Schnittstellen nicht bezogen werden können.
-        Das betrifft zum Beispiel den Kopfbereich der Seiten der Fakultät \gls{ksw}.
+        Inhalte, die über Templates in die vollständige Webseite gelangen,
+        können über beide Schnittstellen nicht bezogen werden.
+        Im Fall der Mitarbeiterseite\footnote{Ein Bildschirmaufnahme der Webseite
+        ist in Abbildung \ref{image:findingTeachersModelOverview} in Kapitel
+        \ref{section:findingsTeachersConceptualModel} zu sehen.}
+        der Fakultät \gls{ksw}
+        kann also das \gls{html}-Fragment mit der Überschrift, der Einleitung
+        und der Mitarbeiterliste bezogen werden.
+        Der Kopfbereich, der außerhalb des Posts der Seite definiert wird,
+        hingegen nicht.
         Ob dies ein gravierendes Manko ist, hängt unter anderem davon ab,
-        ob solche allgemeinen Bereiche relevant für eine Klassifizierung sind
-        und wie viele seitenspezifische Inhalte sie besitzen.
+        ob solche allgemeinen Bereiche relevant für eine Klassifizierung sind.
         Ein Nachteil ist allerdings, dass externe Systeme über diese Schnittstellen
-        nur schwer ermitteln können, wo die Inhalte eines Beitrages auf der vollständigen Seite genau positioniert sind.
-        Das erschwert dem \gls{wccs} die später beschriebene Visualisierung einer
-        Klassifikation\footnote{vgl. \ref{section:conceptVisualization}}.       
-
+        nur schwer ermitteln können, wo die Inhalte eines Beitrages auf der vollständigen Webseite genau positioniert sind.
+        Das erschwert dem \gls{wccs} die Visualisierung einer
+        Klassifikation auf der Webseite\footnote{vgl. Kapitel \ref{section:conceptVisualization}}.       
         Ein weiterer zu beachtender Aspekt ist, dass diese Quellen {\wordpress}-spezifisch sind,
-        wodurch das \gls{wccs} eine starke Bindung zu diesem \gls{cms} erhalten würde
-        und weniger allgemein einsatzbar wäre.
+        wodurch eine starke Bindung zu diesem \gls{cms} entsteht
+        und das \gls{wccs} weniger allgemein einsatzbar wird.
 
-        Eine Alternative, die auch sämtliche oben beschriebenen Probleme löst,
+        Eine Alternative, um diese Probleme zu lösen,
         ist die Nutzung der \gls{html}-Repräsentation einer Webseite,
         die über ihre \gls{url} bezogen wird.
         Diese verwendet eine standardisierte Sprache (\gls{html}) und enthält
-        die vollständige Seite, sodass auch die im \gls{cms} global definierten Inhalte,
-        wie ein Kopfbereich, leicht einer Klassifizierung unterzogen werden können.
-        Gleichzeitig macht es das \gls{wccs} vollkommen unabhängig vom verwendeten \gls{cms}.
+        alle Bereiche und Inhalte der Seite.
+        Es können also auch global definierte Inhalte,
+        wie der Kopfbereich, leicht einer Klassifizierung unterzogen werden.
+        Gleichzeitig macht es das \gls{wccs} vollkommen unabhängig vom verwendeten \gls{cms},
+        da es im konkreten Fall z. B. nichts über Shortcodes und deren Auswertung wissen muss.
+        Diese Aufgabe übernimmt {\wordpress}.
 
-    \subsection{Ablauf}
+    \subsection{Ablauf einer Klassifizierung}
         \label{section:solutionConceptClassificationAlg}
         Der allgemeine Ablauf der Klassifizierung lässt sich leicht und in wenigen Sätzen beschreiben.
         Zur Durchführung einer Klassifizierung erwartet das \gls{wccs} die \gls{url} einer Webseite,

@@ -1,6 +1,6 @@
 \section{Die Klassifizierung der Inhalte einer Webseite}
     \label{section:WebpageClassification}
-    Eine Automatisierung der Migration scheint machbar,
+    Eine Automatisierung der Migration von Inhalten aus {\wordpress} zu {\imperia} scheint machbar,
     wenn die Inhalte aus {\wordpress} eine ähnlich starke Strukturierung aufweisen,
     wie die Zieldokumente in {\imperia}.
     Diese Arbeit hat zum Ziel diese Strukturierung
@@ -10,7 +10,6 @@
     \begin{enumerate}
         \item Welche Elemente einer Webseite sind für eine Klassifizierung interessant?
         \item Nach welchen Kriterien findet eine Klassifizierung statt?
-        \item Was ist eine Klasse in diesem Kontext?
         \item Welche Anforderungen ergeben sich daraus?
     \end{enumerate}
 
@@ -26,27 +25,23 @@
         welche Bestandteile einer Seite hierfür von Bedeutung sind.
         Aus der beispielhaften manuellen Migration
         ergeben sich drei allgemeine Fragen,
-        deren Beantwortung Aufschluss geben über die relevanten Entitäten
-        bei einer Klassifizierung.
+        deren Beantwortung Aufschluss über die relevanten Entitäten
+        bei einer Klassifizierung gibt.
 
         \begin{enumerate}
             \item   Auf welcher Vorlage soll die neue Seite basieren?
             \item   Wie sind die textuellen Inhalte der originalen Seite
                     in die Formularfelder der gewählten Vorlage zu übernehmen?
-            \item   Welcher Bilder, Videos und Links auf andere Seiten etc. existieren,
+            \item   Welcher Bilder, Videos und Links auf andere Seiten etc. existieren
                     und wie müssen sie in die neue Seite übernommen werden?
         \end{enumerate}
 
-        \paragraph{Seiten}
-        Im einfachen Fall basiert jede migrierte Seite in {\imperia} auf derselbe Vorlage,
-        sodass die Beantwortung der ersten Frage trivial ist.
-        Wahrscheinlicher ist allerdings,
-        dass verschiedene Layouts und damit verschiedene Vorlagen
-        notwendig werden.
-        Die Wahl der Vorlage wird dann auf der originalen Seite basieren,
-        weshalb auch die Klassifizierung einer Webseite als Ganzes notwendig ist.
-        Jeder Klasse wird anschließend einer Kategorie in {\imperia}
-        zugewiesen, die wiederum die zu nutzende Vorlage bestimmt.
+        \paragraph{Webseiten}
+        Nicht jede Webseite basiert auf der gleichen Vorlage, da sie z. B. unterschiedliche Layouts verwenden.
+        Die Antwort auf die erste Frage ist deshalb immer abhängig von der Webseite aus {\wordpress}, die gerade migriert wird.
+        Aus diesem Grund ist die Klassifizierung einer solchen Webseite als Ganzes notwendig.
+        Jeder Klasse kann dann eine Dokumentenkategorie in {\imperia}
+        zugewiesen werden, die wiederum die zu nutzende Vorlage bestimmt.
 
         \paragraph{Textuelle Inhalte}
         Um die zweite Frage beantworten zu können,
@@ -57,40 +52,39 @@
 
         \paragraph{Referenzen}
         Die dritte Frage besteht aus zwei Teilen.
-        Der erste Teil fragt allgemein gesprochen nach einer Auflistung
-        referenzierter {\resources}\footnote{vgl. Kapitel \ref{section:problemAnalysisWebpagesInTheWWWResources}}.
+        Der erste Teil fragt nach einer Auflistung
+        referenzierter {\resources}.
         Deren Bereitstellung stellt keine Herausforderung dar,
-        da sie direkt aus dem \gls{html}-Dokument hervorgehen.
+        da sie direkt aus dem \gls{html}-Dokument hervorgeht.
         Der zweite Teil zielt hingegen darauf ab,
-        wie sich die jeweilige {\resource} und die Referenz selbst einordnen lassen.
+        wie sich jede einzelne {\resource} und die Referenzen selbst einordnen lassen.
         Das Bild eines Mitarbeiters und seine E-Mail-Adresse sind im Beispiel beides Referenzen.
         In {\imperia} sind für sie aber unterschiedliche Formularfelder vorgesehen.
         Referenzen müssen demnach ebenfalls klassifiziert werden.
 
         Zusammengefasst lassen sich also drei Entitäten ermitteln,
         die für die Klassifizierung einer Seite relevant sind:
-        Die Seite als Ganzes, textueller Inhalt und Referenzen.
+        Die Webseite als Ganzes, textueller Inhalt und Referenzen.
 
     \subsection{Kriterium der Klassifizierung}
         \label{section:ClassificationCriteria}
         Nachdem nun geklärt ist, welche Entitäten einer Webseite für
-        eine Klassifizierung relevant sind\footnote{vgl. Kapitel \ref{section:classificationEntities}},
+        eine Klassifizierung relevant sind,
         widmet sich dieses Kapitel der Frage, nach welchen
-        Kriterien diese Einordnung erfolgen muss
-        und welche Bedeutung die resultierenden Klassen besitzen.
+        Kriterien die Einordnung erfolgen muss.
 
-        \paragraph{Klassifizierung von Seiten}
+        \paragraph{Klassifizierung von Webseiten}
         Die Klassifikation der Seite hat direkten Einfluss auf die Wahl der Vorlage im neuen \gls{cms}.
-        Die Klasse der Seite könnte auf dem Typ des Beitrages basieren,
+        Die Klasse der Seite kann auf dem Typ des Beitrages basieren,
         also ob er ein Post oder eine Page ist.
-        In der Praxis wird diese Unterteilung aber nicht ausreichen,
+        In der Praxis reicht diese Unterteilung aber nicht aus,
         da verschiedene {\wordpress} Pages im Zielsystem verschiedene Layouts erhalten werden.
         Eine fachliche Unterteilung der Seiten anstatt einer technischen ist deshalb sinnvoller.
         Für die Seite eines Mitarbeiters hieße das zum Beispiel,
         dass sie als "`Mitarbeiterseite"' klassifiziert wird und nicht als "`Page"'.
-        Eine fachliche Unterscheidung nach inhaltlicher Bedeutung macht die
+        Eine Unterscheidung nach inhaltlicher und fachlicher Bedeutung macht die
         gewonnene Klassifikation außerdem unabhängiger vom konkreten
-        Migrationsvorhaben der FernUniversität und somit für andere Anwendungsfälle nutzbar.
+        Migrationsvorhaben der {\fernUni}.
 
         \paragraph{Klassifizierung von Inhalten}
         Die Einteilung von Referenzen und textuellen Inhalten kann ebenfalls
@@ -99,7 +93,7 @@
         So entstehen Klassen wie "`p"' und "`h1"'.
         Name und Telefonnummer eines Mitarbeiters finden sich bei diesem Ansatz in der Klasse "`p"' wieder.
         In {\imperia} existieren für beide aber getrennte Felder.
-        Basierend auf dieser Klassifikation kann ein Automatismus
+        Basierend auf dieser Klassifikation kann ein automatisches Migrationssystem
         nicht entscheiden, welches Feld mit welchem Inhalt zu füllen ist.
         Abhilfe bringt wiederum nur eine fachliche Klassifizierung,
         bei der die inhaltliche Bedeutung im Vordergrund steht.
@@ -123,10 +117,10 @@
     \subsection{Anforderungen}
         \label{section:requirements}
         Die vorliegenden Informationen erlauben
-        die Ableitung ausreichend konkreter Anforderungen an ein System
+        die Ableitung von Anforderungen an ein System
         zur automatischen Klassifizierung der Inhalte von Webseiten.
 
-        \paragraph*{Automatische fachliche Klassifizierung von Seiten, Inhalten und Referenzen}
+        \paragraph*{Automatische fachliche Klassifizierung von Webseiten, Inhalten und Referenzen}
         Es ist ein System zu entwickeln, welches automatisiert Webseiten,
         deren Inhalte und Referenzen auf andere {\resources} im \gls{www}
         nach fachlichen und inhaltlichen Kriterien klassifiziert.
@@ -159,18 +153,18 @@
         Es muss möglich sein die fachlichen Klassen allgemein zu
         spezifizieren, sodass eine beliebige Anzahl an gegebenen
         Webseiten (z. B. die Seiten einer Website)
-        auf Basis dieser Spezifikation klassifiziert werden kann.
+        auf Basis dieser Spezifikation klassifiziert werden können.
 
         \paragraph*{Schnittstelle zum Starten einer Klassifizierung}      
         Das System muss programmatisch angewiesen werden können,
-        eine oder mehrere gegebene Webseiten zu klassifizieren,
+        eine oder mehrere Webseiten zu klassifizieren,
         sodass ein Drittsystem die relevanten Webseiten auffinden
         und weitergeben kann.
         Der Aufwand einer manuellen Instrumentierung des Systems ist
         vor allem bei vielen Webseiten nicht zu rechtfertigen.
 
-        \paragraph*{Schnittstelle zur Abfrage der Klassifikation}
-        Die Klassifikation muss über eine definierte allgemeine
+        \paragraph*{Schnittstelle zur Abfrage einer Klassifikation}
+        Eine Klassifikation muss über eine definierte allgemeine
         Schnittstelle abrufbar sein, sodass Drittsysteme die Ergebnisse
         nutzen können.
         Im Fall der {\fernUni} könnte dies ein Werkzeug sein,

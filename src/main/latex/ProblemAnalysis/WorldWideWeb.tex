@@ -1,17 +1,10 @@
 \section{Webseiten im World Wide Web}
     \label{section:problemAnalysisWebpagesInTheWWW}
-    Eine Betrachtung der Problemdomäne ist für den weiteren
-    Verlauf dieser Arbeit notwendig,
-    um Grundlagen zu vermitteln und spätere Erläuterungen
-    in einen größeren Kontext zu setzen.
-    Das trägt zu einem besseren Verständnis der Problemstellung
-    und damit zur Findung einer geeigneten Lösung bei.
-
-    Die in diesem Fall zu betrachtende Domäne ist "`Webseiten"'.
-    Webseiten gehören zum \gls{www}, weshalb auch dessen Konzepte zur Betrachtung der Domäne gehören.
-    Die folgenden Erläuterungen umfassen aber bewusst nicht jeden einzelnen Aspekt der Domäne,
-    sondern beschränken sich auf grundlegende und für diese Arbeit relevante Teile.
-    Im Fokus der Betrachtung stehen die technischen und konzeptionellen Grundlagen.
+    Für ein besseres Verständnis der Aufgabenstellung sowie zur Findung
+    einer geeigneten Lösung ist es sinnvoll die technischen und fachlichen
+    Grundlagen von Webseiten zu betrachten.
+    Die folgenden Erläuterungen beinhalten auch Aspekte des \glspl{www},
+    da Webseiten ein Teil des \glspl{www} sind.
 
     \subsection{Das World Wide Web}
         Das \gls{w3c} definiert den Begriff "`World Wide Web"' in \cite{w3c:wwwArch} wie folgt:
@@ -35,45 +28,41 @@
         Aus der obigen Definition wird deutlich,
         dass das \gls{www} nicht ausschließlich zur Nutzung von Webseiten
         vorgesehen ist.
-        Stattdessen können über das \gls{www} jede Art von {\resources} bezogen werden.
-        Neben Webseiten gehören dazu auch Bilder sowie Text- und
-        und Binärdateien wie PDFs, Audio- oder Videodateien.
+        Stattdessen kann es jede Art von {\resources} bereitstellen.
         Die Beschreibung des \glspl{w3c} stellt außerdem klar,
         dass jede {\resource} im \gls{www} eindeutig über einen \gls{uri} identifiziert wird.
-        Im Fall von Webseiten geschieht dies oftmals über \glspl{url},
+        Im Fall von Webseiten geschieht dies über \glspl{url},
         die eine Teilmenge von \glspl{uri} darstellen
-        \cite[Kapitel 1.1.3, Seite 7]{rfc:3986}.
+        \cite[Kapitel 1.1.3]{rfc:3986}.
 
     \subsection{Interaktion mit dem World Wide Web}
         Um {\resources} im \gls{www} anzusprechen existieren verschiedene Werkzeuge.
-        Das \gls{w3c} bezeichnet jedes von ihnen als
+        Das \gls{w3c} \cite[Kapitel 6]{w3c:wwwArch} bezeichnet jedes von ihnen als
         "`Web agent"' und beschreibt diese Rolle wie folgt:
         "`A person or a piece of software acting on the information
-        space on behalf of a person, entity, or process."' \cite[Kapitel 6]{w3c:wwwArch}.
+        space on behalf of a person, entity, or process."'.
         Eine Spezialisierung stellen die sogenannten "`User agents"' dar,
-        die das \gls{w3c} als "`One type of Web agent;
-        a piece of software acting on behalf of a person."' beschreibt \cite[Kapitel 6]{w3c:wwwArch}.
+        die das \gls{w3c} \cite[Kapitel 6]{w3c:wwwArch} als "`One type of Web agent;
+        a piece of software acting on behalf of a person."' beschreibt.
         Webbrowser sind User agents, aber zum Beispiel auch Kommandozeilenprogramme
-        wie curl\footnote{https://curl.haxx.se/}.
+        wie curl\footnote{\url{https://curl.haxx.se/}}.
         Ihre persönliche Kennung halten User Agents zum Beispiel im
         HTTP-Header "`User-Agent"' fest \cite[Kapitel 5.5.3, Seite 46]{rfc:7231}.
 
-        Der Prozess, bei dem ein Agent über einen \gls{uri} auf eine {\resource}
-        zugreift heißt "`Dereferencing the URI"' \cite[Kapitel 3.1]{w3c:wwwArch}.
-        Wie dieser Prozess aussieht hängt von der Funktion des User Agents und der \gls{uri} ab
+        Der Prozess, bei dem ein Agent über eine \gls{uri} auf eine {\resource}
+        zugreift heißt "`Dereferencing the URI"'.
+        Wie dieser Prozess aussieht hängt von der Funktion des User Agents und der \gls{uri} ab.
+        Eines User Agent könnte bspw. eine
+        Repräsentation einer {\resource} abrufen, wohingegen ein anderer Agent
+        lediglich prüft, ob eine eben solche Repräsentation existiert
         \cite[Kapitel 3.1]{w3c:wwwArch}.
-        Die Funktion eines User Agents könnte beispielsweise das Abrufen einer
-        Repräsentation der {\resource} vorsehen, wohingegen ein anderer Agent
-        lediglich prüft, ob eine eben solche Repräsentation existiert.
 
-        Das Schema einer \gls{uri} beschreibt laut Spezifikation
-        lediglich, wie die folgende Kennung zu interpretieren ist
-        \cite[Kapitel 3.1, Seite 17]{rfc:3986}.
-        Viele Schemata sind allerdings nach Protokollen benannt,
-        weshalb sie in der Praxis häufig bestimmen,
-        wie User Agents auf eine {\resource} zugreifen können
+        Das Schema einer \gls{uri} beschreibt laut \cite[Kapitel 3.1]{rfc:3986},
+        wie die restlichen Teile der \gls{uri} zu interpretieren sind.
+        Viele Schemata sind nach Protokollen benannt,
+        weshalb sie in der Praxis häufig auch das Verfahren bestimmen,
+        mit dem User Agents auf eine {\resource} zugreifen können
         \cite[Kapitel 3.1]{w3c:wwwArch}.
-        
         Schemata, die im \gls{www} häufig Anwendung finden,
         sind zum Beispiel
         http\footnote{\url{https://tools.ietf.org/html/rfc7230\#section-2.7.1}},
@@ -82,28 +71,23 @@
         data\footnote{\url{https://tools.ietf.org/html/rfc2397}}.
         Für Webseiten sind dabei vor allem http und https
         und die gleichnamigen Protokolle von Bedeutung,
-        da \glspl{url} von Webseiten diese vorrangig verwenden.
+        da \glspl{url} diese vorrangig verwenden.
 
         Wenn ein Webbrowser oder ein anderer Agent eine Webseite aufruft,
-        bedeutet dies allgemein gesprochen, dass der Agent eine Repräsentation
-        einer {\resource} anfragt, die er über eine \gls{url} spezifiziert.
-        Konkret richtet er diese Anfrage an einen Server,
-        wozu er das Protokoll HTTP(S)\footnote{\url{https://tools.ietf.org/html/rfc7231}} und die Methode
-        GET\footnote{\url{https://tools.ietf.org/html/rfc7231\#section-4.3.1}} verwendet.
-
-        Falls der Server den \gls{url} der Anfrage auflösen kann,
-        antwortet er auf die Anfrage mit der Repräsentation der Webseite,
-        die im nächsten Abschnitt behandelt wird.
+        fragt er bei einem Webserver also eine Repräsentation
+        einer {\resource} an, die er über eine \gls{url} spezifiziert.
+        Falls der Server die \gls{url} der Anfrage auflösen kann,
+        antwortet er auf die Anfrage mit der \acrshort{html}-Repräsentation der Webseite.
         Der Browser übernimmt dann das Rendering der Seite und die Ausführung
         von eingebetteten Skripten.
 
-        \subsection{Repräsentation einer Webseite}
+        \subsection{Die HTML-Repräsentation einer Webseite}
             Webseiten sind Dokumente, die die Auszeichnungssprache \gls{html} verwenden,
             die aktuell in der Version 5 vorliegt \cite{w3c:html5}.
             Bis zur Version 3.2 war \gls{html} eine Implementierung der Metasprache SGML \cite[Kapitel 3]{w3c:html401}.
             Zusammen mit der Version 4 wurde eine Ausprägung spezifiziert,
-            die \gls{html} in eine Implementierung der Sprache XML überführte,
-            die den Namen XHTML erhielt \cite{w3c:xhtml}.
+            die \gls{html} in eine Implementierung der Sprache XML überführt,
+            die den Namen XHTML trägt \cite{w3c:xhtml}.
             \gls{html}5 definiert eine abstrakte Sprache
             die sowohl mit \gls{html}- als auch mit XML-Syntax genutzt werden kann
             \cite[Kapitel 1.6]{w3c:html5}.
@@ -124,28 +108,28 @@
                 \hline
                 \textbf{Kategorie} & \textbf{Elemente (Auswahl)} \\
                 \hline
-                Das Wurzelelement & html \\
+                Das Wurzelelement & \texttt{html} \\
                 \hline
-                Metadaten des Dokumentes & head, title, style \\
+                Metadaten des Dokumentes & \texttt{head}, \texttt{title}, \texttt{style} \\
                 \hline
-                Absätze & body, article, section, h1 \\
+                Absätze & \texttt{body}, \texttt{article}, \texttt{section}, \texttt{h1} \\
                 \hline
-                Gruppierungen & p, ul, div \\
+                Gruppierungen & \texttt{p}, \texttt{ul}, \texttt{div} \\
                 \hline
-                Semantische Kennzeichnung von Text & a, strong, code \\
+                Semantische Kennzeichnung von Text & \texttt{a}, \texttt{strong}, \texttt{code} \\
                 \hline
-                Kennzeichnung von Textänderungen & ins, del \\
+                Kennzeichnung von Textänderungen & \texttt{ins}, \texttt{del} \\
                 \hline
-                Eingebetteter Inhalt & img, iframe, object \\
+                Eingebetteter Inhalt & \texttt{img}, \texttt{iframe}, \texttt{object} \\
                 \hline
-                Tabellenelemente & table, tr, td \\
+                Tabellenelemente & \texttt{table}, \texttt{tr}, \texttt{td} \\
                 \hline
-                Formulare & form, input, button \\
+                Formulare & \texttt{form}, \texttt{input}, \texttt{button} \\
                 \hline
-                Skripte & script, canvas \\
+                Skripte & \texttt{script}, \texttt{canvas} \\
                 \hline
                 \end{tabular}
-                \caption{\gls{html} Elemente}
+                \caption{Kategorisierung von \acrshort{html}-Elementen}
                 \label{table:htmlElements}
             \end{table}
 
@@ -156,21 +140,21 @@
             \cite[Kapitel 4.11.1]{w3c:html5}.
         
             Eine Besonderheit von \gls{html} ist die Möglichkeit
-            über verschiedene Elemente andere {\resources} des \gls{www} zu referenzieren,
-            wodurch ein gerichtetes, potentiell zyklisches Netzwerk entsteht.
+            andere {\resources} des \glspl{www} zu referenzieren,
+            wodurch ein gerichtetes und zyklisches Netzwerk entsteht.
             Beispiele für häufig in Webseiten referenzierte {\resources}
-            sind andere Webseiten, Skripte, CSS-Dateien, Bilder und Videos.
+            sind andere Webseiten, Skripte, Stylesheet-Dateien, Bilder und Videos.
             Zur Referenzierung dieser Beispiele dienen die \gls{html}-Elemente
             \texttt{a}, \texttt{script}, \texttt{link}, \texttt{img}, und \texttt{video},
-            die wiederum gleichzeitig auch die Semantik der Referenz festlegen.
-            Dadurch kann zum Beispiel ein Bild sowohl über das \texttt{img}-
+            die auch die Semantik der Referenz festlegen.
+            Ein Bild kann sowohl über das \texttt{img}-
             als auch das \texttt{a}-Element referenziert werden.
             Im ersten Fall wird ein Webbrowser das Bild direkt in die Anzeige rendern,
             wohingegen er im zweiten Fall nur einen klickbaren Link auf das Bild darstellt.
 
         \subsection{Trennung der Zuständigkeiten in einer Webseite}
-            Die Trennung der Zuständigkeiten\footcite[vgl.][]{huersch:SeparationOfConcerns}
-            ist ein allgegenwärtiges Konzept der Informatik.
+            Die Trennung der Zuständigkeiten
+            ist ein allgegenwärtiges Konzept der Informatik \cite{huersch:SeparationOfConcerns}.
             Im Sinne dieses Konzeptes existieren im Kontext von Webseiten
             drei Belange, die es zu trennen gilt:
 
@@ -182,7 +166,6 @@
 
             Der Inhalt einer Seite ist in den \gls{html}-Elementen enthalten,
             deren Hierarchie darüber hinaus die Struktur der Seite bestimmt.
-            
             Das Aussehen einer Seite wird hingegen über \gls{css} festgelegt \cite{w3c:css}.
             Dabei handelt es sich um "`[...] eine Sprache zur Beschreibung des Renderings
             von strukturierten Dokumenten (wie HTML und XML) auf Bildschirmen, auf Papier,
@@ -191,7 +174,7 @@
             die einer Menge von \gls{html}-Elementen Eigenschaften in der Darstellung (Styles) zuweisen
             \cite{w3c:cssSyntax}.
             Diese Menge von Elementen wird wiederum über Selektoren festgelegt,
-            mit denen sich verschiedene Eigenschaften der auszuwählenden Nodes beschreiben lassen
+            mit denen sich verschiedene Eigenschaften der auszuwählenden Elemente beschreiben lassen
             \cite{w3c:cssSelectors}.
             Falls zwei Regeln dasselbe Element ansprechen,
             werden die Styles beider Regeln zusammengefasst
@@ -213,25 +196,24 @@
             Der Server kann zur Bearbeitung einer Anfrage mit dem Inhalt einer Datei auf seinem Dateisystem antworten.
             Dies können zum Beispiel eine \gls{html}-Datei oder ein Bild sein.
             In diesem Fall spricht man von statischen Inhalten.
-            Wie eingangs erwähnt, ist es ist allerdings auch möglich,
+            Es ist allerdings auch möglich,
             dass eine Webanwendung serverseitig Geschäftslogik zur Bearbeitung einer Anfrage ausführt.
             Die Antwort an den Client kann in diesem Fall weiterhin statisch oder
             durch die Webanwendung generiert worden sein.
             Im letzten Fall spricht man von dynamisch generierten bzw. erzeugten Inhalten.
 
-            Ein \gls{html}-Dokument kann in script-Elementen ebenfalls Logik enthalten
+            Ein \gls{html}-Dokument kann in \texttt{script}-Elementen ebenfalls Logik enthalten
             \cite[Kapitel 4.11]{w3c:html5},
-            zu deren Formulierung Entwickler häufig die Skriptsprache JavaScript verwenden,
-            wobei es sich um eine Implementierung des Sprachstandards ECMAScript handelt
+            zu deren Formulierung Entwickler häufig die Skriptsprache JavaScript verwenden.
+            Dabei handelt es sich um eine Implementierung des Sprachstandards ECMAScript
             \cite{ecma:ecmaScript}.
-            Nicht der Server, sondern der anfragende User Agent führt diese Logik aus.
-            Dabei handelt es sich generell um einen Browser.
+            Nicht der Server, sondern der anfragende User Agent -- häufig ein Webbrowser -- führt diese Logik aus.
             Es existieren verschiedene Programmierschnittstellen,
-            die neben vielen anderen Funktionen, zum Beispiel die Möglichkeit bieten,
+            die solchen Skripten erlauben
             Elemente zu manipulieren, auf Nutzerinteraktion zu reagieren
-            oder asynchrone HTTP-Anfragen zu starten \cite[Kapitel 8]{whatwg:html}\cite{whatwg:xhr}.
+            oder asynchrone HTTP-Anfragen auszuführen \cite[Kapitel 8]{whatwg:html}\cite{whatwg:xhr}.
             Falls eine Webseite solche clientseitigen Mittel verwendet,
-            wird sie oft als dynamische Seite bezeichnet.
+            wird sie als dynamische Seite bezeichnet.
             
             Client- und serverseitige Programmteile funktionieren oftmals Hand in Hand,
             wie das folgende Beispiel illustriert:
@@ -242,17 +224,18 @@
             und generiert auf Basis des Ergebnisses ein \gls{html}-Fragment,
             welches er in seine Antwort schreibt.
             Der Empfang der Antwort löst im Browser die Ausführung einer weiteren
-            JavaScript-Funktion aus, die das empfangene \gls{html}-Fragment
+            JavaScript-Funktion aus, die das \gls{html}-Fragment
             an eine definierte Stelle der Webseite einfügt,
             wodurch es dem Nutzer sichtbar wird.
             Der konzeptionelle Ablauf in diesem Szenario sowie die verwendeten Mittel
             werden unter dem Begriff \gls{ajax} zusammengefasst \cite{garrett:ajax}.
 
         \subsection{Websites}
+            \label{section:problemAnalysisWebpagesInTheWWWWebsites}
             Der Internetauftritt einer Organisation besteht selten aus einer
             einzelnen Webseite.
             Stattdessen besteht er aus vielen Webseiten,
-            die untereinander verlinkt sind und von der jede einen eigenen
+            die untereinander verlinkt sind und von der jede eine eigene
             \gls{url} besitzt.
             Neben "`Internetauftritt"' hat sich der Begriff "`Website"' zur
             Referenzierung dieser Gesamtheit aller Webseiten einer Organisation

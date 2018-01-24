@@ -1,7 +1,6 @@
 \section{Klassen, Features und Selektoren}
     \label{section:conceptClassesFeaturesSelectors}
-    Mit dem \gls{wccs} sollen Inhalte klassifiziert,
-    das heißt einer von vielen Klassen zugewiesen werden.
+    Das \gls{wccs} führt eine Klassifizierung der Inhalte von Webseiten durch.
     Dieses Kapitel erläutert, was eine Klasse im Kontext des \glspl{wccs} ist
     und mit welchen anderen Konzepten es in Beziehung steht.
 
@@ -15,7 +14,7 @@
         \begin{figure}[htb]
             \centering
             \includegraphics[scale=\imageScalingFactor]{../resources/concept/classes.png}
-            \caption{Klassen im Kontext des \acrshortpl{wccs}}
+            \caption{Klassen im Kontext des WCCS'}
             \label{image:conceptClasses}
         \end{figure}
 
@@ -30,48 +29,36 @@
         \end{enumerate}
 
         Allen Klassen ist gemein, dass sie einen Namen und bis zu einem Selektor haben,
-        der darüber entscheidet, ob ein Objekt der Klasse zugehörig ist.
-        Weshalb dieser Selektor optional ist, wird im folgenden Kapitel \ref{section:conteptSelectors} beschrieben.
+        der darüber entscheidet, ob ein präsentiertes Objekt der Klasse zugehörig ist.
+        Weshalb dieser Selektor optional ist, wird in Kapitel \ref{section:conteptSelectors} beschrieben.
         Seiten- und Inhaltsklassen besitzen Features,
         die zur Modellierung der komplexen Strukturen von Webseiten und ihren Inhalten dienen.
         Das \gls{wccs} sieht nicht vor, dass Referenzen solche Strukturen besitzen,
         weshalb Referenzklassen keine Features definieren.
         Jedes Feature ist in konkreten Klassifikationen als optional anzusehen,
-        damit kleine Unterschiede in sonst sehr ähnlichen Seiten keine neuen Klassen erforderlich machen.
+        damit kleine Unterschiede in sonst sehr ähnlichen Webseiten keine neuen Klassen erforderlich machen.
 
     \subsection{Features}
         \label{section:conceptFeatures}
-        Eine Seite besitzt eine hierarchische inhaltliche Struktur,
-        die durch ihre Klassifikation abgebildet werden muss
-        \footnote{vgl. Kapitel \ref{section:requirements}}.      
+        Eine Webseite besitzt eine hierarchische inhaltliche Struktur,
+        die durch ihre Klassifikation abgebildet werden muss\footnote{vgl. Kapitel \ref{section:requirements}}.      
         Dazu führt das \gls{wccs} das Konzept der Features ein,
-        die Teil einer Seiten- oder Inhaltsklasse sind und
-        die erwartete Struktur eines klassifizierten Objektes beschreiben.
+        die Teil einer Seiten- oder Inhaltsklasse sind.
         Ein Feature besitzt selbst ebenfalls eine Klasse,
         welche ihrerseits wiederum Features enthalten kann.
         Die Klassendefinitionen erhalten dadurch eine beliebig komplexe hierarchische Struktur,
-        mit der der inhaltliche Aufbau einer Seite modelliert werden kann.
-        Innerhalb einer Klassifikation stehen Features in einer Teil-Ganzes-Beziehung zu einander.
-        Um Bezug auf ein übergeordnetes Features zu nehmen,
+        um den erwarteten Aufbau eines klassifizierten Objektes zu modellieren.
+        Innerhalb einer Klassifikation stehen Features also in einer Teil-Ganzes-Beziehung zu einander.
+        Um Bezug auf ein übergeordnetes Feature zu nehmen,
         wird im weiteren Verlauf dieser Arbeit der Ausdruck "`\parentFeature"' verwendet.
-        Untergeordnete Features werden entsprechend mit dem Ausdruck "`\childFeature"' referenziert.
-
-        Eine Klassifikation des Beispiels aus Kapitel \ref{section:requirements} könnte also
-        den folgenden Aufbau besitzen.
-        Die Seite wird der Seitenklasse "`Service"' zugewiesen.
-        Diese Klasse definiert mehrere Features, die die Klasse "`FaqSection"' besitzen.
-        Diese Klasse hat ein Feature namens "`entry"' mit der Klasse "`FaqEntry"'.
-        Diese hat wiederum die Features "`question"' und "`answer"' mit den Klassen
-        "`FaqQuestion"' und "`FaqAnswer"'.
-        % TODO: Vielleicht ist das hier nicht notwendig, falls Beispiel-Transformation schon in Kapitel 1/2 erfolgt.
-
+        Ein untergeordnetes Feature wird entsprechend "`\childFeature"' bezeichnet.
         Abbildung \ref{image:conceptFeatures} zeigt eine ausführlichere
         konzeptionelle Darstellung von Features im \gls{wccs}.
 
         \begin{figure}[htb]
             \centering
             \includegraphics[scale=\imageScalingFactor]{../resources/concept/features.png}
-            \caption{Features im Kontext des \acrshortpl{wccs}}
+            \caption{Features im Kontext des WCCS'}
             \label{image:conceptFeatures}
         \end{figure}
 
@@ -93,7 +80,7 @@
         außerdem anhand ihrer Kardinalität.
         Einelementige Features, sogenannte {\scalarFeature}s, enthalten die Klassifikation genau eines Objektes.
         {\collectionFeature}s hingegen speichern eine Menge von Klassifikationen,
-        um sich wiederholende Elemente auf einer Seite unter einem Namen zusammenzufassen.
+        um sich wiederholende Elemente unter einem Namen zusammenzufassen.
         Jede einzelne Klassifikation in dieser Menge ist wiederum ein {\scalarFeature},
         von denen jedes diesselbe Klasse besitzen muss.
         In Abbildung \ref{image:conceptFeatures} wird dies durch die Typerweiterung an
@@ -114,13 +101,13 @@
         für die es abstrakt gesehen zwei Anwendungsfälle gibt:
 
         \begin{enumerate}
-            \item Eine gegebene Webseite als Ganzes einer Seitenklasse zuweisen
-            \item Features innerhalb eines bereits klassifizierten Elementes ausfindig machen
+            \item Eine gegebene Webseite als Ganzes einer Seitenklasse zuweisen und
+            \item Features innerhalb eines bereits klassifizierten Elementes ausfindig machen.
         \end{enumerate}
 
         Um den ersten Fall möglich zu machen,
         muss jede Definition einer Seitenklasse auch die Angabe eines Selektors enthalten,
-        sodass eine konkrete Seite gegen jede Seitenklasse geprüft werden kann.
+        sodass eine konkrete Webseite gegen jede Seitenklasse geprüft werden kann.
         Features benötigten zur Laufzeit ebenfalls einen Selektor,
         allerdings kann dieser unterschiedlich ermittelt werden.
         Die erste Möglichkeit ist den Selektor der Inhalts- oder
@@ -128,11 +115,11 @@
         Es erscheint allerdings sinnvoll, diesen Standardwert bei Bedarf für einzelne Features
         zu überschreiben, um Unregelmäßigkeiten einzelner Webseiten zu kompensieren.
         Der Selektor kann deshalb auch Teil eines Features sein.
-        Die Spezifikation eines Selektors ist außerdem sowohl
+        Die Spezifikation eines Selektors ist aus diesem Grund sowohl
         bei Klassen als auch bei Features optional,
         da nur sichergestellt sein muss, dass zum Zeitpunkt der Klassifizierung für jedes
         Feature ein Selektor ermittelt werden kann.        
-        Dabei wird nicht ausgeschlossen, dass der gleiche Selektor von mehreren Klassen verwendet wird,
+        Es wird nicht ausgeschlossen, dass der gleiche Selektor von mehreren Klassen verwendet wird,
         was die Möglichkeit eröffnet, konkrete Inhalte und Referenzen mehreren Klassen zuzuweisen.
 
         Das \gls{wccs} unterstützt verschiedene Arten von

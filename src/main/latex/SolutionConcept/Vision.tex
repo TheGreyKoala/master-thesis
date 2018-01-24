@@ -1,13 +1,18 @@
 \section{Vision}
-    An dieser Stelle erfolgt zunächst ein kurzer sehr abstrakter Blick auf das System,
-    um die Idee der Gesamtlösung und einen Überblick zu vermitteln.
+    An dieser Stelle erfolgt zunächst ein sehr abstrakter Blick auf das System,
+    um die Idee der Gesamtlösung zu vermitteln.
+    Dazu wird die Vision des angestrebten Klassifizierungsprozesses beschrieben.
 
-    Ein Nutzer des Systems instrumentiert dieses,
-    indem er eine Spezifikation der Klassen und ihrer Merkmale bereitstellt,
-    welche er mithilfe einer \gls{dsl} formuliert hat.
-    Ein geeignetes Werkzeug ermittelt anschließend alle relevanten Seiten und startet ihre Klassifizierung,
-    die auf Basis der bereitgestellten Spezifikation durchgeführt wird.
-    Das Ergebnis wird dauerhaft persistiert und kann über eine definierte Schnittstelle
-    abgerufen werden, um es Drittsystemen zugänglich zu machen.
-    Des Weiteren wird die Klassifikation einer Seite geeignet visualisiert,
-    sodass sie von Redakteuren geprüft und bei Bedarf korrigiert werden kann.
+    Ein Anwender entwickelt ein Modell zur Klassifizierung einer oder mehrerer Webseiten,
+    welches er mit Hilfe einer \gls{dsl} ausdrückt.
+    Das Modell wird übersetzt und fungiert zur Instrumentierung des Klassifizierungssystems.
+    Der Anwender startet anschließend ein geeignetes Werkzeug,
+    welches alle relevanten Webseiten ermittelt und ihre Klassifizierung beauftragt.
+    Das \gls{wccs} führt die Klassifizierung auf Basis des bereitgestellten Modells durch
+    und persistiert das Ergebnis dauerhaft.
+    Eine erste Überprüfung der Klassifikation und kleinere Korrekturen kann der Anwender anschließend auf der
+    Webseite selbst vornehmen.
+    Dazu dient eine Visualisierung über Webannotationen.
+    Eine detailliertere Einsicht erhält er über eine spezielle Webanwendung.
+    Nach der Klassifizierung steht Drittsystemen das Ergebnis über eine definierte Schnittstelle
+    zur Verfügung.

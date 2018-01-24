@@ -9,7 +9,6 @@
     die noch immer von der Community weiterentwickelt
     und von der Fakultät \gls{ksw} der {\fernUni} für ihren
     Internetauftritt genutzt wird.
-
     In diesem Kapitel werden grundlegende Konzepte dieses Systems vorgestellt.
 
     \subsection{Weblog-Software}
@@ -31,7 +30,7 @@
 
         Da Blogs eine spezielle Form von Webseiten sind,
         kann man auch eine Anwendung zu ihrer Pflege als
-        spezielle Form eines \gls{cms} betrachten.
+        spezielle Form eines \glspl{cms} betrachten.
         Diese Aussage trifft {\wordpress} auch über sich selbst
         und vergleichbare Software \cite{wordpress:Blogging}:
 
@@ -43,24 +42,21 @@
         \end{quote}
 
         Nicht zuletzt weil auch Privatpersonen eine Zielgruppe
-        solcher Anwendungen sind, vereinfachen sie demnach Blog-Einträge
+        solcher Anwendungen sind, vereinfachen sie Blog-Einträge
         auf die zwei elementaren Elemente Titel und Inhalt.
         Mit dieser schwachen Strukturierung der Inhalte
         unterscheidet sich {\wordpress} deutlich von {\imperia}
         und seinen Dokumenten, die beliebig stark strukturiert
         werden können.
-
         Aufgrund der Anpassbarkeit durch Themes\footnote{vgl. Kapitel \ref{section:wordpressTemplatesThemes}}
         und Plugins\footnote{vgl. Kapitel \ref{section:wordpressPlugins}} sieht sich
         {\wordpress} trotzdem als vollwertiges \gls{cms}
         \cite{wordpress:About}.
 
     \subsection{Dynamische Generierung}
+        \label{section:problemAnalysisWordPressDynamicGeneration}
         Anders als {\imperia} ist {\wordpress} nicht nur das Redaktionssystem,
-        sondern gleichzeitig auch das ausliefernde System.
-        Verglichen mit der in Kapitel \ref{section:imperiaArch}
-        beschriebenen Aufgabenteilung übernimmt {\wordpress} selbst
-        also auch die Rolle des Zielsystems.
+        sondern gleichzeitig auch das ausliefernde Zielsystem.
         Inhalte genereirt {\wordpress} deshalb nicht in statische Dateien,
         sondern erzeugt eine Webseite auf Anfrage dynamisch.
 
@@ -74,7 +70,7 @@
         Klassische Blog-Einträge werden in {\wordpress} "`Posts"' genannt.
         Neben der Pflege des Titels und des Inhaltes eines Posts stehen dem
         Anwender noch weitere Optionen zur Verfügung.
-        Ein Post kann in Kategorien einsortiert werden oder mit Schlagwörtern versehen werden.
+        Ein Post kann in Kategorien einsortiert oder mit Schlagwörtern versehen werden.
         Dadurch kann {\wordpress} Übersichtsseiten generieren,
         die z. B. alle Posts einer Kategorie enthalten.
         Über den eigentlichen Inhalt hinausgehende Informationen können
@@ -100,9 +96,9 @@
 
         Der Typ eines Posts ändert nichts an seinen redaktionellen Feldern.
         Das heißt, unabhängig vom Post Type besitzt ein Beitrag nur
-        einen Title und Inhalt
+        einen Titel und Inhalt
         \cite{wordpress:Posts, wordpress:PostTypes}.
-        Stattdessen machen diese Typen deutlich,
+        Stattdessen machen Typen wie Revision und Custom CSS deutlich,
         dass {\wordpress} Posts auch zur Realisierung technischer Anforderung verwendet.
 
         \paragraph*{Pages}
@@ -122,7 +118,7 @@
         \end{quote}
 
         Aus diesem Grund besitzen Pages zwar ebenfalls einen Titel und Inhalt,
-        können aber lediglich mit Tags versehen werden.
+        können aber lediglich mit Schlagwörtern versehen werden.
         Die Einordnung in eine Kategorie ist nicht möglich
         \cite{wordpress:Pages}.
         Wie aus der oben erfolgten Auflistung der Post Types hervorgeht,
@@ -133,7 +129,7 @@
         was ebenfalls verdeutlicht, dass Pages lediglich Posts eines speziellen Typs sind.
         Der Inhalt eines Beitrages wird in der Datenbank als \gls{html}-Fragment abgelegt,
         welches während der dynamischen Generierung in die Webseite übernommen wird.
-        Zusätzlich enthält ein Beitrag aber auch spezielles Markup,
+        Zusätzlich enthält ein Beitrag aber auch spezielles Markup\footnote{vgl. Kapitel \ref{section:wordpressPlugins}},
         welches von {\wordpress} während der Generierung interpretiert wird.
 
     \subsection{Vorlagen und Themes}
@@ -141,7 +137,7 @@
         Wie {\imperia} strebt auch {\wordpress} eine Trennung von
         Inhalt und Layout an.
         Inhalte werden dazu in
-        Posts und Pages\footnote{vgl. Kapitel \ref{section:wordpressPostsPages}}
+        Posts und Pages
         unabhängig vom Layout der Webseite gespeichert.
         Das Layout bestimmen Vorlagen und Themes.
 
@@ -152,29 +148,27 @@
         um Inhalte aus der Datenbank auszulesen.
         Eine Webseite wird auf Basis einer Vorlage dynamisch von {\wordpress} generiert
         \cite{wordpress:Templates}.
-
         Vorlagen sind bei genauerem Hinsehen nichts anderes als PHP-Dateien,
         die \gls{html}, allgemeinen PHP-Code und sogenannte
         "`Template-Tags"' enthalten.
-        Dabei handelt es sich lediglich um Aufrufe von
+        Dabei handelt es sich um Aufrufe von
         {\wordpress}-eigenen PHP-Funktionen,
         um Inhalte aus der Datenbank abzufragen.
         Während der Generierung -- technisch lediglich die Ausführung
         des PHP-Codes -- können Vorlagen andere Vorlagen inkludieren,
         wodurch wiederkehrende Elemente in eigene Vorlagen ausgelagert
         werden können \cite{wordpress:TemplateFiles}.
-
-        Anhand des \glspl{url} der Anfrage und der darin enthaltenen
-        Kennung eines Posts oder einer Page
-        entscheidet {\wordpress} welche Vorlage es zur Generierung der Seite nutzt
+        Anhand der \gls{url} der Anfrage und der darin enthaltenen
+        Kennung eines Posts oder einer Page,
+        entscheidet {\wordpress}, welche Vorlage es zur Generierung der Seite nutzt
         \cite{wordpress:TemplateHierarchy}.
 
         \paragraph*{Themes}
         Eine Sammlung aller {\resources}, die notwendig sind um
         eine Webseite und ihr Layout umzusetzen,
         wird im Kontext von {\wordpress} als "`Theme"' bezeichnet.
-        Ein Theme enthält demnach Vorlagen, Bilder und
-        JavaScript-, CSS-, und PHP-Dateien.
+        Ein Theme enthält demnach Vorlagen, Bilder sowie
+        JavaScript-, \gls{css}-, und PHP-Dateien.
         Themes können {\resources} anderer Themes wiederverwenden oder überschreiben,
         wodurch Anpassungen an einem vorhandenen Theme einfach umzusetzen sind
         \cite{wordpress:Themes}.

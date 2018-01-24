@@ -27,7 +27,7 @@
         Für die Fakultät ist ein Vorteil dieser Abspaltung,
         dass sie frei über das Design ihrer Seiten bestimmen kann
         und deshalb schon jetzt ein moderneres Design verwendet.
-        Für die Universität als Ganzes hat dies allerdings unter anderem folgende Nachteile:
+        Für die Universität als Ganzes hat dies allerdings einige Nachteile:
 
         \begin{enumerate}
             \item   Der Internetauftritt besitzt kein universitätsweites Erscheinungsbild.
@@ -39,11 +39,9 @@
 
         Diese negativen Auswirkungen 
         begründen die Entscheidung, dass die Seiten der Fakultät \gls{ksw}
-        in Zukunft ebenfalls das neue gemeinsame Design der {\fernUni} verwenden und
-        über {\imperia} gepflegt werden.
-        Vorhandene Inhalte möchte die Fakultät übernehmen,
-        sodass eine Migration von {\wordpress} zu {\imperia} notwendig ist.
-        Es folgen die Herausforderungen, die diese Migration birgt.
+        auf das neue Design umgestellt und in Zukunft mit {\imperia} gepflegt werden.
+        Vorhandene Inhalte möchte die Fakultät von {\wordpress} zu {\imperia} migrieren,
+        was einige Herausforderungen birgt, die im Folgenden erläutert werden.
 
         \paragraph{Unterschiedliche Strukturierung der Inhalte}
         Vergleicht man die Eingabemasken zur Inhaltspflege beider Systeme, fällt auf,
@@ -73,7 +71,7 @@
         
         Hier besteht das Formular lediglich aus zwei Feldern:
         eines für den Titel der Seite und eines für den Inhalt der Seite.
-        Die Angaben eines Mitarbeiters werden unstrukturiert in das zweite Feld eingegeben.
+        Alle Informationen eines Mitarbeiters werden unstrukturiert in das zweite Feld eingegeben.
         Für eine Migration stehen generell zwei Möglichkeiten zur Auswahl,
         um mit dieser Differenz umzugehen:
 
@@ -90,8 +88,8 @@
         hätte allerdings zur Folge, dass für die Inhalte der Fakultät \gls{ksw} Sonderbehandlungen
         in {\imperia} geschaffen werden, da die restlichen Fakultäten ihre bekannten feingranularen
         Formulare beibehalten möchten.
-        Das hieße zum Beispiel, dass die Fakultät \gls{ksw} andere Formulare für die Pflege aktueller
-        Nachrichten verwendet, als die restlichen Fakultäten.
+        Das hieße zum Beispiel, dass die Fakultät \gls{ksw} andere Formulare zur Pflege von Mitarbeitern
+        verwendet als die restlichen Fakultäten.
         Da das Design beider Seiten am Ende aber identisch sein soll, bedeuten unterschiedliche Formulare
         auch Sonderbehandlungen in der Erzeugung der Seiten.
         Solche Sonderbehandlungen erzeugen erhöhte Aufwände sowohl im initialen Modernisierungsprojekt
@@ -117,36 +115,38 @@
         \paragraph{Dynamisch generierte Inhalte}
         Nicht alle Inhalte werden in {\wordpress} statisch in einer Datenbank vorgehalten.
         Oftmals werden Teile dynamisch beim Aufruf einer Webseite
-        generiert\footnote{vgl. Kapitel \ref{section:WordPress}}.
-        Ein Beispiel zeigt Abbildung \ref{image:introductionFernUniWordpressOverviewForm},
-        in dem alle Mitarbeiter eines Lehrgebietes auf einer Übersichtsseite eingebunden werden.
+        generiert\footnote{vgl. Kapitel \ref{section:problemAnalysisWordPressDynamicGeneration}}.
+        Ein Beispiel zeigt Abbildung \ref{image:introductionFernUniWordpressOverviewForm}.
 
         \begin{figure}[htb]
             \centering
             \includegraphics[width=0.7\textwidth]{../resources/wordpress/teachers-overview.png}
-            \caption{Übersichtsseite aller Mitarbeiter in {\wordpress}}
+            \caption{Eingabemaske für eine Übersichtsseite aller Mitarbeiter in {\wordpress}}
             \label{image:introductionFernUniWordpressOverviewForm}
         \end{figure}
 
-        Eine Migration zu {\imperia} muss dies berücksichtigen und entsprechendes {\wordpress}-Markup
-        geeignet übersetzen oder auswerten.
+        Über die rot umrahmte Anweisung werden hier alle Mitarbeiter eingebunden.
+        Die Auswertung dieser Anweisung geschieht aber erst zur
+        Laufzeit\footnote{vgl. Kapitel \ref{section:wordpressPlugins}}.
+        Eine Migration zu {\imperia} muss dies berücksichtigen und solche Anweisungen
+        geeignet behandeln.
 
         \paragraph{Aufwand}
         Die Durchführung einer Migration erzeugt auch nennenswerte operative Aufwände.
         Die Inhalte jeder einzelnen Seite der Fakultät \gls{ksw} müssen
         mit den neuen Strukturen abgeglichen und in diese überführt werden.
-        Bei den über 4000 Seiten der Fakultät
+        Bei den über 1500 Seiten der Fakultät
         würde sich diese Aufgabe ohne Automatisierung als bedenklich und anfällig für Fehler erweisen.
 
     \section{Inhalt und Aufbau der Arbeit}
         Die beschriebenen Herausforderungen
         werfen die Frage auf, wie mittels Software die Inhalte aller Webseiten der Fakultät \gls{ksw}
         automatisch in definierte Strukturen überführt werden können.
-        Ausgehend von dieser konkreten Anforderung der {\fernUni} stellt diese Arbeit eine
+        Durch eine solche Vorbereitung ließen sie sich anschließend
+        automatisch in die Strukturen von {\imperia} überführen.
+        Ausgehend von diesen konkreten Anforderung der {\fernUni} stellt diese Arbeit eine
         \gls{dsl} vor, die zur Instrumentierung eines Softwaresystems dient,
-        welches die Inhalte der Seiten einer
-        Website\footnote{vgl. Kapitel \ref{section:problemAnalysisWebpagesInTheWWW}}
-        automatisch klassifiziert.
+        welches die Inhalte einer Webseite automatisch klassifiziert.
         Dieses System ist ebenfalls Teil dieser Arbeit.
 
         Im folgenden Kapitel \ref{chapter:ProblemAnalysis} wird die Problemstellung ausführlicher
