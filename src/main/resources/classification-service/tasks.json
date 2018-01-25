@@ -1,6 +1,9 @@
 {
   "tasks": [{
-    "site": { "id": "<SITE_ID>", "name": "<SITE_NAME>" },
+    "site": {
+      "id": "<SITE_ID>",
+      "name": "<SITE_NAME>"
+    },
     "pages": [ "<URL>" ]
   }]
 }

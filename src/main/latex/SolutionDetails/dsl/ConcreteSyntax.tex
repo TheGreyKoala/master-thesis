@@ -18,16 +18,13 @@
     und überschreibt deren Selektor mit einem individuellen {\cssSelector}.
     Das Feature \texttt{image} ist hingegen ein {\referenceFeature} vom Typ
     \texttt{Image} und überschreibt den Selektor ihrer Klasse ebenfalls.
-
     Die Intention der Syntax ist eine Klassendefinition
     als englischsprachigen Satz lesen zu können.
     Viele Schlüsselwörter -- im Listing blau dargestellt --
     sind deshalb beschreibend und verwenden
     den Indikativ anstelle des Imperativs.  
-
     Die Beschreibung der Grammatik dieser Syntax erfolgt schrittweise
-    und orientiert sich wieder an den Konzepten der
-    Domäne\footnote{vgl. Kapitel \ref{section:conceptClassesFeaturesSelectors}}.
+    und orientiert sich an den Konzepten aus Kapitel \ref{section:conceptClassesFeaturesSelectors}.
     
     \paragraph{Klassen}
     Listing \ref{listing:dlsGrammarClasses} enthält die Parserregeln,
@@ -45,12 +42,12 @@
     Die Definition einer Seitenklassen beginnt demnach mit \texttt{page class},
     die einer Inhaltsklassen mit \texttt{content class} und die einer
     Referenzklassen mit \texttt{reference class}.
-    Anschließend folgt der Name der Klasse, der eine Zeichenkette gemäß
-    der Xtext-Terminal-Rule \texttt{ID} sein muss. % TODO: Referenz?
+    Anschließend folgt der Klassename, der eine Zeichenkette gemäß
+    der Xtext-Terminal-Rule \texttt{ID} \cite[Kapitel "`Common Terminals"']{xtext:documentation} sein muss.
     Dem Namen kann die Definition des Selektors folgen,
-    was durch die Schlüsselwortsequenz \texttt{is recognized by} geschieht.
-    Jede Klasse referenziert dazu eine andere Parserregel,
-    wodurch syntaktisch sichergestellt ist, dass nur semantisch korrekte Selektoren
+    was durch die Schlüsselwortsequenz \texttt{is recognized by} eingeleitet wird.
+    Jede Klasse referenziert eine andere Parserregel,
+    wodurch syntaktisch sichergestellt ist, dass nur geeignete Selektoren
     verwendet werden.
     Diese Regeln werden später erörtert.
     Bei Inhalts- und Referenzklassen ist der Selektor optional,
@@ -64,7 +61,7 @@
     \paragraph{Features}
     Die Deklaration von Features wird durch das Schlüsselwort \texttt{classifies} eingeleitet,
     dem mindestens eine Deklaration folgen muss.
-    Der entsprechende Teil der Grammatik ist in Listing \ref{listing:dlsGrammarFeatures} zu sehen.
+    Die Definition von Features in der Grammatik ist in Listing \ref{listing:dlsGrammarFeatures} zu sehen.
 
     \lstinputlisting[
         label=listing:dlsGrammarFeatures,
@@ -80,7 +77,7 @@
     des Features vorangeht.
     Soll das Feature ein {\collectionFeature} sein, folgt allerdings zunächst das
     Schlüsselwort \texttt{many} und anschließend erst der Name der Klasse.
-    Dazu definieren die beiden Regeln einen Querverweis zu einer \texttt{FeatureClass},
+    Für den Klassennamen definieren die beiden Regeln einen Querverweis zu einer \texttt{FeatureClass},
     die ihrerseits zu den oben gezeigten Parserregeln \texttt{ContentClass} oder
     \texttt{ReferenceClass} delegiert.
     Dadurch ist sichergestellt, dass nur Inhalts- oder Referenzklassen für Features verwendet werden können.
@@ -93,8 +90,8 @@
     Welche dies sind, erklärt der nächste Abschnitt.
     Es sei hier noch erwähnt, dass \texttt{FeatureSelector} nicht zu
     \texttt{ContentSelector} und \texttt{ReferenceSelector} delegieren kann,
-    was semantisch korrekter wäre,
-    weil dadurch eine unauflösbare Doppeldeutigkeit für den Parser entstünde.
+    was semantisch korrekter wäre.
+    Dadurch würde eine unauflösbare Doppeldeutigkeit für den Parser entstehen.
 
     \paragraph{Selektoren}
     Die Syntax von Selektoren ist für Klassen und Features identisch
@@ -114,16 +111,18 @@
     Demnach beginnt ein Selektor mit \texttt{css}, \texttt{url pattern} oder \texttt{xpath}.
     Anschließend folgt in jedem Fall die Definition des Selektors,
     die durch {\flqq } und {\frqq } umschlossen wird.
-    Dazwischen können beliebige Zeichen folgen, wobei die Definition mindestens ein Zeichen umfassen muss.
-    Ausgenommen sind nur die Zeichen Backspace, Formfeed, Linebreak, Carriage Return und Tab.
-    Anstelle der Xtext-Terminal-Rule \texttt{STRING} wird hier eine individuelle Regel verwendet.
+    Dazwischen können beliebige Zeichen folgen, wovon
+    nur Backspace, Formfeed, Linebreak, Carriage Return und Tab ausgenommen sind.
+    Anstelle der Xtext-Terminal-Rule \texttt{STRING} \cite[Kapitel "`Common Terminals"']{xtext:documentation}
+    verwendet die Definition eines Selektors die Regel \texttt{SELECTOR\_VALUE}.
     Die durch \texttt{STRING} definierten Zeichenketten müssen einige Zeichen codieren,
     wie den Rückwärtsschrägstrich oder die einfachen und doppelten Anführungszeichen.
-    Das erschwert die Definition von Selektoren, die von diesen Zeichen gebrauch machen.
-    Durch die Definition einer eigenen Regel kann die \gls{wccdl} ihren Nutzern diese Komplexität
-    ersparen und im Generierungsprozess\footnote{vgl. Kapitel \ref{section:solutionDetailsDslGeneration}} behandeln.
+    Das erschwert die Definition von Selektoren, die von diesen Zeichen Gebrauch machen.
+    Durch die Regel \texttt{SELECTOR\_VALUE} kann die \gls{wccdl} ihren Nutzern diese Komplexität
+    ersparen und im Generierungsprozess behandeln.
 
     \paragraph{Kommentare}
-    Neben dem Terminal \texttt{ID} definiert Xtext standardmäßig auch Terminale für ein- und mehrzeilige Kommentare.
-    Ein {\classificationModel} kann deshalb auch beliebige Kommentare enthalten,
+    Neben den Terminalen \texttt{ID} und \texttt{STRING} definiert Xtext standardmäßig auch Regeln für ein- und mehrzeilige Kommentare
+    \cite[Kapitel "`Common Terminals"']{xtext:documentation}.
+    Ein {\classificationModel} kann deshalb auch Kommentare enthalten,
     was ebenfalls in Listing \ref{listing:dlsExample} zu sehen ist.

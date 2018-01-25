@@ -1,45 +1,43 @@
-\section{Visualisierung, Nachbesserung und Prüfung der Klassifikation}
+\section{Visualisierung, Prüfung und Nachbesserung einer Klassifikation}
     \label{section:conceptVisualization}
     Es ist möglich, dass eine Klassifizierung ein teilweise unerwartetes Ergebnis liefert,
     weil zum Beispiel Selektoren im Klassifizierungsmodell unzutreffend sind.
     Das \gls{wccs} bietet deshalb Möglichkeiten,
-    um eine Klassifikation zu visualisieren und zu prüfen.
+    um eine Klassifikation zu visualisieren, zu prüfen und zu korrigieren.
 
     \subsection{Webannotationen}
         \label{section:conceptWebAnnotations}
         % TODO: LINK AUF W3C Standard (https://www.w3.org/annotation/), aber den verwenden wir gar nicht?
-        Die Visualisierung der Klassifikation geschieht über Webannotationen,
+        Die Visualisierung einer Klassifikation geschieht über Webannotationen,
         wodurch die klassifizierten Inhalte und Referenzen direkt in der Webseite hervorgehoben werden.
-        Der Inhalt der Annotation ist die Klasse des annotierten Elementes.
+        Der Inhalt einer Annotation ist die Klasse des annotierten Elementes.
         Beispiele annotierter Webseiten zeigen die Abbildungen
         \ref{image:findingTeachersAnnotationsOverview},
         \ref{image:annotatorPluginViewer} und \ref{image:annotatorPluginEditor}.
-
         Eine Annotation spiegelt ein {\referenceFeature} oder ein
-        {\contentFeature} ohne untergeordnete {\contentFeature}s wieder.
+        {\contentFeature} wider.
+        Bei {\contentFeature}s gilt allerdings die Einschränkung,
+        dass nur solche visualisiert werden,
+        die keine untergeordneten {\contentFeature}s besitzen.
         Wäre jedes {\contentFeature} durch eine Annotation hervorgehoben,
         überlagerten sich die Annotationen unter Umständen mehrfach,
         wodurch sich die Übersichtlichkeit
         und damit der Nutzen der Annotationen deutlich verschlechtern würde.
-        Durch Annotationen wird somit die Klassifikation auf der feingranularsten Ebene visualisiert.
+        Durch Annotationen wird die Klassifikation also auf der feingranularsten Ebene visualisiert.
         Eine Überlagerung ist aber weiterhin möglich,
         wenn ein {\contentFeature} ausschließlich untergeordnete {\referenceFeature}s besitzt,
         weil dann die Annotation des textuellen Inhalts teilweise durch die
         der Referenzen überlagert wird.
-        Eine Unterscheidung ist trotzdem möglich\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotatorPlugin}}.
-        
         Neben der Visualisierung dienen Annotationen auch der Korrektur der Klassifikation.
         Bearbeitet ein Nutzer nämlich eine Annotation,
         ändert er damit die Klasse des Features.
-
         Diese Funktion realisiert das \gls{wccs} über eine Erweiterung der JavaScript-Bibliothek
         Annotator\footnote{vgl. \ref{section:solutionDetailsAnnotatorPlugin}}.
     
     \subsection{Webanwendung}
         \label{section:solutionConceptWebApp}
-        Über Webannotationen ist es nicht möglich anschaulich alle Details einer Klassifikation darzustellen
+        Über Webannotationen ist es nicht anschaulich möglich alle Details einer Klassifikation darzustellen
         oder einen Überblick über alle klassifizierten Seiten zu geben.
-        Zu diesem Zweck stellt das \gls{wccs} deshalb auch eine Webanwendung bereit,
-        die diese Lücken schließt.
+        Zu diesem Zweck stellt das \gls{wccs} eine Webanwendung bereit.
         Die Oberflächen dieser Anwendung sind in Kapitel \ref{section:solutionDetailsWebAppFunctions}
-        enthalten.
+        beschrieben.

@@ -1,9 +1,15 @@
-"Service": {
-    "name": "Service",
-    "selector": {
-        "type": "UrlPatternSelector",
-        "value": "\\\/service\\\/?$"
+{
+	"pageClasses": {
+        "Service": {
+            "name": "Service",
+            "selector": {
+                "type": "UrlPatternSelector",
+                "value": "\\\/service\\\/?$"
+            },
+            "contents": { },
+            "references": { }
+        }
     },
-    "contents": { },
-    "references": { }
+	"contentClasses": { },
+	"referenceClasses": { }
 }

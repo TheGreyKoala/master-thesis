@@ -6,7 +6,7 @@
     \paragraph{Ablauf}
     Die Klassifizierung folgt einem Algorithmus,
     der rekursiv die Features einer Seitenklasse abarbeitet und nach Entsprechungen
-    auf der Webseite sucht.
+    auf einer Webseite sucht.
     Er ist in Listing \ref{listing:classificationAlg} skizziert.
 
     \lstinputlisting[
@@ -21,25 +21,23 @@
     wodurch ein \gls{dom} entsteht.
     Mit diesem können Inhalt, Struktur und Aussehen der Webseite
     dynamisch abgefragt werden \cite{w3c:dom}.
-
     Anschließend wird die Klasse der Seite ermittelt,
     indem bis zur ersten Übereinstimmung der Selektor jeder bekannten
     Seitenklasse auf die Webseite angewandt wird.
-
     Danach beginnt die Ermittlung der Features der ermittelten Seitenklasse.
     Dazu ruft der Algorithmus die Funktion \texttt{classify} auf,
     die eine Liste der zu suchenden Features und ein HTML-Element erwartet.
     Letzteres bestimmt den Kontext, in dem die Suche stattfindet\footnote{vgl. Kapitel \ref{section:conceptSupportedSelectors}}.
     Im ersten Schritt ist dies das DOM-Objekt \texttt{document},
     welches das gesamte HTML-Dokument wiederspiegelt \cite[Kapitel 1.4]{w3c:dom}.
-
     Für jedes Feature durchläuft die Funktion die gleichen Schritte.
     Zunächst sucht sie innerhalb des Kontextobjektes nach allen Elementen,
     die dem Selektor des aktuellen Features entsprechen.
     Falls das Feature ein {\scalarFeature} ist, behält sie allerdings nur den ersten Treffer.
-    Die an diesem Punkt erhaltenen Elemente werden mit der Klasse des Features klassifiziert.
-    Neben dieser Information wird außerdem der eindeutige Selektor jedes Elementes bestimmt
-    und ebenfalls gespeichert\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}}.
+    Die Klassifikation der Elemente wird anschließend gespeichert.
+    Dabei wird sowohl der textuelle Inhalt bzw. die \gls{url}
+    der referenzierten {\resource} als auch ein eindeutiger Selektor eines Elementes ermittelt
+    und gespeichert\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}}.
     Handelt es sich um ein {\collectionFeature}, ruft sich \texttt{classify} anschließend rekursiv für jedes klassifizierte Element auf.
     In jedem Aufruf verwendet sie als Parameter die {\childFeature}s der Klasse sowie das klassifizierte HTML-Element.
 
@@ -51,16 +49,15 @@
     Puppeteer\footnote{\url{https://github.com/GoogleChrome/puppeteer}},
     mit deren Hilfe sich der Browser Google Chrome ohne die Anzeige einer graphischen Oberfläche starten
     und anschließend programmatisch steuern lässt.
-
     Der wichtigste Vorteil der Nutzung eines echten Browsers ist seine ausgereifte und umfangreiche Implementierung
     als Parser von \gls{html}, CSS und XPath.
     Des Weiteren führt der Webbrowser das auf der Seite enthaltene JavaScript aus,
-    wodurch sich auch der Inhalt verändern kann.
+    was für die Klassifizierung von Bedeutung sein kann.
 
     \paragraph{Selektoren}
     Dank Puppeteer kann zur Umsetzung der Selektoren auf standardisierte Schnittstellen
-    genutzt werden, die die benötigten Informationen liefern.
-    Der {\cssSelector} kann auf die Methode \texttt{querySelectorAll} zurückgreifen,
+    zurückgegriffen werden, die die benötigten Informationen liefern.
+    Der {\cssSelector} kann die Methode \texttt{querySelectorAll} nutzen,
     die sowohl auf \texttt{document} als auch auf beliebigen \gls{html}-Elementen verfügbar ist
     \cite[Kapitel 6.1]{w3c:selectorsAPI}.
     Diese Methode wertet CSS-Ausdrücke auf der Webseite aus und gibt alle gefundenen Elemente zurück,
@@ -72,7 +69,8 @@
     Diese Methode erwartet neben dem XPath-Ausdruck auch ein Kontextobjekt,
     sodass auch hier der beschriebene Algorithmus leicht umgesetzt werden kann.
     Das Ergebnis dieser Methode kann abhängig vom XPath-Ausdruck eine Liste von HTML-Elementen, eine Zeichenkette,
-    ein boolescher Wert oder eine Zahl sein.
+    ein boolescher Wert oder eine Zahl sein
+    \cite[Kapitel 1.4]{w3c:domXPathResult}.
     Die beiden zuletzt genannten werden vom \gls{wccs} nicht unterstützt und als keine Übereinstimmung mit dem Selektor gewertet.
     Bei HTML-Elementen wird der Algorithmus wie beschrieben weiter durchlaufen.
     Im Falle von Zeichenketten wird die Rekursion allerdings unterbrochen, da kein neues Element vorhanden ist,
@@ -80,34 +78,34 @@
     Abhängig von der Art des Features wird die Zeichenkette als textueller Inhalt
     oder als \gls{url} einer referenzierten {\resource} interpretiert.
     Durch die Verwendung von \texttt{document.evaluate} ist ein {\xpathSelector}
-    auf Möglichkeiten von XPath 1.0 eingeschränkt \cite{w3c:domXPath}.
+    auf die Möglichkeiten von XPath 1.0 eingeschränkt \cite{w3c:domXPath}.
 
     Der {\urlSelector} ist für Webseiten und Features unterschiedlich implementiert.
     Im Falle von Seiten wird der reguläre Ausdruck auf ihre \glspl{url} angewandt.
+    Eine Übereinstimmung wird als Erfüllung des Selektors gewertet.
     Für Features werden zunächst alle Elemente innerhalb des Kontextobjektes gesucht, die {\resources} referenzieren.
-    Das sind diejenigen Elemente, die das Attribute \texttt{href}, \texttt{src} oder \texttt{srcset} besitzen.
-    % TODO: Ref: (siehe Mindmap
-    Um diese Elmente zu finden wird der {\cssSelector} \texttt{[href], [src], [srcset]} auf dem Kontextobjekt ausgeführt.
+    Das sind diejenigen Elemente, die eines der Attribute \texttt{href}, \texttt{src} oder \texttt{srcset} besitzen
+    \cite[Kapitel 4.7, 4.8]{w3c:html5}.
+    Um diese Elmente zu finden, wird der {\cssSelector} \texttt{[href], [src], [srcset]} auf dem Kontextobjekt ausgeführt.
     Anschließend wird für jeden Treffer der Wert des gefundenen Attributes ausgelesen
     und der reguläre Ausdruck des {\urlSelector}s auf ihm angewandt.
     Bei einer Übereinstimmung wird das Element in die Ergebnismenge aufgenommen.
 
     Aus diesen Beschreibungen folgt, dass Selektoren selbst keine Unterscheidung bez.
     der Kardinalität eines Features machen.
-    Stattdessen liefern sie immer alle Treffer und überlassen dem Aufrufer die Aufgabe, zu entscheiden,
+    Stattdessen liefern sie immer alle Treffer und überlassen dem Aufrufer die Aufgabe zu entscheiden,
     welche Elemente er verwendet.
     Das wird auch in Listing \ref{listing:classificationAlg} deutlich.
 
-    \paragraph{Textueller Inhalt oder Ziel eines Features}
+    \paragraph{Textueller Inhalt und Referenzziel eines Features}
     Ein {\contentFeature} speichert seinen textuellen Inhalt und ein {\referenceFeature}
     die \gls{url} seines Zieles\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}}.
     Bei {\contentFeature}s gilt allerdings die Einschränkung, dass nur solche ihren textuellen Inhalt speichern,
     bei denen sich kein {\contentFeature} unter den {\childFeature}s befindet.
     Der Grund ist, dass durch solche {\childFeature}s der Text spezieller klassifiziert und
     feingranularer gespeichert werden kann.
-
-    Inhalt und Ziel müssen während der Klassifizierung ermittelt werden.
-    Für {\contentFeature}s nutzt das \gls{wccs} die Eigenschaft \texttt{innerText} des HTML-Elementes.
+    Inhalt bzw. Ziel müssen während der Klassifizierung ermittelt werden.
+    Für {\contentFeature}s nutzt das \gls{wccs} die Eigenschaft \texttt{innerText} des klassifizierten HTML-Elementes.
     Anders als \texttt{textContent} enthält diese Eigenschaft nur den gerenderten Text,
     wodurch \texttt{style}- und \texttt{script}-Elemente sowie Kommentare und Zeilenumbrüche im Quelltext
     ausgeschlossen werden
@@ -119,29 +117,26 @@
     \paragraph{Bestimmung eines eindeutigen Selektors}
     Eine vollständige Klassifikation enthält für jedes Feature auch einen eindeutigen
     Selektor des klassifizierten HTML-Elementes\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}}.
-
     Da diese Information von Annotator benötigt wird,
     um Annotationen zu erzeugen,
     orientiert sich das \gls{wccs} für den Aufbau und das Format eines Selektors
     an dieser Bibliothek.
-    Ein Selektor besteht demnach aus vier Elementen:
+    Ein Selektor besteht demnach aus vier Elementen
+    \cite[Kapitel "`Annotation format"']{annotator:documentation}:
     Zwei XPath-Ausdrücken, die ein Start- und ein Endelement identifizieren
-    sowie zwei numerischen Angaben, die Positionen in diesen Elementen festlegen
-    \footnote{vgl. \url{http://docs.annotatorjs.org/en/v1.2.x/annotation-format.html}}.
+    sowie zwei numerischen Angaben, die Positionen in diesen Elementen festlegen.
     Dadurch kann Annotator eine Annotation an einer beliebigen Stelle eines Elementes beginnen
     und innerhalb eines anderen Elementes beenden.
     Im Falle des \glspl{wccs} sind Start- und Endelement immer identisch,
     da mit den Selektoren des {\classificationModel}s genau ein Element
-    oder Text innerhalb genau eines Elementes erfasst wird.
+    oder Text innerhalb eines Elementes erfasst wird.
     Die Versatzangaben bestimmen dabei, welcher Bereich dieses Elementes klassifiziert wurde.
-
     Mit der Selection API des \glspl{w3c} \cite{w3c:selectionAPI} lassen sich diese Angaben bestimmen,
     was dem \gls{wccs} prinzipiell eine einfache und standardisierte Methode eröffnet.
     Annotator folgt allerdings einem eigenen Algorithmus,
     der nach eigenen Versuchen andere Resultate liefert als die Selection API.
     Selektoren, die mit der Selection API bestimmt wurden,
     setzt Annotator deshalb nicht den Erwartungen entsprechend in Annotationen um.
-
     Würde das \gls{wccs} bei der Bestimmung eines eindeutigen Selektors Annotators
     Algorithmus folgen, müssten Drittsysteme diesen kennen,
     um die Angaben korrekt interpretieren zu können.
@@ -152,8 +147,11 @@
     für jedes Drittsystem eindeutig zu interpretieren sind.
     Das \gls{wccs} folgt bei der Berechnung dieser Ausdrücke Annotators Vorgehen,
     um eine größtmögliche Kompatibilität zu erzielen.
+    Ausgehend von einem Element wird der Vaterkette bis zur Wurzel des \gls{html}-Dokumentes
+    gefolgt und dabei die Namen und Positionen der besuchten Elemente gesammelt.
+    Aus diesen Informationen lässt sich ein eindeutiger XPath-Ausdruck erzeugen.
     Wurde durch den Selektor des {\classificationModel}s ein vollständiges Element klassifiziert,
-    ist der Versatz im Startelement 0, im Endelement die Länge der Eigenschaft \texttt{innerText} dieses Elementes.
+    ist der Versatz im Startelement 0, im Endelement die Länge der Eigenschaft \texttt{innerText}.
     Das führt bei Annotator meist zum richtigen Ergebnis.
     Falls durch einen {\xpathSelector} eine Zeichenkette in einem Element erfasst wurde,
     berechnen sich Start- und Endversatz wie folgt, wobei die Variable \texttt{text} den klassifizierten Text bezeichnet:
@@ -165,6 +163,15 @@ endOffset = startOffset + text.length
     
     Diese Berechnung ist leicht nachzuvollziehen,
     führt bei Annotator in manchen Fällen aber zu leicht verschobenen
-    Annotationen\footnote{vgl. Kapitel \ref{chapter:Findings}}.
+    Annotationen\footnote{vgl. Kapitel \ref{section:findingsTeachersAbnormalitiesBabw}}.
 
-    % TODO: Ist das interessant? \paragraph{Limitierung der gleichzeitig ausgeführten Klassifizierungen}
+    \paragraph{Parallelisierung}
+    Mit dem beschriebenen Verfahren können prinzipiell beliebig viele Webseiten parallel klassifiziert werden.
+    Bei sehr vielen gleichzeitigen Anfragen dürfen aber nicht alle Seiten
+    gleichzeitig über Puppeteer im Browser geöffnet werden.
+    Die Anzahl der dadurch erzeugten Prozesse kann zum Einfrieren des Systems führen.
+    Aus diesem Grund begrenzt der {\classificationService} die Anzahl der gleichzeitig klassifizierten Webseiten
+    und verwaltet eine Warteschlange seiner Aufträge.
+    Es ist außerdem möglich, die Klassifizierung einer einzelnen Webseite zu parallelisieren.
+    Zwischen Features mit demselben direkten {\parentFeature} besteht nämlich keine Abhängigkeit,
+    sodass sie nebenläufig abgearbeitet werden können.

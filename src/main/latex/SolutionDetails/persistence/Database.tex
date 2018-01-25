@@ -1,33 +1,33 @@
-\subsection{Schnittstellen und Constraints}
+\subsection{Schnittstellen und Bedingungen}
     \label{section:solutionDetailsPersistenceDatabse}
     Das \gls{wccs} setzt auf das Graphdatenbanksystem Neo4J in der Version 3.3.1.
-    Diese bietet verschiedenen Schnittstellen, die Nutzern des Systems ebenfalls über die jeweiligen Standardports offen stehen.
+    Dieses bietet verschiedene Schnittstellen, die Nutzern des \glspl{wccs} ebenfalls zur Verfügung stehen.
     Dabei handelt es sich um einen RESTful Webservice \cite{neo4j:restDocumentation},
     eine HTTP Schnittstelle zur Ausführung von Cypher Queries \cite[Kapitel 5]{neo4j:documentation}
     und eine Schnittstelle, die ein Binärprotokoll verwendet \cite[Kapitel 4]{neo4j:documentation}.
-
     Das \gls{wccs} stellt beim Starten des {\classificationStorage}s automatisch sicher,
     das für Knoten mit speziellen Labels und Eigenschaften sogenannte
     Unique Node Property Constraints
     \cite[Kapitel 3.5.2.2]{neo4j:documentation} existieren.
     Dadurch ist zum Beispiel sichergestellt,
-    dass jeder \texttt{Resource}-Knoten einen einmaligen \gls{url} in der Datenbank besitzt.
+    dass jeder \texttt{Resource}-Knoten eine einmalige \gls{url} in der Datenbank besitzt.
     Tabelle \ref{table:solutionDetailsPersistenceDatabaseConstraints}
     listet die Kombinationen von Labels und Eigenschaften auf,
     für die eine solche Bedingung garantiert wird.
 
-    % TODO: Fehlt hier noch was?
     \begin{table}[htb]
         \centering
         \begin{tabular}{|l|l|}
             \hline
             \textbf{Label} & \textbf{Eigenschaft} \\ \hline
             Content        & checksum             \\ \hline
-            Text           & value                \\ \hline
+            Resource       & url                  \\ \hline
             Site           & id                   \\ \hline
+            Text           & value                \\ \hline
         \end{tabular}
         \caption{Unique Node Property Constraints im {\classificationStorage}}
         \label{table:solutionDetailsPersistenceDatabaseConstraints}
     \end{table}
 
-    Durch das Anlegen einer Unique Node Property Constraints wird auch ein entsprechender Index in der Datenbank angelegt. 
+    Durch das Anlegen einer Unique Node Property Constraint wird auch ein entsprechender Index in der Datenbank angelegt
+    \cite[Kapitel 3.5.2.2]{neo4j:documentation}. 

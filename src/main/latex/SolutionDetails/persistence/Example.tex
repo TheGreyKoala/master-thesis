@@ -4,7 +4,6 @@
     präsentiert dieses Kapitel, wie eine konkrete Klassifikation als
     Graph im {\classificationStorage} gespeichert wird.
     Spätere Erklärungen nehmen auf dieses Beispiel ebenfalls Bezug.
-
     Eine Übersicht der Knoten des Beispielgraphs wurde aus Gründen
     der Übersichtlichkeit auf die Abbildungen \ref{image:dbDataModelExampleOverviewPart1}
     und \ref{image:dbDataModelExampleOverviewPart2} verteilt.
@@ -22,9 +21,8 @@
     für die \texttt{Content}-Knoten existieren.
     Der \texttt{Page}-Knoten ist mit ihnen über \texttt{Owns}-Beziehungen verbunden.
     Die Inhalte \texttt{c1} und \texttt{c2} beinhalten Text und sind deshalb mit entsprechenden \texttt{Text}-Knoten verbunden.
-    Hingegen hat \texttt{c3} zwei {\childFeature}s (\texttt{c4} und \texttt{c5}), die seinen Text feingranular speichern
+    Der Knoten \texttt{c3} hat hingegen zwei {\childFeature}s (\texttt{c4} und \texttt{c5}), die seinen Text feingranular speichern
     und deshalb ihrerseits mit \texttt{Text}-Knoten verbunden sind.
-
     In Abbildung \ref{image:dbDataModelExampleOverviewPart2} ist zu sehen,
     dass \texttt{c5} neben seinem Text auch zwei {\resources} referenziert,
     die durch entsprechende \texttt{Resource}-Knoten dargestellt werden.
@@ -49,12 +47,9 @@
 
     Die Eigenschaft \texttt{isCollection} besitzt nämlich den Wert \texttt{true}.
     Des Weiteren wird hier deutlich, wie die Informationen des eindeutigen Selektors gespeichert werden.
-    Wie zuvor beschreiben\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceClassification}}
-    handelt es sich dabei um zwei XPath-Ausdrücke und um zwei Versatzangaben.
-
     Dem Datenmodell folgend ist eine konkrete Beziehung zu einem \texttt{Content}-Knoten
-    sehr ähnlich aufgebaut, was aus Abbildung \ref{image:dbDataModelExampleRel1} hervorgeht.
-    Sie verzichtet lediglich auf die Speicherung der Klasse.
+    sehr ähnlich aufgebaut. Wie in Abbildung \ref{image:dbDataModelExampleRel1} zu sehen,
+    verzichtet sie lediglich auf die Speicherung der Klasse.
 
     \begin{figure}[htb]
         \centering

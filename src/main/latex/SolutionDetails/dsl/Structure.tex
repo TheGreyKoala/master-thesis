@@ -8,16 +8,15 @@
     die verschiedene Bereiche der Domäne abdecken.
     Alle diese Belange müssen beim Design der Sprache berücksichtigt werden.
     \citet[Kapitel 4.1]{voelter:DslEngineering}
-    stellt dazu zwei Ansätze vor: Eine Sprache, die alle Aspekte adressiert
+    stellen dazu zwei Ansätze vor: Eine Sprache, die alle Aspekte adressiert
     und mehrere Sprachen, die sich auf jeweils einen Aspekt fokussieren.
-
     Für den Anwendungsfall der \gls{wccdl} lassen sich die
-    folgenden Aspekte ausmachen:
+    folgenden Aspekte identifizieren:
 
     \begin{enumerate}
-        \item Die Deklaration von Klassen, d. h. sie lediglich bekannt machen
-        \item Die Definition von Klassen, d. h. die Angabe von Features
-        \item Die Definition von Selektoren für Klassen und Features
+        \item Die Deklaration von Klassen, d. h. sie lediglich bekannt zu machen.
+        \item Die Definition von Klassen, d. h. die Angabe von Features.
+        \item Die Definition von Selektoren für Klassen und Features.
     \end{enumerate}
 
     Wie aus den bisherigen Ausführungen bereits deutlich wurde,
@@ -37,12 +36,11 @@
     In Java lässt sich dieser Raum z. B. über die Schlüsselwörter
     \texttt{private} und \texttt{protected} einschränken
     \cite[Kapitel 6.6]{oracle:javaSpec}.
-
     Die \gls{wccdl} verwendet ein sehr einfaches Konzept bez.
     der Modularisierung und Sichtbarkeit von Porgrammelementen.
     Klassen sind die einzigen Elemente, die in dieser Sprache das Ziel einer Referenz
     sein können, weshalb Features und Selektoren implizit nirgendwo sichtbar sind.
-    Klassen sind hingegen global Sichtbar,
+    Klassen sind hingegen global sichtbar,
     sodass sie für jedes Feature genutzt werden können.
 
     \paragraph{Partitionierung}
@@ -50,7 +48,6 @@
     Da die Referenzierung von Programmelementen nur auf Basis der logischen Struktur erfolgen sollte,
     muss die physische der logischen Strukturierung nicht entsprechen
     \cite[Kapitel 5.1.2]{voelter:DslEngineering}.
-
     Die \gls{wccdl} erlaubt die Klassendefinitionen auf verschiedenen Dateien
     aufzuteilen, wobei eine Klasse immer vollständig in einer Datei enthalten sein muss.
     Da alle Klassen logisch in einem globalen Namensraum gesammelt werden,
@@ -59,75 +56,53 @@
     \paragraph{Scoping und Linking}
     Der Scope eines Querverweises in einem Programm ist die Menge der
     gültigen Ziele dieser Referenz.
-    Linking beschreibt den Transformationsprozess vom syntaktischen Wald des Programmes
+    Linking beschreibt den Transformationsprozess vom syntaktischen Baum des Programmes
     zum semantischen Graphen, bei dem Verweise basierend auf den Namen der referenzierten
-    Elementen aufgelöst werden
+    Elemente aufgelöst werden
     \cite[Kapitel 8]{voelter:DslEngineering}.
-
     Querverweise sind in der \gls{wccdl} nur zur Angabe der Klasse eines Features notwendig.
     Der Scope wird an dieser Stelle bereits durch das Sprachkonzept hinreichend
     eingeschränkt, da das Ziel vom Typ
     \texttt{FeatureClass}\footnote{vgl. Kapitel \ref{solutionDetails:dslConcepts}} sein muss.
     Das Linking wird vollständig durch Xtext übernommen
     \cite[Kapitel "`Language Implementation"']{xtext:documentation}.
-    
-    % TODO: Braucht man das irgendwo?
-    % Dieses Eigenschaft ist ein Beitrag zur automatischen Validitätsprüfung der Definition
-    % und erlaubt dank Xtext auch Code Completion.
 
     \paragraph{Spezifikation und Implementierung}
     Sprachen können die Trennung von Spezifikation und Implementierung von
     Porgrammelementen unterstützen, um eine bessere Entkopplung und verschiedene
     Implementierungen zu ermöglichen \cite[Kapitel 5.1.3]{voelter:DslEngineering}.
     Ein Beispiel aus Java sind Interfaces \cite[Kapitel 9]{oracle:javaSpec}.
-
     Eine denkbare Anwendung dieser Idee in der \gls{wccdl} ist Selektoren als
     Implementierung zu betrachten. Dann könnte man Klassen inkl. Features einmalig spezifizieren
     und z. B. für verschiedene Sites durch verschiedene Selektoren unterschiedlich "`implementieren"'.
-    Die \gls{wccdl} unterstützt eine solche Trennung allerdings nicht.
+    Die \gls{wccdl} unterstützt eine solche Trennung bisher allerdings nicht.
 
     \paragraph{Spezialisierung}
     In vielen Sprachen können Programmelemente andere erweitern und somit eine Spezialisierung formulieren.
     In diesen Fällen erbt das konkrete Element alle Eigenschaften des allgemeinen
     und kann deshalb an dessen Stelle verwendet werden
     \cite[Kapitel 5.1.4]{voelter:DslEngineering}.
-
     Für die \gls{wccdl} wäre dieses Konzept für Klassen denkbar,
     um ihre Selektoren, Features und deren Selektoren zu vererben.
-    Sie unterstützt diese Funktion allerdings nicht.
-    %da es ein komplexeres Konzept darstellt, welches für Nicht-Programmierer
-    %auf den ersten Blick unverständlich sein könnte.
+    Sie unterstützt diese Funktion bisher allerdings nicht.
 
     \paragraph{Typen und Instanzen}
     Die in einer Programmiersprache definierten Typen können bei ihrer Instanziierung
     häufig Parameter entgegen nehmen, wodurch sich ihre Wiederverwendbarkeit steigert.
     Ein Beispiele sind die Parameter eines Konstruktors in objektorientierten Programmiersprachen
     \cite[Kapitel 5.1.5]{voelter:DslEngineering}.
-
-    Die \gls{wccdl} ist eine rein deklarative Sprache,
-    die lediglich zur Definition von Klassen dient.
-    Eine Instanz einer Klasse ist die konkrete Anwendung ihrer Features und
-    deren Selektoren auf eine Seite,
-    wodurch konkrete Inhalte und Referenzen klassifiziert werden und damit eine Instanz
-    der Klasse entsteht.
-    Innerhalb eines Programmes werden diese Klassen nie instanziiert,
-    weshalb die Sprache die Definition von Typparametern nicht vorsieht. 
-    Auch der Selektor einer Klasse oder eines Features stellt keinen Parameter im
-    Sinne von \cite[Kapitel 5.1.5]{voelter:DslEngineering} dar,
-    da er für alle Instanzen der jeweiligen Klasse bzw. des jeweiligen Features identisch ist und
-    zum Zeitpunkt der Instanziierung nicht
-    überschrieben werden kann.
+    In der \gls{wccdl} können Features den Selektor ihrer Klasse überschreiben,
+    was eine Anwendung dieses Konzeptes ist.
 
     \paragraph{Superposition und Aspekte}
     \citet[Kapitel 5.1.6]{voelter:DslEngineering} beschreiben zwei
     allgemeine Sprachkonzepte, durch die Programmfragmente zusammengeführt
     oder verändert werden können.
-    Superposition vereint demnach mehrere Fragmente anhand eines speziellen Operators.
-    Aspekte bieten die Möglichkeit durch eine Abfrage verschiedene Codestellen
+    Superposition vereint mehrere Fragmente anhand eines speziellen Operators.
+    Aspekte bieten die Möglichkeit, durch eine Abfrage verschiedene Codestellen
     auszuwählen und aspektspezifisch zu modifizieren.
-
     Die \gls{wccdl} unterstützt keines dieser Konzepte,
-    da sie für ihren Anwendungsfall zu komplex sind und keine sinnvolle Anwendung finden.
+    da sie für ihren Anwendungsfall zu komplex sind und kein sinnvoller Anwendungsfall existiert.
 
     \paragraph{Sprachmodularität}
     Dieses Konzept beschreibt die Möglichkeit (Teil-)Sprachen wiederzuverwenden
@@ -135,8 +110,7 @@
     Dadurch kann Konsistenz gewahrt und eine doppelte Implementierung vermieden werden.
     Die verschiedenen Ansätze die \citet[Kapitel 4.6]{voelter:DslEngineering} beschreiben
     sind Language Referencing, Extension, Reuse und Embedding.
-
-    Für die \gls{wccdl} bietet sich die Einbettung anderer Sprachen bei der Definition von Selektoren an,
+    Für die \gls{wccdl} bietet sich die Einbettung anderer Sprachen zur Definition von Selektoren an,
     um Entwickler bei der Formulierung von CSS-, XPath und regulären Ausdrücken zu unterstützen
     und die syntaktische Korrektheit von Selektoren sicherzustellen.
     Bisher setzt die Sprache dies aber nicht um.

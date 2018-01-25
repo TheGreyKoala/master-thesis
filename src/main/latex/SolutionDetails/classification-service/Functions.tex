@@ -5,7 +5,6 @@
     Die Schnittstellenbeschreibungen beschränken sich auf die wichtigsten
     Parameter und betrachten keine Fehlerfälle,
     da eine entsprechende Beschreibung zu umfangreich wäre.
-    % TODO: OpenAPI Beschreibung?
 
     \paragraph{Klassifizierung}
     Die Hauptaufgabe des {\classificationService}s ist die Klassifizierung einer Webseite
@@ -40,7 +39,7 @@
     Der Service bietet außerdem die Möglichkeit die ihm bekannten Klassen abzufragen,
     was das {\annotatorPlugin}\footnote{vgl. Kapitel \ref{section:conceptWebAnnotations}}
     für seine Korrekturfunktion nutzt.
-    Zur Verwendung dieser Funktion stehen drei Schnittstellen bereit,
+    Zur Verwendung dieser Servicefunktion stehen drei Schnittstellen bereit,
     die sich nur in einem Teil ihrer \gls{url} unterscheiden und deshalb gemeinsam in
     Tabelle \ref{table:getClassesInterface} dokumentiert sind.
 
@@ -68,4 +67,4 @@
     seitenweise Abfrage erweitert werden,
     ohne das Ausgabedokument inkompatibel zu früheren Version zu verändern.
     Die Klassen verwenden das Format des generierten
-    {\classificationModel}s\footnote{vgl. Kapitel \ref{section:solutionDetailsDslGeneration}}.
+    {\classificationModel}s.

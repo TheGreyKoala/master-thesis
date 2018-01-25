@@ -4,20 +4,20 @@
     die zum Zeitpunkt der Kompilierung eines Programmes erfüllt sein müssen.
     \citet[Kapitel 4.3]{voelter:DslEngineering} unterteilen sie in die Kategorien
     Constraints und Type System Rules.
-
     Die \gls{wccdl} besitzt kein komplexes Typsystem,
     da an keiner Stelle Typen berechnet werden müssen.
     Ein Großteil der typbezogenen Bedingungen wird stattdessen über
-    Sprachkonzepte\footnote{vgl. Kapitel \ref{solutionDetails:dslConcepts}}
+    Sprachkonzepte
     sichergestellt.
-
     Allerdings gibt es einige Bedingungen, die so nicht gewährleistet werden können.
-    Hierfür implementiert die Sprache einige semantische Validierungen:
+    Hierfür implementiert die Sprache folgende semantische Validierungen:
 
     \begin{enumerate}
-        \item Klassennamen sind global eindeutig
-        \item Namen von Features sind lokal (innerhalb ihrer Klasse) eindeutig
-        \item Für jedes Feature kann ein Selektor ermittelt werden
-        \item Individuelle Selektoren passen zu den Klassen der jeweiligen Features
-        \item Selektoren sind nicht leer und bestehen nicht nur aus Leerzeichen
+        \item Der Name einer Klasse ist global eindeutig.
+        \item Der Name eines Features ist lokal (innerhalb ihrer Klasse) eindeutig.
+        \item   Falls die Klasse eines Features keinen Selektor spezifiziert,
+                definiert das Feature einen Selektor.
+        \item   Falls ein Feature einen Selektor spezifiziert,
+                ist dieser mit der Klasse des Features kompatibel.
+        \item Der Wert eines Selektors ist nicht leer und besteht nicht ausschließlich aus Leerzeichen.
     \end{enumerate}

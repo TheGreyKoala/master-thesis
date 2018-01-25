@@ -72,34 +72,27 @@
 
     \subsection{Selektoren}
         \label{section:conceptSupportedSelectors}
-        Das \gls{wccs} unterstützt drei Arten von Selektoren,
-        die zum Teil durch die gewählte Datenquelle begründet sind:
+        Das \gls{wccs} unterstützt drei Arten von Selektoren:
 
         \begin{enumerate}
-            \item CSS
-            \item XPath
-            \item Reguläre Ausdrücke auf \glspl{url}
+            \item CSS,
+            \item XPath und
+            \item reguläre Ausdrücke auf \glspl{url}.
         \end{enumerate}
 
-        \paragraph{\cssSelector}
+        \paragraph{Der \cssSelector}
         Zur Bestimmung beider Arten von Features unterstützt das \gls{wccs} zunächst
         die Auswertung von {\cssSelector}en, die durch das \gls{w3c} standardisiert
-        sind\footnote{vgl. Kapitel \ref{section:wwwTechnicalFoundations}}.
+        sind\footnote{vgl. Kapitel \ref{section:problemAnalysisWebpagesInTheWWWSeparationOfConcerns}}.
         Durch einen einzelnen {\cssSelector} können potenziell viele Elemente im \gls{html}-Dokument
         erfasst werden, wodurch {\collectionFeature}s realisierbar sind.
         Jedes selektierte Element stellt dabei genau ein Feature dar.
-        Im Falle eines {\contentFeature} speichert es den textuellen Inhalt dieses Elementes.
-        Für {\referenceFeature}s ermittelt das \gls{wccs} die {\resource},
-        die durch dieses Element angesprochen wird.
-        % TODO Diese letzte Unterscheidung muss schon hier stehen, kommt das später nochmal irgendwo?
-
-        Das \gls{wccs} folgt bei der Auswertung eines {\collectionFeature}s der Logik des \glspl{w3c}.
-        Das bedeutet, dass der Selektor auf das gesamte Dokument angewandt,
+        Das \gls{wccs} folgt bei der Auswertung eines {\cssSelector}s der Logik des \glspl{w3c}.
+        Das bedeutet, dass der Selektor auf das gesamte Dokument angewandt wird,
         aber nur Elemente innerhalb des Elementes des {\parentFeature}s -- dem Kontextelement --
         im Ergebnis enthalten sind \cite{w3c:selectorsAPI}.
         Bei den Features der Seitenklasse wird hingegen die gesamte Seite als Kontext verwendet,
         weshalb keine Filterung der Ergebnisse des Selektors stattfindet.
-        
         Durch dieses Vorgehen können sich wiederholende Strukturen auf einer Webseite
         korrekt durch Elemente eines {\collectionFeature}s dargestellt werden.
         Zur Veranschaulichung dient der Ausschnitt eines \gls{html}-Dokumentes
@@ -121,8 +114,8 @@
         \end{lstlisting}
 
         Dieses Beispiel enthält mehrere Artikel, die jeweils eine Überschrift besitzen.
-        Die Artikel können über den Namen ihres Elementes angesprochen werden,
-        das heißt der {\cssSelector} des {\collectionFeature}s ist \texttt{article}.
+        Die Artikel können über den Namen ihres Elementes angesprochen werden.
+        Das heißt der {\cssSelector} des {\collectionFeature}s ist \texttt{article}.
         Die Klasse dieses Features enthält ihrerseits ein Feature für die Überschrift,
         welches den Selector \texttt{h3} verwendet.
         Dieser Selektor wird im Kontext des Elementes seines {\parentFeature}s ausgeführt,
@@ -130,26 +123,23 @@
         Dadurch erfasst er immer nur das \texttt{h3} innerhalb des \texttt{article}s,
         wodurch gewährleistet ist, dass ausschließlich die Überschrift des aktuellen Artikels erfasst wird.
         Das \gls{wccs} kann jedem Artikel also die korrekte Überschrift zuordnen.
-        % TODO: Braucht man dieses Bsp. oder reicht das in der Einleitung?
 
-        \paragraph{\xpathSelector}
+        \paragraph{Der \xpathSelector}
         Eine weitere Möglichkeit sowohl {\contentFeature}s als auch {\referenceFeature}s
         zu erfassen, ist die Nutzung von XPath-Ausdrücken,
         die dazu auf dem \gls{html}-Dokument angewandt
         werden\footnote{Kapitel \ref{section:solutionDetailsClassificationServiceClassification}
         beschreibt, wie dies möglich ist, obwohl \gls{html}-Dokumente oftmals kein
         valides XML verwenden.}.
-
         Mit XPath können analog zu CSS \gls{html}-Elemente der Seite erfasst werden
         \cite{w3c:xpath},
-        weshalb auch die Logik des \glspl{wccs} in diesem Fall identisch ist.
-        Das heißt unter anderem, dass auch hier das Element des {\parentFeature}s
+        weshalb auch die Logik des \glspl{wccs} bei der Auswertung eines {\xpathSelector}s der gleichen Idee folgt.
+        Das heißt, dass auch hier das Element des {\parentFeature}s
         als Kontextelement verwendet wird.
         Das Ergebnis eines XPath-Ausdruckes kann aber auch reiner Text sein
         \cite{w3c:xpath},
         der vom \gls{wccs} je nach Art des Features als Inhalt oder als Ziel einer
         Referenz gewertet wird.
-
         Im Vergleich zu CSS ist XPath in einigen Belangen mächtiger.
         Zum Beispiel erlaubt es die Erfassung des aktuellen Kontextelementes
         oder dessen Geschwister \cite{w3c:xpath}.
@@ -158,13 +148,11 @@
         wodurch der Verfasser eines Klassifizierungsmodells mehr Möglichkeiten,
         aber auch mehr Verantwortung erhält.
 
-        \paragraph{\gls{url}-Pattern-Selektor}
+        \paragraph{Der \gls{url}-Pattern-Selektor}
         Das \gls{wccs} bietet die Möglichkeit reguläre Ausdrücke auf \glspl{url} anzuwenden,
-        was sich zur Klassifizierung einer Seite als Ganzes und von {\referenceFeature}s eignet.
-
-        Im Falle von Seiten wird der Ausdruck lediglich auf die \gls{url} angewandt
+        was sich zur Klassifizierung einer Webseite als Ganzes und von {\referenceFeature}s eignet.
+        Im Falle von Webseiten wird der Ausdruck lediglich auf die \gls{url} angewandt
         und eine Übereinstimmung als Erfüllung des Selektors interpretiert.       
-        
         Zur Klassifizierung von Referenzen wird der Selektor auf die \glspl{url} aller Knoten
         innerhalb des Kontextelementes angewandt, die eine {\resource} referenzieren.
         Jedes Element, welches eine Übereinstimmung mit dem regulären Ausdruck besitzt,
@@ -175,8 +163,8 @@
 
     \subsection{Datenmodell einer Klassifikation}
         \label{section:conceptPageDataModel}
-        Die vom \gls{wccs} erzeugten Klassifikationen folgen einem abstrakten Datenmodell,
-        welches in Abbildung \ref{image:conceptPageDataModel} dargestellt ist.
+        Die vom \gls{wccs} erzeugten Klassifikationen folgen dem
+        in Abbildung \ref{image:conceptPageDataModel} dargestellten Datenmodell.
 
         \begin{figure}[htb]
             \centering
@@ -192,10 +180,9 @@
         und {\referenceFeature}s der Seite, was in Abbildung \ref{image:conceptPageDataModel}
         durch die Vererbungshierarchie zwischen \texttt{Page} und \texttt{FeatureCapable}
         dargestellt wird.
-        Elemente dieser Listen können \texttt{Content}- oder \texttt{Reference}-Objekte
-        oder Listen solcher Objekte sein,
+        Elemente dieser Listen können neben \texttt{Content}- und \texttt{Reference}-Objekten
+        auch Listen solcher Objekte sein,
         wodurch zwischen {\scalarFeature}s und {\collectionFeature}s unterschieden wird.
-
         {\contentFeature}s speichern ihren textuellen Inhalt,
         {\referenceFeature}s wiederum ihre \gls{url}.
         Dadurch stellt eine Klassifikation eine Momentaufnahme der relevanten Inhalte
@@ -203,7 +190,6 @@
         automatisch wieder.
         Außerdem erlaubt es Drittsystemen die konkreten Inhalte und Referenzen
         direkt zu nutzen, ohne sie von der Webseite erneut zu beziehen.
-        
         Neben diesen individuellen Informationen enthält jedes Feature
         seinen Namen, seine Klasse und einen Selektor.
         Dabei handelt es sich nicht um den Selektor des Klassifizierungsmodells,

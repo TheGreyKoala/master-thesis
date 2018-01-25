@@ -2,24 +2,20 @@
     \label{section:solutionDetailsDslGeneration}
     Ein {\classificationModel} wird in ein JSON-Dokument übersetzt,
     wozu ein entsprechender Generator implementiert wurde.
-    Listing \ref{listing:dlsGenerationGlobal} zeigt die Struktur der
-    obersten Ebene eines solchen Dokumentes.
 
-    \lstinputlisting[
-        label=listing:dlsGenerationGlobal,
-        caption=Oberste Ebene eines generierten {\classificationModel}s,
-        style=json
-    ]{../resources/dsl/generation/global.json}
-
+    \paragraph{Klassen}
     Im generierten Zustand werden die Klassendefinitionen weiterhin nach
     Seiten-, Inhalts- und Referenzklassen unterteilt,
     was im JSON-Dokument durch die Schlüssel \texttt{pageClasses},
     \texttt{contentClasses} und \texttt{referenceClasses} geschieht.
-    Ihre zugewiesenen Objekte enthalten wiederum Schlüssel-Wert-Paare,
+    Ihre Objekte enthalten wiederum Schlüssel-Wert-Paare,
     wobei der Schlüssel in diesem Fall der Name einer Klasse und der
     Wert die Klasse selbst ist.
+    Klasse speichern ihren Namen zusätzlich in der Eigenschaft \texttt{name},
+    sodass sie auch ohne Kontext identifizierbar sind.
     Listing \ref{listing:dlsGenerationPageClass} zeigt dies am Beispiel
     der Seitenklasse \texttt{Service}.
+    Inhalts- und Referenzklassen sind sehr ähnlich aufgebaut.
 
     \lstinputlisting[
         label=listing:dlsGenerationPageClass,
@@ -27,44 +23,42 @@
         style=json
     ]{../resources/dsl/generation/page-class.json}
 
-    Der Name der Klasse ist in ihr unter dem Schlüssel \texttt{name} gespeichert,
-    sodass das Objekt auch ohne seinen Kontext identifizierbar ist.
-
-    Unter \texttt{selector} ist der Selektor der Klasse gespeichert,
+    \paragraph{Selektoren}
+    Unter \texttt{selector} ist in Listing \ref{listing:dlsGenerationPageClass}
+    der Selektor der Klasse gespeichert,
     was seinen Typ und seinen Wert umfasst.
     Der Selektor einer Klasse ist niemals undefiniert,
     kann im Falle von Inhtals- oder Referenzklassen aber ein leeres Objekt sein.
-    Dann ist der Selektor vom Feature zu beziehen.
-    Der Typ eines Selektors ist immer "`CssSelector"', "`UrlPatternSelector"' oder "`XPathSelector"'.
-
-    Im Beispiel ist zu sehen, dass der reguläre Ausdruck im Selektor codiert wurde.
+    Dann ist der Selektor von den Features zu beziehen.
+    Der Typ eines Selektors ist immer \texttt{CssSelector},
+    \texttt{UrlPatternSelector} oder \texttt{XPathSelector}.
+    Im Beispiel ist zu sehen, dass der {\urlSelector} \verb+\/service\/?$+ codiert wurde.
     Andernfalls würden JSON-Parser z. B. die Rückwärtsschrägstriche als besondere Zeichen interpretieren.
     Der JSON-Standard \cite[Kapitel 7]{rfc:8259} spezifiziert einige Zeichen,
     die innerhalb von Zeichenketten so codiert werden müssen.
     Diese Aufgabe übernimmt der entwickelte Generator,
     sodass Nutzer der \gls{wccdl} sich darum nicht kümmern müssen.
-    Im Klassifizierungsmodell lautet der Selektor deshalb \verb+\/service\/?$+.
-    Eine Ausnahme hierbei ist allerdings der {\xpathSelector}.
+    Eine Ausnahme ist allerdings der {\xpathSelector}.
     XPath 1.0 kennt keine Codierung für besondere Zeichen,
-    wie z. B. \texttt{\textbackslash{n}} für Zeilenumbrüche.
+    wie z. B. \texttt{\textbackslash{n}} für einen Zeilenumbruch.
     Außerdem ist in dieser Version die Funktion
     \texttt{codepoints-to-string} noch nicht enthalten,
     mit der Unicode Codes in Zeichenketten umgewandelt werden können
     \cite{w3c:xpath}
     \cite[Kapitel 5.2.1]{w3c:xpathXquery}.
-    Um trotzdem Inhalte mit diesen Zeichen beschreiben zu können,
+    Um trotzdem Inhalte mit besonderen Zeichen beschreiben zu können,
     wird in {\xpathSelector}en der Rückwärtsschrägstrich während der
     Generierung nicht codiert.
     Das heißt, die Sequenz \texttt{\textbackslash{n}} wird genau so in das JSON-Dokument übernommen.
-    Der JSON-Parser setzt das Zeichen zu einem Zeilenumbruch um,
+    Ein JSON-Parser setzt das Zeichen zu einem Zeilenumbruch um,
     wodurch der XPath-Ausdruck einen tatsächlichen Umbruch enthält
-    und als solcher interpretiert wird.
+    der als solcher interpretiert wird.
     Ein konkretes Anwendungsbeispiel für diese Ausnahme im Generator
-    ist im ersten Fallbeispiel\footnote{vgl. Kapitel \ref{section:findingsTeachersClassificationModel}} zu sehen.
+    ist im ersten Fallbeispiel in Kapitel \ref{section:findingsTeachersClassificationModel} zu sehen.
 
-    Seiten- und Inhaltsklassen können Features enthalten,
-    die im JSON-Dokument ihrer Art entsprechend in \texttt{contents}
-    oder \texttt{references} gespeichert sind.
+    \paragraph{Features}
+    Seiten- und Inhaltsklassen können in den Eigenschaften
+    \texttt{contents} und \texttt{references} Features speichern.
     Die Struktur eines generierten Features zeigt Listing
     \ref{listing:dlsGenerationFeature} am Beispiel des {\contentFeature}s \texttt{pageHeading}.
 
@@ -76,12 +70,13 @@
 
     Wie schon bei Klassen wird der Name des Features sowohl als Schlüssel des Objektes
     als auch innerhalb des Objektes selbst verwendet.
-    Außerdem besitzt es die Eigenschaft \texttt{class},
+    Außerdem besitzt ein Feature die Eigenschaft \texttt{class},
     die den Namen der Klasse des Features speichert. Dabei handelt es sich immer
     um den Namen einer Klasse aus \texttt{contentClasses} oder \texttt{referenceClasses}.
-    Das JSON-Dokument ist also in sich geschlossen und hat keine Verweise auf andere {\resources}.
+    Das JSON-Dokument ist also in sich geschlossen.
     Darüber hinaus besitzt jedes Feature die Eigenschaft \texttt{isCollection},
-    die entweder \texttt{true} oder \texttt{false} sein kann und definiert,
+    die entweder \texttt{true} oder \texttt{false} sein kann.
+    Sie definiert,
     ob es sich um ein {\scalarFeature} oder ein {\collectionFeature} handelt.
     Wie Klassen enthält auch ein Feature einen Selektor.
     Ist dieser leer, ist der Selektor der Klasse zu verwenden.

@@ -7,7 +7,7 @@ actor "Third Party System" as classification_processing_system
 
 [Annotator Plugin] <<component>> as annotator_plugin
 [Annotation Service] <<component>> as annotation_service
-[Class Definition Language] <<component>> as dsl
+[Modeling Language] <<component>> as dsl
 [Classification Service] <<component>> as classification_service
 [Classification Storage API] <<component>> as classification_storage_api
 [Classification Storage] <<component>> as classification_storage
