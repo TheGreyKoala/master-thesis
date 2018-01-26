@@ -1,9 +1,9 @@
 \subsection{Abbildung einer Klassifikation auf Annotationen}
     \label{section:solutionDetailsAnnotationServiceMapping}
     Dieses Kapitel erklärt, wie der {\annotationService}
-    die Klassifikation einer Seite auf eine Menge von Annotationen abbildet.
+    die Klassifikation einer Webseite auf eine Menge von Annotationen abbildet.
     Dazu wird zunächst beschrieben, wie lesende Operationen Annotationen
-    erzeugen und dazu eine IDs generieren.
+    erzeugen und dazu IDs generieren.
     Anschließend erfolgt die Beschreibung schreibender Operationen.
 
     \paragraph{Lesen von Annotationen}
@@ -11,7 +11,6 @@
     sowie für alle {\contentFeature}s ohne eigene
     {\contentFeature}s\footnote{vgl. Kapitel \ref{section:conceptWebAnnotations}}.
     Klassifikationen bezieht er von der {\classificationStorageAPI}.
-
     Eine Herausforderung ist die Generierung einer eindeutigen ID für jede Annotation.
     Beim Lesen oder Schreiben einzelner Annotationen muss das betroffene
     Feature, welches keine einzelne eindeutige Kennung besitzt, anhand dieser ID erkannt werden.
@@ -23,7 +22,6 @@
     Bei einem unvorhergesehenen Neustart des Services ginge diese Zuordnung unter Umständen verloren.
     Annotationen müssten dann erst neu gelesen werden,
     bevor der Service Aktualisierungsanfragen bearbeiten kann.
-
     Zur Erzeugung einer ID konkateniert der {\annotationService} deshalb
     alle Navigationsschritte von der obersten Ebene der Klassifikation,
     bis zum Feature und trennt sie durch einen Doppelpunkt.
@@ -38,7 +36,6 @@
     dass das \gls{wccs} über Änderungen einer Annotation erlaubt die Klasse eines Features zu bearbeiten.
     Beim Schreiben einer Annotation muss der {\annotationService} deshalb lediglich
     die Klasse des betroffenen Features neu setzen und die Änderung persistieren.
-
     Dank der beschriebenen Erzeugung der ID einer Annotation,
     stellt die Abbildung einer Annotation auf ein Feature keine Herausforderung dar.
     Der Service muss die ID lediglich Base64 dekodieren,

@@ -4,17 +4,13 @@
     die Annotator verwendet.
     Dazu sind die folgenden Schritte notwendig.
 
-    \paragraph{Einbinden von Annotator}
+    \paragraph{Einbinden von Bibliotheken und Styledefinitionen}
     Zunächst muss gewährleistet sein, dass die
-    Annotator Bibliothek\footnote{\url{http://assets.annotateit.org/annotator/v1.2.10/annotator-full.min.js}}
-    und die Annotator Stylesheets\footnote{\url{http://assets.annotateit.org/annotator/v1.1.0/annotator.min.css}}
+    Annotator Bibliothek\footnote{vgl. \url{http://assets.annotateit.org/annotator/v1.2.10/annotator-full.min.js}}
+    und die Annotator Stylesheets\footnote{vgl. \url{http://assets.annotateit.org/annotator/v1.1.0/annotator.min.css}}
     korrekt in die Seite eingebunden sind.
-
-    \paragraph{Einbinden des {\annotatorPlugin}s}
-    Des Weiteren muss das Annotator Plugin über ein \texttt{script}-Tag
+    Des Weiteren muss das Annotator Plugin über ein \texttt{script}-Element
     im \texttt{head}-Element der Webseite engebunden werden.
-
-    \paragraph{Einbinden weiterer Styledefinitionen}
     Anschließend sollten die Styledefinition aus Listing \ref{listing:annotatorCustomStyles}
     dem \texttt{head}-Element der Webseite hinzugefügt werden,
     da Annotator die Struktur der Seite bearbeitet und andernfalls Designprobleme auftreten können.
@@ -39,11 +35,11 @@
     Nachdem Annotator auf dem \texttt{body}-Element der Webseite initialisiert wurde,
     werden die verschiedenen Plugins registriert.
     Begonnen wird mit dem
-    Storage Plugin\footnote{vgl. \url{http://docs.annotatorjs.org/en/v1.2.x/plugins/store.html}},
+    Storage Plugin \cite[Kapitel "`Plugins"']{annotator:documentation},
     welches für den {\annotationService} konfiguriert wird.
     Entsprechend der vorgestellten Schnittstelle dieser
-    Komponente\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceFunctions}}
+    Komponente
     legt die Konfiguration des Plugins den Präfix von Anfrage-\glspl{url} fest.
     Anschließend wird das {\annotatorPlugin} über den Schlüssel \texttt{wccs} inkludiert.
     Zuletzt konfiguriert das Skript das
-    Permissions Plugin\footnote{vgl. \url{http://docs.annotatorjs.org/en/v1.2.x/plugins/permissions.html}}.
+    Permissions Plugin \cite[Kapitel "`Plugins"']{annotator:documentation}.

@@ -1,39 +1,44 @@
 \subsection{Aktualisierung einer Klassifikation}
     \label{section:solutionDetailsClassificationStorageAPIUpdatePage}
     Beim Aktualisieren einer Klassifikation muss die {\classificationStorageAPI}
-    einige einige Sonderfälle beachten,
+    einige Sonderfälle beachten,
     um zum Beispiel die Idempotenz der Operation sicherzustellen.
     Dieses Kapitel beschreibt die notwendigen Maßnahmen und verwendet
     zur Veranschaulichung das Beispiel
     aus Kapitel \ref{section:solutionDetailPersistenceDataModelExample}.
 
     \paragraph{Arten einer Aktualisierung}
-    Zur Beschreibung des Vorgehens bei einer Aktualisierung einer Klassifikation,
-    wird zunächst die Frage beantwortet, welche Arten einer Änderung
-    die {\classificationStorageAPI} unterscheidet.
-    Dabei handelt es sich um die folgenden Szenarien:
+    Eine Klassifikation kann auf verschiedene Arten aktualisiert worden sein.
+    Es folgt eine Liste der Fälle, die auftreten können.
 
     \begin{enumerate}
-        \item Ein neues {\contentFeature} wurde auf einer beliebigen Ebene hinzugefügt.
-        \item Eine Referenz zu einer bisher unbekannten {\resource} wurde auf einer beliebigen Ebene hinzugefügt.
-        \item Eine Referenz zu einer bereits bekannten {\resource} wurde auf einer beliebigen Ebene hinzugefügt.
-        \item Ein Feature inklusive seiner Child Features wurde auf einer beliebigen Ebene gelöscht.
-        \item Die Klasse einer Seite wurde verändert.
+        \item Ein {\contentFeature} wurde hinzugefügt.
+        \item Eine Referenz zu einer unbekannten {\resource} wurde hinzugefügt.
+        \item Eine Referenz zu einer bekannten {\resource} wurde hinzugefügt.
+        \item Ein Feature wurde verändert. Das heißt, aktualisiert wurde
+                \begin{enumerate}
+                    \item die Klasse,
+                    \item der eindeutige Selektor,
+                    \item der Inhalt,
+                    \item das Referenzziel oder
+                    \item die {\childFeature}s.
+                \end{enumerate}
+        \item Eine Webseite wurde verändert. Das heißt, aktualisiert wurde
+            \begin{enumerate}
+                \item die Klasse oder
+                \item die {\childFeature}s.
+            \end{enumerate}
+        \item Ein Feature wurde gelöscht.
     \end{enumerate}
-
-    Änderung an Features, wie das Setzen einer anderen Klasse,
-    interpretiert der Service als Löschung eines Features und Hinzufügen eines neuen Features.
-    Im weiteren Verlauf dieses Kapitels wird deutlich werden,
-    warum er sich so verhält und wieso das bei Seiten nicht der Fall ist.
 
     \paragraph{Herausforderung}
     Bei jeder Änderung den gesamten Graphen zu löschen und neu anzulegen,
     ist in­ef­fi­zi­ent und verursacht viele Operationen auf Datenträgern.
     Stattdessen versucht die {\classificationStorageAPI} den vorhandenen Graphen anzupassen,
-    sodass er die übermittelte Klassifikation korrekt wiederspiegelt.
+    sodass er die übermittelte Klassifikation korrekt widerspiegelt.
     Die Herausforderung dabei ist, dass der Service
     die einzelnen Schritte von der alten zur neuen Version der Klassifikation nicht verfolgen konnte.
-    Stattdessen erhält er das fertige Ergebnis und muss diese Schritte selbst rekonstruieren.
+    Stattdessen erhält er das fertige Ergebnis und muss die Schritte selbst rekonstruieren.
 
     \paragraph{Lösungsidee}
     Anstatt die Differenz zwischen der alten und der neuen Klassifikation zu ermitteln,
@@ -53,7 +58,7 @@
     \ref{section:solutionDetailPersistenceDataModelExample} betrachtet.
     Zunächst wird für diesen Knoten festgestellt,
     dass ein \texttt{Text}-Knoten mit dem passenden Inhalt existiert und wiederverwendet werden kann.
-    Ebenso existiert bereits ein passender \texttt{Content}-Knoten und eine \texttt{Reads}-Beziehung (\texttt{rel4}) zwischen diesen Knoten.
+    Ebenso existiert bereits ein passender \texttt{Content}-Knoten (\texttt{c1}) und eine \texttt{Reads}-Beziehung (\texttt{rel4}) zwischen diesen Knoten.
     Am Ende stellt der Algorithmus fest, dass sowohl der \texttt{Page}-Knoten als auch
     die Beziehung zu \texttt{c1} nicht neu angelegt werden müssen.
     Insgesamt hat der Algorithmus also die gesamte Klassifikation abgearbeitet
@@ -64,7 +69,7 @@
     \texttt{contentRelationship},
     \texttt{pageNode},
     \texttt{referenceRelationship},
-    \texttt{resourceNode}
+    \texttt{resourceNode},
     \texttt{textNode} und
     \texttt{textRelationship} in den Listings
     \ref{listing:storeClassificationPageFlow} und
@@ -92,8 +97,8 @@
     Das bis hierhin beschriebene Verfahren hat bereits eine wichtige
     Konsequenz für den Graphen.
     Sowohl \texttt{Text}- als auch \texttt{Content}-Knoten können nämlich mehrere einkommende Kanten besitzen.
-    Für \texttt{Text}-Knoten ist das der Fall, wenn mehrere {\contentFeature}s mit dem gleichen textuellen Inhalt existieren.
-    Für \texttt{Content}-Knoten, wenn es mehrere komplett identische {\contentFeature}s gibt.
+    Bei \texttt{Text}-Knoten ist das der Fall, wenn mehrere {\contentFeature}s mit dem gleichen textuellen Inhalt existieren.
+    Bei \texttt{Content}-Knoten, wenn es mehrere komplett identische {\contentFeature}s gibt.
     Das soll wiederum am Beispiel von \texttt{c1} verdeutlicht werden,
     welches die Überschrift der Seite \texttt{p} mit dem textuellen Inhalt "`Einstieg"' darstellt.
     Angenommen es existiert eine zweite Seite \texttt{p'},
@@ -120,7 +125,7 @@
     \begin{enumerate}
         \item Es kann der Fall eintreten, dass zwei Klassifikationen Features besitzen,
         die sich lediglich im Namen eines {\childFeature}s unterscheiden,
-        welches ansonsten aber ebenfalls identisch ist.
+        obwohl dieses Feature ansonsten ebenfalls identisch ist.
         In diesem Fall darf der Knoten des {\parentFeature}s nicht geteilt werden,
         was anhand eines Beispiels deutlich wird.
         Angenommen \texttt{c3} existiert identisch auf den Seiten \texttt{p} und \texttt{p'}.
@@ -133,7 +138,7 @@
         Mit dem verwendeten Datenmodell wäre es nicht möglich festzustellen,
         welche Kante zu welcher Klassifikation gehört,
         d. h. welche Klassifikation das Feature \texttt{c5} und welche \texttt{c5'} nennt.
-        Anstelle die jeweilige \gls{url} der Seite in den Kanten zu speichern,
+        Anstelle die \gls{url} der Webseite in den Kanten zu speichern,
         erzeugt der Algorithmus für \texttt{p'} eine Kopie von \texttt{c3}
         und eine Kante von diesem neuen Knoten zu \texttt{c5},
         welche den Namen \texttt{c5'} speichert.
@@ -145,8 +150,10 @@
         ist \texttt{c1\_text} nicht mehr für beide Seiten zutreffend.
         Der Inhalt dieses \texttt{Text}-Knotens darf aber nicht angepasst werden,
         weil er für \texttt{p} weiterhin korrekt ist.
-        Der Algorithmus legt deshalb eine Kopie von \texttt{c1\_text} und \texttt{c1} an
-        und erzeugt entsprechende Verbindungen zwischen ihnen und zu \texttt{p'}.
+        Der Algorithmus legt deshalb einen \texttt{Text}-Knoten an,
+        der den neuen Inhalt speichert.
+        Außerdem erzeugt er eine Kopie von \texttt{c1}
+        und legt Verbindungen zwischen den neuen Knoten und zu \texttt{p'} an.
         \item Der letzte Sonderfall tritt ein, wenn sich {\childFeature}s ändern,
         also wenn ein neues hinzukommt oder ein bestehendes verändert oder gelöscht wird.
         Sowohl der Knoten des {\parentFeature}s als auch der eines veränderten {\childFeature}s
@@ -164,12 +171,12 @@
         Nachdem festgestellt wurde, dass \texttt{r1}, \texttt{r2} und \texttt{c5\_text} wiederverwendet werden können,
         wird ein neuer Knoten \texttt{c5'} angelegt, der eine Kopie von \texttt{c5} ist, aber die neue Klasse enthält.
         Die zuvor genannten Knoten referenziert \texttt{c5'} analog zu \texttt{c5}.
-        Anschließend erstellt der Algorithmus \texttt{c3'}, eine exakte Kopie von \texttt{c3}.
+        Anschließend erstellt der Algorithmus \texttt{c3'} -- eine exakte Kopie von \texttt{c3}.
         Für \texttt{c3'} werden außerdem Kanten zu \texttt{c4} und \texttt{c5'} angelegt.
         Abschließend wird eine Kante von \texttt{p'} zu \texttt{c3'} erstellt und die Kante zu \texttt{c3} dafür gelöscht.
         Jede Klassifikation enthält dann die jeweils korrekten Informationen.
         Wird ein Feature ergänzt oder entfernt, referenziert der kopierte Knoten des {\parentFeature}s
-        entsprechend einen Knoten mehr oder weniger als das original.
+        entsprechend einen Knoten mehr oder weniger als das Original.
     \end{enumerate}
 
     \paragraph{Abschließende Operationen}
@@ -189,11 +196,10 @@
 
     \paragraph{Datenbankanweisungen}
     Den beschriebenen Algorithmus realisiert die {\classificationStorageAPI}
-    zu großen Teilen ausschließlich über Datenbankanweisungen,
-    die an dieser Stelle deshalb ebenfalls kurz erläutert werden.
-    Eine Schlüsselrolle spielt dabei Cyphers \texttt{MERGE}-Anweisung,
-    die Muster im Graphen sucht und bei Bedarf anlegt
-    \cite[Kapitel 3.3.16]{neo4j:documentation}.
+    zu großen Teilen über Datenbankanweisungen,
+    die deshalb ebenfalls erläutert werden.
+    Eine Schlüsselrolle spielt dabei die \texttt{MERGE}-Anweisung \cite[Kapitel 3.3.16]{neo4j:documentation},
+    die Muster im Graphen sucht und bei Bedarf anlegt.
 
     Die in Listing \ref{listing:storeClassificationContentReferenceFunctions} genutzten
     Funktionen \texttt{textNode} und \texttt{resourceNode} erzeugen simple Anweisungen,
@@ -204,14 +210,14 @@
     \begin{lstlisting}[
         style=cypher,
         label=listing:solutionDetailsClassificationStorageAPIStatementsTextResource,
-        caption=Datenbankanweisungen für \texttt{Text}- \texttt{Resource}-Knoten
+        caption=Datenbankanweisungen für \texttt{Text}- und \texttt{Resource}-Knoten
     ]
 MERGE (t:Text {value: $t.value}) // Merge a Text node
 MERGE (r:Resource {url: $r.destination}) // Merge a Resource node
     \end{lstlisting}
     
     Die gesuchten Werte speichern die Objekte \verb+$t+ und \verb+$r+,
-    die der Datenbank mit den Anweisungen genannt werden.
+    die der Datenbank mit den Anweisungen übergeben werden.
 
     Für jeden \texttt{Content}-Knoten wird die folgende Anweisung erzeugt,
     wobei die speziellen Informationen jedes Knotens im Objekt \verb+$c+
@@ -237,11 +243,11 @@ MERGE (c:Content {checksum: $c.checksum, class: $c.class})
     Andere Methoden, um das mit der Prüfsumme verfolgte Ziel zu erreichen,
     sind zu komplex und ineffizient, um praktikabel zu sein.
     Der Grund dafür ist die eindimensionale Natur einer \texttt{MERGE}-Anweisung.
-    Dadurch ist es nicht möglich ein einzelnes Statement zu formulieren,
-    welches ausgehend von einem \texttt{Content}-Knoten für alle {\childFeature}s
-    Kanten, Knoten und deren individuellen Eigenschaften umfasst.
+    Dadurch ist es nicht möglich eine einzelne Anweisung zu formulieren,
+    welche ausgehend von einem \texttt{Content}-Knoten für alle {\childFeature}s
+    Kanten, Knoten und deren individuelle Eigenschaften umfasst.
     Das wäre im vorliegenden Fall aber notwendig.
-    Allerdings können mit \texttt{Merge}-Anweisungen eindimensionale Pfade formuliert werden,
+    Allerdings können mit \texttt{MERGE}-Anweisungen eindimensionale Pfade formuliert werden,
     was auf den ersten Blick eine Alternative zur Prüfsumme darstellt.
     Nämlich dann, wenn zwischen den Knoten eines Parent und eines {\childFeature}s
     zwei Kanten mit entgegengesetzten Richtungen existieren.
@@ -252,7 +258,7 @@ MERGE (c:Content {checksum: $c.checksum, class: $c.class})
     Wird zum Beispiel \texttt{c5} gelöscht, sähe die Kette folgendermaßen aus:
     \texttt{c3 -> c4 -> c3}.
     Die \texttt{MERGE}-Anweisung würde dieses Muster finden und keine Aktionen veranlassen,
-    sodass die Löschung von \texttt{c5} im Graphen wiederspiegelt wird.
+    sodass die Löschung von \texttt{c5} im Graphen widerspiegelt wird.
     Um diesen Fall abzufangen, müssten die Knoten der {\childFeature}s einen Ring bilden.
     Aus Sicht der \texttt{MERGE}-Answeisung wäre die Position der Knoten in diesem Ring
     für eine Übereinstimmung allerdings relevant.
@@ -292,10 +298,10 @@ MERGE (c)-[:References {
 
     Hier werden zunächst Start- und Endknoten über eine \texttt{MATCH}-Anweisung ermittelt.
     Für den \texttt{Resource}-Knoten geschieht dies über seine \gls{url},
-    beim \texttt{Content}-Knoten kann die Prüfsumme genutzt werden.
-    Über eine \texttt{MERGE}-Anweisung wird anschließend sichergestellt,
+    beim \texttt{Content}-Knoten über die Prüfsumme.
+    Die \texttt{MERGE}-Anweisung stellt anschließend sicher,
     dass eine Kante mit den entsprechenden Eigenschaften zwischen ihnen
-    existiert\footnote{Ändern sich diese Informationen der Kante, wurde aufgrund der abweichenden
+    existiert\footnote{Ändern sich die Informationen der Kante, wurde aufgrund der abweichenden
     Prüfsumme an dieser Stelle bereits ein neuer \texttt{Content}-Knoten angelegt,
     der noch keine Verbindung zum \texttt{Resource}-Knoten besitzt.
     Die alte Referenz ist dann Teil eines verwaisten Teilgraphs und wird gelöscht.}.

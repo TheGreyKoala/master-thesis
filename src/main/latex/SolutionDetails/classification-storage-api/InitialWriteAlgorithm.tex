@@ -4,8 +4,7 @@
     komplexeste Aufgabe der {\classificationStorageAPI}.
     Um sich dieser Schrittweise zu nähern, beschreibt dieses Kapitel zunächst,
     wie der Service eine neue Klassifikation in die Datenbank schreibt.
-
-    Beim initialen Schreiben einer Klassifikation verwendet der Service einen
+    Dazu verwendet er einen
     einfach Bottom-Up-Algorithmus, durch den alle Knoten und Beziehungen
     in der Datenbank erstellt werden.
     Dieser ist in den Listing \ref{listing:storeClassificationPageFlow} und
@@ -23,7 +22,7 @@
     werden in den ersten beiden Zeilen von Listing \ref{listing:storeClassificationPageFlow}
     zunächst die Teilgraphen für alle Features der Seite angelegt.
     Die entsprechenden Funktionen werden gleich anhand Listing \ref{listing:storeClassificationContentReferenceFunctions} erläutert.
-    Anschließend erstellt der Service einen Knoten für die Seite selbst.
+    Anschließend erstellt der Service einen Knoten für die Webseite selbst.
     Was dann noch fehlt sind die Kanten vom Knoten der Seite,
     zu denen der {\contentFeature}s bzw. zu denen referenzierter {\resources}.
     Aus diesem Grund iteriert der Algorithmus nochmal über alle Features
@@ -31,9 +30,8 @@
     Dabei unterscheidet er zwischen skalaren und mehrelementigen Features.
     Im Falle eines {\collectionFeature}s legt er für jedes Element eine Beziehung an.
     Die verwendeten Funktionen \texttt{contentRelationship} und \texttt{referenceRelationship}
-    erzeugen lediglich konkrete Datenbankanweisungen, die im späteren Verlauf thematisiert
+    erzeugen konkrete Datenbankanweisungen, die im späteren Verlauf thematisiert
     werden\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage}}.
-
     Wie aus Listing \ref{listing:storeClassificationContentReferenceFunctions} deutlich wird,
     arbeitet der Algorithmus bei der Erzeugung von Features sehr ähnlich.
 
@@ -45,7 +43,6 @@
 
     Im Falle einer Referenz legt die Funktion \texttt{reference} einen passenden \texttt{Resource}-Knoten an,   
     was sie bei einem {\collectionFeature} durch einen rekursiven Aufruf für alle Elemente wiederholt.
-    
     Das Anlegen eines {\contentFeature}s ist etwas komplexer,
     da es selbst Features besitzen kann.
     Dem Ansatz eines Bottom-Up-Algorithmus folgend, legt die Funktion \texttt{content}

@@ -12,16 +12,15 @@
     \end{figure}
 
     Der Name der Klasse ist im Text der Annotation
-    enthalten\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceFunctions}},
+    enthalten,
     der durch den Nutzer beliebig editiert werden kann.
     Diese Änderung wird zwar nicht
-    persistiert\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}},
+    persistiert,
     ist aber in der Annotation bis zum Neuladen der Webseite sichtbar.
     Aus diesem Grund wird die Klasse nochmals in einem zweiten unveränderlichen Bereich angezeigt,
     welches durch das Plugin ergänzt wird.
-    Die Klasse bezieht das Plugin aus dem Feld \texttt{wccs.featureClass}
-    der Annotation\footnote{vlg. Kapitel \ref{section:solutionDetailsAnnotationServiceFunctions}}.
-
+    Das Plugin bezieht die Klasse aus dem Feld \texttt{wccs.featureClass}
+    der Annotation.
     Wie Abbildung \ref{image:annotatorPluginEditor} zeigt,
     wird dieser zweite Bereich beim Editieren der Annotation zu einer Auswahlliste.
 
@@ -42,4 +41,4 @@
     Beim Speichern wird die ausgewählte Klasse im Feld \texttt{wccs.featureClass} gespeichert.
     Die aktualisierte Annotation wird dann an den {\annotationService} übermittelt,
     welcher die Klasse aus besagtem Feld ausliest und das Feature entsprechend
-    aktualisiert\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotationServiceMapping}}.
+    aktualisiert.

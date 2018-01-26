@@ -4,14 +4,13 @@
     sodass deren technischen Details verborgen bleiben.
     Dieses Kapitel widmet sich der Schnittstelle der {\classificationStorageAPI},
     deren \glspl{url} hierarchisch aufgebaut sind.
-    Die Beschreibung erfolgt anhand dieser Hierarchie
-    und verwendet das bekannte Format\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceFunctions}}.
+    Die Beschreibung erfolgt anhand dieser Hierarchie.
 
     \paragraph{Format einer Klassifikation}
-    Zunächst muss aber geklärt werden, wie die {\classificationStorageAPI} das Datenmodell einer
+    Zunächst muss geklärt werden, wie die {\classificationStorageAPI} das Datenmodell einer
     Klassifikation\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}} konkret als JSON-Dokument umsetzt.
-    Listing \ref{listing:solutionDetailsStorageAPIPageFormatPage} zeigt die oberste Ebene,
-    die die Informationen zur Seite enthält.
+    Listing \ref{listing:solutionDetailsStorageAPIPageFormatPage} zeigt die oberste Ebene eines solchen Dokumentes.
+    Sie enthält die Informationen zur Webseite.
     Features speichert es in den Objekten \texttt{contents} und \texttt{references},
     deren Inhalt in Listing \ref{listing:solutionDetailsStorageAPIPageFormatConten}
     und \ref{listing:solutionDetailsStorageAPIPageFormatReference} ausgelagert wurde.
@@ -135,14 +134,14 @@
 
     Wie zu sehen ist, muss die Anfrage-\gls{url} die ID der Site beinhalten.
     Die Seiten einer Site sind im Ausgabedokument im Array \texttt{pages} abgelegt.
-    Jede Seite enthält ihren \gls{url}, ihre Klasse und ihren Status.
+    Jede Seite enthält ihre \gls{url}, ihre Klasse und ihren Status.
     Informationen über ihre Features sind nicht enthalten,
     da der Fokus wie beschrieben auf der fachlichen Frage besteht,
     welche Webseiten zu einer Site gehören.
 
     \paragraph{Klassifikation einer Seite}
     Die interessanteste Information, die die {\classificationStorageAPI} liefern kann,
-    ist selbstverständlich die vollständige Klassifikation einer Seite.
+    ist selbstverständlich die vollständige Klassifikation einer Webseite.
     Diese kann für eine spezifische Webseite über zwei Schnittstellen ermittelt werden.
     Beide werden in Tabelle \ref{table:getFullPageInterface} vorgestellt.
 
