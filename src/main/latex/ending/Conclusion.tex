@@ -1,15 +1,32 @@
 \section{Fazit}
     Die \gls{wccdl} ist eine gut lesbare und einfach zu erlernende Sprache,
-    die im Sinne von domänenspezifischen Sprachen
-    sich auf wenige Anwendungsfälle beschränkt
-    und ihre Anforderungen dadurch gut erfüllt.
-    Das \gls{wccs} als Ganzes erfüllt die gestellten Anforderungen
-    trotz einiger Schwächen in gewissen Sonderfällen.
+    die sich im Sinne von domänenspezifischen Sprachen
+    auf wenige Anwendungsfälle beschränkt.
+    Ein besonderes Merkmal ist ihre ausführliche Syntax,
+    wodurch Modelle zwar länger als unbedingt erforderlich sind,
+    dafür aber fast wie Fließtext gelesen werden können.
+    Mit der \gls{wccdl} lassen sich viele Strukturen auf Webseiten beschreiben.
+    Einschränkungen sind hauptsächlich durch die implementierten Selektoren begründet.
+    Ihr Syntax kann aber nahtlos erweitert werden, um neue Selektoren zu unterstützen.
+    Generierte Modelle können auch unabhängig vom \gls{wccs} weiterverwendet werden,
+    wodurch sie prinzipiell auch für andere Anwendungsfälle nutzbar ist.
+    Insgesamt erscheint die \gls{wccdl} besser geeignet als andere Sprachen
+    zur Beschreibung eines {\classificationModel}s für das \gls{wccs}.
 
+    Mit dem Klassifizierungsansatz des \gls{wccs} konnte gezeigt werden,
+    dass Inhalte einer Webseite durch Software automatisch fachlich strukturiert werden können.
+    Diese Klassifizierung auf Basis der \gls{html}-Repräsentation einer Webseite durchzuführen,
+    macht dies oftmals sehr einfach, ist mit den verfügbaren Selektoren des \gls{wccs}
+    manchen Sonderfällen aber nicht ausreichend.
     Die Idee der Selektoren ist kein revolutionärer neuer Ansatz,
-    in diesem Fall aber dennoch eine ungewöhnliche Anwendung
-    zum Beispiel von {\cssSelector}en.
+    in diesem Fall aber dennoch eine ungewöhnliche Anwendung z. B. von {\cssSelector}en.
+    Ihre praktische Anwendung kann schnell eine komplexe Herausforderung werden,
+    wenn viele atomare Informationen innerhalb eines \gls{html}-Elementes getrennt werden müssen.
+    D. h., wenn die Inhalte durch die \gls{html}-Repräsentation nur schwach strukturiert werden.
+    Außerdem ist es schwierig Varianz in die Selektoren einzubauen,
+    sodass sie auf vielen ähnlichen Webseiten richtig greifen,
+    ohne die genaue Struktur jeder Seite in Betracht ziehen zu müssen.
 
-    Insgesamt stellt das Ergebnis der Arbeit ein funktionales System dar,
+    Insgesamt stellt das Ergebnis der Arbeit trotzdem ein funktionales System dar,
     welches im vorgesehenen Anwendungsfall gut funktioniert
     und Potenzial für weitere Arbeiten bietet.

@@ -65,12 +65,12 @@
     wurde\footnote{vgl. Kapitel \ref{section:conceptSupportedSelectors}}.
 
     Der {\xpathSelector} wird hingegen über die Methode \texttt{evaluate} des Objektes \texttt{document} realisiert
-    \cite{w3c:domXPath}.
+    \cite[Kapitel 1.4]{w3c:domXPath}.
     Diese Methode erwartet neben dem XPath-Ausdruck auch ein Kontextobjekt,
     sodass auch hier der beschriebene Algorithmus leicht umgesetzt werden kann.
     Das Ergebnis dieser Methode kann abhängig vom XPath-Ausdruck eine Liste von HTML-Elementen, eine Zeichenkette,
     ein boolescher Wert oder eine Zahl sein
-    \cite[Kapitel 1.4]{w3c:domXPathResult}.
+    \cite[Kapitel 1.4]{w3c:domXPath}.
     Die beiden zuletzt genannten werden vom \gls{wccs} nicht unterstützt und als keine Übereinstimmung mit dem Selektor gewertet.
     Bei HTML-Elementen wird der Algorithmus wie beschrieben weiter durchlaufen.
     Im Falle von Zeichenketten wird die Rekursion allerdings unterbrochen, da kein neues Element vorhanden ist,

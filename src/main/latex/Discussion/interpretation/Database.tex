@@ -1,9 +1,9 @@
 \subsection{Eignung einer Graphdatenbank}
-    Die Nutzung einer Graphdatenbank für das \gls{wccs} hatte mehrere Beweggründe.
+    Die Nutzung einer Graphdatenbank für das \gls{wccs} hat mehrere Beweggründe.
     Dazu zählen die einfache, natürliche und schemalose Datenmodellierung
     und die Möglichkeit Beziehungen sehr einfach auszuwerten.
     Die Wiederverwendung von Knoten für mehrere Klassifikationen
-    bietet außerdem die Möglichkeit weiterführende Analysen auf den
+    bietet außerdem die Möglichkeit, weiterführende Analysen auf den
     klassifizierten Inhalten durchzuführen.
     Dieses Kapitel bewertet die tatsächliche Eignung einer Graphdatenbank,
     des verwendeten Datenmodells sowie des Algorithmus
@@ -15,24 +15,25 @@
     Reihenfolgen und Navigationspfade (der Nachrichtenseiten) explizit machen.
     Eine Auswertung ist trivial, da lediglich ein- und ausgehenden Kanten gefolgt werden muss.
     Andere Datenbankmodelle hätten komplexere Konstrukte
-    zur Speicherung oder zur Auswertung erfordert.
+    zur Speicherung und zur Auswertung erfordert.
 
     \paragraph{Wiederverwendung von \texttt{Text}- und \texttt{Resource}-Knoten}
     Betrachtet man Tabelle \ref{table:findingsTeachersFiguresNodesByLabel} wird deutlich,
     dass \texttt{Text}- und \texttt{Resource}-Knoten verhältnismäßig am meisten von der
     Wiederverwendbarkeit gebrauch machen.
     Das ist nicht verwunderlich, da sie jeweils genau einen Wert speichern,
-    der sie identifiziert und keine ausgehenden Kanten besitzen,
+    der sie identifiziert.
+    Gleichzeitig besitzen sie keine ausgehenden Kanten,
     die seitenspezifische Informationen enthalten.
     Wie Tabelle \ref{table:findingsTeachersFiguresSharedNodes} belegt,
     steigt ihre Wiederverwendung bei mehreren Klassifikationen in einer Datenbank,
-    was eine logische Konsequenz der größeren Informationsmenge ist.
+    was eine logische Konsequenz der größeren Datenmenge ist.
     Für \texttt{Resource}-Knoten ist das aber nicht sofort ersichtlich, da
     die Summe der mehrfach verwendeten \texttt{Resource}-Knoten von Lehrgebieten
     im Falle einzelner Datenbanken höher ist, als im Fall einer gemeinsamen Datenbank (36 vs. 30).
     Gleichzeitig ist die Zahl der geteilten \texttt{SubjectArea}-Knoten aber höher,
     die jeder einen \texttt{Resource}-Knoten eines Lehrgebietes referenzieren.
-    Es wird also ein größerer Teil des Graphs wiederverwendet.
+    Es wird also ein größerer Teil des Graphen wiederverwendet.
     Außerdem enthielten die einzelnen Datenbanken identische \texttt{Resource}-Knoten,
     die in der gemeinsamen natürlich zusammengefasst werden konnten.
 
@@ -40,13 +41,12 @@
     Innerhalb einer Datenbank macht es aus semantischen Gründen keinen Sinn
     \texttt{Resource}-Knoten zu duplizieren,
     da sie eine Entität der Domäne darstellen.
-    {\resources} existieren genau ein mal, was die Datenbank wiederspiegeln sollte
-    und außerdem die Möglichkeiten eines Graphs besser ausschöpft.
+    {\resources} existieren genau ein mal, was die Datenbank widerspiegeln sollte
+    und außerdem die Möglichkeiten eines Graphen besser ausschöpft.
     Nicht so eindeutig ist dies allerdings bei \texttt{Text}-Knoten.
     Aus Tabelle \ref{table:findingsTeachersFiguresSharedNodes} geht hervor,
     dass im ersten Fallbeispiel niemals ein \texttt{Text}-Knoten geteilt wurde.
-    Stattdessen konnte immer der \texttt{Content}-Knoten,
-    der ihn referenziert, geteilt werden.
+    Stattdessen konnte immer der zugehöroge \texttt{Content}-Knoten geteilt werden.
     Deshalb ist die Zahl beider Knotentypen gesunken und die der geteilten
     \texttt{Content}-Knoten dafür gestiegen.
     Tabelle \ref{table:findingsNewsFiguresSharedNodes}
@@ -55,7 +55,7 @@
     weil es mehrere Nachrichten mit derselben Überschrift gibt.
     Sie referenzieren aber unterschiedliche Detailseiten,
     weshalb die Nachrichten unterschiedliche \texttt{Content}-Knoten besitzen.
-    Der tatsächliche Nutzen der \texttt{Text}-Knoten ist in diesen Beispielen trotzdem sehr gering.
+    Der tatsächliche Nutzen der \texttt{Text}-Knoten ist in beiden Beispielen trotzdem sehr gering.
     Der textuelle Wert eines {\contentFeature}s ist deshalb im \texttt{Content}-Knoten selbst besser aufgehoben.
     Für die Schnittstellen des \glspl{wccs} ändert sich durch eine entsprechende Anpassung nichts,
     allerdings vereinfacht sich das Datenmodell der Datenbank sowie
@@ -63,7 +63,7 @@
 
     \paragraph{Hierarchieebene wiederverwendeter Teilgraphen}
     Bezüglich der Wiederverwendung von Teilgraphen ist außerdem ersichtlich,
-    dass dies häufig erst auf einer tiefen Ebene geschieht.
+    dass sie häufig erst auf einer tiefen Ebene des Graphen stattfindet.
     \texttt{Content}-Knoten der Klasse \texttt{SubjectAreaName} werden bspw.
     sehr viel häufiger von mehreren Klassifikationen verwendet als solche der
     Klasse \texttt{Teacher}.
@@ -71,7 +71,7 @@
     ist eine entgegengesetzte Erwartung gerechtfertigt.
     Der Kopfbereich wiederholt sich z. B. auf allen Seiten
     und mehrere Mitarbeiter werden auf unterschiedlichen Webseiten identisch aufgeführt.
-    Trotzdem wird bei solche Mitarbeitern und dem Kopfbereich
+    Trotzdem wird bei solchen Mitarbeitern und dem Kopfbereich
     nicht der \texttt{Teacher}- bzw. \texttt{Header}-Knoten geteilt,
     sondern nur ihre Unterknoten.
     Dafür gibt es zwei Gründe.
@@ -79,13 +79,13 @@
     exakt übereinstimmen, damit ihr \texttt{Content}-Knoten mehrfach verwendet werden kann.
     Die kleinste Abweichung macht dies unmöglich,
     da die Inhalte sich letztendlich unterscheiden und nur Teilaspekte übereinstimmen.
-    Das muss die Datenbank wiederspiegeln.
+    Das muss die Datenbank widerspiegeln.
     Im Falle des Kopfbereiches im ersten Beispiel ist der \gls{url} des Logos
     auf jeder Seite unterschiedlich.
     Das ist im zweiten Beispiel nicht der Fall,
-    da alle Seiten zu einer Site in {\wordpress} gehören
+    da alle Seiten zu einem Portal in {\wordpress} gehören
     und deshalb das gleiche Bild referenzieren.
-    Entsprechend existiert in der Datenbank nur ein \texttt{Header}-Knoten,
+    Deshalb existiert in der Datenbank nur ein \texttt{Header}-Knoten,
     den alle Klassifikationen referenzieren.
     Die zweite Ursache sind unterschiedliche Positionen identischer Inhalte
     auf verschiedenen Webseiten.
@@ -101,7 +101,7 @@
     werden\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage}}.
     
     \paragraph{Semantischer Inhalt und physische Struktur einer Webseite}
-    Genau betrachtet spiegelt die Datenbank also lediglich die Struktur der Webseiten exakt wieder.
+    Genau betrachtet spiegelt die Datenbank lediglich die Struktur der Webseiten exakt wieder.
     Trotzdem lässt sich argumentieren, dass es fachlich konsistenter wäre,
     wenn die \texttt{Teacher}-Knoten im beschriebenen Fall geteilt werden würden.
     Ein Beispiel verdeutlicht das:
@@ -116,8 +116,8 @@
     \texttt{SubjectAreaName}-Knoten verwenden.
     Aus fachlicher Sicht existieren laut Datenbank also mehrere Lehrgebiete,
     die denselben Namen tragen.
-    Hier wird ein Konflikt zwischen dem akkuraten Wiederspiegeln der Strukturen der Webseiten
-    und den semantischen Inhalt deutlich.
+    Hier wird ein Konflikt zwischen dem akkuraten Widerspiegeln der Strukturen der Webseiten
+    und dem semantischen Inhalt deutlich.
 
     \paragraph{Alternativen}
     Ein erster Schritt zur Auflösung dieses Konfliktes ist anstatt absolute Selektoren
@@ -134,7 +134,7 @@
     da die Position komplett unabhängig gespeichert wird.
 
     \paragraph{Änderung von Klassifikationen}
-    Durch den entwickelten Algorithmus zum Schreiben von Klassifikationen
+    Durch den entwickelten Algorithmus zum Schreiben von Klassifikationen\footnote{vgl. Kapitel \ref{section:solutionDetailsStorageAPI}},
     wurde das Teilen von Knoten ermöglicht.
     Eine nachteilige Folge ist allerdings,
     dass Änderungen immer über diesen Algorithmus eingearbeitet werden müssen,
@@ -143,5 +143,5 @@
     ist deshalb ein anderer Datenbanktyp, wie zum Beispiel ein einfacher Document Store,
     in Betracht zu ziehen.
 
-    Insgesamt scheint eine Graphdatenbank trotz der genannten Nachteile geeignet
+    Insgesamt scheint eine Graphdatenbank trotz der genannten Herausforderungen geeignet
     für den Anwendungsfall des \glspl{wccs}.

@@ -6,7 +6,7 @@
     werden deshalb hier wiederverwendet.
     Die speziellen Definitionen für Nachrichtenseiten sind in
     Listing \ref{listing:findingsNewsSpecial}
-    aufgeführt\footnote{Der Selektor in den Zeile \ref{line:newsWctdInvalidSelectorStart}
+    aufgeführt\footnote{Der Selektor in den Zeilen \ref{line:newsWctdInvalidSelectorStart}
     bis \ref{line:newsWctdInvalidSelectorEnd} wurde aus Gründen der Lesbarkeit umgebrochen,
     was syntaktisch nicht erlaubt ist.}.
 
@@ -21,20 +21,19 @@
 
     Die Seitenklasse \texttt{NewsOverview} enthält Features für die
     allgemeinen Bereiche der Seite sowie für die Referenzen auf die vorherige und die nächste
-    Nachrichtenseite. Diese werden als \texttt{FernUniInternalLink} klassifiziert.
-    Nicht zuletzt besitzt sie ein {\collectionFeature} für die Meldungen.
+    Nachrichtenseite. Sie werden alle als \texttt{FernUniInternalLink} klassifiziert.
+    Nicht zuletzt besitzt \texttt{NewsOverview} ein {\collectionFeature} für die Meldungen.
     Eine Nachricht wird durch die Klasse \texttt{News} repräsentiert,
     ihr Datum durch \texttt{NewsDate}, ihre Überschrift durch \texttt{NewsHeading}
     und ihre Absätze durch \texttt{NewsSection}.
     Die Überschrift enthält auch einen Link,
     der ebenfalls als \texttt{FernUniInternalLink} klassifiziert wird.
-
-    Das Feature \texttt{sections} wurde allerdings auskommentiert.
+    Das Feature \texttt{sections} wurde auskommentiert.
     Der Grund ist, dass für die Absätze einer Nachricht kein Selektor ermittelt werden konnte,
-    mit dem eine sinnvolle Klassifizierung möglich wäre.
+    mit dem eine sinnvolle Klassifizierung möglich ist.
     Um dies zu erklären, ist eine Betrachtung der \gls{html}-Struktur der Nachrichtenliste notwendig.
     Diese Struktur ist in Listing \ref{listing:findingsNewsEvilHtmll}
-    zu sehen, wobei konkreten textuelle Inhalte entfernt wurden,
+    zu sehen, wobei konkrete textuelle Inhalte entfernt wurden,
     da sie für das Verständnis der Problematik irrelevant sind.
 
     \lstinputlisting[
@@ -44,14 +43,14 @@
     ]{../resources/findings/case-study-2/news.html}
 
     Aus diesem Fragment geht hervor,
-    dass Nachrichten nicht in einzelne Elemente gekapselt sind.
+    dass Nachrichten nicht in einzelne \gls{html}-Elemente gekapselt sind.
     Stattdessen befinden sich alle Elemente aller Nachrichten auf derselben Hierarchieebene.
     Nachrichten werden nur durch ein \texttt{hr}-Element von einander getrennt,
     was sich das {\classificationModel} zunutze machen kann.
     Aufgrund der fehlenden Kapselung ist es aber mit den zur Verfügung
     stehenden CSS- und XPath-Selektoren nicht möglich festzustellen,
     welche Elemente als \texttt{NewsSection} zu klassifizieren sind.
-    Der {\cssSelector} \texttt{p} würde beispielsweise alle Absätze aller Nachrichten selektieren.
+    Der {\cssSelector} \texttt{p} würde bspw. alle Absätze aller Nachrichten selektieren.
     Erschwerend kommt hinzu, dass Absätze nicht nur \texttt{p},
     sondern auch andere Elemente sein können und dass jede Nachricht eine andere Anzahl an Absätzen besitzt.
     Informell ausgedrückt wäre ein Selektor notwendig,
@@ -60,7 +59,6 @@
     Das ist mit CSS nicht möglich, da es keine Selektoren für Geschwister des Kontextelementes gibt.
     XPath besitzt diese zwar, allerdings konnte auch mit diesen kein
     Ausdruck umgesetzt werden, der nur die Absätze der aktuellen Nachricht herausfiltert.
-
     Die einzige Lösung -- ohne das HTML anzupassen -- ist für jede Nachricht eine spezielle Klasse zu entwickeln.
     Durch eine solche 1:1-Beziehung kann jede Klasse individuelle und gleichzeitig
     eindeutige Selektoren für die Absätze enthalten.

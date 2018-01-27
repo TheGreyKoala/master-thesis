@@ -15,7 +15,7 @@
         \label{section:weblogSoftware}
         {\wordpress} ist im Kern eine Software zur Pflege eines Blogs,
         wobei es sich um eine spezielle Form einer Webseite handelt
-        \cite{wordpress:Blogging}:
+        \cite[Kapitel "`Introduction to Blogging"']{wordpress:codex}:
 
         \begin{quote}
             "`Blog"' is an abbreviated version of "`weblog"',
@@ -32,7 +32,7 @@
         kann man auch eine Anwendung zu ihrer Pflege als
         spezielle Form eines \glspl{cms} betrachten.
         Diese Aussage trifft {\wordpress} auch über sich selbst
-        und vergleichbare Software \cite{wordpress:Blogging}:
+        und vergleichbare Software \cite[Kapitel "`Introduction to Blogging"']{wordpress:codex}:
 
         \begin{quote}
             Many blogging software programs are considered a specific type of CMS.
@@ -64,7 +64,7 @@
         \label{section:wordpressPostsPages}
         {\wordpress} unterscheidet zwei Arten von Beiträgen,
         auf denen eine Webseite basieren kann: Posts
-        und Pages \cite{wordpress:Pages}.
+        und Pages \cite[Kapitel "`Pages"']{wordpress:codex}.
 
         \paragraph*{Posts}
         Klassische Blog-Einträge werden in {\wordpress} "`Posts"' genannt.
@@ -82,7 +82,7 @@
         {\wordpress} definiert einige Standardtypen,
         lässt aber auch die Angabe eigener Typen zu.
         Die Standardtypen sind
-        \cite{wordpress:PostTypes}:
+        \cite[Kapitel "`Post Types"']{wordpress:codex}:
 
         \begin{itemize}
             \item Post,
@@ -104,7 +104,7 @@
         \paragraph*{Pages}
         Neben Posts kennt {\wordpress} auch das Konzept einer Page,
         die sich in ihrem Zweck klar von einem Post unterscheidet
-        \cite{wordpress:Pages}:
+        \cite[Kapitel "`Pages"']{wordpress:codex}:
 
         \begin{quote}
             In contrast, pages are generally for non-chronological,
@@ -120,11 +120,11 @@
         Aus diesem Grund besitzen Pages zwar ebenfalls einen Titel und Inhalt,
         können aber lediglich mit Schlagwörtern versehen werden.
         Die Einordnung in eine Kategorie ist nicht möglich
-        \cite{wordpress:Pages}.
+        \cite[Kapitel "`Pages"']{wordpress:codex}.
         Wie aus der oben erfolgten Auflistung der Post Types hervorgeht,
         sind Pages technisch gesehen lediglich Posts mit dem Post Type "`Page"'.
 
-        {\wordpress} speichert alle Inhalte in einer relationalen Datenbank \cite{wordpress:Database}.
+        {\wordpress} speichert alle Inhalte in einer relationalen Datenbank \cite[Kapitel "`Database Description"']{wordpress:codex}.
         Posts und Pages teilen sich in dieser Datenbank eine Tabelle,
         was ebenfalls verdeutlicht, dass Pages lediglich Posts eines speziellen Typs sind.
         Der Inhalt eines Beitrages wird in der Datenbank als \gls{html}-Fragment abgelegt,
@@ -147,7 +147,7 @@
         Dazu definieren sie das Gerüst der Webseite und enthalten Kommandos,
         um Inhalte aus der Datenbank auszulesen.
         Eine Webseite wird auf Basis einer Vorlage dynamisch von {\wordpress} generiert
-        \cite{wordpress:Templates}.
+        \cite[Kapitel "`Templates"']{wordpress:codex}.
         Vorlagen sind bei genauerem Hinsehen nichts anderes als PHP-Dateien,
         die \gls{html}, allgemeinen PHP-Code und sogenannte
         "`Template-Tags"' enthalten.
@@ -157,11 +157,11 @@
         Während der Generierung -- technisch lediglich die Ausführung
         des PHP-Codes -- können Vorlagen andere Vorlagen inkludieren,
         wodurch wiederkehrende Elemente in eigene Vorlagen ausgelagert
-        werden können \cite{wordpress:TemplateFiles}.
+        werden können \cite[Kapitel "`Template Files"']{wordpress:codex}.
         Anhand der \gls{url} der Anfrage und der darin enthaltenen
         Kennung eines Posts oder einer Page,
         entscheidet {\wordpress}, welche Vorlage es zur Generierung der Seite nutzt
-        \cite{wordpress:TemplateHierarchy}.
+        \cite[Kapitel "`Template Hierarchy"']{wordpress:codex}.
 
         \paragraph*{Themes}
         Eine Sammlung aller {\resources}, die notwendig sind um
@@ -171,7 +171,7 @@
         JavaScript-, \gls{css}-, und PHP-Dateien.
         Themes können {\resources} anderer Themes wiederverwenden oder überschreiben,
         wodurch Anpassungen an einem vorhandenen Theme einfach umzusetzen sind
-        \cite{wordpress:Themes}.
+        \cite[Kapitel "`Using Themes"']{wordpress:codex}.
 
     \subsection{Plugins}
         \label{section:wordpressPlugins}
@@ -188,6 +188,6 @@
         Zur Nutzung eines Plugins wird meist eine spezielle Anweisung -- ein Shortcode --
         in den Inhalt eines Posts oder einer Page geschrieben,
         die zum Zeitpunkt der Generierung ausgewertet wird
-        \cite{wordpress:ShortcodeAPI}.
+        \cite[Kapitel "`Shortcode API"']{wordpress:codex}.
         Beim Form Maker Plugin wäre dies zum Beispiel \texttt{[Form id="1"]},
         wodurch das Formular mit der Kennung "`1"' in die Webseite integriert wird.

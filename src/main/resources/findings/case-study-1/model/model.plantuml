@@ -53,7 +53,7 @@ class Teacher {
 
 Teacher "1..n" --> "1" SubjectArea
 Teacher "1" --> "0..1" ContactInformation
-Teacher "0..1" --> "0..1" Image
+Teacher "1" --> "0..1" Image
 
 class SubjectArea {
     name: String

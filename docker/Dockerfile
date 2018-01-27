@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:17.10
 LABEL maintainer="Tim Gremplewski <tim.gremplewski@gmail.com>"
 
 RUN apt-get update \

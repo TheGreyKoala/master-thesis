@@ -2,25 +2,23 @@
     Auch in diesem Fallbeispiel wurde eine Reihe an Kennzahlen ermittelt,
     die in diesem Kapitel präsentiert werden.
 
-    \paragraph{Struktur eines Graphs}
+    \paragraph{Struktur eines Graphen}
     Zum Verständnis der Zahlen trägt Abbildung \ref{image:findingNewsFiguresDbModel} bei,
-    welches den Aufbau des Graphs visualisiert.
+    welche den Aufbau des Graphen visualisiert.
     Wegen der beschriebenen Überschneidung mit dem ersten Fallbeispiel,
-    sind die entsprechenden Knoten hier nicht nochmals dargestellt.
+    sind die übereinstimmenden Knoten hier nicht nochmals dargestellt.
     Wie im vorherigen Beispiel wird außerdem auf die Darstellung von
     Referenzen verzichtet.
 
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/findings/case-study-2/dbmodel.png}
-        \caption{Struktur des Graphs einer Seite über aktuelle Meldungen}
+        \caption{Struktur des Graphen einer Seite über aktuelle Meldungen}
         \label{image:findingNewsFiguresDbModel}
     \end{figure}
 
     \paragraph{Präsentation der Kennzahlen}
     Die folgenden Tabellen präsentieren die gesammelten Kennzahlen.
-    Die Bedeutung einzelner Kennzahlen wurde bereits beim ersten Beispiel erläutert,
-    die entsprechend auch hier gelten.
     Die Gruppierung der Knoten nach ihren Labels ist in Tabelle
     \ref{table:findingsNewsFiguresNodesByLabel} zu sehen.
     Die Häufigkeit der Inhaltsklassen stellt Tabelle
@@ -38,11 +36,11 @@
             \begin{tabular}{|l|c|}
                 \hline
                 \textbf{Label}  & \multicolumn{1}{l|}{\textbf{Anzahl}} \\ \hline
-                Content         & 124                                  \\ \hline
-                Page + Resource & 5                                    \\ \hline
-                Resource        & 53                                   \\ \hline
-                Site            & 1                                    \\ \hline
-                Text            & 77                                   \\ \hline
+                \texttt{Content}         & 124                                  \\ \hline
+                \texttt{Page} + \texttt{Resource} & 5                                    \\ \hline
+                \texttt{Resource}        & 53                                   \\ \hline
+                \texttt{Site}            & 1                                    \\ \hline
+                \texttt{Text}            & 77                                   \\ \hline
                 \hline
                 \textbf{Summe}  & 260                                  \\ \hline
             \end{tabular}
@@ -54,13 +52,13 @@
             \begin{tabular}{|l|c|}
                 \hline
                 \textbf{Klasse} & \multicolumn{1}{l|}{\textbf{Anzahl}} \\ \hline
-                Brand           & 1                                    \\ \hline
-                Header          & 1                                    \\ \hline
-                News            & 41                                   \\ \hline
-                NewsDate        & 38                                   \\ \hline
-                NewsHeading     & 41                                   \\ \hline
-                PageHeading     & 1                                    \\ \hline
-                Portal          & 1                                    \\ \hline
+                \texttt{Brand}           & 1                                    \\ \hline
+                \texttt{Header}          & 1                                    \\ \hline
+                \texttt{News}            & 41                                   \\ \hline
+                \texttt{NewsDate}        & 38                                   \\ \hline
+                \texttt{NewsHeading}     & 41                                   \\ \hline
+                \texttt{PageHeading}     & 1                                    \\ \hline
+                \texttt{Portal}          & 1                                    \\ \hline
                 \hline
                 \textbf{Summe}  & 260                                  \\ \hline
             \end{tabular}
@@ -72,9 +70,9 @@
             \begin{tabular}{|l|c|}
                 \hline
                 \textbf{Label} & \multicolumn{1}{l|}{\textbf{Anzahl}} \\ \hline
-                Reads          & 80                                   \\ \hline
-                References     & 87                                   \\ \hline
-                Owns           & 145                                  \\ \hline
+                \texttt{Reads}          & 80                                   \\ \hline
+                \texttt{References}     & 87                                   \\ \hline
+                \texttt{Owns}           & 145                                  \\ \hline
                 \hline
                 \textbf{Summe} & 312                                  \\ \hline
                 \end{tabular}
@@ -87,12 +85,12 @@
             \begin{tabular}{|l|c|}
                 \hline
                 \textbf{Start $\rightarrow$ Ziel} & \multicolumn{1}{l|}{\textbf{Anzahl}} \\ \hline
-                (:Content) $\rightarrow$ (:Content)     & 83                                   \\ \hline
-                (:Content) $\rightarrow$ (:Resource)    & 49                                   \\ \hline
-                (:Page) $\rightarrow$ (:Content)        & 57                                   \\ \hline
-                (:Page) $\rightarrow$ (:Page)           & 13                                   \\ \hline
-                (:Page) $\rightarrow$ (:Resource)       & 25                                   \\ \hline
-                (:Site) $\rightarrow$ (:Page)           & 5                                    \\ \hline
+                \texttt{(:Content)} $\rightarrow$ \texttt{(:Content)}     & 83                                   \\ \hline
+                \texttt{(:Content)} $\rightarrow$ \texttt{(:Resource)}    & 49                                   \\ \hline
+                \texttt{(:Page)} $\rightarrow$ \texttt{(:Content)}        & 57                                   \\ \hline
+                \texttt{(:Page)} $\rightarrow$ \texttt{(:Page)}           & 13                                   \\ \hline
+                \texttt{(:Page)} $\rightarrow$ \texttt{(:Resource)}       & 25                                   \\ \hline
+                \texttt{(:Site)} $\rightarrow$ \texttt{(:Page)}           & 5                                    \\ \hline
                 \textbf{Summe}                    & 232                                  \\ \hline
             \end{tabular}
             \subcaption{Kanten gruppiert nach Labels der Start- und Zielknoten für Seiten über aktuelle Meldungen}
@@ -103,14 +101,14 @@
             \begin{tabular}{|l|c|}
                 \hline
                 \textbf{Knoten} & \multicolumn{1}{l|}{\textbf{Anzahl}} \\ \hline
-                PageHeading     & 1                                    \\ \hline
-                Portal          & 1                                    \\ \hline
-                Header          & 1                                    \\ \hline
-                News            & 1                                    \\ \hline
-                NewsDate        & 1                                    \\ \hline
-                Seiten          & 4                                    \\ \hline
+                \texttt{PageHeading}     & 1                                    \\ \hline
+                \texttt{Portal}          & 1                                    \\ \hline
+                \texttt{Header}          & 1                                    \\ \hline
+                \texttt{News}            & 1                                    \\ \hline
+                \texttt{NewsDate}        & 1                                    \\ \hline
+                \texttt{(:Page)}          & 4                                    \\ \hline
                 Unterseiten     & 5                                    \\ \hline
-                :Text           & 2                                    \\ \hline
+                \texttt{(:Text)}           & 2                                    \\ \hline
                 \textbf{Summe}  & 16                                   \\ \hline
                 \end{tabular}
             \subcaption{Knoten mit mehreren eingehenden Kanten für Seiten über aktuelle Meldungen}

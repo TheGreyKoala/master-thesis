@@ -5,14 +5,14 @@
 
     \subsection{Vergleich der \acrshort{wccdl}}
         \label{section:discussionComparisonLanguage}
-        Es existieren eine Vielzahl von textuellen und graphischen Sprachen,
+        Es existiert eine Vielzahl von Sprachen,
         die zur Datenmodellierung geeignet sind.
         Bei eigenen Recherchen wurde allerdings keine wissenschaftliche Arbeit über eine Sprache gefunden,
         die einen identischen Anwendungsfall adressiert und dieselbe enge Domäne umfasst wie die \gls{wccdl}.
         Es wurde lediglich ein
         GitHub Projekt\footnote{vgl. Kapitel \ref{section:discussionInterpretationLanguage} ; \url{https://github.com/sabrams/web-miner}} entdeckt,
         welches die Implementierung einer Sprache mit einer sehr ähnlichen Intention enthält.
-        Diese Sprache ist eine in Ruby umgesetzte interne \gls{dsl},
+        Diese Sprache ist eine in Ruby umgesetzte Internal \gls{dsl},
         die mittels XPath-Ausdrücken Informationen aus HTML-Dokumenten bezieht
         und in flachen Datenstrukturen speichert.
         Wie die \gls{wccdl} erfasst sie mehrfach auftretende Elemente in Listen,
@@ -20,40 +20,37 @@
         Neben der aufgezeigten besseren
         Ausdrucksstärke\footnote{vgl. Kapitel \ref{section:discussionInterpretationLanguage}},
         ist ein weiterer Vorteil,
-        dass ihr prinzipielle sämtliche Sprachmittel und Funktion von Ruby
+        dass ihr prinzipiell sämtliche Sprachmittel und Funktion von Ruby
         zur Verfügung stehen.
         Gewonnene Informationen können dadurch beliebig weiterverarbeitet werden.
-        Dieser Vorteil ist durch ihre Implementierung als interne \gls{dsl} begründet.
+        Dieser Vorteil ist durch ihre Implementierung als Internal \gls{dsl} begründet.
         Neben deren Vorteile besitzt die Sprache natürlich auch ihre Nachteile,
         wie zum Beispiel die eingeschränkten syntaktischen Möglichkeiten,
         wodurch der Syntax bereits jetzt technischer und komplexer als der der \gls{wccdl} ist.
         Wie bereits angesprochen bietet sie außerdem keine komplexen Strukturen und verwendet lediglich XPath-Ausdrücke.
 
         Erweitert man die Domäne bei der Suche, findet man Sprachen,
-        die durchaus Überschneidungen mit der \gls{wccdl} besitzen.
+        die Überschneidungen mit der \gls{wccdl} besitzen.
         Ein Beispiel ist die \gls{webml} \cite{ceri:webML}.
         Diese Sprache erlaubt die graphische Modellierung von Webseiten
         und bietet dazu fünf verschiedene Modelltypen:
         Structure, Composition, Navigation, Presentation und Personalization.
         Vor allem die beiden zuerst genannten Modelltypen eignen sich
         als Alternative zur \gls{wccdl}.
-
-        Ein weiteres Beispiel ist \gls{uwe},
-        ein Software Engineering Ansatz für Webseiten \cite{koch:uwe},
-        welcher ein speziell für die Entwicklung von Webanwendung zugeschnittenes
-        UML Profil bietet.
+        Ein weiteres Beispiel ist \gls{uwe} \cite{koch:uwe} --
+        ein Software Engineering Ansatz,
+        welcher ein spezielles UML Profil für die Entwicklung von Webanwendung bietet.
         Es verwendet unter anderem Anwendungsfalldiagramme zur Beschreibung von Anforderungen,
         Klassendiagramme zur Modellierung der Domäne
         und mit speziellen Stereotypen versehende Klassendiagramme zur Modellierung der Navigation
         und Präsentation.
         Klassendiagramme sind ebenfalls geeignet, um die Problemstellungen des \glspl{wccs} zu beschreiben.
-
         Im Vergleich zur \gls{webml} und zum \gls{uwe} besitzt die \gls{wccdl} dennoch Stärken,
         wenn es um die Nutzung als Sprache zur Instrumentierung des \glspl{wccs} geht.
         Die liegen vor allem in ihrer begrenzteren Domäne,
         wodurch sie deren Konzepte in geeigneteren Sprachkonzepten umsetzen kann.
-        Die anderen beiden Sprachen besitzen zum Beispiel kein konkretes Konzept für
-        Selektoren, weshalb dazu zum Beispiel ein Attribut in einem Klassendiagramm herhalten müsste.
+        Die anderen beiden Sprachen besitzen z. B. kein konkretes Konzept für
+        Selektoren, weshalb dazu z. B. ein Attribut in einem Klassendiagramm genutzt werden müsste.
         Aus der Sicht eines Entwicklers ist dies weniger sprechend als das Konzept der \gls{wccdl}.
         Da sie eine kleinere Domäne abdeckt, besitzt sie weniger Konzepte
         und ist dadurch leichter zu erlernen.
@@ -62,10 +59,8 @@
     
     \subsection{Vergleich des Klassifizierungssystems}
         \label{section:discussionComparisonClassificationSystem}
-        % TODO: Paragraphen ggf. als subsection
-        Ein Vergleich des Klassifizierungssystems und seines Ansatzes
-        hängt von seiner Einordnung ab.
-        Dieses Kapitel führt einen Vergleich in drei denkbaren Kategorien vor.
+        Ein Vergleich des Klassifizierungssystems kann in verschiedenen Anwendungsbereichen erfolgen.
+        Dieses Kapitel führt einen Vergleich in drei Kategorien durch.
         Dabei handelt es sich um "`\gls{cms}-Migration"', "`Web Mining"'
         und "`Schemavalidierung"'.
 
@@ -78,22 +73,18 @@
         für \gls{cms}-Migrationen zu kategorisieren und vergleichebaren Produkten gegenüberzustellen.
         Im Internet finden sich mehrere Dienste, die eine einfache Migration versprechen.
         Ein interessanter Anbieter ist cms2cms\footnote{vgl. \url{https://cms2cms.com/}}.
-        Dieser wirbt damit, Migrationen innerhalb von 15 Minuten abzuschließen.
-        Dazu muss sowohl die Art eines Quellsystems als auch eines Zielsystems ausgewählt
+        Bei diesem Anbieter muss zur Migration sowohl die Art eines Quellsystems als auch eines Zielsystems ausgewählt
         und auf beiden ein passendes Plugin installiert werden.
-        Die Migration kann anschließend über cms2cms gestartet werden,
-        welches anschließend die Inhalte transformiert.
-        Wie es genau dabei vorgeht und wie es die verschiedenen Konzepte und Strukturen
-        der Systeme auf einander abbildet, konnte ohne einen entsprechenden Test nicht ermittelt werden.
-        Die Vorteile dieses Systems werden dennoch deutlich:
-        Eine aufwändige Vorbereitung der Inhalte ist nicht notwendig.
+        Die Migration kann anschließend über cms2cms gestartet werden.
+        Der Vorteil dieses Systems ist,
+        dass eine aufwändige Vorbereitung der Inhalte nicht notwendig ist.
         Die speziellen Plugins erlauben prinzipiell außerdem eine Behandlung spezieller
         Eigenarten jedes unterstützten \glspl{cms}.
         Die Nachteile treten allerdings ebenso hervor: Ohne eine vorangegangene Strukturierung,
         müssen die Inhalte womöglich später im Zielsystem passend strukturiert werden,
         was ebenso aufwendig ist.
         Außerdem unterstützt cms2cms nur gewisse Systeme,
-        wozu bspw. {\imperia} nicht zählt.
+        wozu {\imperia} bspw. nicht zählt.
         Eine Transformation basierend auf der \gls{html}-Repräsentation einer Webseite wird zwar angeboten,
         ist aber nicht vollständig unterstützt.
         Genauso können die Inhalte eines Systems nicht durch Drittsysteme abgerufen werden.
@@ -115,7 +106,8 @@
         \cite{page:pageRank}.
         Das \gls{wccs} ist selbst kein Werkzeug zum Web Structure Mining,
         da es weder einen Ranking-Algorithmus implementiert
-        noch einen Webseitennutzer imitiert, der verschiedenen Links folgt.
+        noch einen Webseitennutzer imitiert, der verschiedenen Links folgt
+        und so automatische neue Webseiten auffindet.
         Stattdessen analysiert es nur vorgegebene Seiten.
         Da es das Netzwerk der klassifizierten Seiten in seiner Graphdatenbank speichert,
         taugt seine Datenbasis prinzipiell aber für die Ermittlung eines Rangs
@@ -124,24 +116,23 @@
         Beim Web Usage Mining wird das Verhalten eines Webseitenbesuchers analysiert,
         um darin Muster zu finden, Cluster zu bilden und darauf basierend z. B.
         einigen Besuchern spezielle Inhalte auf einer Webseite anzuzeigen.
-        Dazu werden zum Beispiel Log-Dateien analysiert oder spezielle JavaScript-Funktionen
+        Dazu werden Log-Dateien analysiert oder spezielle JavaScript-Funktionen
         in Seiten eingebaut, die das Verhalten des Besuchers aufzeichnen
         \cite[Part III]{markov:webMining}.
         Das \gls{wccs} betreibt diese Form des Web Minings in keinster Weise
-        und bietet durch seine Klassifikationen hierfür auch keine relevanten Informationen,
-        da dieser Aspekt beim Design des Systems keine Rolle spielte.
+        und bietet durch seine Klassifikationen hierfür auch keine relevanten Informationen.
 
         Das Web Content Mining ist die größte Herausforderung.
         Es versucht Korrelationen zwischen den Inhalten von Webseiten zu finden
-        und aus ihnen Wissen zu beziehen.
+        und aus ihnen neues Wissen zu ziehen.
         Dadurch sollen Informationen im Internet besser gefunden werden können
         und Suchergebnisse auf mehr als dem Vorhandensein eines Suchbegriffes basieren.
         Dazu wendet es Techniken des Data Minings,
         des Text Minings und des Knowledge Discoveries auf Webdokumente an,
         wobei oftmals Systeme zum maschinellen Lernen zum Einsatz kommen.
         Zwei wichtige Ansätze sind Classification und Clustering.
-        Beim ersten werden dem System klassifizierte Objekt präsentiert,
-        woraufhin das System versucht nicht klassifizierte Objekte einzuordnen.
+        Beim ersten werden dem System klassifizierte Objekt präsentiert.
+        Anschließend versucht es eigenständig nicht klassifizierte Objekte einzuordnen.
         Beim Clustering versucht das System hingegen eigenständig
         Übereinstimmungen und gemeinsame Muster unter Objekten zu finden
         und so Gruppen zu bilden
@@ -151,16 +142,16 @@
         Muster auf einer Webseite aufdeckt und Inhalte strukturiert.
         Durch die Struktur der Datenhaltung sind außerdem weiterführende Informationen ableitbar.
         Die Eignung des \glspl{wccs} als vollständiges Web Content Mining Werkzeugs ist
-        aber explizit nicht gegeben.
+        aber nicht gegeben.
         Zum einen findet es nur Muster, die den Regeln exakt entsprechen.
         Des Weiteren ist es weniger mächtig als Werkzeuge,
         die auf maschinelles Lernen setzen.
-        Beides ist aber durch den angedachten Einsatzzweck des \glspl{wccs} begründet.
+        Beide Einschränkungen sind durch den angedachten Einsatzzweck des \glspl{wccs} begründet.
         Die Idee ist für eine definierte Menge an Webseiten ein Modell zu entwickeln,
         anhand dessen das \gls{wccs} dann eine Klassifizierung dieser Seiten durchführt.
-        Das "`Training"' des System findet also für eine sehr kleine Teilmenge des \glspl{www} statt,
+        Das "`Training"' des Systems findet also für eine sehr kleine Teilmenge des \glspl{www} statt,
         wie zum Beispiel einigen Seiten der Fakultät \gls{ksw}.
-        Aber explizit nicht für das gesamte \gls{www}.
+        Aber nicht für das gesamte \gls{www}.
         Dadurch ist es nur auf wenigen Seiten anwendbar,
         kann aber sehr genau für die speziellen Anforderungen dieser Seiten instrumentiert werden.      
 
@@ -173,11 +164,6 @@
         Im ersten Fallbeispielen hätte diese Verwendungsart zum Beispielt aufgedeckt,
         dass bei zwei Kontakten die E-Mail-Adresse inkorrekt ist,
         da sie kein vorangestelltes \texttt{mailto:} enthalten.
-        Eine solche Auswertung muss bisher noch manuell anhand der Klassifikation
-        oder durch Datenbankabfragen geschehen.
-        Eine Erweiterung des \glspl{wccs} und seiner Schnittstellen,
-        sodass diese Funktion allgemein nutzbar ist,
-        ist aber einfach zu realisieren.
         Andere Werkzeuge zur Validierung von \gls{html}-Dokumenten
         beschränken sich auf die Einhaltung von Standards des
         \glspl{w3c}\footnote{vgl. \url{https://validator.w3.org/} und \url{https://jigsaw.w3.org/css-validator/}}.

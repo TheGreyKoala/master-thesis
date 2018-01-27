@@ -1,34 +1,34 @@
 \subsection{Kennzahlen}
     Nach jeder Klassifizierung wurden einige Kennzahlen des
-    resultierenden Graphs ermittelt.
+    resultierenden Graphen ermittelt.
     Dies geschah im Fall einzelner Datenbanken und im Fall
     einer gemeinsamen.
     Zum besseren Verständnis der präsentierten Zahlen wird
     zunächst die konkrete Struktur der Graphen beschrieben.
 
-    \paragraph{Struktur eines Graphs}
+    \paragraph{Struktur eines Graphen}
     Abbildung \ref{image:findingTeachersFiguresDbModel1}
     und \ref{image:findingTeachersFiguresDbModel2} zeigen,
     wie der Graph einer Klassifikation in diesem Fallbeispielt aufgebaut ist.
     Beide sind durch den \texttt{Content}-Knoten mit der Klasse \texttt{Teacher} verbunden.
     Referenzen sind in den Abbildungen nicht zu sehen,
     da sie lediglich Kanten von einem Knoten zu einer {\resource} darstellen
-    und die Darstellungen unnötig vergrößern würden.
+    und die Abbildungen unnötig vergrößern würden.
     Anhand des {\classificationModel}s und der beiden Abbildungen ist
-    offensichtlich, welche der zu sehenden Knoten Referenzen besitzen.
+    offensichtlich, welche Knoten Referenzen besitzen.
     Bei {\collectionFeature}s ist immer ein stellvertretendes Element zu sehen.
 
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/findings/case-study-1/dbmodel/dbmodel1.png}
-        \caption{Struktur des Graphs einer Seite über Lehrende und Betreuende (1)}
+        \caption{Struktur des Graphen einer Seite über Lehrende und Betreuende (1)}
         \label{image:findingTeachersFiguresDbModel1}
     \end{figure}
 
     \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/findings/case-study-1/dbmodel/dbmodel2.png}
-        \caption{Struktur des Graphs einer Seite über Lehrende und Betreuende (2)}
+        \caption{Struktur des Graphen einer Seite über Lehrende und Betreuende (2)}
         \label{image:findingTeachersFiguresDbModel2}
     \end{figure}
 
@@ -36,7 +36,7 @@
     Die folgenden Tabellen präsentieren die gesammelten Kennzahlen.
     Sie sind folgendermaßen aufgebaut:
     Die erste Spalte benennt die Kennzahl.
-    Dann folgen vier Spalten, die den Wert der Kennzahl für die einzelnen Sites enthalten.
+    Dann folgen vier Spalten, die den Wert der Kennzahl für die einzelnen Portale enthalten.
     Diese Zahlen werden in der Spalte "`Summe"' aufaddiert,
     um sie mit der letzten Spalte zu vergleichen.
     Diese gibt den Wert der Kennzahl für den Fall der gemeinsam genutzten Datenbank an.
@@ -99,7 +99,7 @@
     Auch über die Kanten der Graphen lassen sich einige Zahlen ermitteln.
     Tabelle \ref{table:findingTeachersFiguresEdgesByLabel} beginnt dazu
     mit der Aufschlüsselung der Kanten nach ihrem Label.
-    Die Kennzahl \texttt{References} spiegelt die Anzahl der Referenzen innerhalb der Klassifikation wieder.
+    Die Kennzahl \texttt{References} spiegelt die Anzahl der Referenzen innerhalb einer Klassifikation wieder.
 
     \begin{table}[htb]
         \centering
@@ -123,7 +123,7 @@
     Die Beziehung eines \texttt{Content}-Knotens zu einem \texttt{Text}-Knoten
     zeigt die Übersicht nicht,
     da sie äquivalent zum zuvor gezeigten \texttt{Reads}-Label ist.
-    Diese Tabelle gibt unter anderem Aufschluss über die Zahl der Referenzen
+    Tabelle \ref{table:findingsTeachersFiguresEdgesByStartEndNodeLabel} gibt dadurch unter anderem Aufschluss über die Zahl der Referenzen
     einer Seite bzw. von {\contentFeature}s.
 
     \begin{table}[htb]

@@ -1,45 +1,40 @@
 \subsection{Übertragbarkeit eines {\classificationModel}s}
-    Ein Ziel der Fallbeispiele war herauszufinden,
-    wie gut sich ein anhand einer einzelnen konkreten Seite
+    Ein Ziel der Fallbeispiele ist herauszufinden,
+    wie gut sich ein anhand einer einzelnen Webseite
     erstelltes {\classificationModel} auf andere Seiten anwenden lässt,
-    die augenscheinlich konzeptionell identisch aufgebaut sind.
+    die augenscheinlich identisch aufgebaut sind.
     Je besser diese Übertragbarkeit ist,
     desto höher ist der Nutzen der Automatisierung.
-
     Eine erste naheliegende Erkenntnis ist,
     das Klassen iterativ zu definieren sind,
     was schon bei der Entwicklung des {\classificationModel}s
     für das Portal \gls{babw} deutlich wurde.
     Ausnahmen innerhalb einer Webseite werden oft erst
-    bei der Prüfung des Klassifikation entdeckt,
+    bei der Prüfung der Klassifikation entdeckt,
     woraufhin die Ausnahme analysiert und das Modell
     entsprechend angepasst werden muss.
     Ein Beispiel ist die Faxnummer, die nur bei einem Mitarbeiter auftritt,
     deren Erfassung aber auch eine Anpassung des Selektors der Telefonnummer
     erforderlich machte.
-
     Diese Erkenntnis wiegt natürlich noch schwerer,
-    wenn eine Menge an Klassen auf viele verschiedene Seiten angewandt werden soll.
+    wenn eine Menge an Klassen auf viele Webseiten angewandt werden soll.
     Wie das erste Fallbeispiel zeigt,
     können auch vermeintlich sehr ähnliche Seiten deutliche Unterschiede
-    im konzeptionellen Modell und in der HTML-Struktur haben.
+    im konzeptionellen Modell und in der \gls{html}-Struktur besitzen.
     Diese können nicht alle vorausgedacht werden.
     Es müssen demnach mehrere Webseiten bei der Entwicklung der Klassendefinitionen
     betrachtet werden.
     Andernfalls werden Informationen nicht klassifiziert oder es kommt zu unerwarteten Ergebnissen.
-    Beispiele sind der Verweis auf die Detailseite eines Mitarbeiters
+    Beispiele hierfür sind der Verweis auf die Detailseite eines Mitarbeiters
     und die doppelt klassifizierten Mitarbeiter im Portal \gls{bapvs}.
     Deutlich wurde aber auch, dass viele und zu große Unterschiede
     die Auflösung eines Konfliktes sehr komplex machen.
-
     Diese Überlegungen lassen die Schlussfolgerung zu,
-    dass die Erstellung eines {\classificationModel}s,
-    welches auf viele Webseiten passt,
+    dass die Erstellung eines allgemeingültigen {\classificationModel}s
     aufgrund der großen Unterschiede eine komplexe Aufgabe ist.
     Eine kritische, aber berechtigte Frage ist deshalb,
     wie groß der Nutzen durch die Automatisierung tatsächlich ist.
-    Vor allem dann, wenn zur Erfassung einiger Inhalte Anpassungen an der Seite notwendig sind,
-    was im nächsten Kapitel behandelt wird.
+    Vor allem dann, wenn zur Erfassung einiger Inhalte Anpassungen an der Seite notwendig sind.
     Dem ist entgegenzusetzen, dass die Effektivität durch ein anderes Vorgehen beim
     Schreiben der Klassendefinitionen gesteigert werden kann.
     Eine solche Alternative zum Versuch alle Seiten durch ein Modell abzudecken
@@ -47,12 +42,12 @@
     Zunächst wird ein Modell für eine Webseite geschrieben,
     sodass es diese korrekt und vollständig klassifiziert.
     Dieser Schritt ist einfach und bringt zweifelsfrei Vorteile,
-    was bei der initialen Klassifizierung der Mitarbeiter des Portals \texttt{BaBw} ersichtlich wurde.
+    was bei der initialen Klassifizierung der Mitarbeiter des Portals \gls{babw} ersichtlich wurde.
     Dann sollte das {\classificationModel} auf eine weitere Seite angewandt werden und
     das Ergebnis geprüft und angepasst werden,
     bis diese zweite Seite korrekt klassifiziert wird.
     Die Klassifizierung findet in diesem Schritt ausschließlich auf der zweiten Seite statt,
-    sodass die erste bereits korrekt klassifizierte Seite unberührt bleibt.
+    sodass die erste Klassifikation unberührt bleibt.
     Dieser zweite Schritt wird für alle Seiten wiederholt.
     Dieses Vorgehen erlaubt die Wiederverwendung global gültiger Klassendefinitionen
     und erfordert nur die Anpassung einzelner Klassen an die jeweiligen Anforderungen.
@@ -60,7 +55,6 @@
     Es sollte außerdem nicht die Möglichkeit missachtet werden,
     bewusst einzelne falsche Klassifizierungen in Kauf zu nehmen
     und diese über das {\annotatorPlugin} im Nachhinein zu korrigieren.
-
     Nicht erfasste Features und unzutreffende Selektoren können
     aber auch auf Fehler in der Webseite hinweisen.
     Wie z. B. die E-Mail-Adresse ohne vorangestelltes \texttt{mailto}

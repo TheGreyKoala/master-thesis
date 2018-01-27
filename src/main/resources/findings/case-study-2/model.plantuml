@@ -5,7 +5,7 @@ hide empty methods
 left to right direction
 
 class NewsOverview {
-    news: List<FernUniInternalLink>
+    news: List<News>
     nextPageLink: FernUniInternalLink
     previousPageLink: FernUniInternalLink
 }

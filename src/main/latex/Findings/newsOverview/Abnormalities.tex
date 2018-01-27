@@ -4,18 +4,17 @@
     Aufgefallen ist aber das Ergebnis des {\wordpressCrawler}s,
     der zum Auffinden der Seiten und zum Starten der Klassifizierung
     in beiden Fallbeispielen Anwendung fand.   
-
-    Jede Meldung ist in {\wordpress} ein Beitrag der Kategorie "`Aktuelles"'.
+    Jede Meldung ist in {\wordpress} ein Post der Kategorie "`Aktuelles"'.
     Die Übersichtsseite dieser Kategorie enthält eine {\wordpress}-eigene
-    Funktion\footnote{vgl. \url{https://codex.wordpress.org/Pagination}},
+    Funktion \cite[Kapitel "`Pagination"']{wordpress:codex},
     durch die nur eine Teilmenge der Einträge der Kategorie eingezeigt werden.
     Ihre Parameterbelegung zieht die Funktion dynamisch aus einer Erweiterung der
     \gls{url} der Kategorieseite.
     Ein Webseitenbesucher kann so durch die Meldungen navigieren.
     {\wordpress} besitzt also keine dedizierten Beiträge oder Seiten
-    für die einzelnen Nachrichtenseiten einer Site.
+    für die einzelnen Nachrichtenseiten eines Portals.
     Stattdessen wird eine parametrisierbare Kategorieseite verwendet.
     Der {\wordpressCrawler} findet deshalb nur die allgemeine Übersichtsseite der Kategorie "`Aktuelles"',
-    die den ersten Block Meldungen enthält.
-    Weitere Nachrichtenseiten findet er hingegen nicht,
-    da {\wordpress} ihn nicht über deren Existenz informiert.
+    die den ersten Block an Meldungen enthält.
+    Weitere Nachrichtenseiten findet er nicht,
+    da {\wordpress} ihn nicht über die Aufteilung informiert.

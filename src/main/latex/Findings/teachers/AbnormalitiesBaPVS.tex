@@ -1,4 +1,4 @@
-\subsection{Unregelmäßigkeiten in der Klassifikation des Portals "`\acrshort{bapvs}"'}
+\subsection{Unregelmäßigkeiten in der Klassifikation des Portals \acrshort{bapvs}}
     \label{section:findingsTeachersAbnormalitiesBaPVS}
     Die Klassifikation des Lehrgebietes \gls{bapvs}
     weist ebenfalls einige Unregelmäßigkeiten auf,
@@ -15,24 +15,24 @@
         style=html
     ]{../resources/findings/case-study-1/bapvs/teacher.html}
 
-    Im Vergleich zur erwarteten Struktur\footnote{vgl. Listing \ref{listing:findingsTeachersHtmlSource}} wiederholt sich
+    Im Vergleich zur erwarteten Struktur wiederholt sich
     das \texttt{div}-Element mit der Klasse \texttt{grid},
     weshalb der verwendete Selektor \texttt{section\#content div.grid}
     betroffene Mitarbeiter doppelt erfasst.
-    Im Fall von zwei Mitarbeitern kann das System bei der zweiten Klassifizierung
-    (beim inneren \texttt{div}-Element) kein Bild finden,
+    Bei der zweiten Klassifizierung
+    (beim inneren \texttt{div}-Element) kann das System kein Bild finden,
     weshalb sie von der ersten abweicht und ein zweiter \texttt{Teacher}-Knoten angelegt wird.
     Diese teilen sich aber die restlichen Informationen,
     also Name, Lehrgebiet und Kontaktinformationen.
-    Im dritten Fall besitzt der Mitarbeiter kein Bild,
+    Der dritte betroffene Mitarbeiter besitzt kein Bild,
     weshalb der \texttt{Teacher}-Knoten vollständig wiederverwendet werden kann.
 
     \paragraph{Mitarbeiter ohne Lehrgebiet}
     Das Lehrgebiet eines einzelnen Mitarbeiters wurde vom System nicht erfasst.
-    Anders als beim Lehrgebiet \gls{babw} ist der Grund allerdings,
+    Anders als beim Portal \gls{babw} ist der Grund allerdings,
     dass vor dem Lehrgebiet der Text "`Auskunft erteilt auch:"' platziert ist.
     Der Selektor \texttt{div.team-member-des > p > a:first-child} findet
-    kein Lehrgebiet, weil er nach einem \texttt{a}-Element sucht,
+    das Lehrgebiet nicht, weil er nach einem \texttt{a}-Element sucht,
     welches das erste Kindelement seines Vaterelementes ist.
     Eine naheliegende Lösung ist die Änderung des Selektors,
     sodass er mit \texttt{a:first-of-type} endet.
@@ -40,12 +40,12 @@
     was auf Basis des Portals \gls{babw} geschah,
     wurde sich allerdings bewusst gegen diese Variante entschieden.
     Bei dem Mitarbeiter im \gls{babw}, für den kein Lehrgebiet erfasst
-    wurde\footnote{vgl. Kapitel \ref{section:findingsTeachersAbnormalitiesBabw}},
+    wurde,
     hätte dieser Selektor nämlich dazu geführt,
     dass seine E-Mail-Adresse als Lehrgebiet erkannt wird.
 
     \paragraph{Falscher Text als Name klassifiziert}
-    Der Name eines gewissen Mitarbeiters ist laut Klassifikation
+    Der Name eines Mitarbeiters ist laut Klassifikation
     "`Auskunft erteilt auch:"'.
     Der Grund ist, dass dieser Text in einem \texttt{strong}-Element steht,
     welches vor dem Namen auftaucht.
@@ -62,7 +62,7 @@
     \paragraph{56 Mitarbeiter ohne Namen}
     Des Weiteren wurde für eine Vielzahl der Mitarbeiter kein Name erkannt,
     da sie weder in einem \texttt{strong} noch einem \texttt{b} Element stehen.
-    Stattdessen befinden sie sich wie die Telefonnummer als reiner Text im Element
+    Stattdessen befinden sie sich wie die Telefonnummer als reiner Text im \texttt{p}-Element
     oder in einem \texttt{a}-Element.
 
     \paragraph{Inkorrekte Telefonnummern}
@@ -73,9 +73,9 @@
     der auf dem Seitenquelltext ausgeführt wird.
     Anders als beim Portal \gls{babw} existieren in \gls{bapvs} Mitarbeiter,
     bei denen die Telefonnummer weder die letzte Angabe ist
-    noch durch einen physischen Zeilenumbruch im Quelltext gefolgt wird.
+    noch durch einen Zeilenumbruch im Quelltext beendet wird.
     Der Selektor der Telefonnummer erkennt sie deshalb
-    nicht\footnote{vgl. Kapitel \ref{section:findingsTeachersClassificationModel}}.
+    nicht.
 
     \paragraph{Unterschiede im konzeptionellen Modell der Seite}
     Im Vergleich zur klassifizierten Seite des Portals \gls{babw}
@@ -101,15 +101,16 @@
 
     Bei der Bestimmung des eindeutigen Selektors,
     wird die Position des klassifizierten Textes in der Eigenschaft
-    \texttt{innerText} als Versatz im Startelement
+    \texttt{innerText} gesucht und als Versatz im Startelement
     verwendet\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceClassification}}.
     In den betroffenen Fällen befindet sich zwischen der Telefonnummer
     und der E-Mail-Adresse nur ein \texttt{br}-Element,
     aber kein physischer Zeilenumbruch im
     Seitenquelltext\footnote{vgl. Listing \ref{listing:findingsTeachersHtmlSource}}.
     Die Telefonnummer, die über einen {\xpathSelector} ermittelt wird,
-    enthält deshalb zu viele Informationen (siehe oben),
-    die wiederum nur durch ein Leerzeichen, aber nicht durch einen Zeilenumbruch getrennt sind.
+    enthält deshalb zu viele Informationen (siehe oben).
+    Das \texttt{br}-Element wird über die verwendete Methode \texttt{document.evaluate} nicht zu einen Zeilenumbruch übersetzt.
+    Die einzelnen Angaben in der Telefonnummer sind stattdessen nur durch ein Leerzeichen getrennt.
     In \texttt{innerText} wird das \texttt{br}-Element aber zu einem Umbruch,
     weshalb der klassifizierte Text in dieser Eigenschaft nicht gefunden wird.
     Als Versatz wird deshalb $-1$ gespeichert.

@@ -109,7 +109,7 @@
 <node TEXT="Performance von Graph DBs belibt auch bei gr&#xf6;&#xdf;eren gleich" ID="ID_1182572391" CREATED="1515324784001" MODIFIED="1515324796714"/>
 <node TEXT="[Kapitel 11, Seite 111-112] Traversierung schnell, da Beziehungen nicht berechnet werden m&#xfc;ssen (RDBMS), sondern persistiert wird" ID="ID_407028052" CREATED="1515326090546" MODIFIED="1515327707600"/>
 <node TEXT="Queries nur auf Teilgraph" ID="ID_462084940" CREATED="1515324810049" MODIFIED="1515324822258"/>
-<node TEXT="Ausf&#xfc;hrungszeit nur abh&#xe4;ngig von Teilgraph, der traverseirt werden muss, nicht vond er Gr&#xf6;&#xdf;e des ganzen Graphs" ID="ID_319731029" CREATED="1515324822449" MODIFIED="1515324872073"/>
+<node TEXT="Ausf&#xfc;hrungszeit nur abh&#xe4;ngig von Teilgraph, der traverseirt werden muss, nicht vond er Gr&#xf6;&#xdf;e des ganzen Graphen" ID="ID_319731029" CREATED="1515324822449" MODIFIED="1515324872073"/>
 </node>
 <node TEXT="Flexibility (Flexibles Datenmodell)" ID="ID_651226041" CREATED="1515324460123" MODIFIED="1515324559316">
 <node TEXT="Graphen k&#xf6;nnen leicht erweitert werden" ID="ID_1253629933" CREATED="1515325019833" MODIFIED="1515325028481"/>

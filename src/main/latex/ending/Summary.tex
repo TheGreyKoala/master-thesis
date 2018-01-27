@@ -1,11 +1,10 @@
 \section{Zusammenfassung}
-    Das Ziel dieser Arbeit war die Konzeption und Entwicklung
-    eines Systems zur automatischen Klassifizierung der Inhalt
+    Das Ziel dieser Arbeit ist die Konzeption und Entwicklung
+    eines Systems zur automatischen Klassifizierung der Inhalte
     von Webseiten, was unter anderem eine domänenspezifische
     Sprache zur Instrumentierung des Systems umfasst.
     Der Titel dieses Systems ist
     "`Webpage Content Classification System"' (WCCS).
-
     Motiviert ist dieses Ziel durch die Modernisierung des
     Internetauftrittes der {\fernUni},
     die eine Migration von Inhalten von {\wordpress} zu
@@ -16,10 +15,10 @@
     Mithilfe des \glspl{wccs} sollen die Inhalte in einer vorbereitenden
     Maßnahme strukturiert werden, um diesem Problem zu begegnen.
 
-    Eine wichtige Komponente des \gls{wccs} ist eine auf Xtext basierende
-    domänenspezifische Sprache namens "`Web Content Class Definition Language"' (WCCDL).
+    Eine wichtige Komponente des \glspl{wccs} ist eine auf Xtext basierende
+    domänenspezifische Sprache namens "`Webpage Content Modeling Language"' (WCML).
     Diese erlaubt die Definition von fachlichen Seiten-, Inhalts- und
-    Referenzklassen, in die die Inhalte eingeordnet werden.
+    Referenzklassen, in die Webseiten, Inhalte und Referenzen eingeordnet werden.
     Definierbare Features dieser Klassen erlauben die Schaffung feingranularer
     und hierarchischer Klassifikationen.
     Zur Einordnung von Inhalten in Klassen verwendet das System
@@ -32,22 +31,20 @@
     Programme in dieser Sprache werden zu technischen
     Konfigurationsdateien für das Klassifizierungssystem übersetzt.
 
-    Das \gls{wccdl} klassifiziert eine Webseite auf Basis ihrer
-    \gls{html}-Repräsentation und verwendet Browserautomatisierung
-    zur Auswertung der Selektoren.
-
+    Das \gls{wccs} klassifiziert eine Webseite auf Basis ihrer
+    \gls{html}-Repräsentation und verwendet einen Webbrowser zur Auswertung der Selektoren.
     Klassifikationen können durch weitere Komponenten des \glspl{wccs}
     als Webannotationen auf der klassifizierten Webseite visualisiert werden,
     was einer Sichtung, ersten Prüfung und Durchführung kleinerer
-    Korrekturen der Klassifikation dient.
+    Korrekturen dient.
 
     Das \gls{wccs} speichert Klassifikationen in einer Graphdatenbank,
-    wodurch die Referenzen zwischen Seiten und zu sonstigen {\resources}
+    wodurch die Referenzen zwischen Webseiten und anderen {\resources}
     im \gls{www} leicht abzubilden sind.
     Darüber hinaus bietet eine Graphdatenbank Vorteile bei der Modellierung,
     Speicherung und Abfrage von Klassifikationen.
-    Durch die Möglichkeit Knoten des Graphs in mehreren Klassifikationen
-    zu verwenden, entsteht das Potential leicht weiterführende Erkenntnisse
+    Durch die Möglichkeit Knoten des Graphen in mehreren Klassifikationen
+    zu verwenden, entsteht das Potential weiterführende Erkenntnisse
     aus den Informationen zu ziehen.
 
     Anwendung hat das \gls{wccs} bei zwei Fallbeispielen der {\fernUni} gefunden,

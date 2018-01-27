@@ -13,6 +13,9 @@
 \usepackage[automark]{scrlayer-scrpage}
 \pagestyle{scrheadings}
 
+% Break links at hypens (must be loaded before biblatex and hyperref)
+\usepackage[hyphens]{url}
+
 % Bibliography
 \usepackage[backend=biber,natbib=true,style=numeric-comp]{biblatex}
 \addbibresource{../resources/literature.bib}
@@ -282,8 +285,10 @@
 \usepackage[
 	pdftex,
 	hypertexnames=false,
-	colorlinks=true,
-	ocgcolorlinks
+	hidelinks=true
+	%colorlinks=true,
+	%ocgcolorlinks,
+	breaklinks=true
 ]{hyperref}
 
 \hypersetup{
@@ -297,6 +302,10 @@
 		{FernUni in Hagen}
 	}
 }
+% Uglifies fonts of links. Therefore we don't use it.
+% But ocgcolorlinks in hyperref prevents urls from being line-broken.
+% Therefore we just don't colour links at all.
+%\usepackage[ocgcolorlinks]{ocgx2}
 
 \parindent0mm
 
