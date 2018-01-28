@@ -12,13 +12,6 @@
     die dem Format von Annotator \cite[Kapitel "`Annotation format"' ]{annotator:documentation} folgen.
     Der Service ergänzt aber einige Angaben.
     Das Schema einer Annotation zeigt Listing \ref{listing:annotationServiceAnnotationFormat}.
-
-    \lstinputlisting[
-        label=listing:annotationServiceAnnotationFormat,
-        caption=Das Format einer Annotation,
-        style=json
-    ]{../resources/annotation-service/annotation.json}
-
     Jede Annotation spiegelt genau ein Feature der Klassifikation wider.
     Die ID einer Annotation wird vom {\annotationService} automatisch
     generiert.
@@ -33,6 +26,12 @@
     Die Eigenschaft \texttt{wccs} ist nicht durch Annotator vorgegeben,
     sondern stellt eine Ergänzung des \glspl{wccs} dar.
     Es speichert die Klasse und Art (Inhalt oder Referenz) eines Features.
+
+    \lstinputlisting[
+        label=listing:annotationServiceAnnotationFormat,
+        caption=Das Format einer Annotation,
+        style=json
+    ]{../resources/annotation-service/annotation.json}
 
     \paragraph{Bereitstellung von Informationen über die Schnittstelle}
     Um der Annotator Storage API \cite[Kapitel "`Storage"' ]{annotator:documentation} zu genügen,

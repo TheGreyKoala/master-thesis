@@ -58,7 +58,7 @@
     \ref{section:solutionDetailPersistenceDataModelExample} betrachtet.
     Zunächst wird für diesen Knoten festgestellt,
     dass ein \texttt{Text}-Knoten mit dem passenden Inhalt existiert und wiederverwendet werden kann.
-    Ebenso existiert bereits ein passender \texttt{Content}-Knoten (\texttt{c1}) und eine \texttt{Reads}-Beziehung (\texttt{rel4}) zwischen diesen Knoten.
+    Ebenso existieren bereits ein passender \texttt{Content}-Knoten (\texttt{c1}) und eine \texttt{Reads}-Beziehung (\texttt{rel4}) zwischen diesen Knoten.
     Am Ende stellt der Algorithmus fest, dass sowohl der \texttt{Page}-Knoten als auch
     die Beziehung zu \texttt{c1} nicht neu angelegt werden müssen.
     Insgesamt hat der Algorithmus also die gesamte Klassifikation abgearbeitet
@@ -70,7 +70,7 @@
     \texttt{pageNode},
     \texttt{referenceRelationship},
     \texttt{resourceNode},
-    \texttt{textNode} und
+    \texttt{textNode} und nicht zuletzt
     \texttt{textRelationship} in den Listings
     \ref{listing:storeClassificationPageFlow} und
     \ref{listing:storeClassificationContentReferenceFunctions}
@@ -114,7 +114,7 @@
     Diese Eigenschaft ist nützlich für identische Inhalte
     verschiedener Webseiten, wie Kopf- oder Fußbereiche.
     Diese brauchen dann nur einmalig gespeichert werden.
-    Außerdem macht der Graph diese Überschneidungen explizit wodurch sie leicht
+    Außerdem macht der Graph diese Überschneidungen explizit, wodurch sie leicht
     ermittelt werden können.
     % TODO: Was ist mit Resource Knoten? Die doch auch. Steht das irgendwo?
 
@@ -130,7 +130,7 @@
         was anhand eines Beispiels deutlich wird.
         Angenommen \texttt{c3} existiert identisch auf den Seiten \texttt{p} und \texttt{p'}.
         Auf der zweiten Seite besitzt \texttt{c3} ebenfalls ein Feature,
-        welches \texttt{c5} exakt gleich ist.
+        welches \texttt{c5} exakt gleicht.
         Allerdings heißt es auf dieser Seite \texttt{c5'}.
         Eine Wiederverwendung von \texttt{c3} hätte in diesem Fall zur Folge,
         dass zwei Kanten zwischen \texttt{c3} und \texttt{c5} existieren würden,
@@ -182,7 +182,7 @@
     \paragraph{Abschließende Operationen}
     Von den zu Beginn dieses Kapitels beschriebenen Arten einer Aktualisierung wurde ein Fall bisher nicht betrachten.
     Das ist die Änderung der Klasse einer Seite.
-    Anders als Features besitzen Seiten in der Datenbank eine global gültige Klasse,
+    Seiten besitzen in der Datenbank eine global gültige Klasse,
     weshalb keine Kopie angelegt werden muss.
     Auch dann nicht, wenn die Seite Ziel verschiedener Referenzen ist,
     da die Klasse einer Referenz in einer Kante gespeichert wird.
@@ -190,7 +190,7 @@
     Nach der Ausführung des beschriebenen Algorithmus kann die Datenbank
     Teilgraphen enthalten, die von keinem \texttt{Page}-Knoten erreicht werden können.
     Sie werden also von keiner Klassifikation mehr benötigt.
-    Solche Bereiche verletzen nicht die Konsistenz irgendeiner Klassifikation,
+    Solche Bereiche verletzen weder die Integrität noch die Konsistenz irgendeiner Klassifikation,
     sind aber obsolet, weshalb sie automatisch gelöscht werden.
     Abschließend wird außerdem ein Knoten für die Site sowie eine Kante zum \texttt{Page}-Knoten sichergestellt.
 
@@ -205,7 +205,9 @@
     Funktionen \texttt{textNode} und \texttt{resourceNode} erzeugen simple Anweisungen,
     die nach einem \texttt{Text}-Knoten mit spezifischem Inhalt bzw.
     einem \texttt{Resource}-Knoten mit einer gewissen \gls{url} suchen,
-    und bei Bedarf anlegen:
+    und bei Bedarf anlegen.
+    Die gesuchten Werte speichern die Objekte \verb+$t+ und \verb+$r+,
+    die der Datenbank mit den Anweisungen übergeben werden.
 
     \begin{lstlisting}[
         style=cypher,
@@ -215,9 +217,6 @@
 MERGE (t:Text {value: $t.value}) // Merge a Text node
 MERGE (r:Resource {url: $r.destination}) // Merge a Resource node
     \end{lstlisting}
-    
-    Die gesuchten Werte speichern die Objekte \verb+$t+ und \verb+$r+,
-    die der Datenbank mit den Anweisungen übergeben werden.
 
     Für jeden \texttt{Content}-Knoten wird die folgende Anweisung erzeugt,
     wobei die speziellen Informationen jedes Knotens im Objekt \verb+$c+
@@ -232,14 +231,13 @@ MERGE (c:Content {checksum: $c.checksum, class: $c.class})
     \end{lstlisting}
 
     Die Anweisung sucht nach Übereinstimmungen mit vorhandenen \texttt{Content}-Knoten,
-    wobei sie sicherstellen muss, dass dieses auch die {\childFeature}s beinhaltet.
+    wobei sie sicherstellen muss, dass das auch die {\childFeature}s beinhaltet.
     Wie oben beschrieben muss sie nämlich auch bei einer Abweichung in dieser Menge einen neuen Knoten anlegen.
     Dazu wird im Algorithmus  eine Prüfsumme über das gesamte Feature inkl. seiner {\childFeature}s gebildet,
     die dann als Suchkriterium der \texttt{MERGE}-Anweisung dient.
     Ausgenommen von der Prüfsumme ist lediglich der eindeutige Selektor eines Features,
     da er in der eingehenden Kante des \texttt{Content}-Knotens gespeichert wird
     und deshalb nicht in allen Features übereinstimmen muss.
-
     Andere Methoden, um das mit der Prüfsumme verfolgte Ziel zu erreichen,
     sind zu komplex und ineffizient, um praktikabel zu sein.
     Der Grund dafür ist die eindimensionale Natur einer \texttt{MERGE}-Anweisung.
@@ -258,9 +256,9 @@ MERGE (c:Content {checksum: $c.checksum, class: $c.class})
     Wird zum Beispiel \texttt{c5} gelöscht, sähe die Kette folgendermaßen aus:
     \texttt{c3 -> c4 -> c3}.
     Die \texttt{MERGE}-Anweisung würde dieses Muster finden und keine Aktionen veranlassen,
-    sodass die Löschung von \texttt{c5} im Graphen widerspiegelt wird.
+    sodass die Löschung von \texttt{c5} im Graphen widergespiegelt wird.
     Um diesen Fall abzufangen, müssten die Knoten der {\childFeature}s einen Ring bilden.
-    Aus Sicht der \texttt{MERGE}-Answeisung wäre die Position der Knoten in diesem Ring
+    Aus Sicht der \texttt{MERGE}-Anweisung wäre die Position der Knoten in diesem Ring
     für eine Übereinstimmung allerdings relevant.
     Insgesamt ist dieser Ansatz nicht sinnvoll umsetzbar,
     weshalb sich für die Einführung einer Prüfsumme entschieden wurde.

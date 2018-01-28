@@ -7,7 +7,7 @@
     Dazu verwendet er einen
     einfach Bottom-Up-Algorithmus, durch den alle Knoten und Beziehungen
     in der Datenbank erstellt werden.
-    Dieser ist in den Listing \ref{listing:storeClassificationPageFlow} und
+    Dieser ist in den Listings \ref{listing:storeClassificationPageFlow} und
     \ref{listing:storeClassificationContentReferenceFunctions} skizziert.
     Ersteres stellt den Ablauf auf einer höheren Ebene dar, wohingegen
     das zweite Listing die Funktionen zum Speichern von Features ergänzt.
@@ -23,24 +23,17 @@
     zunächst die Teilgraphen für alle Features der Seite angelegt.
     Die entsprechenden Funktionen werden gleich anhand Listing \ref{listing:storeClassificationContentReferenceFunctions} erläutert.
     Anschließend erstellt der Service einen Knoten für die Webseite selbst.
-    Was dann noch fehlt sind die Kanten vom Knoten der Seite,
+    Was dann noch fehlt, sind die Kanten vom Knoten der Seite,
     zu denen der {\contentFeature}s bzw. zu denen referenzierter {\resources}.
-    Aus diesem Grund iteriert der Algorithmus nochmal über alle Features
+    Aus diesem Grund iteriert der Algorithmus noch mal über alle Features
     und legt die entsprechenden Beziehungen an.
     Dabei unterscheidet er zwischen skalaren und mehrelementigen Features.
     Im Falle eines {\collectionFeature}s legt er für jedes Element eine Beziehung an.
     Die verwendeten Funktionen \texttt{contentRelationship} und \texttt{referenceRelationship}
     erzeugen konkrete Datenbankanweisungen, die im späteren Verlauf thematisiert
-    werden\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage}}.
+    werden.
     Wie aus Listing \ref{listing:storeClassificationContentReferenceFunctions} deutlich wird,
     arbeitet der Algorithmus bei der Erzeugung von Features sehr ähnlich.
-
-    \lstinputlisting[
-        label=listing:storeClassificationContentReferenceFunctions,
-        caption=Der Algorithmus zum Schreiben einer Klassifikation (2),
-        style=pseudo
-    ]{../resources/classification-storage-api/store-classification-alg/content-reference-functions.code}
-
     Im Falle einer Referenz legt die Funktion \texttt{reference} einen passenden \texttt{Resource}-Knoten an,   
     was sie bei einem {\collectionFeature} durch einen rekursiven Aufruf für alle Elemente wiederholt.
     Das Anlegen eines {\contentFeature}s ist etwas komplexer,
@@ -50,7 +43,14 @@
     indem sie sowohl über alle Inhalte als auch über alle Referenzen iteriert.
     Für {\contentFeature}s ruft sie sich rekursiv auf,
     {\referenceFeature}s gibt sie hingegen an die Funktion \texttt{reference} weiter.
-    Anschließend legt sie -- falls erforderlich -- einen \texttt{Text}-Knoten und dann einen \texttt{Content}-Knoten
+
+    \lstinputlisting[
+        label=listing:storeClassificationContentReferenceFunctions,
+        caption=Der Algorithmus zum Schreiben einer Klassifikation (2),
+        style=pseudo
+    ]{../resources/classification-storage-api/store-classification-alg/content-reference-functions.code}
+
+    Anschließend legt die Funktion -- falls erforderlich -- einen \texttt{Text}-Knoten und dann einen \texttt{Content}-Knoten
     für das Feature an.
     Danach iteriert sie erneut über alle {\childFeature}s, um die Beziehungen vom
     gerade erzeugten \texttt{Content}-Knoten zu den Knoten der {\childFeature}s anzulegen.

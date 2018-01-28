@@ -1,4 +1,4 @@
-\subsection{Funktionen und Schnitstellen}
+\subsection{Funktionen und Schnittstellen}
     Die Intention der {\classificationStorageAPI} ist es,
     fachliche Anfragen an das System in Anfragen an die Datenbank zu übersetzen,
     sodass deren technischen Details verborgen bleiben.
@@ -114,8 +114,14 @@
     \paragraph{Seiten einer Site abfragen}
     Interessant an einer Site ist die Information, welche klassifizierten Webseiten zu ihr gehören.
     Diese lässt sich über die Schnittstelle in Tabelle \ref{table:getSitePagesInterface} für eine spezifische Site ermitteln.
+    Wie zu sehen ist, muss die Anfrage-\gls{url} die ID der Site beinhalten.
+    Die Seiten einer Site sind im Ausgabedokument im Array \texttt{pages} abgelegt.
+    Jede Seite enthält ihre \gls{url}, ihre Klasse und ihren Status.
+    Informationen über ihre Features sind nicht enthalten,
+    da der Fokus wie beschrieben auf der fachlichen Frage besteht,
+    welche Webseiten zu einer Site gehören.
 
-    \begin{table}[htb]
+    \begin{table}[!h]
         \centering
         \begin{tabular}{|l|l|}
         \hline
@@ -132,18 +138,20 @@
         \label{table:getSitePagesInterface}
     \end{table}
 
-    Wie zu sehen ist, muss die Anfrage-\gls{url} die ID der Site beinhalten.
-    Die Seiten einer Site sind im Ausgabedokument im Array \texttt{pages} abgelegt.
-    Jede Seite enthält ihre \gls{url}, ihre Klasse und ihren Status.
-    Informationen über ihre Features sind nicht enthalten,
-    da der Fokus wie beschrieben auf der fachlichen Frage besteht,
-    welche Webseiten zu einer Site gehören.
-
     \paragraph{Klassifikation einer Seite}
     Die interessanteste Information, die die {\classificationStorageAPI} liefern kann,
     ist selbstverständlich die vollständige Klassifikation einer Webseite.
     Diese kann für eine spezifische Webseite über zwei Schnittstellen ermittelt werden.
     Beide werden in Tabelle \ref{table:getFullPageInterface} vorgestellt.
+    Die Anfrage-\gls{url} kann die Informationen der Site beinhalten,
+    wodurch die bisher verfolgte Hierarchie der {\resources} fortgesetzt wird.
+    Die \gls{url} einer Seite identifiziert sie allerdings eindeutig,
+    weshalb die Site auch ausgelassen werden kann.
+    Das macht sich zum Beispiel das {\annotatorPlugin} zunutze,
+    welches die Site der aktuellen Webseite nicht bestimmen
+    kann.
+    Die Antwort ist in beiden Fällen eine vollständige Klassifikation,
+    wie sie am Anfang dieses Kapitels vorgestellt wurde.
 
     \begin{table}[htb]
         \centering
@@ -161,16 +169,6 @@
         \caption{Die Schnittstelle zum Abfragen der Klassifikation einer Webseite}
         \label{table:getFullPageInterface}
     \end{table}
-
-    Die Anfrage-\gls{url} kann die Informationen der Site beinhalten,
-    wodurch die bisher verfolgte Hierarchie der {\resources} fortgesetzt wird.
-    Die \gls{url} einer Seite identifiziert sie allerdings eindeutig,
-    weshalb die Site auch ausgelassen werden kann.
-    Das macht sich zum Beispiel das {\annotatorPlugin} zunutze,
-    welches die Site der aktuellen Webseite nicht bestimmen
-    kann\footnote{vgl. Kapitel \ref{section:solutionDetailsAnnotatorPlugin}}.
-    Die Antwort ist in beiden Fällen eine vollständige Klassifikation,
-    wie sie am Anfang dieses Kapitels vorgestellt wurde.
 
     \paragraph{Klassifikation einer Seite speichern}
     Neben dem Lesen einer Klassifikation unterstützt die Schnittstelle auch das Schreiben einer Klassifikation,
