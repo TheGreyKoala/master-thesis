@@ -5,13 +5,13 @@
 
     \paragraph{Klassen}
     Im generierten Zustand werden die Klassendefinitionen weiterhin nach
-    Seiten-, Inhalts- und Referenzklassen unterteilt,
-    was im JSON-Dokument durch die Schlüssel \texttt{pageClasses},
-    \texttt{contentClasses} und \texttt{referenceClasses} geschieht.
+    Seiten-, Inhalts- und Referenzklassen unterteilt.
+    Im generierten JSON-Dokument geschieht dies durch die Schlüssel \texttt{pageClasses},
+    \texttt{contentClasses} und \texttt{referenceClasses}.
     Ihre Objekte enthalten wiederum Schlüssel-Wert-Paare,
     wobei der Schlüssel in diesem Fall der Name einer Klasse und der
     Wert die Klasse selbst ist.
-    Klasse speichern ihren Namen zusätzlich in der Eigenschaft \texttt{name},
+    Klassen speichern ihren Namen zusätzlich in der Eigenschaft \texttt{name},
     sodass sie auch ohne Kontext identifizierbar sind.
     Listing \ref{listing:dlsGenerationPageClass} zeigt dies am Beispiel
     der Seitenklasse \texttt{Service}.
@@ -28,7 +28,7 @@
     der Selektor der Klasse gespeichert,
     was seinen Typ und seinen Wert umfasst.
     Der Selektor einer Klasse ist niemals undefiniert,
-    kann im Falle von Inhtals- oder Referenzklassen aber ein leeres Objekt sein.
+    kann im Falle von Inhalts- oder Referenzklassen aber ein leeres Objekt sein.
     Dann ist der Selektor von den Features zu beziehen.
     Der Typ eines Selektors ist immer \texttt{CssSelector},
     \texttt{UrlPatternSelector} oder \texttt{XPathSelector}.
@@ -40,18 +40,16 @@
     sodass Nutzer der \gls{wccdl} sich darum nicht kümmern müssen.
     Eine Ausnahme ist allerdings der {\xpathSelector}.
     XPath 1.0 kennt keine Codierung für besondere Zeichen,
-    wie z. B. \texttt{\textbackslash{n}} für einen Zeilenumbruch.
+    wie z. B. \texttt{\textbackslash{n}} für einen Zeilenumbruch \cite{w3c:xpath}.
     Außerdem ist in dieser Version die Funktion
-    \texttt{codepoints-to-string} noch nicht enthalten,
-    mit der Unicode Codes in Zeichenketten umgewandelt werden können
-    \cite{w3c:xpath}
-    \cite[Kapitel 5.2.1]{w3c:xpathXquery}.
+    \texttt{codepoints-to-string} \cite[Kapitel 5.2.1]{w3c:xpathXquery} noch nicht enthalten,
+    mit der Unicode Codes in Zeichenketten umgewandelt werden können.
     Um trotzdem Inhalte mit besonderen Zeichen beschreiben zu können,
     wird in {\xpathSelector}en der Rückwärtsschrägstrich während der
     Generierung nicht codiert.
     Das heißt, die Sequenz \texttt{\textbackslash{n}} wird genau so in das JSON-Dokument übernommen.
     Ein JSON-Parser setzt das Zeichen zu einem Zeilenumbruch um,
-    wodurch der XPath-Ausdruck einen tatsächlichen Umbruch enthält
+    wodurch der XPath-Ausdruck einen tatsächlichen Umbruch enthält,
     der als solcher interpretiert wird.
     Ein konkretes Anwendungsbeispiel für diese Ausnahme im Generator
     ist im ersten Fallbeispiel in Kapitel \ref{section:findingsTeachersClassificationModel} zu sehen.

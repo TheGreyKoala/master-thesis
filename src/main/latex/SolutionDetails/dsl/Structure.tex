@@ -1,6 +1,6 @@
 \subsection{Strukturelles Design}
     Dieses Kapitel beschreibt einige strukturelle Aspekte der \gls{wccdl},
-    die im Wesentlichen auf den Ausführungen in \cite[Kapitel 4, 5.1]{voelter:DslEngineering}
+    die im Wesentlichen auf den Ausführungen in \cite[Kapitel 4 \& 5.1]{voelter:DslEngineering}
     basieren.
 
     \paragraph{Separation of Concerns}
@@ -37,10 +37,10 @@
     \texttt{private} und \texttt{protected} einschränken
     \cite[Kapitel 6.6]{oracle:javaSpec}.
     Die \gls{wccdl} verwendet ein sehr einfaches Konzept bez.
-    der Modularisierung und Sichtbarkeit von Porgrammelementen.
+    der Modularisierung und Sichtbarkeit von Programmelementen.
     Klassen sind die einzigen Elemente, die in dieser Sprache das Ziel einer Referenz
     sein können, weshalb Features und Selektoren implizit nirgendwo sichtbar sind.
-    Klassen sind hingegen global sichtbar,
+    Klassen werden in einem globalen Modul gesammelt und sind überall sichtbar,
     sodass sie für jedes Feature genutzt werden können.
 
     \paragraph{Partitionierung}
@@ -63,13 +63,13 @@
     Querverweise sind in der \gls{wccdl} nur zur Angabe der Klasse eines Features notwendig.
     Der Scope wird an dieser Stelle bereits durch das Sprachkonzept hinreichend
     eingeschränkt, da das Ziel vom Typ
-    \texttt{FeatureClass}\footnote{vgl. Kapitel \ref{solutionDetails:dslConcepts}} sein muss.
+    \texttt{FeatureClass} sein muss.
     Das Linking wird vollständig durch Xtext übernommen
     \cite[Kapitel "`Language Implementation"']{xtext:documentation}.
 
     \paragraph{Spezifikation und Implementierung}
     Sprachen können die Trennung von Spezifikation und Implementierung von
-    Porgrammelementen unterstützen, um eine bessere Entkopplung und verschiedene
+    Programmelementen unterstützen, um eine bessere Entkopplung und verschiedene
     Implementierungen zu ermöglichen \cite[Kapitel 5.1.3]{voelter:DslEngineering}.
     Ein Beispiel aus Java sind Interfaces \cite[Kapitel 9]{oracle:javaSpec}.
     Eine denkbare Anwendung dieser Idee in der \gls{wccdl} ist Selektoren als
@@ -88,8 +88,8 @@
 
     \paragraph{Typen und Instanzen}
     Die in einer Programmiersprache definierten Typen können bei ihrer Instanziierung
-    häufig Parameter entgegen nehmen, wodurch sich ihre Wiederverwendbarkeit steigert.
-    Ein Beispiele sind die Parameter eines Konstruktors in objektorientierten Programmiersprachen
+    häufig Parameter entgegennehmen, wodurch sich ihre Wiederverwendbarkeit steigert.
+    Ein Beispiel sind die Parameter eines Konstruktors in objektorientierten Programmiersprachen
     \cite[Kapitel 5.1.5]{voelter:DslEngineering}.
     In der \gls{wccdl} können Features den Selektor ihrer Klasse überschreiben,
     was eine Anwendung dieses Konzeptes ist.

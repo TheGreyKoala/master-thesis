@@ -4,14 +4,6 @@
     Als Einstieg zeigt Listing \ref{listing:dlsExample}
     dazu ein beispielhaftes {\classificationModel},
     welches in der \gls{wccdl} geschrieben wurde.
-
-    \lstinputlisting[
-        label=listing:dlsExample,
-        caption=Ein Beispiel eines {\classificationModel}s in der \acrshort{wccdl},
-        style=wccdl,
-        inputencoding=utf8/latin1
-    ]{../resources/dsl/example.wccd}
-
     Dieses Beispiel definiert die Seitenklasse \texttt{Service} inkl.
     ihres {\urlSelector}s und den beiden Features \texttt{pageHeading} und \texttt{images}.
     Erstere besitzt die Inhaltsklasse \texttt{PageHeading}, die ebenfalls im Beispiel definiert wird,
@@ -26,6 +18,13 @@
     Die Beschreibung der Grammatik dieser Syntax erfolgt schrittweise
     und orientiert sich an den Konzepten aus Kapitel \ref{section:conceptClassesFeaturesSelectors}.
     
+    \lstinputlisting[
+        label=listing:dlsExample,
+        caption=Ein Beispiel eines {\classificationModel}s in der \acrshort{wccdl},
+        style=wccdl,
+        inputencoding=utf8/latin1
+    ]{../resources/dsl/example.wccd}
+
     \paragraph{Klassen}
     Listing \ref{listing:dlsGrammarClasses} enthält die Parserregeln,
     die die allgemeine Syntax von Klassendefinitionen bestimmen.
@@ -96,14 +95,6 @@
     \paragraph{Selektoren}
     Die Syntax von Selektoren ist für Klassen und Features identisch
     und ist durch den Abschnitt der Grammatik in Listing \ref{listing:dlsGrammarSelectors} definiert.
-
-    \lstinputlisting[
-        label=listing:dlsGrammarSelectors,
-        caption=Selektoren in der Grammatik der \acrshort{wccdl},
-        inputencoding=utf8/latin1,
-        style=Xtext
-    ]{../resources/dsl/grammar/selectors.xtext}
-
     Die Definition eines Selektors beginnt mit einem Schlüsselwort,
     welches die Art des konkreten Selektors bestimmt.
     In der Grammatik ist das durch die Regeln
@@ -120,6 +111,13 @@
     Das erschwert die Definition von Selektoren, die von diesen Zeichen Gebrauch machen.
     Durch die Regel \texttt{SELECTOR\_VALUE} kann die \gls{wccdl} ihren Nutzern diese Komplexität
     ersparen und im Generierungsprozess behandeln.
+
+    \lstinputlisting[
+        label=listing:dlsGrammarSelectors,
+        caption=Selektoren in der Grammatik der \acrshort{wccdl},
+        inputencoding=utf8/latin1,
+        style=Xtext
+    ]{../resources/dsl/grammar/selectors.xtext}
 
     \paragraph{Kommentare}
     Neben den Terminalen \texttt{ID} und \texttt{STRING} definiert Xtext standardmäßig auch Regeln für ein- und mehrzeilige Kommentare

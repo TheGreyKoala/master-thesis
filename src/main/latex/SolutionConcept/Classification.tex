@@ -43,7 +43,7 @@
         Klassifikation auf der Webseite\footnote{vgl. Kapitel \ref{section:conceptVisualization}}.       
         Ein weiterer zu beachtender Aspekt ist, dass diese Quellen {\wordpress}-spezifisch sind,
         wodurch eine starke Bindung zu diesem \gls{cms} entsteht
-        und das \gls{wccs} weniger allgemein einsatzbar wird.
+        und das \gls{wccs} weniger allgemein einsetzbar wird.
 
         Eine Alternative, um diese Probleme zu lösen,
         ist die Nutzung der \gls{html}-Repräsentation einer Webseite,
@@ -64,7 +64,7 @@
         Basierend auf dem bereitgestellten Klassifizierungsmodell
         bestimmt das System zunächst die Klasse der Seite,
         indem es die Selektoren der bekannten Seitenklassen gegen sie prüft.
-        Anschließend ermittelt das \gls{wccs} die Features dieser Klasse auf der vorliegenden Webseite,
+        Anschließend ermittelt das \gls{wccs} die Features dieser Klasse,
         indem die Selektoren der Features auf der Seite angewandt werden.
         Für jedes {\contentFeature} sucht es außerdem rekursiv nach allen {\childFeature}s.
         Ist dieser Prozess beendet, werden die gesammelten Informationen in Form einer Klassifikation
@@ -75,8 +75,8 @@
         Das \gls{wccs} unterstützt drei Arten von Selektoren:
 
         \begin{enumerate}
-            \item CSS,
-            \item XPath und
+            \item CSS-,
+            \item XPath- und
             \item reguläre Ausdrücke auf \glspl{url}.
         \end{enumerate}
 
@@ -87,12 +87,12 @@
         Durch einen einzelnen {\cssSelector} können potenziell viele Elemente im \gls{html}-Dokument
         erfasst werden, wodurch {\collectionFeature}s realisierbar sind.
         Jedes selektierte Element stellt dabei genau ein Feature dar.
-        Das \gls{wccs} folgt bei der Auswertung eines {\cssSelector}s der Logik des \glspl{w3c}.
+        Das \gls{wccs} folgt bei der Auswertung eines {\cssSelector}s der Logik des \glspl{w3c} \cite{w3c:selectorsAPI}.
         Das bedeutet, dass der Selektor auf das gesamte Dokument angewandt wird,
         aber nur Elemente innerhalb des Elementes des {\parentFeature}s -- dem Kontextelement --
-        im Ergebnis enthalten sind \cite{w3c:selectorsAPI}.
+        im Ergebnis enthalten sind.
         Bei den Features der Seitenklasse wird hingegen die gesamte Seite als Kontext verwendet,
-        weshalb keine Filterung der Ergebnisse des Selektors stattfindet.
+        weshalb keine Filterung der Ergebnisse stattfindet.
         Durch dieses Vorgehen können sich wiederholende Strukturen auf einer Webseite
         korrekt durch Elemente eines {\collectionFeature}s dargestellt werden.
         Zur Veranschaulichung dient der Ausschnitt eines \gls{html}-Dokumentes
@@ -115,7 +115,7 @@
 
         Dieses Beispiel enthält mehrere Artikel, die jeweils eine Überschrift besitzen.
         Die Artikel können über den Namen ihres Elementes angesprochen werden.
-        Das heißt der {\cssSelector} des {\collectionFeature}s ist \texttt{article}.
+        Das heißt, der {\cssSelector} des {\collectionFeature}s ist \texttt{article}.
         Die Klasse dieses Features enthält ihrerseits ein Feature für die Überschrift,
         welches den Selector \texttt{h3} verwendet.
         Dieser Selektor wird im Kontext des Elementes seines {\parentFeature}s ausgeführt,

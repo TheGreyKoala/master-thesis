@@ -4,7 +4,7 @@
     Problemdomäne \cite[Kapitel 2.2]{voelter:DslEngineering}.
 
     \paragraph{Abgrenzung zu GPLs}
-    Im Gegensatz zu \glspl{gpl} sind \glspl{dsl} nicht zwangsläufig Turing-Vollständig
+    Im Gegensatz zu \glspl{gpl} sind \glspl{dsl} nicht zwangsläufig Turing-vollständig
     und deshalb nicht generell austauschbar.
     Stattdessen ist eine \gls{dsl} spezialisiert und optimiert auf eine gegebene Domäne,
     weshalb sie eng mit deren Konzepten und Abstraktionen verbunden ist
@@ -34,7 +34,7 @@
     \glspl{dsl} sind natürlich auch mit einigen Herausforderungen verbunden.
     Dazu zählt zunächst der zusätzliche Aufwand, der durch den Entwurf und Bau einer \gls{dsl} entsteht.
     Dieser kann durch moderne Werkzeuge allerdings verringert werden.
-    Gleichzeitig erfordert der Entwurf einer guten Sprache ein gewissess Maß an Erfahrung.
+    Gleichzeitig erfordert der Entwurf einer guten Sprache ein gewisses Maß an Erfahrung.
     Entwickler müssen die Domäne verstehen und modellieren und entscheiden,
     welche ihrer Konzepte in welcher Form in die Sprache übernommen werden.
     Iterative Prozesse sind hierbei zu empfehlen.
@@ -46,7 +46,7 @@
 
     \paragraph{Formen der Implementierung}
     Die Umsetzung einer \gls{dsl} kann generell in zwei Formen geschehen:
-    Als "`Internal \gls{dsl}"' oder als "`External \gls{dsl}"'.
+    als "`Internal \gls{dsl}"' oder als "`External \gls{dsl}"'.
     Internal \glspl{dsl} nutzen die Sprachmöglichkeiten einer anderen Sprache
     -- meist einer \gls{gpl} --, wodurch sie sich in diese einbetten.
     Genau genommen stellen sie keine neue Sprache,
@@ -54,7 +54,7 @@
     der Wirtssprache dar, die mit einer domänenspezifischen Programmierschnittstelle kombiniert wird.
     Sie besitzen keinen eigenen Compiler oder Interpreter und stellen deshalb immer gültige Programme
     der Wirtssprache dar.
-    Ihr Vorteil ist ihre vergleichsweise leichte Umsetzung sowie die Möglichkeit das Umfeld der Sprache,
+    Ihr Vorteil ist ihre vergleichsweise leichte Umsetzung sowie die Möglichkeit, das Umfeld der Sprache,
     wie Standardbibliotheken, Compiler etc., leicht nutzen zu können.
     External \glspl{dsl} stellen hingegen komplett eigenständige Programmiersprachen dar,
     bei denen der Syntax komplett frei definierbar ist,
@@ -72,7 +72,7 @@
     wodurch sie eindeutig in einer Sprache erkennbar sind
     und dadurch leicht analysiert werden können.
     In-Language Abstractions sind allgemeine Sprachmittel,
-    die dem Nutzer der Sprache erlauben Domänenkonzepte selbst umzusetzen.
+    die dem Nutzer der Sprache erlauben, Domänenkonzepte selbst umzusetzen.
     Beispiele aus \glspl{gpl} sind Funktionen, Prozeduren und Klassen.
     Entwickler haben dadurch mehr Möglichkeiten,
     allerdings werden die Domänenkonzepte schwächer durch die \gls{dsl}

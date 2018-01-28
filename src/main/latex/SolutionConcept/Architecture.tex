@@ -11,7 +11,7 @@
         ein verteiltes System zu nutzen, bei dem mehrere Prozesse gemeinsam
         eine größere Aufgabe bearbeiten.
         Jeder Prozess wird dabei als "`Service"' bezeichnet und ist darauf
-        fokussiert genau eine Aufgabe zu erfüllen.
+        fokussiert, genau eine Aufgabe zu erfüllen.
         Diese Aufgaben sollten möglichst klein sein,
         sodass jeder Service ebenfalls klein gehalten werden kann und seine
         Aufgabe dadurch besonders gut erfüllen kann.
@@ -23,7 +23,7 @@
         Dieses Vorgehen bietet mehrere Vorteile.
         Jeder Service kann verschiedene Technologien einsetzen,
         was zum Beispiel die verwendete Programmiersprache und eingesetzte Frameworks betrifft.
-        Services können also unabhängig von einander die Werkzeuge verwenden,
+        Services können also unabhängig voneinander die Werkzeuge verwenden,
         die am besten zur Erfüllung ihrer Aufgabe geeignet sind
         \cite[Kapitel 1.2.1]{newman:microservices}.
         Die Belastbarkeit des Gesamtsystems steigt,
@@ -31,7 +31,7 @@
         zur Folge haben muss
         \cite[Kapitel 1.2.2]{newman:microservices}.
         Werden Services zustandslos gehalten,
-        können sie außerdem einfach und unabhängig von einander skaliert werden.
+        können sie außerdem einfach und unabhängig voneinander skaliert werden.
         Im Gegensatz zu Monolithen muss also nicht das ganze System skaliert werden,
         sondern nur die Komponenten, die es erfordern.
         \cite[Kapitel 1.2.3]{newman:microservices}.
@@ -54,7 +54,7 @@
 
         \paragraph{Herausforderungen}
         \citet[Kapitel 6.1-6.3]{wolff:microservices} beschreibt aber auch
-        Herausforderungen, die die Umsetzung einer Microservices-Architektur mit sich bringen.
+        Herausforderungen, die die Umsetzung einer Microservices-Architektur mit sich bringt.
         Dies sind vor allem die Latenz und die Unzuverlässigkeit bei der Kommunikation,
         die durch das Netzwerk entstehen.
         Die Entwicklung von Microservices stellt außerdem höhere Anforderungen an die
@@ -65,25 +65,17 @@
         Die Architektur des \glspl{wccs} wird in zwei Schritten vorgestellt.
         Zunächst liegt der Fokus auf dem internen Aufbau des Systems,
         anschließend auf den Zusammenhängen und Interaktionen mit außenstehenden Systemen.
-        Da diese Sichten nicht vollständig von einander zu trennen sind,
-        tauchen einige Komponenten in beiden Varianten auf.
+        Da diese Sichten nicht vollständig voneinander zu trennen sind,
+        tauchen einige Komponenten in beiden Sichten auf.
         
         \paragraph{Interner Aufbau}
         Das \gls{wccs} besteht aus mehreren Komponenten,
         von denen einige Services im Sinne einer Microservices-Architektur darstellen.
         Eine Übersicht der Komponenten ist in Abbildung \ref{image:wccsInternalArchitecture} zu sehen.
-
-        \begin{figure}
-            \centering
-            \includegraphics[scale=\imageScalingFactor]{../resources/architecture/wccs_internal_architecture.png}
-            \caption{Der interne Aufbau des WCCS'}
-            \label{image:wccsInternalArchitecture}
-        \end{figure}
-
-        Die fünf Services des Systems sind
+        Die fünf Services des Systems sind:
 
         \begin{enumerate}
-            \item der {\classificationStorage},
+            \item Der {\classificationStorage},
             \item die {\classificationStorageAPI},
             \item der {\classificationService},
             \item der {\annotationService} und
@@ -92,6 +84,13 @@
 
         Diese Services kommunizieren über HTTP
         und stellen eine Menge von (RESTful) Webservices dar.
+
+        \begin{figure}[htb]
+            \centering
+            \includegraphics[scale=\imageScalingFactor]{../resources/architecture/wccs_internal_architecture.png}
+            \caption{Der interne Aufbau des WCCS'}
+            \label{image:wccsInternalArchitecture}
+        \end{figure}
 
         Der {\classificationStorage} stellt die Persistenz bereit und speichert
         Klassifikationen in einer Datenbank.
@@ -120,7 +119,7 @@
         die er über die {\classificationStorageAPI} bezieht,
         in eine Menge von Annotationen.
         Neben der Abfrage von Annotationen bietet seine Schnittstelle auch
-        die Möglichkeit solche zu aktualisieren und damit die Klasse eines Features zu modifizieren.
+        die Möglichkeit, Annotationen zu aktualisieren und damit die Klasse eines Features zu modifizieren.
         Mehr über diesen Service, seine Arbeitsweise und die Rolle seiner Schnittstelle
         erläutert Kapitel \ref{section:solutionDetailsAnnotationService}.
 
@@ -150,17 +149,10 @@
         \paragraph{Beziehungen zur Außenwelt}
         Die bisherige Betrachtung beantwortet zum Beispiel noch nicht die Frage,
         welche Komponente das Annotator Plugin einbindet und welche sonstigen
-        Beziehungen zur Außenwelt das \gls{wccs} besitzt.
+        Beziehungen das \gls{wccs} zur Außenwelt besitzt.
         Antworten liefert Abbildung \ref{image:wccsExternalArchitecture},
         die dazu zwischen externen Komponenten und solchen des \glspl{wccs}
         unterscheidet und ihre Beziehungen darstellt.
-
-        \begin{figure}
-            \centering
-            \includegraphics[scale=\imageScalingFactor]{../resources/architecture/external_architecture.png}
-            \caption{Die Beziehungen des WCCS' zur Außenwelt}
-            \label{image:wccsExternalArchitecture}
-        \end{figure}
 
         Eine zentrale externe Komponente ist die Webseite,
         die Inhalte aus einem \gls{cms} -- im konkreten Fall {\wordpress} --
@@ -180,3 +172,10 @@
         und damit die Klassifikation über Annotationen visualisieren.
         Anwender können dann die Klassifikation prüfen und bei Bedarf modifizieren,
         wozu sie die Funktionen des {\annotatorPlugin}s verwenden.
+
+        \begin{figure}[htb]
+            \centering
+            \includegraphics[scale=\imageScalingFactor]{../resources/architecture/external_architecture.png}
+            \caption{Die Beziehungen des WCCS' zur Außenwelt}
+            \label{image:wccsExternalArchitecture}
+        \end{figure}

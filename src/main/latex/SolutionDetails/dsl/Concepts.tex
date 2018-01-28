@@ -3,7 +3,7 @@
     Die \gls{wccdl} spiegelt die Konzepte aus
     Kapitel \ref{section:conceptClassesFeaturesSelectors}
     durch Linguistic Abstractions wider.
-    Die folgende Beschreibung ihrer Sprachkonzepte orientiert sich deshalb an diesen
+    Die folgende Beschreibung orientiert sich an den
     Domänenkonzepten.
     
     \paragraph{Klassen}
@@ -49,14 +49,6 @@
     \paragraph{Features}
     Die \gls{wccdl} repräsentiert Features über das gleichnamige Sprachkonzept,
     was Abbildung \ref{image:dslFeatures} veranschaulicht.
-
-    \begin{figure}[htb]
-        \centering
-        \includegraphics[scale=\imageScalingFactor]{../resources/dsl/features.png}
-        \caption{Features in der \acrshort{wccdl}}
-        \label{image:dslFeatures}
-    \end{figure}
-
     Analog zum Domänenkonzept besitzt jedes Feature in der Sprache einen Namen
     und eine Klasse, welche vom oben vorgestellten Typ \texttt{FeatureClass} sein muss.
     Des Weiteren kann ein Feature einen Selektor besitzen,
@@ -72,7 +64,7 @@
     Dies wird sichergestellt,
     indem der Typ des Selektors Teil der Typinformation von
     \texttt{Feature} ist und sowohl die Eigenschaften \texttt{class} als auch
-    \texttt{selector} diesen verwenden und damit zueinander passen müssen.
+    \texttt{selector} diesen verwenden und damit zueinanderpassen müssen.
     Ob es sich bei einem Feature um ein {\scalarFeature} oder ein {\collectionFeature} handelt,
     ist aus Sicht der Sprache lediglich eine boolesche Eigenschaft und erfordert
     keine weitere Unterscheidung.
@@ -82,6 +74,13 @@
     Eine Unterscheidung zwischen {\contentFeature}s und {\referenceFeature}s
     ist ebenfalls nicht notwendig,
     da diese Information klar aus der verwendeten \texttt{FeatureClass} hervorgeht.
+
+    \begin{figure}[tb]
+        \centering
+        \includegraphics[scale=\imageScalingFactor]{../resources/dsl/features.png}
+        \caption{Features in der \acrshort{wccdl}}
+        \label{image:dslFeatures}
+    \end{figure}
 
     \paragraph{Selektoren}
     Die \gls{wccdl} bietet des Weiteren Konzepte zur Definition von Selektoren,

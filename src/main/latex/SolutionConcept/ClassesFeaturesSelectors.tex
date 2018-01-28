@@ -10,14 +10,6 @@
         Eine Klasse kann deshalb eindeutig gebildet werden.
         Diese Definition erfährt für das \gls{wccs} eine Erweiterung,
         die in Abbildung \ref{image:conceptClasses} modelliert wird.
-
-        \begin{figure}[htb]
-            \centering
-            \includegraphics[scale=\imageScalingFactor]{../resources/concept/classes.png}
-            \caption{Klassen im Kontext des WCCS'}
-            \label{image:conceptClasses}
-        \end{figure}
-
         Die zu klassifizierenden Entitäten sind Seiten, Inhalte und
         Referenzen\footnote{vgl. Kapitel \ref{section:classificationEntities}},
         weshalb das System drei Arten von Klassen kennt:
@@ -27,6 +19,13 @@
             \item Inhaltsklassen und
             \item Referenzklassen.
         \end{enumerate}
+
+        \begin{figure}[htb]
+            \centering
+            \includegraphics[scale=\imageScalingFactor]{../resources/concept/classes.png}
+            \caption{Klassen im Kontext des WCCS'}
+            \label{image:conceptClasses}
+        \end{figure}     
 
         Allen Klassen ist gemein, dass sie einen Namen und bis zu einem Selektor haben,
         der darüber entscheidet, ob ein präsentiertes Objekt der Klasse zugehörig ist.
@@ -48,11 +47,11 @@
         welche ihrerseits wiederum Features enthalten kann.
         Die Klassendefinitionen erhalten dadurch eine beliebig komplexe hierarchische Struktur,
         um den erwarteten Aufbau eines klassifizierten Objektes zu modellieren.
-        Innerhalb einer Klassifikation stehen Features also in einer Teil-Ganzes-Beziehung zu einander.
+        Innerhalb einer Klassifikation stehen Features also in einer Teil-Ganzes-Beziehung zueinander.
         Um Bezug auf ein übergeordnetes Feature zu nehmen,
         wird im weiteren Verlauf dieser Arbeit der Ausdruck "`\parentFeature"' verwendet.
         Ein untergeordnetes Feature wird entsprechend "`\childFeature"' bezeichnet.
-        Abbildung \ref{image:conceptFeatures} zeigt eine ausführlichere
+        Abbildung \ref{image:conceptFeatures} zeigt eine ausführliche
         konzeptionelle Darstellung von Features im \gls{wccs}.
 
         \begin{figure}[htb]
@@ -65,7 +64,7 @@
         Das \gls{wccs} unterscheidet zwei konkrete Arten von Features:
         
         \begin{enumerate}
-            \item Inhalt, die im weiteren Verlauf auch als {\contentFeature}s bezeichnet werden, und
+            \item Inhalt, der im weiteren Verlauf auch als {\contentFeature} bezeichnet wird, und
             \item Referenzen, die auch {\referenceFeature}s genannt werden.
         \end{enumerate}
 
@@ -98,7 +97,7 @@
         anhand derer es entscheiden kann,
         welche Elemente einer Webseite es welchen Klassen zuweist.
         Diese Merkmale werden mithilfe von Selektoren ausgedrückt,
-        für die es abstrakt gesehen zwei Anwendungsfälle gibt:
+        für die es  zwei Anwendungsfälle gibt:
 
         \begin{enumerate}
             \item Eine gegebene Webseite als Ganzes einer Seitenklasse zuweisen und
@@ -121,7 +120,3 @@
         Feature ein Selektor ermittelt werden kann.        
         Es wird nicht ausgeschlossen, dass der gleiche Selektor von mehreren Klassen verwendet wird,
         was die Möglichkeit eröffnet, konkrete Inhalte und Referenzen mehreren Klassen zuzuweisen.
-
-        Das \gls{wccs} unterstützt verschiedene Arten von
-        Selektoren\footnote{vgl. Kapitel \ref{section:conceptClassification}},
-        um ein breites Spektrum an Möglichkeiten anzubieten.
