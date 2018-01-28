@@ -55,7 +55,7 @@
         Der erste Teil fragt nach einer Auflistung
         referenzierter {\resources}.
         Deren Bereitstellung stellt keine Herausforderung dar,
-        da sie direkt aus dem \gls{html}-Dokument hervorgeht.
+        da sie direkt aus der \gls{html}-Repräsentation einer Webseite hervorgeht.
         Der zweite Teil zielt hingegen darauf ab,
         wie sich jede einzelne {\resource} und die Referenzen selbst einordnen lassen.
         Das Bild eines Mitarbeiters und seine E-Mail-Adresse sind im Beispiel beides Referenzen.
@@ -63,7 +63,7 @@
         Referenzen müssen demnach ebenfalls klassifiziert werden.
 
         Zusammengefasst lassen sich also drei Entitäten ermitteln,
-        die für die Klassifizierung einer Seite relevant sind:
+        die für die Klassifizierung einer Webseite relevant sind:
         Die Webseite als Ganzes, textueller Inhalt und Referenzen.
 
     \subsection{Kriterium der Klassifizierung}
@@ -74,12 +74,12 @@
         Kriterien die Einordnung erfolgen muss.
 
         \paragraph{Klassifizierung von Webseiten}
-        Die Klassifikation der Seite hat direkten Einfluss auf die Wahl der Vorlage im neuen \gls{cms}.
-        Die Klasse der Seite kann auf dem Typ des Beitrages basieren,
+        Die Klassifikation einer Webseite als Ganzes hat direkten Einfluss auf die Wahl einer Vorlage im neuen \gls{cms}.
+        Die Klasse einer Seite kann auf dem Typ des Beitrages basieren,
         also ob er ein Post oder eine Page ist.
         In der Praxis reicht diese Unterteilung aber nicht aus,
         da verschiedene {\wordpress} Pages im Zielsystem verschiedene Layouts erhalten werden.
-        Eine fachliche Unterteilung der Seiten anstatt einer technischen ist deshalb sinnvoller.
+        Eine fachliche Unterteilung von Webseiten anstatt einer technischen ist deshalb sinnvoller.
         Für die Seite eines Mitarbeiters hieße das zum Beispiel,
         dass sie als "`Mitarbeiterseite"' klassifiziert wird und nicht als "`Page"'.
         Eine Unterscheidung nach inhaltlicher und fachlicher Bedeutung macht die
@@ -97,7 +97,7 @@
         nicht entscheiden, welches Feld mit welchem Inhalt zu füllen ist.
         Abhilfe bringt wiederum nur eine fachliche Klassifizierung,
         bei der die inhaltliche Bedeutung im Vordergrund steht.
-        Das heißt anstelle von allgemeinen Klassen wie "`p"',
+        Das heißt, anstelle von allgemeinen Klassen wie "`p"',
         sind spezifischere fachliche Klassen wie
         "`Name"' und "`Telefonnummer"' notwendig.
         Nur so lässt sich entscheiden, wie die Inhalte in das neue \gls{cms}
@@ -111,7 +111,7 @@
         Der Link auf das Lehrgebiet und die E-Mail-Adresse eines Mitarbeiters
         können bspw. nicht beide als "`a"' klassifiziert werden,
         weil eine Unterscheidung möglich sein muss.
-        Besser geeignet wären deshalb die Klassen "`Lehrgebietsseite"'
+        Besser geeignet sind deshalb die Klassen "`Lehrgebietsseite"'
         und "`E-Mail-Adresse"'.
 
     \subsection{Anforderungen}
@@ -136,10 +136,9 @@
         wie einen Namen und eine E-Mail-Adresse.
         Aus der Klassifikation muss hervorgehen,
         welche Informationen zusammengehören,
-        d.h. welche Informationen einen speziellen Mitarbeiter ausmachen.
+        d. h., welche Informationen einen speziellen Mitarbeiter ausmachen.
         Nutzer der Klassifikation können diese Zuordnung im Nachhinein nicht sicher vornehmen.
         Daraus ergibt sich folgende allgemeine Anforderung:
-
         Eine Klassifikation muss die fachliche Struktur
         und Hierarchie der Inhalte widerspiegeln,
         um diese Zuordnung vor allem bei sich wiederholenden Strukturen
@@ -175,5 +174,5 @@
         Das System muss die Prüfung sowie die manuelle Nachbesserung
         einer Klassifikation erlauben,
         um Fehler zu erkennen und zu beheben.
-        Das entsprechende Werkzeug soll eine graphische Benutzeroberfläche
+        Das entsprechende Werkzeug soll eine grafische Benutzeroberfläche
         besitzen, um seine Nutzung möglichst einfach zu gestalten.

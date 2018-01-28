@@ -1,7 +1,7 @@
 \section{Webseiten}
     \label{section:problemAnalysisWebpagesInTheWWW}
     Für ein besseres Verständnis der Aufgabenstellung sowie zur Findung
-    einer geeigneten Lösung ist es sinnvoll die technischen und fachlichen
+    einer geeigneten Lösung ist es sinnvoll, die technischen und fachlichen
     Grundlagen von Webseiten zu betrachten.
     Die folgenden Erläuterungen beinhalten auch Aspekte des \glspl{www},
     da Webseiten ein Teil des \glspl{www} sind.
@@ -35,8 +35,25 @@
         die eine Teilmenge von \glspl{uri} darstellen
         \cite[Kapitel 1.1.3]{rfc:3986}.
 
+        Das Schema einer \gls{uri} beschreibt laut \cite[Kapitel 3.1]{rfc:3986},
+        wie die restlichen Teile der \gls{uri} zu interpretieren sind.
+        Viele Schemata sind nach Protokollen benannt,
+        weshalb sie in der Praxis häufig auch das Verfahren bestimmen,
+        mit dem auf eine {\resource} zugegriffen werden kann
+        \cite[Kapitel 3.1]{w3c:wwwArch}.
+        Schemata, die im \gls{www} häufig Anwendung finden,
+        sind zum Beispiel
+        \texttt{http},
+        \texttt{https},
+        \texttt{mailto},
+        \texttt{ftp} und
+        \texttt{data}.
+        Für Webseiten sind dabei vor allem \texttt{http} und \texttt{https}
+        und die gleichnamigen Protokolle von Bedeutung,
+        da \glspl{url} diese vorrangig verwenden.
+
     \subsection{Web Agents}
-        Um {\resources} im \gls{www} anzusprechen existieren verschiedene Werkzeuge.
+        Um {\resources} im \gls{www} anzusprechen, existieren verschiedene Werkzeuge.
         Das \gls{w3c} \cite[Kapitel 6]{w3c:wwwArch} bezeichnet jedes von ihnen als
         "`Web agent"' und beschreibt diese Rolle wie folgt:
         "`A person or a piece of software acting on the information
@@ -50,47 +67,29 @@
         HTTP-Header "`User-Agent"' fest \cite[Kapitel 5.5.3, Seite 46]{rfc:7231}.
 
         Der Prozess, bei dem ein Agent über eine \gls{uri} auf eine {\resource}
-        zugreift heißt "`Dereferencing the URI"'.
-        Wie dieser Prozess aussieht hängt von der Funktion des User Agents und der \gls{uri} ab.
-        Eines User Agent könnte bspw. eine
+        zugreift, heißt "`Dereferencing the URI"'.
+        Wie dieser Prozess aussieht, hängt von der Funktion des User Agents und der \gls{uri} ab.
+        Ein User Agent könnte bspw. eine
         Repräsentation einer {\resource} abrufen, wohingegen ein anderer Agent
         lediglich prüft, ob eine eben solche Repräsentation existiert
         \cite[Kapitel 3.1]{w3c:wwwArch}.
-
-        Das Schema einer \gls{uri} beschreibt laut \cite[Kapitel 3.1]{rfc:3986},
-        wie die restlichen Teile der \gls{uri} zu interpretieren sind.
-        Viele Schemata sind nach Protokollen benannt,
-        weshalb sie in der Praxis häufig auch das Verfahren bestimmen,
-        mit dem User Agents auf eine {\resource} zugreifen können
-        \cite[Kapitel 3.1]{w3c:wwwArch}.
-        Schemata, die im \gls{www} häufig Anwendung finden,
-        sind zum Beispiel
-        http\footnote{\url{https://tools.ietf.org/html/rfc7230\#section-2.7.1}},
-        https\footnote{\url{https://tools.ietf.org/html/rfc7230\#section-2.7.2}},
-        mailto\footnote{\url{https://tools.ietf.org/html/rfc6068}} und
-        data\footnote{\url{https://tools.ietf.org/html/rfc2397}}.
-        Für Webseiten sind dabei vor allem http und https
-        und die gleichnamigen Protokolle von Bedeutung,
-        da \glspl{url} diese vorrangig verwenden.
-
         Wenn ein Webbrowser oder ein anderer Agent eine Webseite aufruft,
         fragt er bei einem Webserver also eine Repräsentation
         einer {\resource} an, die er über eine \gls{url} spezifiziert.
         Falls der Server die \gls{url} der Anfrage auflösen kann,
-        antwortet er auf die Anfrage mit der \acrshort{html}-Repräsentation der Webseite.
+        antwortet er auf die Anfrage mit einer Repräsentation der Webseite.
         Der Browser übernimmt dann das Rendering der Seite und die Ausführung
         von eingebetteten Skripten.
 
         \subsection{HTML-Repräsentation}
             Webseiten sind Dokumente, die die Auszeichnungssprache \gls{html} verwenden,
-            die aktuell in der Version 5 vorliegt \cite{w3c:html5}.
+            die aktuell in der Version 5 \cite{w3c:html5} vorliegt.
             Bis zur Version 3.2 war \gls{html} eine Implementierung der Metasprache SGML \cite[Kapitel 3]{w3c:html401}.
-            Zusammen mit der Version 4 wurde eine Ausprägung spezifiziert,
+            Zusammen mit der Version 4 \cite{w3c:xhtml} wurde eine Ausprägung spezifiziert,
             die \gls{html} in eine Implementierung der Sprache XML überführt,
-            die den Namen XHTML trägt \cite{w3c:xhtml}.
-            \gls{html}5 definiert eine abstrakte Sprache
-            die sowohl mit \gls{html}- als auch mit XML-Syntax genutzt werden kann
-            \cite[Kapitel 1.6]{w3c:html5}.
+            die den Namen XHTML trägt.
+            \gls{html}5 \cite[Kapitel 1.6]{w3c:html5} definiert eine abstrakte Sprache,
+            die sowohl mit \gls{html}- als auch mit XML-Syntax genutzt werden kann.
             Einem Agent kann über den MIME-Type mitgeteilt werden,
             ob ein Dokument \gls{html}- oder XML-Syntax verwendet \cite[Kapitel 1.6]{w3c:html5}.
             Diese Angabe ist wichtig, da XML-Syntax restriktiver als \gls{html}-Syntax ist.
@@ -99,8 +98,11 @@
             \cite[Kapitel 3.2.3]{w3c:html5}.
 
             \gls{html}-Dokumente bestehen in beiden Syntaxvarianten aus verschachtelten
-            Elementen, die in 10 Kategorien eingeteilt werden \cite[Kapitel 4]{w3c:html5}.
+            Elementen, die in 10 Kategorien \cite[Kapitel 4]{w3c:html5} eingeteilt werden.
             Diese sind in Tabelle \ref{table:htmlElements} inkl. einiger Vertreter aufgelistet.
+            Die verschiedenen Elemente geben ihren Inhalten eine semantische Bedeutung.
+            Text in einem \texttt{h1}-Element \cite[Kapitel 4.3.6]{w3c:html5} wird von einem Webbrowser zum Beispiel in die Anzeige gerendert,
+            wohingegen er in einem \texttt{script}-Element \cite[Kapitel 4.11.1]{w3c:html5} als Code interpretiert und ausgeführt wird.
 
             \begin{table}[h]
                 \centering
@@ -132,12 +134,6 @@
                 \caption{Die Kategorisierung von \acrshort{html}-Elementen}
                 \label{table:htmlElements}
             \end{table}
-
-            Die verschiedenen Elemente geben ihren Inhalten eine semantische Bedeutung.
-            Text in einem \texttt{h1}-Element wird von einem Webbrowser zum Beispiel in die Anzeige gerendert
-            \cite[Kapitel 4.3.6]{w3c:html5},
-            wohingegen er in einem \texttt{script}-Element als Code interpretiert und ausgeführt wird
-            \cite[Kapitel 4.11.1]{w3c:html5}.
         
             Eine Besonderheit von \gls{html} ist die Möglichkeit
             andere {\resources} des \glspl{www} zu referenzieren,
@@ -145,7 +141,11 @@
             Beispiele für häufig in Webseiten referenzierte {\resources}
             sind andere Webseiten, Skripte, Stylesheet-Dateien, Bilder und Videos.
             Zur Referenzierung dieser Beispiele dienen die \gls{html}-Elemente
-            \texttt{a}, \texttt{script}, \texttt{link}, \texttt{img}, und \texttt{video},
+            \texttt{a} \cite[Kapitel 4.5.1]{w3c:html5},
+            \texttt{script} \cite[Kapitel 4.11.1]{w3c:html5},
+            \texttt{link} \cite[Kapitel 4.2.4]{w3c:html5},
+            \texttt{img} \cite[Kapitel 4.7.1]{w3c:html5} und
+            \texttt{video} \cite[Kapitel 4.7.6]{w3c:html5},
             die auch die Semantik der Referenz festlegen.
             Ein Bild kann sowohl über das \texttt{img}-
             als auch das \texttt{a}-Element referenziert werden.
@@ -154,8 +154,8 @@
 
         \subsection{Trennung der Zuständigkeiten}
             \label{section:problemAnalysisWebpagesInTheWWWSeparationOfConcerns}
-            Die Trennung der Zuständigkeiten
-            ist ein allgegenwärtiges Konzept der Informatik \cite{huersch:SeparationOfConcerns}.
+            Die Trennung der Zuständigkeiten \cite{huersch:SeparationOfConcerns}
+            ist ein allgegenwärtiges Konzept der Informatik.
             Im Sinne dieses Konzeptes existieren im Kontext von Webseiten
             drei Belange, die es zu trennen gilt:
 
@@ -165,18 +165,17 @@
                 \item Funktionalität
             \end{enumerate}
 
-            Der Inhalt einer Seite ist in den \gls{html}-Elementen enthalten,
+            Der Inhalt einer Webseite ist in den \gls{html}-Elementen enthalten,
             deren Hierarchie darüber hinaus die Struktur der Seite bestimmt.
-            Das Aussehen einer Seite wird hingegen über \gls{css} festgelegt \cite{w3c:css}.
+            Das Aussehen einer Seite wird hingegen über \gls{css} \cite{w3c:css} festgelegt.
             Dabei handelt es sich um "`[...] eine Sprache zur Beschreibung des Renderings
             von strukturierten Dokumenten (wie HTML und XML) auf Bildschirmen, auf Papier,
             in Sprache, etc."' \cite{w3c:css}.
             Zu diesem Zweck werden mit \gls{css} Regeln definiert,
             die einer Menge von \gls{html}-Elementen Eigenschaften in der Darstellung (Styles) zuweisen
             \cite{w3c:cssSyntax}.
-            Diese Menge von Elementen wird wiederum über Selektoren festgelegt,
-            mit denen sich verschiedene Eigenschaften der auszuwählenden Elemente beschreiben lassen
-            \cite{w3c:cssSelectors}.
+            Diese Menge von Elementen wird wiederum über Selektoren \cite{w3c:cssSelectors} festgelegt,
+            mit denen sich verschiedene Eigenschaften der auszuwählenden Elemente beschreiben lassen.
             Falls zwei Regeln dasselbe Element ansprechen,
             werden die Styles beider Regeln zusammengefasst
             \cite{w3c:cssCascading}.
@@ -191,11 +190,10 @@
             Auf den verbliebenen Aspekt "`Funktionalität"' geht der folgende Abschnitt ein.
 
         \subsection{Dynamische Webseiten}
-            Komplexe Webanwendungen sind auf die Möglichkeit angewiesen Geschäftslogik auszuführen.
+            Komplexe Webanwendungen sind auf die Möglichkeit angewiesen, Geschäftslogik auszuführen.
             Dafür kommen sowohl der Webserver als auch der User Agent (Client) infrage.
-
             Der Server kann zur Bearbeitung einer Anfrage mit dem Inhalt einer Datei auf seinem Dateisystem antworten.
-            Dies können zum Beispiel eine \gls{html}-Datei oder ein Bild sein.
+            Das kann zum Beispiel eine \gls{html}-Datei oder ein Bild sein.
             In diesem Fall spricht man von statischen Inhalten.
             Es ist allerdings auch möglich,
             dass eine Webanwendung serverseitig Geschäftslogik zur Bearbeitung einer Anfrage ausführt.
@@ -203,16 +201,15 @@
             durch die Webanwendung generiert worden sein.
             Im letzten Fall spricht man von dynamisch generierten bzw. erzeugten Inhalten.
 
-            Ein \gls{html}-Dokument kann in \texttt{script}-Elementen ebenfalls Logik enthalten
-            \cite[Kapitel 4.11]{w3c:html5},
+            Ein \gls{html}-Dokument kann in \texttt{script}-Elementen \cite[Kapitel 4.11.1]{w3c:html5} ebenfalls Logik enthalten,
             zu deren Formulierung Entwickler häufig die Skriptsprache JavaScript verwenden.
             Dabei handelt es sich um eine Implementierung des Sprachstandards ECMAScript
             \cite{ecma:ecmaScript}.
             Nicht der Server, sondern der anfragende User Agent -- häufig ein Webbrowser -- führt diese Logik aus.
-            Es existieren verschiedene Programmierschnittstellen,
-            die solchen Skripten erlauben
+            Es existieren verschiedene Programmierschnittstellen \cite[Kapitel 8]{whatwg:html},
+            die solchen Skripten erlauben,
             Elemente zu manipulieren, auf Nutzerinteraktion zu reagieren
-            oder asynchrone HTTP-Anfragen auszuführen \cite[Kapitel 8]{whatwg:html}\cite{whatwg:xhr}.
+            oder asynchrone HTTP-Anfragen \cite{whatwg:xhr} auszuführen.
             Falls eine Webseite solche clientseitigen Mittel verwendet,
             wird sie als dynamische Seite bezeichnet.
             
@@ -229,7 +226,7 @@
             an eine definierte Stelle der Webseite einfügt,
             wodurch es dem Nutzer sichtbar wird.
             Der konzeptionelle Ablauf in diesem Szenario sowie die verwendeten Mittel
-            werden unter dem Begriff \gls{ajax} zusammengefasst \cite{garrett:ajax}.
+            werden unter dem Begriff \gls{ajax} \cite{garrett:ajax} zusammengefasst.
 
         \subsection{Websites}
             \label{section:problemAnalysisWebpagesInTheWWWWebsites}

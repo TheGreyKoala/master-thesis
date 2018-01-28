@@ -41,15 +41,15 @@
             giving it a title, and organizing it under (one or more) categories.
         \end{quote}
 
-        Nicht zuletzt weil auch Privatpersonen eine Zielgruppe
-        solcher Anwendungen sind, vereinfachen sie Blog-Einträge
+        Nicht zuletzt, weil auch Privatpersonen eine Zielgruppe
+        solcher Anwendungen sind, vereinfachen sie Blogeinträge
         auf die zwei elementaren Elemente Titel und Inhalt.
         Mit dieser schwachen Strukturierung der Inhalte
         unterscheidet sich {\wordpress} deutlich von {\imperia}
         und seinen Dokumenten, die beliebig stark strukturiert
         werden können.
-        Aufgrund der Anpassbarkeit durch Themes\footnote{vgl. Kapitel \ref{section:wordpressTemplatesThemes}}
-        und Plugins\footnote{vgl. Kapitel \ref{section:wordpressPlugins}} sieht sich
+        Aufgrund der Anpassbarkeit durch Themes
+        und Plugins sieht sich
         {\wordpress} trotzdem als vollwertiges \gls{cms}
         \cite{wordpress:About}.
 
@@ -57,17 +57,17 @@
         \label{section:problemAnalysisWordPressDynamicGeneration}
         Anders als {\imperia} ist {\wordpress} nicht nur das Redaktionssystem,
         sondern gleichzeitig auch das ausliefernde Zielsystem.
-        Inhalte genereirt {\wordpress} deshalb nicht in statische Dateien,
+        Inhalte generiert {\wordpress} deshalb nicht in statische Dateien,
         sondern erzeugt eine Webseite auf Anfrage dynamisch.
 
     \subsection{Posts und Pages}
         \label{section:wordpressPostsPages}
-        {\wordpress} unterscheidet zwei Arten von Beiträgen,
+        {\wordpress} unterscheidet zwei Arten von Beiträgen \cite[Kapitel "`Pages"']{wordpress:codex},
         auf denen eine Webseite basieren kann: Posts
-        und Pages \cite[Kapitel "`Pages"']{wordpress:codex}.
+        und Pages.
 
         \paragraph*{Posts}
-        Klassische Blog-Einträge werden in {\wordpress} "`Posts"' genannt.
+        Klassische Blogeinträge werden in {\wordpress} "`Posts"' genannt.
         Neben der Pflege des Titels und des Inhaltes eines Posts stehen dem
         Anwender noch weitere Optionen zur Verfügung.
         Ein Post kann in Kategorien einsortiert oder mit Schlagwörtern versehen werden.
@@ -75,14 +75,13 @@
         die z. B. alle Posts einer Kategorie enthalten.
         Über den eigentlichen Inhalt hinausgehende Informationen können
         in sogenannten "`Custom Fields"' gespeichert werden.
-        Davon machen z. B. Plugins\footnote{vgl. Kapitel \ref{section:wordpressPlugins}} gebrauch
+        Davon machen z. B. Plugins Gebrauch
         und speichern Metadaten des Posts in ihnen.
         Jeder Post besitzt einen Post Type,
         der eine Aussage über die Art des Beitrages macht.
-        {\wordpress} definiert einige Standardtypen,
+        {\wordpress} definiert einige Standardtypen \cite[Kapitel "`Post Types"']{wordpress:codex},
         lässt aber auch die Angabe eigener Typen zu.
-        Die Standardtypen sind
-        \cite[Kapitel "`Post Types"']{wordpress:codex}:
+        Die Standardtypen sind:
 
         \begin{itemize}
             \item Post,
@@ -97,14 +96,13 @@
         Der Typ eines Posts ändert nichts an seinen redaktionellen Feldern.
         Das heißt, unabhängig vom Post Type besitzt ein Beitrag nur
         einen Titel und Inhalt
-        \cite{wordpress:Posts, wordpress:PostTypes}.
+        \cite[Kapitel "`Posts"' \& "`Post Types"']{wordpress:codex}.
         Stattdessen machen Typen wie Revision und Custom CSS deutlich,
         dass {\wordpress} Posts auch zur Realisierung technischer Anforderung verwendet.
 
         \paragraph*{Pages}
-        Neben Posts kennt {\wordpress} auch das Konzept einer Page,
-        die sich in ihrem Zweck klar von einem Post unterscheidet
-        \cite[Kapitel "`Pages"']{wordpress:codex}:
+        Neben Posts kennt {\wordpress} auch das Konzept einer Page \cite[Kapitel "`Pages"']{wordpress:codex},
+        die sich in ihrem Zweck klar von einem Post unterscheidet:
 
         \begin{quote}
             In contrast, pages are generally for non-chronological,
@@ -129,7 +127,7 @@
         was ebenfalls verdeutlicht, dass Pages lediglich Posts eines speziellen Typs sind.
         Der Inhalt eines Beitrages wird in der Datenbank als \gls{html}-Fragment abgelegt,
         welches während der dynamischen Generierung in die Webseite übernommen wird.
-        Zusätzlich enthält ein Beitrag aber auch spezielles Markup\footnote{vgl. Kapitel \ref{section:wordpressPlugins}},
+        Zusätzlich enthält ein Beitrag aber auch spezielles Anweisungen\footnote{vgl. Kapitel \ref{section:wordpressPlugins}},
         welches von {\wordpress} während der Generierung interpretiert wird.
 
     \subsection{Vorlagen und Themes}
@@ -142,12 +140,11 @@
         Das Layout bestimmen Vorlagen und Themes.
 
         \paragraph*{Vorlagen}
-        {\wordpress} nutzt Vorlagen, um Inhalte in eine Seite einzubinden
+        {\wordpress} nutzt Vorlagen \cite[Kapitel "`Templates"']{wordpress:codex}, um Inhalte in eine Seite einzubinden
         und ihr Aussehen festzulegen.
         Dazu definieren sie das Gerüst der Webseite und enthalten Kommandos,
         um Inhalte aus der Datenbank auszulesen.
-        Eine Webseite wird auf Basis einer Vorlage dynamisch von {\wordpress} generiert
-        \cite[Kapitel "`Templates"']{wordpress:codex}.
+        Eine Webseite wird auf Basis einer Vorlage dynamisch von {\wordpress} generiert.
         Vorlagen sind bei genauerem Hinsehen nichts anderes als PHP-Dateien,
         die \gls{html}, allgemeinen PHP-Code und sogenannte
         "`Template-Tags"' enthalten.
@@ -164,7 +161,7 @@
         \cite[Kapitel "`Template Hierarchy"']{wordpress:codex}.
 
         \paragraph*{Themes}
-        Eine Sammlung aller {\resources}, die notwendig sind um
+        Eine Sammlung aller {\resources}, die notwendig sind, um
         eine Webseite und ihr Layout umzusetzen,
         wird im Kontext von {\wordpress} als "`Theme"' bezeichnet.
         Ein Theme enthält demnach Vorlagen, Bilder sowie
@@ -175,7 +172,7 @@
 
     \subsection{Plugins}
         \label{section:wordpressPlugins}
-        {\wordpress} besitzt ein Plugin-System,
+        {\wordpress} besitzt ein Plugin-System \cite[Kapitel "`Plugins"']{wordpress:codex},
         über das es beliebig funktional erweitert werden kann,
         ohne an {\wordpress}' eigenen Quellen Änderungen vorzunehmen.
         Es existiert eine große Anzahl an freien Plugins,
@@ -185,9 +182,8 @@
         "`Form Maker"'\footnote{\url{https://wordpress.org/plugins/form-maker/}},
         welches die Definition von Webformularen erlaubt,
         die dann in beliebigen Beiträgen eingebettet werden können.
-        Zur Nutzung eines Plugins wird meist eine spezielle Anweisung -- ein Shortcode --
+        Zur Nutzung eines Plugins wird meist eine spezielle Anweisung -- ein Shortcode \cite[Kapitel "`Shortcode API"']{wordpress:codex} --
         in den Inhalt eines Posts oder einer Page geschrieben,
-        die zum Zeitpunkt der Generierung ausgewertet wird
-        \cite[Kapitel "`Shortcode API"']{wordpress:codex}.
+        die zum Zeitpunkt der Generierung ausgewertet wird.
         Beim Form Maker Plugin wäre dies zum Beispiel \texttt{[Form id="1"]},
         wodurch das Formular mit der Kennung "`1"' in die Webseite integriert wird.

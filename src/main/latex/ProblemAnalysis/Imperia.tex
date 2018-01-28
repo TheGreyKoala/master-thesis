@@ -1,8 +1,8 @@
 \section{\imperia}
     \label{section:Imperia}
     % TODO: Wie werden Medien gespeichert?
-    {\imperia} ist ein kommerzielles Enterprise Content Management und
-    Web Content Management System \cite{imperia:about}, welches
+    Imperia CMS \cite{imperia:about} ist ein kommerzielles Enterprise Content Management und
+    Web Content Management System, welches
     von der {\fernUni} zur Pflege ihrer Webseiten genutzt wird
     \cite{fernUni:imperia}.
     Dieses Kapitel geht auf die wichtigsten Merkmale und Konzepte
@@ -10,7 +10,7 @@
 
     \subsection{Statische Generierung}
         \label{section:imperiaStaticGeneration}
-        {\imperia} ist ein statisch generierendes \gls{cms}.
+        Imperia CMS ist ein statisch generierendes \gls{cms}.
         Das bedeutet, dass es Inhalte basierend auf Vorlagen
         in Dateien generiert, die dann auf ein Zielsystem übertragen
         und dort beliebig und vor allem unabhängig von
@@ -23,22 +23,20 @@
 
     \subsection{Dokumente}
         \label{section:imperiaDocuments}
-        Die zentrale Datenstruktur in {\imperia} sind Dokumente,
-        da sie zur Speicherung von Inhalten dienen
-        \cite[Kapitel 1.1]{imperia:ecmd}.
+        Die zentrale Datenstruktur in {\imperia} sind Dokumente \cite[Kapitel 1.1]{imperia:ecmd},
+        da sie zur Speicherung von Inhalten dienen.
         Dokumente werden beim Anlegen stets einer Kategorie zugewiesen,
         die festlegt, auf welcher Vorlage
         das Dokument basiert.
-        Die Vorlage bestimmt wiederum, welches Eingabeformular
-        {\editors} zur Pflege der Inhalte des Dokumentes verwenden
-        \cite[Kapitel 1.1.4]{imperia:ecmd}.
-        {\imperia} speichert ein Dokument als simple Menge von
+        Die Vorlage \cite[Kapitel 1.1.4]{imperia:ecmd} bestimmt wiederum, welches Eingabeformular
+        {\editors} zur Pflege der Inhalte des Dokumentes verwenden.
+        Imperia CMS speichert ein Dokument als simple Menge von
         Schlüssel-Wert-Paaren in einer relationalen Datenbank.
         Als Schlüssel -- auch Metavariablen genannt -- dienen die Namen der Felder des Eingabeformulars.
         Entsprechend übernimmt {\imperia} die Inhalte dieser Felder
         als Werte der Schlüssel-Wert-Paare.
         Diese allgemeine Datenstruktur ermöglicht die Nutzung der Inhalte
-        in verschiedenen Ausgabeformaten, wie \gls{html}, XML, etc
+        in verschiedenen Ausgabeformaten, wie \gls{html}, XML, etc.
         \cite[Kapitel 1.1.2]{imperia:ecmd}.
 
     \subsection{Vorlagen}
@@ -48,8 +46,7 @@
         Zu diesem Zweck speichert es Inhalte layoutunabhängig
         in Dokumenten.
         Das Layout hingegen wird auf dem Dateisystem in Vorlagen festgehalten,
-        die zwei Ziele verfolgen
-        \cite[Kapitel 36]{imperia:ecmd}:
+        die zwei Ziele \cite[Kapitel 36]{imperia:ecmd} verfolgen:
 
         \begin{enumerate}
             \item {\editors}n ohne technische Kenntnisse eine einfache Pflege von Inhalten zu ermöglichen und
@@ -59,26 +56,24 @@
         Zur Erfüllung des ersten Zieles kann jede Vorlage ein Eingabeformular
         und dessen Felder spezifizieren.
         Dazu stehen geläufige Komponenten wie Textfelder,
-        aber auch {\imperia}-eigene Elemente zur Verfügung
-        \cite[Kapitel 1.1.4]{imperia:ecmd}.
+        aber auch {\imperia}-eigene Elemente \cite[Kapitel 1.1.4]{imperia:ecmd} zur Verfügung.
         Jeder Dokumentenkategorie in {\imperia} wird eine Vorlage zugewiesen,
         wobei eine Vorlage von mehreren Kategorien genutzt werden kann.
-        Durch die Einteilung der Dokumente in Kategorien,
+        Durch die Einteilung der Dokumente in Kategorien
         kann jedes Dokument also einer Vorlage zugeordnet werden.
         Das durch diese Vorlage definierte Eingabeformular
         wird {\editors n} zur Pflege der Inhalte des Dokumentes präsentiert
         \cite[Kapitel 1.1.4]{imperia:ecmd}.
-
         Das zweite Ziel erreichen Vorlagen,
         indem sie neben dem Eingabeformular auch ein Gerüst für das
         Layout definieren.
         Über eine spezielle Syntax können sie an beliebigen Positionen
-        Metavariablen\footnote{vgl. Kapitel \ref{section:imperiaDocuments}} referenzieren,
+        Metavariablen referenzieren,
         deren Werte im Ausgabedokument an der entsprechenden Stelle integriert werden
         \cite[Kapitel 36]{imperia:ecmd}.
 
-        Vorlagen können in zwei Varianten vorliegen.
-        Die erste vereint sowohl die Definition des Eingabeformulares
+        Vorlagen können in zwei Varianten \cite[Kapitel 36]{imperia:ecmd} vorliegen.
+        Die erste vereint sowohl die Definition des Eingabeformulars
         als auch die des Layouts in einer Datei.
         Ein {\editor} kann Dokumente dadurch nach dem Prinzip \gls{wysiwyg} bearbeiten.
         Die Eingabefelder entfernt {\imperia} automatisch im Ausgabedokument.
@@ -87,8 +82,7 @@
         verschiedenen Layouts genutzt werden sollen.
         In diesem Fall existiert also eine Vorlage,
         die das neutrale Eingabeformular bestimmt
-        und mehrere Layout-Vorlagen, die dieselben Inhalte unterschiedlich darstellen
-        \cite[Kapitel 36]{imperia:ecmd}.
+        und mehrere Layoutvorlagen, die dieselben Inhalte unterschiedlich darstellen.
 
     \subsection{Workflows}
         Ein Dokument durchläuft von seiner Erzeugung bis zur
@@ -97,8 +91,7 @@
         Jeder Kategorie wird ein Workflow zugewiesen,
         den die Dokumente durchlaufen müssen
         \cite[Kapitel 1.1.5]{imperia:ecmd}.
-        Ein typischer Workflow ist der Folgende
-        \cite[Kapitel 1.1]{imperia:ecmd}:
+        Ein typischer Workflow \cite[Kapitel 1.1]{imperia:ecmd} ist der Folgende:
 
         \begin{enumerate}
             \item Erstellung des Dokumentes und Angabe allgemeiner Daten
@@ -109,29 +102,19 @@
 
     \subsection{Architektur}
         \label{section:imperiaArch}
-        {\imperia} basiert auf einer mehrschichtigen Client-Server-Architektur,
+        Imperia CMS basiert auf einer mehrschichtigen Client-Server-Architektur,
         die in Abbildung \ref{image:imperiaArchitektur} dargestellt ist.
-
-        \begin{figure}[htb]
-            \centering
-            \includegraphics[width=\textwidth]{../resources/imperia/architektur.png}
-            \caption{Die Architkektur von {\imperia} \cite{imperia:ecmd}}
-            \label{image:imperiaArchitektur}
-        \end{figure}
-
         Die wichtigste Komponente in dieser Architektur ist der imperia Server,
         der die zentralen Funktionen des Systems bereitstellt.
         Dazu gehören das Anlegen und Strukturieren von Projekten
         und Dokumenten sowie die Ausführung von Workflows.
         Außerdem verwaltet er die Datenhaltung.
-
         Die verschiedenen Nutzer des Systems
         verwenden für ihre Arbeit eine Weboberfläche,
         die über HTTP(S) mit dem Server kommuniziert.
         Über das gleiche Protokoll können auch Drittsysteme den Server
         ansprechen und verschiedene Aktionen durchführen oder Daten abfragen.
-
-        Sobald ein Dokument alle Workflow-Schritte durchlaufen hat,
+        Sobald ein Dokument alle Workflowschritte durchlaufen hat,
         wird es durch eine automatische oder manuelle Publizierung
         in eine Datei generiert, die dann auf ein Zielsystem übertragen wird.
         Dieses System ist eigenständig und gehört nicht zu {\imperia}.
@@ -139,3 +122,10 @@
         die generierten Dateien zu empfangen.
         Ein Beispiel sind Webserver, auf die Webseiten publiziert werden,
         die sie dann Besuchern bereitstellen.
+
+        \begin{figure}[hbt]
+            \centering
+            \includegraphics[width=\textwidth]{../resources/imperia/architektur.png}
+            \caption{Die Architektur von {\imperia} \cite{imperia:ecmd}}
+            \label{image:imperiaArchitektur}
+        \end{figure}
