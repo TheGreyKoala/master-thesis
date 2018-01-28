@@ -6,19 +6,20 @@
 
     \paragraph{Einbinden von Bibliotheken und Styledefinitionen}
     Zunächst muss gewährleistet sein, dass die
-    Annotator Bibliothek\footnote{vgl. \url{http://assets.annotateit.org/annotator/v1.2.10/annotator-full.min.js}}
-    und die Annotator Stylesheets\footnote{vgl. \url{http://assets.annotateit.org/annotator/v1.1.0/annotator.min.css}}
+    Annotator Bibliothek
+    und die Annotator Stylesheets
+    \cite[Kapitel "`Getting started with Annotator"']{annotator:documentation}
     korrekt in die Seite eingebunden sind.
     Des Weiteren muss das Annotator Plugin über ein \texttt{script}-Element
-    im \texttt{head}-Element der Webseite engebunden werden.
-    Anschließend sollten die Styledefinition aus Listing \ref{listing:annotatorCustomStyles}
+    im \texttt{head}-Element der Webseite eingebunden werden.
+    Anschließend sollten die Styledefinitionen aus Listing \ref{listing:annotatorCustomStyles}
     dem \texttt{head}-Element der Webseite hinzugefügt werden,
     da Annotator die Struktur der Seite bearbeitet und andernfalls Designprobleme auftreten können.
 
     \lstinputlisting[
         label=listing:annotatorCustomStyles,
         caption=Zusätzliche Styledefinitionen zur Nutzung des {\annotatorPlugin}s,
-        style=html
+        style=css
     ]{../resources/annotator-plugin/custom-styles.css}
 
     \paragraph{Annotator Initialisierung}

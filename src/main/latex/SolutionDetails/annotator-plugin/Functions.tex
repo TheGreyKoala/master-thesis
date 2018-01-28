@@ -32,12 +32,12 @@
         \label{image:annotatorPluginEditor}
     \end{figure}
 
-    Der Nutzer erhält dadurch die Möglichkeit die Klasse des Features zu bearbeiten.
+    Der Nutzer erhält dadurch die Möglichkeit, die Klasse des Features zu bearbeiten.
     Die Einträge der Auswahlliste sind je nach Art des Features
     Inhalts- oder Referenzklassen, die das {\annotatorPlugin} während seiner
     Initialisierung einmalig vom {\classificationService}
-    bezieht\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationServiceFunctions}}.
-    Um welche Art von Feature es sich handelt ermittelt das Plugin anhand des Feldes
+    bezieht.
+    Um welche Art von Feature es sich handelt, ermittelt das Plugin anhand des Feldes
     \texttt{wccs.featureKind} der Annotation.
     Beim Speichern wird die ausgewählte Klasse im Feld \texttt{wccs.featureClass} gespeichert.
     Die aktualisierte Annotation wird dann an den {\annotationService} übermittelt,

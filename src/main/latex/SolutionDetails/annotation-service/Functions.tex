@@ -9,9 +9,16 @@
 
     \paragraph{Format einer Annotation}
     Annotationen tauscht der Service über JSON-Dokumente aus,
-    die dem Format von Annotator \cite[Kapitel "`Annotation format"' ]{annotator:documentation} folgen.
+    die dem Format von Annotator \cite[Kapitel "`Annotation format"']{annotator:documentation} folgen.
     Der Service ergänzt aber einige Angaben.
     Das Schema einer Annotation zeigt Listing \ref{listing:annotationServiceAnnotationFormat}.
+
+    \lstinputlisting[
+        label=listing:annotationServiceAnnotationFormat,
+        caption=Das Format einer Annotation,
+        style=json
+    ]{../resources/annotation-service/annotation.json}
+
     Jede Annotation spiegelt genau ein Feature der Klassifikation wider.
     Die ID einer Annotation wird vom {\annotationService} automatisch
     generiert.
@@ -22,24 +29,22 @@
     der in diesem Fall immer der imaginäre technische Benutzer \texttt{wccs} ist.
     Im Feld \texttt{permissions} werden die Rechte \texttt{admin} und \texttt{delete} auf diesen Nutzer beschränkt.
     Jeder Anwender kann dadurch Annotation lesen und bearbeiten.
-    Änderungen an den Rechten sowie das Löschen einer Annotation bleibt aber dem Nutzer \texttt{wccs} vorbehalten.
+    Änderungen an den Rechten sowie das Löschen einer Annotation bleiben aber dem Nutzer \texttt{wccs} vorbehalten.
     Die Eigenschaft \texttt{wccs} ist nicht durch Annotator vorgegeben,
     sondern stellt eine Ergänzung des \glspl{wccs} dar.
     Es speichert die Klasse und Art (Inhalt oder Referenz) eines Features.
 
-    \lstinputlisting[
-        label=listing:annotationServiceAnnotationFormat,
-        caption=Das Format einer Annotation,
-        style=json
-    ]{../resources/annotation-service/annotation.json}
-
     \paragraph{Bereitstellung von Informationen über die Schnittstelle}
-    Um der Annotator Storage API \cite[Kapitel "`Storage"' ]{annotator:documentation} zu genügen,
+    Um der Annotator Storage API \cite[Kapitel "`Storage"']{annotator:documentation} zu genügen,
     muss ein Endpunkt existieren,
     der Informationen über die Version der implementierten Schnittstelle
     enthält.
     Die entsprechende Schnittstelle ist in Tabelle
     \ref{table:annotationServiceMetaInterface} dokumentiert.
+    Annotator erwartet von der konfigurierten Datenhaltung,
+    dass sie die Annotationen genau einer Seite enthält.
+    Die Anfrage-\gls{url} enthält deshalb die \gls{url} der klassifizierten Webseite,
+    deren Annotationen angefordert werden.
 
     \begin{table}[htb]
         \centering
@@ -58,15 +63,14 @@
         \label{table:annotationServiceMetaInterface}
     \end{table}
 
-    Annotator erwartet von der konfigurierten Datenhaltung,
-    dass sie die Annotationen genau einer Seite enthält.
-    Die Anfrage-\gls{url} enthält deshalb die \gls{url} der klassifizierten Webseite,
-    deren Annotationen angefordert werden.
-
     \paragraph{Annotationen einer Seite abrufen}
     Zentrale Aufgabe des {\annotationService}s ist die Bereitstellung der Annotationen einer Seite.
     Hierfür bietet der Service die in Tabelle \ref{table:getAllAnnotationsInterface}
     dargestellte Schnittstelle.
+    Die Anfrage-\gls{url} identifiziert die klassifizierte Seite,
+    an deren Annotationen Interesse besteht,
+    über ihre \gls{url}.
+    Die Antwort des Services ist ein Array von Annotationen, wie sie im ersten Abschnitt vorgestellt wurden.
 
     \begin{table}[htb]
         \centering
@@ -84,11 +88,6 @@
         \caption{Die Schnittstelle zum Abfragen aller Annotationen einer Klassifikation}
         \label{table:getAllAnnotationsInterface}
     \end{table}
-
-    Die Anfrage-\gls{url} identifiziert die klassifizierte Seite,
-    an deren Annotationen Interesse besteht,
-    über ihre \gls{url}.
-    Die Antwort des Services ist ein Array von Annotationen, wie sie im ersten Abschnitt vorgestellt wurden.
 
     \paragraph{Einzelne Annotation abfragen}
     Über die Schnittstelle in Tabelle \ref{table:getAnnotationInterface} kann eine einzelne
@@ -116,6 +115,8 @@
     in Tabelle \ref{table:putAnnotationInterface} mitgeteilt werden.
     Als Resultat wird die Klasse des verknüpften Features
     überschrieben.
+    Die Anfrage muss eine Annotation im oben beschriebenen Format enthalten.
+    Die Antwort des Services enthält im Header \texttt{Location} die \gls{url} der geschriebenen Annotation.
 
     \begin{table}[htb]
         \centering
@@ -133,8 +134,5 @@
         \caption{Die Schnittstelle zum Schreiben einer Annotation}
         \label{table:putAnnotationInterface}
     \end{table}
-
-    Die Anfrage muss eine Annotation im oben beschriebenen Format enthalten.
-    Die Antwort des Services enthält im Header \texttt{Location} die \gls{url} der geschriebenen Annotation.
 
     % TODO: Schnittstelle so, dass später auch anderes Format für Annotationen möglich
