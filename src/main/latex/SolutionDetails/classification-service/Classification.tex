@@ -46,7 +46,7 @@
     ist die Auswertung der Selektoren und das dazu notwendige Parsen des \gls{html}-Dokumentes.
     Das \gls{wccs} setzt zur Bewältigung dieser Aufgabe auf die Automatisierung eines Webbrowsers.
     Konkret verwendet es die Bibliothek
-    Puppeteer\footnote{\url{https://github.com/GoogleChrome/puppeteer}},
+    Puppeteer\footnote{vgl. \url{https://github.com/GoogleChrome/puppeteer}},
     mit deren Hilfe sich der Browser Google Chrome ohne die Anzeige einer graphischen Oberfläche starten
     und anschließend programmatisch steuern lässt.
     Der wichtigste Vorteil der Nutzung eines echten Browsers ist seine ausgereifte und umfangreiche Implementierung
@@ -71,7 +71,7 @@
     Das Ergebnis dieser Methode kann abhängig vom XPath-Ausdruck eine Liste von HTML-Elementen, eine Zeichenkette,
     ein boolescher Wert oder eine Zahl sein
     \cite[Kapitel 1.4]{w3c:domXPath}.
-    Die beiden zuletzt genannten werden vom \gls{wccs} nicht unterstützt und als keine Übereinstimmung mit dem Selektor gewertet.
+    Die beiden zuletzt genannten Ergebnisse werden vom \gls{wccs} nicht unterstützt und als keine Übereinstimmung mit dem Selektor gewertet.
     Bei HTML-Elementen wird der Algorithmus wie beschrieben weiter durchlaufen.
     Im Falle von Zeichenketten wird die Rekursion allerdings unterbrochen, da kein neues Element vorhanden ist,
     welches den Suchraum weiter einschränken könnte.
@@ -80,12 +80,12 @@
     Durch die Verwendung von \texttt{document.evaluate} ist ein {\xpathSelector}
     auf die Möglichkeiten von XPath 1.0 eingeschränkt \cite{w3c:domXPath}.
 
-    Der {\urlSelector} ist für Webseiten und Features unterschiedlich implementiert.
-    Im Falle von Seiten wird der reguläre Ausdruck auf ihre \glspl{url} angewandt.
+    Der {\urlSelector} ist für Webseiten und {\referenceFeature}s unterschiedlich implementiert.
+    Im Falle von Seiten wird der reguläre Ausdruck auf ihren \glspl{url} angewandt.
     Eine Übereinstimmung wird als Erfüllung des Selektors gewertet.
-    Für Features werden zunächst alle Elemente innerhalb des Kontextobjektes gesucht, die {\resources} referenzieren.
+    Für {\referenceFeature}s werden zunächst alle Elemente innerhalb des Kontextobjektes gesucht, die {\resources} referenzieren.
     Das sind diejenigen Elemente, die eines der Attribute \texttt{href}, \texttt{src} oder \texttt{srcset} besitzen
-    \cite[Kapitel 4.7, 4.8]{w3c:html5}.
+    \cite[Kapitel 4.7 \& 4.8]{w3c:html5}.
     Um diese Elmente zu finden, wird der {\cssSelector} \texttt{[href], [src], [srcset]} auf dem Kontextobjekt ausgeführt.
     Anschließend wird für jeden Treffer der Wert des gefundenen Attributes ausgelesen
     und der reguläre Ausdruck des {\urlSelector}s auf ihm angewandt.
@@ -111,7 +111,7 @@
     ausgeschlossen werden
     \cite[Kapitel 3.2.7]{whatwg:html}.
     Für den Anwendungsfall des \gls{wccs} ist \texttt{innerText} deshalb besser geeignet als \texttt{textContent}.
-    Die \gls{url} einer {\resource} bezieht das \gls{wccs} aus dem Attribut
+    Die \gls{url} einer {\resource} bezieht das \gls{wccs} aus den Attributen
     \texttt{href}, \texttt{src} oder \texttt{srcset} des klassifizierten HTML-Elementes.
 
     \paragraph{Bestimmung eines eindeutigen Selektors}

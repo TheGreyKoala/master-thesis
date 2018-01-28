@@ -20,7 +20,7 @@
     Anders als in relationalen und vielen anderen NoSQL-Datenbanken,
     sind Beziehungen in Graphdatenbanken First-Class-Citiziens,
     wodurch ihre Abfrage und Auswertung ohne komplexe Aggregierungsfunktionen möglich ist.
-    Dadurch eigenen sie sich besser für verbundene Daten,
+    Dadurch eignen sie sich besser für verbundene Daten,
     auf denen oft gemeinsam Abfragen geschehen
     \cite[Kapitel 2]{robinson:graphdatabases}
     \cite[Kapitel 11.2]{sadalage:nosql}.
@@ -29,7 +29,7 @@
     \cite[Kapitel 11.1]{sadalage:nosql}:
     
     \begin{enumerate}
-        \item   Auch bei größer werdenden Datenmenge bleibt die Performanz nahezu gleich,
+        \item   Auch bei größer werdenden Datenmengen bleibt die Performanz nahezu gleich,
                 da Beziehungen nicht berechnet werden müssen.
         \item   Größere Flexibilität bei der Datenmodellierung, da zum Beispiel
                 neue Beziehungstypen einfach und ohne Risiko oder Anpassungen eingeführt werden können.
@@ -49,12 +49,12 @@
     Sie verwenden also auch verschiedene Schemata.
     Diese sind mit einem {\classificationModel} frei definierbar und deshalb aus Sicht der Datenbank unvorhersehbar.
     Zur Verwendung einer relationalen Datenbank hätte es deshalb zwei Alternativen gegeben.
-    Bei der ersten wird pro Seiten-, Inhalts-, und Referenzklasse zur Laufzeit nach Bedarf eine Datenbanktabelle angelegt,
+    Bei der Ersten wird pro Seiten-, Inhalts-, und Referenzklasse zur Laufzeit nach Bedarf eine Datenbanktabelle angelegt,
     die das Schema der jeweiligen Klasse widerspiegelt und über Fremdschlüssel zum Beispiel die Beziehung
     zwischen {\parentFeature} und {\childFeature} realisiert.
     Tiefe Klassenstrukturen erfordern bei diesem Ansatz aufwändige Aggregierungen,
     um eine gesamte Klassifikation zusammenzustellen.
-    Eine Änderung der Klasse eines Features hieße den Datensatz in eine andere Tabelle zu verschieben
+    Eine Änderung der Klasse eines Features hieße, den Datensatz in eine andere Tabelle zu verschieben
     und alle Fremdschlüssel entsprechend zu aktualisieren.
     Vereinzelte Ausnahmen auf Seiten, wie zum Beispiel zusätzliche Informationen, entsprechen bei diesem Ansatz
     einer Erweiterung der betroffenen Tabelle und aller Datensätze.

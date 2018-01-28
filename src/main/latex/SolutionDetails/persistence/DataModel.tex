@@ -8,7 +8,7 @@
     Abbildung \ref{image:dbDataModelOverview} zeigt zur Veranschaulichung
     der Ausführungen eine Übersicht des Datenmodells.
 
-    \begin{figure}
+    \begin{figure}[hbt]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/nodes.png}
         \caption{Das Datenmodell einer Klassifikation im {\classificationStorage}}
@@ -24,8 +24,26 @@
     bevor sie selbst einer Klassifizierung unterzogen werden.
     In diesem Fall erhält die Seite erst das Label \texttt{Resource} und anschließend zusätzlich
     das Label \texttt{Page}.
+    Sites werden durch Knoten mit dem gleichnamigen Label gespeichert und enthalten lediglich einen
+    Kennzeichner, der sie identifiziert.
+    Ein Seitenknoten speichert neben der Klasse der Seite auch ihre \gls{url},
+    die ihn innerhalb der Datenbank eindeutig kennzeichnet.
+    Der Knoten einer {\resource} enthält lediglich ihre \gls{url}, die auch hier diese Rolle einnimmt.
+    Im Falle von {\contentFeature}s besitzt jedes {\scalarFeature} und jedes Element eines {\collectionFeature}s
+    im Graphen einen Knoten mit dem Label \texttt{Content}.
+    Diese enthalten neben der Klasse des Features eine Prüfsumme über das Feature,
+    die innerhalb der Datenbank als Schlüssel solcher Knoten fungiert.
+    Das Schreiben einer Klassifikation macht diese Eigenschaft ebenfalls erforderlich,
+    was später behandelt wird.
+    Der Text eines {\contentFeature}s wird hingegen in einem separaten Knoten mit dem Label \texttt{Text} gespeichert,
+    der neben dieser Information nichts speichert und deshalb auch eindeutig über den Text identifiziert werden kann.
+    Der Grund für die Auslagerung des Textes ist, dass es viele Features geben kann, die den gleichen textuellen Inhalt besitzen.
+    Diese Eigenschaft soll der Graph durch Beziehungen explizit machen,
+    sodass sie leicht für Analysen genutzt werden kann.
+    Eine Beziehung ist semantisch ausdrucksstärker als ein identischer Wert einer Eigenschaft mehrerer Knoten.
+    Die Auswertung ist zugleich effizienter als ein Vergleich aller Knoten bzgl. einer solchen Eigenschaft.
 
-    \begin{table}[htb]
+    \begin{table}[tb]
         \centering
         \begin{tabular}{|l|l|}
             \hline
@@ -40,25 +58,6 @@
         \label{image:solutionDetailsPersistenceEntities}
     \end{table}
 
-    Sites werden durch Knoten mit dem gleichnamigen Label gespeichert und enthalten lediglich einen
-    Kennzeichner, der sie identifiziert.
-    Ein Seitenknoten speichert neben der Klasse der Seite auch ihre \gls{url},
-    die ihn innerhalb der Datenbank eindeutig kennzeichnet.
-    Der Knoten einer {\resource} enthält lediglich ihre \gls{url}, die auch hier diese Rolle einnimmt.
-    Im Falle von {\contentFeature}s besitzt jedes {\scalarFeature} und jedes Element eines {\collectionFeature}s
-    im Graphen einen Knoten mit dem Label \texttt{Content}.
-    Diese enthalten neben der Klasse des Features eine Prüfsumme über das Feature,
-    die innerhalb der Datenbank als Schlüssel solcher Knoten fungiert.
-    Das Schreiben einer Klassifikation macht diese Eigenschaft ebenfalls erforderlich,
-    was später behandelt wird\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage}}.
-    Der Text eines {\contentFeature}s wird hingegen in einem separaten Knoten mit dem Label \texttt{Text} gespeichert,
-    der neben dieser Information nichts speichert und deshalb auch eindeutig über den Text identifiziert werden kann.
-    Der Grund für die Auslagerung des Textes ist, dass es viele Features geben kann, die den gleichen textuellen Inhalt besitzen.
-    Diese Eigenschaft soll der Graph durch Beziehungen explizit machen,
-    sodass sie leicht für Analysen genutzt werden kann.
-    Eine Beziehung ist semantisch ausdrucksstärker als ein identischer Wert einer Eigenschaft mehrerer Knoten.
-    Die Auswertung ist zugleich effizienter als ein Vergleich aller Knoten bzgl. einer solchen Eigenschaft.
-
     \paragraph{Kanten}
     Seiten und {\contentFeature}s sind in der Lage {\contentFeature}s zu enthalten.
     In der Datenbank ist ein \texttt{Page}-Knoten mit all seinen \texttt{Content}-Knoten
@@ -67,7 +66,7 @@
     Eine genauere Darstellung dieser Beziehung bietet Abbildung \ref{image:dbDataModelContentRelationship},
     in der sie als \texttt{FeatureRelationship} modelliert wird.
 
-    \begin{figure}
+    \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/content-relationship.png}
         \caption{Die Beziehung zu einem Content-Knoten}
@@ -86,13 +85,13 @@
     ausgehende Kante, die alle den gemeinsamen Namen des Features speichern.
     Wie später gezeigt wird, ist es sinnvoll diese Informationen nicht im \texttt{Content}-Knoten
     zu speichern, um ihre Wiederverwendbarkeit zu
-    steigern\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage}}.
+    steigern.
     Referenzen werden in der Datenbank durch eine Kombination aus
     \texttt{Resource}-Knoten und Beziehungen zu diesen Knoten dargestellt.
     Diese Beziehungen tragen das Label \texttt{References}.
     Abbildung \ref{image:dbDataModelResourceRelationship} stellt diese Beziehung in den Fokus.
 
-    \begin{figure}
+    \begin{figure}[htb]
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/resource-relationship.png}
         \caption{Die Beziehung zu einem {\resource}-Knoten}
