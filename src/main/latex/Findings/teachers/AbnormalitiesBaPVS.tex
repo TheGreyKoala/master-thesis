@@ -21,7 +21,7 @@
     betroffene Mitarbeiter doppelt erfasst.
     Bei der zweiten Klassifizierung
     (beim inneren \texttt{div}-Element) kann das System kein Bild finden,
-    weshalb sie von der ersten abweicht und ein zweiter \texttt{Teacher}-Knoten angelegt wird.
+    weshalb sie von der Ersten abweicht und ein zweiter \texttt{Teacher}-Knoten angelegt wird.
     Diese teilen sich aber die restlichen Informationen,
     also Name, Lehrgebiet und Kontaktinformationen.
     Der dritte betroffene Mitarbeiter besitzt kein Bild,
@@ -55,13 +55,13 @@
     \paragraph{28 Mitarbeiter ohne Telefonnummer}
     Einige Kontakte besitzen in der Klassifikation keine Telefonnummer.
     Bei neun ist auch auf der Webseite keine zu finden.
-    Bei den restlichen ist der Nummer nicht "`Tel.: "'
+    Bei den Restlichen ist der Nummer nicht "`Tel.: "'
     sondern "`Telefon: "' oder "`Tel:"' vorangestellt.
     Der Selektor hat die Telefonnummern deshalb nicht erkannt.
     
     \paragraph{56 Mitarbeiter ohne Namen}
     Des Weiteren wurde für eine Vielzahl der Mitarbeiter kein Name erkannt,
-    da sie weder in einem \texttt{strong} noch einem \texttt{b} Element stehen.
+    da sie weder in einem \texttt{strong}- noch einem \texttt{b}-Element stehen.
     Stattdessen befinden sie sich wie die Telefonnummer als reiner Text im \texttt{p}-Element
     oder in einem \texttt{a}-Element.
 
@@ -71,7 +71,7 @@
     Ein Beispiel ist "`02331/987-4315 email: Lisa.Schaefer Sprechstunde: nach Vereinbarung via e-mail"'.
     Die Telefonnummer wird über einen {\xpathSelector} erfasst,
     der auf dem Seitenquelltext ausgeführt wird.
-    Anders als beim Portal \gls{babw} existieren in \gls{bapvs} Mitarbeiter,
+    Anders als beim Portal \gls{babw} existieren im Portal \gls{bapvs} Mitarbeiter,
     bei denen die Telefonnummer weder die letzte Angabe ist
     noch durch einen Zeilenumbruch im Quelltext beendet wird.
     Der Selektor der Telefonnummer erkennt sie deshalb
@@ -109,7 +109,7 @@
     Seitenquelltext\footnote{vgl. Listing \ref{listing:findingsTeachersHtmlSource}}.
     Die Telefonnummer, die über einen {\xpathSelector} ermittelt wird,
     enthält deshalb zu viele Informationen (siehe oben).
-    Das \texttt{br}-Element wird über die verwendete Methode \texttt{document.evaluate} nicht zu einen Zeilenumbruch übersetzt.
+    Das \texttt{br}-Element wird über die verwendete Methode \texttt{document.evaluate} nicht zu einem Zeilenumbruch übersetzt.
     Die einzelnen Angaben in der Telefonnummer sind stattdessen nur durch ein Leerzeichen getrennt.
     In \texttt{innerText} wird das \texttt{br}-Element aber zu einem Umbruch,
     weshalb der klassifizierte Text in dieser Eigenschaft nicht gefunden wird.

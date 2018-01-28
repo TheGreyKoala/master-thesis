@@ -18,7 +18,7 @@
     \end{figure}
 
     \paragraph{Präsentation der Kennzahlen}
-    Die folgenden Tabellen präsentieren die gesammelten Kennzahlen.
+    Die Tabellen in Anhang \ref{section:appendixExample2Figures} präsentieren die gesammelten Kennzahlen.
     Die Gruppierung der Knoten nach ihren Labels ist in Tabelle
     \ref{table:findingsNewsFiguresNodesByLabel} zu sehen.
     Die Häufigkeit der Inhaltsklassen stellt Tabelle
@@ -29,91 +29,3 @@
     stellt heraus, welche Knotenarten diese Kanten verbinden.
     Zuletzt betrachtet Tabelle \ref{table:findingsNewsFiguresSharedNodes}
     die Frage, welche Knoten mehrfach referenziert wurden.
-
-    \begin{table}[htb]
-        \begin{subtable}[c]{0.3\textwidth}
-            \centering
-            \begin{tabular}{|l|c|}
-                \hline
-                \textbf{Label}  & \multicolumn{1}{l|}{\textbf{Anzahl}} \\ \hline
-                \texttt{Content}         & 124                                  \\ \hline
-                \texttt{Page} + \texttt{Resource} & 5                                    \\ \hline
-                \texttt{Resource}        & 53                                   \\ \hline
-                \texttt{Site}            & 1                                    \\ \hline
-                \texttt{Text}            & 77                                   \\ \hline
-                \hline
-                \textbf{Summe}  & 260                                  \\ \hline
-            \end{tabular}
-            \subcaption{Die Gruppierung der Knoten nach Labels für Webseiten über aktuelle Meldungen}
-            \label{table:findingsNewsFiguresNodesByLabel}
-        \end{subtable}
-        \begin{subtable}[c]{0.3\textwidth}
-            \centering
-            \begin{tabular}{|l|c|}
-                \hline
-                \textbf{Klasse} & \multicolumn{1}{l|}{\textbf{Anzahl}} \\ \hline
-                \texttt{Brand}           & 1                                    \\ \hline
-                \texttt{Header}          & 1                                    \\ \hline
-                \texttt{News}            & 41                                   \\ \hline
-                \texttt{NewsDate}        & 38                                   \\ \hline
-                \texttt{NewsHeading}     & 41                                   \\ \hline
-                \texttt{PageHeading}     & 1                                    \\ \hline
-                \texttt{Portal}          & 1                                    \\ \hline
-                \hline
-                \textbf{Summe}  & 260                                  \\ \hline
-            \end{tabular}
-            \subcaption{Die Gruppierung der Content-Knoten nach ihrer Klasse für Webseiten über aktuelle Meldungen}
-            \label{table:findingsNewsFiguresContentNodesByClass}
-        \end{subtable}
-        \begin{subtable}[c]{0.3\textwidth}
-            \centering
-            \begin{tabular}{|l|c|}
-                \hline
-                \textbf{Label} & \multicolumn{1}{l|}{\textbf{Anzahl}} \\ \hline
-                \texttt{Reads}          & 80                                   \\ \hline
-                \texttt{References}     & 87                                   \\ \hline
-                \texttt{Owns}           & 145                                  \\ \hline
-                \hline
-                \textbf{Summe} & 312                                  \\ \hline
-                \end{tabular}
-            \subcaption{Die Gruppierung der Kanten nach Labels für Webseiten über aktuelle Meldungen}
-            \label{table:findingNewsFiguresEdgesByLabel}
-        \end{subtable}
-
-        \begin{subtable}[c]{0.5\textwidth}
-            \centering
-            \begin{tabular}{|l|c|}
-                \hline
-                \textbf{Start $\rightarrow$ Ziel} & \multicolumn{1}{l|}{\textbf{Anzahl}} \\ \hline
-                \texttt{(:Content)} $\rightarrow$ \texttt{(:Content)}     & 83                                   \\ \hline
-                \texttt{(:Content)} $\rightarrow$ \texttt{(:Resource)}    & 49                                   \\ \hline
-                \texttt{(:Page)} $\rightarrow$ \texttt{(:Content)}        & 57                                   \\ \hline
-                \texttt{(:Page)} $\rightarrow$ \texttt{(:Page)}           & 13                                   \\ \hline
-                \texttt{(:Page)} $\rightarrow$ \texttt{(:Resource)}       & 25                                   \\ \hline
-                \texttt{(:Site)} $\rightarrow$ \texttt{(:Page)}           & 5                                    \\ \hline
-                \textbf{Summe}                    & 232                                  \\ \hline
-            \end{tabular}
-            \subcaption{Die Gruppierung der Kanten nach Labels der Start- und Zielknoten für Webseiten über aktuelle Meldungen}
-            \label{table:findingsNewsFiguresEdgesByStartEndNodeLabel}
-        \end{subtable}
-        \begin{subtable}[c]{0.5\textwidth}
-            \centering
-            \begin{tabular}{|l|c|}
-                \hline
-                \textbf{Knoten} & \multicolumn{1}{l|}{\textbf{Anzahl}} \\ \hline
-                \texttt{PageHeading}     & 1                                    \\ \hline
-                \texttt{Portal}          & 1                                    \\ \hline
-                \texttt{Header}          & 1                                    \\ \hline
-                \texttt{News}            & 1                                    \\ \hline
-                \texttt{NewsDate}        & 1                                    \\ \hline
-                \texttt{(:Page)}          & 4                                    \\ \hline
-                Unterseiten     & 5                                    \\ \hline
-                \texttt{(:Text)}           & 2                                    \\ \hline
-                \textbf{Summe}  & 16                                   \\ \hline
-                \end{tabular}
-            \subcaption{Knoten mit mehreren eingehenden Kanten für Webseiten über aktuelle Meldungen}
-            \label{table:findingsNewsFiguresSharedNodes}
-        \end{subtable}
-        \label{table:findingsNewsFigures}
-        \caption{Die Kennzahlen der Klassifikationen von Webseiten über aktuelle Meldungen}
-    \end{table}
