@@ -15,16 +15,16 @@
 
     \lstinputlisting[
         label=listing:annotationServiceAnnotationFormat,
-        caption=Format einer Annotation,
+        caption=Das Format einer Annotation,
         style=json
     ]{../resources/annotation-service/annotation.json}
 
-    Jede Annotation spiegelt genau ein Feature der Klassifikation wieder.
+    Jede Annotation spiegelt genau ein Feature der Klassifikation wider.
     Die ID einer Annotation wird vom {\annotationService} automatisch
     generiert.
     Das Feld \texttt{text} bestimmt den Inhalt der Annotation,
     der hier immer der Namen des Features und dessen Klasse ist.
-    Die Angaben im Feld \texttt{ranges} spiegeln den eindeutigen Selektor des Features wieder.
+    Die Angaben im Feld \texttt{ranges} spiegeln den eindeutigen Selektor des Features wider.
     Durch das Feld \texttt{user} identifiziert Annotator den Ersteller der Annotation,
     der in diesem Fall immer der imaginäre technische Benutzer \texttt{wccs} ist.
     Im Feld \texttt{permissions} werden die Rechte \texttt{admin} und \texttt{delete} auf diesen Nutzer beschränkt.
@@ -55,7 +55,7 @@
             \textbf{Ausgabedokument} & \lstinputlisting[title=AnnotationServiceMetaInfo]{../resources/annotation-service/meta.json}\\
             \hline
         \end{tabular}
-        \caption{Schnittstelle zum Abfragen von Informationen über den {\annotationService}}
+        \caption{Die Schnittstelle zum Abfragen von Informationen über den {\annotationService}}
         \label{table:annotationServiceMetaInterface}
     \end{table}
 
@@ -82,7 +82,7 @@
             \textbf{Ausgabedokument} & \texttt{Array von Annotationen}\\
             \hline
         \end{tabular}
-        \caption{Schnittstelle zum Abfragen aller Annotationen einer Klassifikation}
+        \caption{Die Schnittstelle zum Abfragen aller Annotationen einer Klassifikation}
         \label{table:getAllAnnotationsInterface}
     \end{table}
 
@@ -108,7 +108,7 @@
             \textbf{Ausgabedokument} & \texttt{Annotation}\\
             \hline
         \end{tabular}
-        \caption{Schnittstelle zum Abfragen einer einzelnen Annotation}
+        \caption{Die Schnittstelle zum Abfragen einer einzelnen Annotation}
         \label{table:getAnnotationInterface}
     \end{table}
 
@@ -131,7 +131,7 @@
             \textbf{Statuscode} & \texttt{303 (See Other)}\\
             \hline
         \end{tabular}
-        \caption{Schnittstelle zum Schreiben einer Annotation}
+        \caption{Die Schnittstelle zum Schreiben einer Annotation}
         \label{table:putAnnotationInterface}
     \end{table}
 

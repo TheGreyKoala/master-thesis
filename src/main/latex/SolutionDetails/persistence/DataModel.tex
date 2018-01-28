@@ -1,4 +1,4 @@
-\subsection{Datenmodell}
+\subsection{Datenmodell einer Klassifikation}
     \label{section:solutionDetailsPersistenceDataModel}
     Die Struktur der Graphen im {\classificationStorage} unterscheidet
     sich von den bisher vorgestellten Datenmodellen.
@@ -11,7 +11,7 @@
     \begin{figure}
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/nodes.png}
-        \caption{Das Datenmodell im {\classificationStorage}}
+        \caption{Das Datenmodell einer Klassifikation im {\classificationStorage}}
         \label{image:dbDataModelOverview}
     \end{figure}
 
@@ -30,13 +30,13 @@
         \begin{tabular}{|l|l|}
             \hline
             \textbf{Entität}                         & \textbf{Label} \\ \hline
-            Seite                                    & Page           \\ \hline
-            {\contentFeature}                        & Content        \\ \hline
-            Textueller Inhalt eines {\contentFeature}s & Text         \\ \hline
-            Referenzierte {\resource}                & Resource       \\ \hline
-            Site                                     & Site           \\ \hline
+            Seite                                    & \texttt{Page}           \\ \hline
+            {\contentFeature}                        & \texttt{Content}        \\ \hline
+            Textueller Inhalt eines {\contentFeature}s & \texttt{Text}         \\ \hline
+            Referenzierte {\resource}                & \texttt{Resource}       \\ \hline
+            Site                                     & \texttt{Site}           \\ \hline
         \end{tabular}
-        \caption{Abbildung von Entitäten im Graphen des {\classificationStorage}s}
+        \caption{Die Abbildung von Entitäten der Domäne im Graphen des {\classificationStorage}s}
         \label{image:solutionDetailsPersistenceEntities}
     \end{table}
 
@@ -70,7 +70,7 @@
     \begin{figure}
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/content-relationship.png}
-        \caption{Beziehung zu einem Content-Knoten im Graphen des {\classificationStorage}s}
+        \caption{Die Beziehung zu einem Content-Knoten}
         \label{image:dbDataModelContentRelationship}
     \end{figure}
 
@@ -95,7 +95,7 @@
     \begin{figure}
         \centering
         \includegraphics[scale=\imageScalingFactor]{../resources/db-data-model/resource-relationship.png}
-        \caption{Beziehung zu einem {\resource}-Knoten im Graphen des {\classificationStorage}s}
+        \caption{Die Beziehung zu einem {\resource}-Knoten}
         \label{image:dbDataModelResourceRelationship}
     \end{figure}
 

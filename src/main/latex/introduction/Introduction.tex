@@ -19,9 +19,7 @@
 
     \section{Die CMS-Migration der \fernUni}
         \label{section:fernUniChallenges}
-        An der {\fernUni} arbeiten {\editors} mit dem \gls{cms} {\imperia} 9
-        der pirobase imperia GmbH\footnote{\url{https://www.pirobase-imperia.com}}
-        \cite{fernUni:imperia}.
+        An der {\fernUni} arbeiten {\editors} mit {\imperia} 9\footnote{\url{https://www.pirobase-imperia.com}}.
         Eine Ausnahme stellt allerdings die Fakultät für \gls{ksw} dar.
         Hier ist das Open-Source-Produkt {\wordpress}\footnote{\url{https://wordpress.org/}} im Einsatz.
         Für die Fakultät ist ein Vorteil dieser Abspaltung,
@@ -51,8 +49,8 @@
 
         \begin{figure}[htb]
             \centering
-            \includegraphics[width=0.7\textwidth]{../resources/imperia/team.png}
-            \caption{Eingabemaske zur Pflege eines Mitarbeiters in {\imperia}}
+            \includegraphics[scale=0.6]{../resources/imperia/team.png}
+            \caption{Die Eingabemaske zur Pflege eines Mitarbeiters in {\imperia}}
             \label{image:introductionFernUniImperiaForm}
         \end{figure}
 
@@ -64,8 +62,8 @@
 
         \begin{figure}[htb]
             \centering
-            \includegraphics[width=0.7\textwidth]{../resources/wordpress/teachers.png}
-            \caption{Eingabemaske zur Pflege eines Mitarbeiters in {\wordpress}}
+            \includegraphics[scale=0.6]{../resources/wordpress/teachers.png}
+            \caption{Die Eingabemaske zur Pflege eines Mitarbeiters in {\wordpress}}
             \label{image:introductionFernUniWordpressForm}
         \end{figure}
         
@@ -73,7 +71,7 @@
         eines für den Titel der Seite und eines für den Inhalt der Seite.
         Alle Informationen eines Mitarbeiters werden unstrukturiert in das zweite Feld eingegeben.
         Für eine Migration stehen generell zwei Möglichkeiten zur Auswahl,
-        um mit dieser Differenz umzugehen:
+        um mit dieser Differenz zwischen den Systemen umzugehen:
 
         \begin{enumerate}
             \item   Für die aus {\wordpress} stammenden Seiten werden in {\imperia} Formulare geschaffen,
@@ -104,12 +102,12 @@
         Unter anderem stellen sich dabei die folgenden Fragen:
 
         \begin{itemize}
-            \item Welche Arten von Seiten liegen vor (Aktuelle Nachrichten, Prüfungen, Module, etc.)?
+            \item Welche Arten von Webseiten liegen vor (Aktuelle Nachrichten, Prüfungen, Module, etc.)?
             \item Welche Inhalte besitzen diese Seitentypen?
             \item Wie müssen diese Inhalte strukturiert werden?
         \end{itemize}
 
-        Die Beantwortung dieser Fragen erfordert eine genaue Analyse der Seiten der Fakultät \gls{ksw}
+        Die Beantwortung dieser Fragen erfordert eine genaue Analyse der Webseiten der Fakultät \gls{ksw}
         und einen Vergleich mit den geplanten Seiten und Formularen in {\imperia}.
         
         \paragraph{Dynamisch generierte Inhalte}
@@ -120,8 +118,8 @@
 
         \begin{figure}[htb]
             \centering
-            \includegraphics[width=0.7\textwidth]{../resources/wordpress/teachers-overview.png}
-            \caption{Eingabemaske für eine Übersichtsseite aller Mitarbeiter in {\wordpress}}
+            \includegraphics[scale=0.6]{../resources/wordpress/teachers-overview.png}
+            \caption{Die Eingabemaske für eine Übersichtsseite aller Mitarbeiter in {\wordpress}}
             \label{image:introductionFernUniWordpressOverviewForm}
         \end{figure}
 
@@ -144,7 +142,7 @@
         automatisch in definierte Strukturen überführt werden können.
         Durch eine solche Vorbereitung ließen sie sich anschließend
         automatisch in die Strukturen von {\imperia} überführen.
-        Ausgehend von diesen konkreten Anforderung der {\fernUni} stellt diese Arbeit eine
+        Ausgehend von dieser konkreten Anforderung der {\fernUni} stellt diese Arbeit eine
         \gls{dsl} vor, die zur Instrumentierung eines Softwaresystems dient,
         welches die Inhalte einer Webseite automatisch klassifiziert.
         Dieses System ist ebenfalls Teil dieser Arbeit.
@@ -158,9 +156,9 @@
         erfolgt in Kapitel \ref{chapter:SolutionDetails}.
         Dazu geht das Kapitel auf die Anforderungen an jede Komponente,
         konzeptionelle Details, Schnittstellen sowie Aspekte der Implementierung ein.       
-        In Kapitel \ref{chapter:Findings} findet das System in zwei Fallbeispielen der {\fernUni}
-        Anwendung, deren Ergebnisse präsentiert werden.
-        Eine kritische Diskussion dieser Ergebnisse erfolgt anschließend in
+        In Kapitel \ref{chapter:Findings} findet das System an zwei Fallbeispielen der {\fernUni}
+        Anwendung.
+        Eine kritische Diskussion der resultierenden Ergebnisse erfolgt anschließend in
         Kapitel \ref{chapter:FindingsDiscussion}.
         Abschließend fasst Kapitel \ref{chapter:SummaryAndOutlook}
         diese Arbeit zusammen und zeigt Erweiterungsmöglichkeiten

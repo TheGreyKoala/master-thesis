@@ -210,7 +210,7 @@
     \begin{lstlisting}[
         style=cypher,
         label=listing:solutionDetailsClassificationStorageAPIStatementsTextResource,
-        caption=Datenbankanweisungen für \texttt{Text}- und \texttt{Resource}-Knoten
+        caption=Die Datenbankanweisungen für Text- und Resource-Knoten
     ]
 MERGE (t:Text {value: $t.value}) // Merge a Text node
 MERGE (r:Resource {url: $r.destination}) // Merge a Resource node
@@ -226,7 +226,7 @@ MERGE (r:Resource {url: $r.destination}) // Merge a Resource node
     \begin{lstlisting}[
         style=cypher,
         label=listing:solutionDetailsClassificationStorageAPIStatementsContent,
-        caption=Datenbankanweisung für \texttt{Content}-Knoten
+        caption=Die Datenbankanweisung für Content-Knoten
     ]
 MERGE (c:Content {checksum: $c.checksum, class: $c.class})
     \end{lstlisting}
@@ -277,7 +277,7 @@ MERGE (c:Content {checksum: $c.checksum, class: $c.class})
 \begin{lstlisting}[
         style=cypher,
         label=listing:solutionDetailsClassificationStorageAPIReference,
-        caption=Datenbankanweisungen für Referenzen
+        caption=Die Datenbankanweisungen für Referenzen
     ]
 MATCH
     (c:Content {checksum: $c.checksum})

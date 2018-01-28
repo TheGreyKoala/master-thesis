@@ -1,6 +1,4 @@
-?- Quellen von Wordpress zusammenfassen?
 - Datum bei den Quellen ändern
-- widerspiegeln
 - Position aller Bilder checken
 
 ?- Durch Browserautomatisierung können auch verschiedene Geräte und damit verschiedene Inhalte klassifiziert werden
