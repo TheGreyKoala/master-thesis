@@ -9,7 +9,7 @@
     des verwendeten Datenmodells sowie des Algorithmus
     zum Schreiben von Klassifikationen, der das Teilen von Knoten ermöglicht.
 
-    \paragraph{Referenzen zwischen Webseiten}
+    \paragraph*{Referenzen zwischen Webseiten}
     Das zweite Fallbeispiel hat gezeigt,
     wie Referenzen zwischen Webseiten auf sehr einfache Art und Weise
     Reihenfolgen und Navigationspfade (der Nachrichtenseiten) explizit machen.
@@ -17,7 +17,7 @@
     Andere Datenbankmodelle hätten komplexere Konstrukte
     zur Speicherung und zur Auswertung erfordert.
 
-    \paragraph{Wiederverwendung von Text- und Resource-Knoten}
+    \paragraph*{Wiederverwendung von Text- und Resource-Knoten}
     Betrachtet man Tabelle \ref{table:findingsTeachersFiguresNodesByLabel}, wird deutlich,
     dass \texttt{Text}- und \texttt{Resource}-Knoten verhältnismäßig am meisten von der
     Wiederverwendbarkeit Gebrauch machen.
@@ -37,7 +37,7 @@
     Außerdem enthielten die einzelnen Datenbanken identische \texttt{Resource}-Knoten,
     die in der gemeinsamen natürlich zusammengefasst werden konnten.
 
-    \paragraph{Entbehrlichkeit von Text-Knoten}
+    \paragraph*{Entbehrlichkeit von Text-Knoten}
     Innerhalb einer Datenbank macht es aus semantischen Gründen keinen Sinn
     \texttt{Resource}-Knoten zu duplizieren,
     da sie eine Entität der Domäne darstellen.
@@ -61,7 +61,7 @@
     allerdings vereinfacht sich das Datenmodell der Datenbank sowie
     die generierten Datenbankanweisungen.
 
-    \paragraph{Hierarchieebene wiederverwendeter Teilgraphen}
+    \paragraph*{Hierarchieebene wiederverwendeter Teilgraphen}
     Bezüglich der Wiederverwendung von Teilgraphen ist außerdem ersichtlich,
     dass sie häufig erst auf einer tiefen Ebene des Graphen stattfindet.
     \texttt{Content}-Knoten der Klasse \texttt{SubjectAreaName} werden bspw.
@@ -100,7 +100,7 @@
     Der \texttt{Teacher}-Knoten kann dann nicht von beiden Klassifikationen referenziert
     werden.
     
-    \paragraph{Semantischer Inhalt und physische Struktur einer Webseite}
+    \paragraph*{Semantischer Inhalt und physische Struktur einer Webseite}
     Genau betrachtet spiegelt die Datenbank lediglich die Struktur der Webseiten exakt wider.
     Trotzdem lässt sich argumentieren, dass es fachlich konsistenter wäre,
     wenn die \texttt{Teacher}-Knoten im oben beschriebenen Fall geteilt werden würden.
@@ -119,7 +119,7 @@
     Hier wird ein Konflikt zwischen dem akkuraten Widerspiegeln der Strukturen der Webseiten
     und dem semantischen Inhalt deutlich.
 
-    \paragraph{Alternativen}
+    \paragraph*{Alternativen}
     Ein erster Schritt zur Auflösung dieses Konfliktes ist, anstatt absolute Selektoren
     lediglich zum {\parentFeature} relative Selektoren in den Kanten zu speichern.
     Allerdings hilft dies nicht, wenn die HTML-Struktur sich unterscheidet,
@@ -133,7 +133,7 @@
     Die Teilbarkeit von Content Knoten hinge dann nur noch von den Inhalten und ihrer Klasse ab,
     da die Position komplett unabhängig gespeichert wird.
 
-    \paragraph{Änderung von Klassifikationen}
+    \paragraph*{Änderung von Klassifikationen}
     Durch den entwickelten Algorithmus zum Schreiben von Klassifikationen
     wurde das Teilen von Knoten ermöglicht.
     Eine nachteilige Folge ist allerdings,

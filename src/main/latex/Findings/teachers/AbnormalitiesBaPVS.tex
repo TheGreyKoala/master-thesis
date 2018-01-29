@@ -4,7 +4,7 @@
     weist ebenfalls einige Unregelmäßigkeiten auf,
     die dieses Kapitel beschreibt.
 
-    \paragraph{Doppelt klassifizierte Mitarbeiter}
+    \paragraph*{Doppelt klassifizierte Mitarbeiter}
     Drei Mitarbeiter des Portals wurden doppelt klassifiziert.
     Der Grund ist eine abweichende HTML-Repräsentation bei diesen Mitarbeitern,
     die in Listing \ref{listing:findingsTeachersBaPVSHtmlSource} zu sehen ist.
@@ -27,7 +27,7 @@
     Der dritte betroffene Mitarbeiter besitzt kein Bild,
     weshalb der \texttt{Teacher}-Knoten vollständig wiederverwendet werden kann.
 
-    \paragraph{Mitarbeiter ohne Lehrgebiet}
+    \paragraph*{Mitarbeiter ohne Lehrgebiet}
     Das Lehrgebiet eines einzelnen Mitarbeiters wurde vom System nicht erfasst.
     Anders als beim Portal \gls{babw} ist der Grund allerdings,
     dass vor dem Lehrgebiet der Text "`Auskunft erteilt auch:"' platziert ist.
@@ -44,7 +44,7 @@
     hätte dieser Selektor nämlich dazu geführt,
     dass seine E-Mail-Adresse als Lehrgebiet erkannt wird.
 
-    \paragraph{Falscher Text als Name klassifiziert}
+    \paragraph*{Falscher Text als Name klassifiziert}
     Der Name eines Mitarbeiters ist laut Klassifikation
     "`Auskunft erteilt auch:"'.
     Der Grund ist, dass dieser Text in einem \texttt{strong}-Element steht,
@@ -52,20 +52,20 @@
     Das System hat in diesem Fall erwartungskonform nur den ersten
     Treffer für das skalare Feature klassifiziert.
         
-    \paragraph{28 Mitarbeiter ohne Telefonnummer}
+    \paragraph*{28 Mitarbeiter ohne Telefonnummer}
     Einige Kontakte besitzen in der Klassifikation keine Telefonnummer.
     Bei neun ist auch auf der Webseite keine zu finden.
     Bei den Restlichen ist der Nummer nicht "`Tel.: "'
     sondern "`Telefon: "' oder "`Tel:"' vorangestellt.
     Der Selektor hat die Telefonnummern deshalb nicht erkannt.
     
-    \paragraph{56 Mitarbeiter ohne Namen}
+    \paragraph*{56 Mitarbeiter ohne Namen}
     Des Weiteren wurde für eine Vielzahl der Mitarbeiter kein Name erkannt,
     da sie weder in einem \texttt{strong}- noch einem \texttt{b}-Element stehen.
     Stattdessen befinden sie sich wie die Telefonnummer als reiner Text im \texttt{p}-Element
     oder in einem \texttt{a}-Element.
 
-    \paragraph{Inkorrekte Telefonnummern}
+    \paragraph*{Inkorrekte Telefonnummern}
     Die Klassifikation enthält einige Telefonnummern,
     die neben der eigentlichen Nummer auch weitere Informationen enthalten.
     Ein Beispiel ist "`02331/987-4315 email: Lisa.Schaefer Sprechstunde: nach Vereinbarung via e-mail"'.
@@ -77,14 +77,14 @@
     Der Selektor der Telefonnummer erkennt sie deshalb
     nicht.
 
-    \paragraph{Unterschiede im konzeptionellen Modell der Seite}
+    \paragraph*{Unterschiede im konzeptionellen Modell der Seite}
     Im Vergleich zur klassifizierten Seite des Portals \gls{babw}
     sind auch zwei Unterschiede im konzeptionellen Modell der Seite deutlich geworden.
     Der Name eines Mitarbeiters ist in einigen Fällen
     auch ein Link auf eine Detailseite.
     Außerdem besitzen einige Mitarbeiter Sprechzeiten.
 
-    \paragraph{Falsch annotierte Telefonnummern}
+    \paragraph*{Falsch annotierte Telefonnummern}
     Bei der Betrachtung der Annotationen des Portals \gls{babw}
     ist bereits aufgefallen, dass sie für Telefonnummern
     mehrmals verschoben sind.

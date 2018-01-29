@@ -7,7 +7,7 @@
     sodass sie auch von anderen Systemen sinnvoll genutzt werden kann.
     Die Beschreibung der einzelnen Funktionen erfolgt in diesem Kapitel.
 
-    \paragraph{Format einer Annotation}
+    \paragraph*{Format einer Annotation}
     Annotationen tauscht der Service über JSON-Dokumente aus,
     die dem Format von Annotator \cite[Kapitel "`Annotation format"']{annotator:documentation} folgen.
     Der Service ergänzt aber einige Angaben.
@@ -34,7 +34,7 @@
     sondern stellt eine Ergänzung des \glspl{wccs} dar.
     Es speichert die Klasse und Art (Inhalt oder Referenz) eines Features.
 
-    \paragraph{Bereitstellung von Informationen über die Schnittstelle}
+    \paragraph*{Bereitstellung von Informationen über die Schnittstelle}
     Um der Annotator Storage API \cite[Kapitel "`Storage"']{annotator:documentation} zu genügen,
     muss ein Endpunkt existieren,
     der Informationen über die Version der implementierten Schnittstelle
@@ -63,7 +63,7 @@
         \label{table:annotationServiceMetaInterface}
     \end{table}
 
-    \paragraph{Annotationen einer Seite abrufen}
+    \paragraph*{Annotationen einer Seite abrufen}
     Zentrale Aufgabe des {\annotationService}s ist die Bereitstellung der Annotationen einer Seite.
     Hierfür bietet der Service die in Tabelle \ref{table:getAllAnnotationsInterface}
     dargestellte Schnittstelle.
@@ -89,7 +89,7 @@
         \label{table:getAllAnnotationsInterface}
     \end{table}
 
-    \paragraph{Einzelne Annotation abfragen}
+    \paragraph*{Einzelne Annotation abfragen}
     Über die Schnittstelle in Tabelle \ref{table:getAnnotationInterface} kann eine einzelne
     Annotation anhand ihrer ID angefragt werden.
 
@@ -110,7 +110,7 @@
         \label{table:getAnnotationInterface}
     \end{table}
 
-    \paragraph{Einzelne Annotation aktualisieren}
+    \paragraph*{Einzelne Annotation aktualisieren}
     Änderungen an einer Annotation können dem {\annotationService} über die Schnittstelle
     in Tabelle \ref{table:putAnnotationInterface} mitgeteilt werden.
     Als Resultat wird die Klasse des verknüpften Features

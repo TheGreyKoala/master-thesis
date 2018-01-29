@@ -7,7 +7,7 @@
     zur Veranschaulichung das Beispiel
     aus Kapitel \ref{section:solutionDetailPersistenceDataModelExample}.
 
-    \paragraph{Arten einer Aktualisierung}
+    \paragraph*{Arten einer Aktualisierung}
     Eine Klassifikation kann auf verschiedene Arten aktualisiert worden sein.
     Es folgt eine Liste der Fälle, die auftreten können.
 
@@ -31,7 +31,7 @@
         \item Ein Feature wurde gelöscht.
     \end{enumerate}
 
-    \paragraph{Herausforderung}
+    \paragraph*{Herausforderung}
     Bei jeder Änderung den gesamten Graphen zu löschen und neu anzulegen,
     ist in­ef­fi­zi­ent und verursacht viele Operationen auf Datenträgern.
     Stattdessen versucht die {\classificationStorageAPI} den vorhandenen Graphen anzupassen,
@@ -40,7 +40,7 @@
     die einzelnen Schritte von der alten zur neuen Version der Klassifikation nicht verfolgen konnte.
     Stattdessen erhält er das fertige Ergebnis und muss die Schritte selbst rekonstruieren.
 
-    \paragraph{Lösungsidee}
+    \paragraph*{Lösungsidee}
     Anstatt die Differenz zwischen der alten und der neuen Klassifikation zu ermitteln,
     um entsprechende Anpassungsanweisungen zu generieren,
     begegnet die {\classificationStorageAPI} dieser Herausforderung auf eine andere Art und Weise.
@@ -52,7 +52,7 @@
     Durch diese Methode ist der Algorithmus unabhängig vom aktuellen Datenbankzustand.
     Zwei Beispiele sollen die Idee verdeutlichen.
 
-    \paragraph{Beispiel 1 -- Eine unveränderte Klassifikation}
+    \paragraph*{Beispiel 1 -- Eine unveränderte Klassifikation}
     Zunächst wird der Fall betrachtet, dass eine Klassifikation unverändert erneut in die Datenbank geschrieben wird.
     Im Detail wird dazu das Feature \texttt{c1} aus dem Beispiel in Kapitel
     \ref{section:solutionDetailPersistenceDataModelExample} betrachtet.
@@ -76,7 +76,7 @@
     \ref{listing:storeClassificationContentReferenceFunctions}
     erzeugt werden.
 
-    \paragraph{Beispiel 2 -- Eine veränderte Klassifikation}
+    \paragraph*{Beispiel 2 -- Eine veränderte Klassifikation}
     Nun wird an einem zweiten Beispiel gezeigt,
     wie das Vorgehen bei einer Änderung ist.
     Dazu wird angenommen, dass sich die Klasse von \texttt{c1} verändert hat.
@@ -93,7 +93,7 @@
     Er kann daher inklusive \texttt{rel4} gelöscht werden.
     Im Falle neuer Features verhält sich der Service analog.
 
-    \paragraph{Konsequenz für den Graphen}
+    \paragraph*{Konsequenz für den Graphen}
     Das bis hierhin beschriebene Verfahren hat bereits eine wichtige
     Konsequenz für den Graphen.
     Sowohl \texttt{Text}- als auch \texttt{Content}-Knoten können nämlich mehrere einkommende Kanten besitzen.
@@ -118,7 +118,7 @@
     ermittelt werden können.
     % TODO: Was ist mit Resource Knoten? Die doch auch. Steht das irgendwo?
 
-    \paragraph{Einschränkungen beim Teilen von Knoten}
+    \paragraph*{Einschränkungen beim Teilen von Knoten}
     Das gerade beschriebene Teilen von Knoten ist nicht in jedem Fall gestattet.
     Es gibt drei Ausnahmen, die es zu behandeln gilt.
 
@@ -179,7 +179,7 @@
         entsprechend einen Knoten mehr oder weniger als das Original.
     \end{enumerate}
 
-    \paragraph{Abschließende Operationen}
+    \paragraph*{Abschließende Operationen}
     Von den zu Beginn dieses Kapitels beschriebenen Arten einer Aktualisierung wurde ein Fall bisher nicht betrachten.
     Das ist die Änderung der Klasse einer Seite.
     Seiten besitzen in der Datenbank eine global gültige Klasse,
@@ -194,7 +194,7 @@
     sind aber obsolet, weshalb sie automatisch gelöscht werden.
     Abschließend wird außerdem ein Knoten für die Site sowie eine Kante zum \texttt{Page}-Knoten sichergestellt.
 
-    \paragraph{Datenbankanweisungen}
+    \paragraph*{Datenbankanweisungen}
     Den beschriebenen Algorithmus realisiert die {\classificationStorageAPI}
     zu großen Teilen über Datenbankanweisungen,
     die deshalb ebenfalls erläutert werden.

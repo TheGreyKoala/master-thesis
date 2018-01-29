@@ -3,7 +3,7 @@
     Dieser Abschnitt geht detaillierter auf die Klassifizierung einer Webseite ein
     und beschreibt einige Aspekte der Umsetzung.
 
-    \paragraph{Ablauf}
+    \paragraph*{Ablauf}
     Die Klassifizierung folgt einem Algorithmus,
     der rekursiv die Features einer Seitenklasse abarbeitet und nach Entsprechungen
     auf einer Webseite sucht.
@@ -41,7 +41,7 @@
     Handelt es sich um ein {\collectionFeature}, ruft sich \texttt{classify} anschließend rekursiv für jedes klassifizierte Element auf.
     In jedem Aufruf verwendet sie als Parameter die {\childFeature}s der Klasse sowie das klassifizierte HTML-Element.
 
-    \paragraph{Browserautomatisierung}
+    \paragraph*{Browserautomatisierung}
     Die Herausforderung bei der Implementierung dieses Algorithmus
     ist die Auswertung der Selektoren und das dazu notwendige Parsen des \gls{html}-Dokumentes.
     Das \gls{wccs} setzt zur Bewältigung dieser Aufgabe auf die Automatisierung eines Webbrowsers.
@@ -54,7 +54,7 @@
     Des Weiteren führt der Webbrowser das auf der Seite enthaltene JavaScript aus,
     was für die Klassifizierung von Bedeutung sein kann.
 
-    \paragraph{Selektoren}
+    \paragraph*{Selektoren}
     Dank Puppeteer kann zur Umsetzung der Selektoren auf standardisierte Schnittstellen
     zurückgegriffen werden, die die benötigten Informationen liefern.
     Der {\cssSelector} kann die Methode \texttt{querySelectorAll} nutzen,
@@ -97,7 +97,7 @@
     welche Elemente er verwendet.
     Das wird auch in Listing \ref{listing:classificationAlg} deutlich.
 
-    \paragraph{Textueller Inhalt und Referenzziel eines Features}
+    \paragraph*{Textueller Inhalt und Referenzziel eines Features}
     Ein {\contentFeature} speichert seinen textuellen Inhalt und ein {\referenceFeature}
     die \gls{url} seines Zieles\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}}.
     Bei {\contentFeature}s gilt allerdings die Einschränkung, dass nur solche ihren textuellen Inhalt speichern,
@@ -114,7 +114,7 @@
     Die \gls{url} einer {\resource} bezieht das \gls{wccs} aus den Attributen
     \texttt{href}, \texttt{src} oder \texttt{srcset} des klassifizierten HTML-Elementes.
 
-    \paragraph{Bestimmung eines eindeutigen Selektors}
+    \paragraph*{Bestimmung eines eindeutigen Selektors}
     Eine vollständige Klassifikation enthält für jedes Feature auch einen eindeutigen
     Selektor des klassifizierten HTML-Elementes\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}}.
     Da diese Information von Annotator benötigt wird,
@@ -165,7 +165,7 @@ endOffset = startOffset + text.length
     führt bei Annotator in manchen Fällen aber zu leicht verschobenen
     Annotationen\footnote{vgl. Kapitel \ref{section:findingsTeachersAbnormalitiesBabw}}.
 
-    \paragraph{Parallelisierung}
+    \paragraph*{Parallelisierung}
     Mit dem beschriebenen Verfahren können prinzipiell beliebig viele Webseiten parallel klassifiziert werden.
     Bei sehr vielen gleichzeitigen Anfragen dürfen aber nicht alle Seiten
     gleichzeitig über Puppeteer im Browser geöffnet werden.

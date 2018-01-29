@@ -6,7 +6,7 @@
     deren \glspl{url} hierarchisch aufgebaut sind.
     Die Beschreibung erfolgt anhand dieser Hierarchie.
 
-    \paragraph{Format einer Klassifikation}
+    \paragraph*{Format einer Klassifikation}
     Zunächst muss geklärt werden, wie die {\classificationStorageAPI} das Datenmodell einer
     Klassifikation\footnote{vgl. Kapitel \ref{section:conceptPageDataModel}} konkret als JSON-Dokument umsetzt.
     Listing \ref{listing:solutionDetailsStorageAPIPageFormatPage} zeigt die oberste Ebene eines solchen Dokumentes.
@@ -88,7 +88,7 @@
 }
     \end{lstlisting}
 
-    \paragraph{Sites abfragen}
+    \paragraph*{Sites abfragen}
     Die {\classificationStorageAPI} erlaubt es alle bekannten Sites abzurufen.
     Dazu bietet sie die Schnittstelle in Tabelle \ref{table:getSitesInterface}.
 
@@ -111,7 +111,7 @@
 
     Das Ausgabedokument sammelt alle Sites im Array \texttt{sites}, wobei jedes Objekt die ID der jeweiligen Seite enthält.
 
-    \paragraph{Seiten einer Site abfragen}
+    \paragraph*{Seiten einer Site abfragen}
     Interessant an einer Site ist die Information, welche klassifizierten Webseiten zu ihr gehören.
     Diese lässt sich über die Schnittstelle in Tabelle \ref{table:getSitePagesInterface} für eine spezifische Site ermitteln.
     Wie zu sehen ist, muss die Anfrage-\gls{url} die ID der Site beinhalten.
@@ -138,7 +138,7 @@
         \label{table:getSitePagesInterface}
     \end{table}
 
-    \paragraph{Klassifikation einer Seite}
+    \paragraph*{Klassifikation einer Seite}
     Die interessanteste Information, die die {\classificationStorageAPI} liefern kann,
     ist selbstverständlich die vollständige Klassifikation einer Webseite.
     Diese kann für eine spezifische Webseite über zwei Schnittstellen ermittelt werden.
@@ -170,7 +170,7 @@
         \label{table:getFullPageInterface}
     \end{table}
 
-    \paragraph{Klassifikation einer Seite speichern}
+    \paragraph*{Klassifikation einer Seite speichern}
     Neben dem Lesen einer Klassifikation unterstützt die Schnittstelle auch das Schreiben einer Klassifikation,
     worauf der {\classificationService} und das {\annotatorPlugin} zurückgreifen.
     Auch hierfür bietet die Komponente zwei Schnittstellen, die in Tabelle \ref{table:writePageInterface} zu sehen sind.

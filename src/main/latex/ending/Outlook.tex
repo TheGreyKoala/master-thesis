@@ -2,7 +2,7 @@
     \label{section:endingOutlook}
     Das \gls{wccs} kann an vielen Stellen sinnvoll erweitert werden.
 
-    \paragraph{Vererbung}
+    \paragraph*{Vererbung}
     Eine Erweiterung, von der die \gls{wccdl} profitieren würde,
     ist die Einführung eines Vererbungskonzeptes für Klassen,
     um Features und Selektoren wiederzuverwenden und die Ausdrucksstärke
@@ -12,7 +12,7 @@
     welches sich syntaktisch gut einfügt.
     Außerdem erfordert es weitergehende semantische Prüfungen.
 
-    \paragraph{Eingebettete Klassendefinitionen}
+    \paragraph*{Eingebettete Klassendefinitionen}
     Ein Grund der schwachen Ausdrucksstärke der Sprache ist die Notwendigkeit,
     jede Klasse einzeln bekannt machen zu müssen.
     Dem könnte durch die Einführung eingebetteter Klassendefinitionen begegnet werden.
@@ -27,13 +27,13 @@
         style=wccdl
     ]{../resources/outlook/embedded-classes.wctd}
 
-    \paragraph{Syntaktische Prüfung von Selektoren}
+    \paragraph*{Syntaktische Prüfung von Selektoren}
     Interessant ist außerdem die Einbettung
     von Sprachen zur Unterstützung von CSS-, XPath- und regulären Ausdrücken,
     sodass Selektoren syntaktisch überprüft werden können
     und ihre Formulierung durch die Entwicklungsumgebung unterstützt wird.
 
-    \paragraph{Einfachere Formulierung von Selektoren}
+    \paragraph*{Einfachere Formulierung von Selektoren}
     Der Entwickler könnte außerdem durch ein Browser-Plugin
     deutlich bei der Formulierung von Selektoren unterstützt werden.
     Nämlich dann, wenn dieses Plugin den Browser und die Entwicklungsumgebung
@@ -43,21 +43,21 @@
     um einen Selektor eines \gls{html}-Elementes zu bestimmen und
     in die Entwicklungsumgebung zu übertragen.
 
-    \paragraph{Neue Selektortypen}
+    \paragraph*{Neue Selektortypen}
     Eine Möglichkeit die beschriebenen Sonderfälle besser abzudecken ist die
     Einführung eines Skript-Selektors,
     da sich programmatisch auch deutlich komplexere Strukturen klassifizieren lassen sollten.
     Zur Auswahl eines \gls{html}-Elementes oder von Text würde also ein Stück JavaScript ausgeführt werden.
     Dank der Browserautomatisierung durch Puppeteer ist dies möglich.
 
-    \paragraph{Auswertung mehrerer Selektoren pro Feature}
+    \paragraph*{Auswertung mehrerer Selektoren pro Feature}
     Eine weitere Maßnahme zu diesem Zweck ist die Einführung von Selektorketten.
     Ein Feature kann dann durch eine sequenziell ausgeführte Reihe von Selektoren
     ermittelt werden, wobei das Ergebnis eines Selektors als Kontextelement des nächsten fungiert.
     Dadurch lässt sich der Suchraum mit verschiedenen Selektortypen eingrenzen,
     ohne zusätzliche Features definieren zu müssen.
 
-    \paragraph{Maschinelles Lernen}
+    \paragraph*{Maschinelles Lernen}
     In Kapitel \ref{section:discussionComparisonClassificationSystem}
     wurde das Thema maschinelles Lernen bereits kurz aufgegriffen.
     Im \gls{wccs} sind zwei Anwendungen dieser Technik denkbar:
@@ -71,7 +71,7 @@
                 und erzeugt Vorschläge für Änderungen in weiteren Klassifikationen.
     \end{enumerate}
 
-    \paragraph{Anlegen und Löschon von Annotationen}
+    \paragraph*{Anlegen und Löschen von Annotationen}
     Der Nutzen des {\annotatorPlugin}s kann deutlich erhöht werden,
     indem das Löschen und Anlegen von Annotationen unterstützt wird.
     Außerdem wäre es denkbar, neben den vordefinierten Klassen auch

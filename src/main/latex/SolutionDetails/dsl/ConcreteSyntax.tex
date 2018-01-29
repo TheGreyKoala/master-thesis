@@ -25,7 +25,7 @@
         inputencoding=utf8/latin1
     ]{../resources/dsl/example.wccd}
 
-    \paragraph{Klassen}
+    \paragraph*{Klassen}
     Listing \ref{listing:dlsGrammarClasses} enthält die Parserregeln,
     die die allgemeine Syntax von Klassendefinitionen bestimmen.
 
@@ -57,7 +57,7 @@
     Im Falle von Seiten- und Inhaltsklassen kann ebenfalls optional die Deklaration von Features folgen.
     Bei Referenzen sieht die Grammatik das gemäß der Domäne nicht vor.
 
-    \paragraph{Features}
+    \paragraph*{Features}
     Die Deklaration von Features wird durch das Schlüsselwort \texttt{classifies} eingeleitet,
     dem mindestens eine Deklaration folgen muss.
     Die Definition von Features in der Grammatik ist in Listing \ref{listing:dlsGrammarFeatures} zu sehen.
@@ -92,7 +92,7 @@
     was semantisch korrekter wäre.
     Dadurch würde eine unauflösbare Doppeldeutigkeit für den Parser entstehen.
 
-    \paragraph{Selektoren}
+    \paragraph*{Selektoren}
     Die Syntax von Selektoren ist für Klassen und Features identisch
     und ist durch den Abschnitt der Grammatik in Listing \ref{listing:dlsGrammarSelectors} definiert.
     Die Definition eines Selektors beginnt mit einem Schlüsselwort,
@@ -119,7 +119,7 @@
         style=Xtext
     ]{../resources/dsl/grammar/selectors.xtext}
 
-    \paragraph{Kommentare}
+    \paragraph*{Kommentare}
     Neben den Terminalen \texttt{ID} und \texttt{STRING} definiert Xtext standardmäßig auch Regeln für ein- und mehrzeilige Kommentare
     \cite[Kapitel "`Common Terminals"']{xtext:documentation}.
     Ein {\classificationModel} kann deshalb auch Kommentare enthalten,
