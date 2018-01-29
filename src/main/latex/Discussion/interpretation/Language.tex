@@ -27,16 +27,16 @@
     Kapitel \ref{section:discussionComparisonLanguage}
     an dieser Stelle ein kurzer Vergleich mit zwei anderen Sprachen stattfindet.
     Die obige Definition ist schwer anzuwenden,
-    wenn eine Sprache textuell und die andere graphischer Natur ist.
+    wenn eine Sprache textuell und die andere grafischer Natur ist.
     Viele Modellierungssprachen sind deshalb schwer mit der \gls{wccdl} zu vergleichen.
     Allerdings konnten zwei geeignete Kandidaten gefunden werden.
-    Der erste ist PlantUML\footnote{vgl. \url{http://plantuml.com/}},
+    Der Erste ist PlantUML\footnote{vgl. \url{http://plantuml.com/}},
     ein Werkzeug und eine Sprache zur textuellen Beschreibung und anschließender
-    Generierung graphischer UML-Diagramme.
+    Generierung grafischer UML-Diagramme.
     Die zweite Sprache wurde bei Recherchen auf
     GitHub\footnote{vgl. \url{https://github.com/sabrams/web-miner}} gefunden
     und verfolgt ein sehr ähnliches Ziel wie die \gls{wccdl}.
-    Sie ist eine interne Ruby DSL, die trotz ihrer etwaigen Unvollständigkeit sowie der fehlenden
+    Sie ist eine Internal Ruby DSL, die trotz ihrer etwaigen Unvollständigkeit sowie der fehlenden
     offiziellen wissenschaftlichen Arbeit oder Dokumentation
     für einen Vergleich mit der \gls{wccdl} geeignet ist.
     Sie vermittelt nämlich, wie das Vorhaben der \gls{wccdl}
@@ -72,15 +72,14 @@
         style=wccdl
     ]{../resources/discussion/interpretation/language/expressivity-example.wctd}
 
-    Die \gls{wccdl} braucht in diesem Beispiel kompakt ausdrückt,
-    braucht sie mehr Code als die anderen beiden Sprachen.
+    Die \gls{wccdl} braucht in diesem Beispiel mehr Code als die anderen beiden Sprachen.
     Auch ohne genaue Analyse sollte diese geringere Ausdrucksstärke
     allgemeingültig für die \gls{wccdl} sein.
     Anders als ihre Kontrahenten benötigt sie z. B. für jedes Feature eine definierte Klasse
     (im Beispiel \texttt{Object}).
     Außerdem ist die Definition einer einzelnen Klasse,
-    eines einzelnen Features oder eines Selektors in etwa gleich lang oder länger,
-    als in der Vergleichssprachen.
+    eines einzelnen Features oder eines Selektors in etwa gleich lang oder länger
+    als in den Vergleichssprachen.
     Der Grund sind die langen Schlüsselwortsequenzen,
     die auch im Selektor der Seitenklasse \texttt{Teacher}
     erkennbar sind.
@@ -118,7 +117,7 @@
     sind aber nicht im eigentlichen Sinne des \glspl{wccs}.
     Es wurden aber auch einige nicht triviale Strukturen durch die Sprache abgedeckt.
     Selbstverständlich spielen bei dieser Frage auch die Fähigkeiten der Selektoren
-    eine Rolle\footnote{vgl. Kapitel \ref{section:discussionInterpretationSelectors}}.
+    eine Rolle.
 
     \paragraph{Vollständigkeit}
     Eine Sprache ist nach \citet[Kapitel 4.5]{voelter:DslEngineering}
@@ -141,7 +140,7 @@
     {\classificationModel}s mit diesem semantisch übereinstimmt.
 
     \paragraph{Konkreter Syntax}
-    Für den konkreten Syntax einer Sprache schlagen \citet[Kapitel 4.7]{voelter:DslEngineering}
+    Für die konkrete Syntax einer Sprache schlagen \citet[Kapitel 4.7]{voelter:DslEngineering}
     verschiedene Bewertungskriterien vor: Writeability, Readability, Learnability, Effectivness.
 
     Der Nachteil der langen Sequenzen von Schlüsselwörtern wird beim Schreiben des Codes
@@ -166,23 +165,23 @@
     bei der nicht offensichtlich ist,
     dass sie selbst den Namen des Studienportals speichert,
     aber der Link in einem {\childFeature} gespeichert wird.
-    Eingeschränkt wird die Lesbarkeit aber durch die Selektoren,
+    Eingeschränkt wird die Lesbarkeit auch durch die Selektoren,
     die in den Fallbeispielen schnell eine hohe Komplexität angenommen haben,
     wie zum Beispiel bei der Klasse \texttt{Phone}.
     Bezüglich der Selektoren und ihrer Lesbarkeit ist aber nochmals
-    positiv hervorzuheben, dass spezielle Zeichen nicht kodiert werden müssen.
+    positiv hervorzuheben, dass spezielle Zeichen nicht codiert werden müssen.
 
     Die Konzepte der Sprache sind leicht zu verstehen.
     Durch die gebotene Autovervollständigung und einige
-    semantische Prüfungen, ist das Erlernen der Sprache einfach.
+    semantische Prüfungen ist das Erlernen der Sprache einfach.
     Hinzu kommen allerdings die benötigten Kenntnisse von CSS, XPath und regulären Ausdrücken,
-    wodurch das formulieren von Selektoren erschwert wird.
+    wodurch das Formulieren von Selektoren erschwert wird.
 
     Für eine fundierte Bewertung der Effektivität der Sprache,
     also der Frage, wie gut typische Probleme der Domäne ausgedrückt werden können,
     sind weitere Anwendungen auf noch mehr Webseiten notwendig.
-    Das durch die Fallbeispiele erhaltene Bild ist zweiseitig:
-    Viele Features und Klassen lassen sich durch simple Selektoren erfassen,
+    Bei den Fallbeispielen lassen sich
+    viele Features und Klassen durch simple Selektoren erfassen,
     einige erfordern jedoch komplexe Selektoren.
     Dabei dürfte zumindest das bei der Klasse \texttt{Portal} angewandte Konstrukt,
     um ein HTML-Element sowohl als {\contentFeature} als auch als {\referenceFeature} zu nutzen,

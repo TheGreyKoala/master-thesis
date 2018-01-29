@@ -17,10 +17,10 @@
     Andere Datenbankmodelle hätten komplexere Konstrukte
     zur Speicherung und zur Auswertung erfordert.
 
-    \paragraph{Wiederverwendung von \texttt{Text}- und \texttt{Resource}-Knoten}
-    Betrachtet man Tabelle \ref{table:findingsTeachersFiguresNodesByLabel} wird deutlich,
+    \paragraph{Wiederverwendung von Text- und Resource-Knoten}
+    Betrachtet man Tabelle \ref{table:findingsTeachersFiguresNodesByLabel}, wird deutlich,
     dass \texttt{Text}- und \texttt{Resource}-Knoten verhältnismäßig am meisten von der
-    Wiederverwendbarkeit gebrauch machen.
+    Wiederverwendbarkeit Gebrauch machen.
     Das ist nicht verwunderlich, da sie jeweils genau einen Wert speichern,
     der sie identifiziert.
     Gleichzeitig besitzen sie keine ausgehenden Kanten,
@@ -37,7 +37,7 @@
     Außerdem enthielten die einzelnen Datenbanken identische \texttt{Resource}-Knoten,
     die in der gemeinsamen natürlich zusammengefasst werden konnten.
 
-    \paragraph{Entbehrlichkeit von \texttt{Text}-Knoten}
+    \paragraph{Entbehrlichkeit von Text-Knoten}
     Innerhalb einer Datenbank macht es aus semantischen Gründen keinen Sinn
     \texttt{Resource}-Knoten zu duplizieren,
     da sie eine Entität der Domäne darstellen.
@@ -46,7 +46,7 @@
     Nicht so eindeutig ist dies allerdings bei \texttt{Text}-Knoten.
     Aus Tabelle \ref{table:findingsTeachersFiguresSharedNodes} geht hervor,
     dass im ersten Fallbeispiel niemals ein \texttt{Text}-Knoten geteilt wurde.
-    Stattdessen konnte immer der zugehöroge \texttt{Content}-Knoten geteilt werden.
+    Stattdessen konnte immer der zugehörige \texttt{Content}-Knoten geteilt werden.
     Deshalb ist die Zahl beider Knotentypen gesunken und die der geteilten
     \texttt{Content}-Knoten dafür gestiegen.
     Tabelle \ref{table:findingsNewsFiguresSharedNodes}
@@ -80,7 +80,7 @@
     Die kleinste Abweichung macht dies unmöglich,
     da die Inhalte sich letztendlich unterscheiden und nur Teilaspekte übereinstimmen.
     Das muss die Datenbank widerspiegeln.
-    Im Falle des Kopfbereiches im ersten Beispiel ist der \gls{url} des Logos
+    Im Falle des Kopfbereiches im ersten Beispiel ist die \gls{url} des Logos
     auf jeder Seite unterschiedlich.
     Das ist im zweiten Beispiel nicht der Fall,
     da alle Seiten zu einem Portal in {\wordpress} gehören
@@ -98,12 +98,12 @@
     Befindet sich ein Mitarbeiter auf zwei Seiten also nicht an exakt der gleichen Position,
     sind die Selektoren seines Namens, seines Lehrgebietes etc. unterschiedlich.
     Der \texttt{Teacher}-Knoten kann dann nicht von beiden Klassifikationen referenziert
-    werden\footnote{vgl. Kapitel \ref{section:solutionDetailsClassificationStorageAPIUpdatePage}}.
+    werden.
     
     \paragraph{Semantischer Inhalt und physische Struktur einer Webseite}
     Genau betrachtet spiegelt die Datenbank lediglich die Struktur der Webseiten exakt wider.
     Trotzdem lässt sich argumentieren, dass es fachlich konsistenter wäre,
-    wenn die \texttt{Teacher}-Knoten im beschriebenen Fall geteilt werden würden.
+    wenn die \texttt{Teacher}-Knoten im oben beschriebenen Fall geteilt werden würden.
     Ein Beispiel verdeutlicht das:
     Schon jetzt lässt sich die Frage beantworten,
     welche Mitarbeiter in einem gewissen Lehrgebiet arbeiten.
@@ -120,7 +120,7 @@
     und dem semantischen Inhalt deutlich.
 
     \paragraph{Alternativen}
-    Ein erster Schritt zur Auflösung dieses Konfliktes ist anstatt absolute Selektoren
+    Ein erster Schritt zur Auflösung dieses Konfliktes ist, anstatt absolute Selektoren
     lediglich zum {\parentFeature} relative Selektoren in den Kanten zu speichern.
     Allerdings hilft dies nicht, wenn die HTML-Struktur sich unterscheidet,
     weil dann auch die relative Position eines Elementes anders ist.
@@ -134,7 +134,7 @@
     da die Position komplett unabhängig gespeichert wird.
 
     \paragraph{Änderung von Klassifikationen}
-    Durch den entwickelten Algorithmus zum Schreiben von Klassifikationen\footnote{vgl. Kapitel \ref{section:solutionDetailsStorageAPI}},
+    Durch den entwickelten Algorithmus zum Schreiben von Klassifikationen
     wurde das Teilen von Knoten ermöglicht.
     Eine nachteilige Folge ist allerdings,
     dass Änderungen immer über diesen Algorithmus eingearbeitet werden müssen,

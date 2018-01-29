@@ -1,11 +1,8 @@
 \subsection{Mächtigkeit der Selektoren}
     \label{section:discussionInterpretationSelectors}
-    Zusammen mit der Schachtelung von Features und dem
-    damit verbundenen eingeschränkten Kontexts bei der
-    Auswertung von Selektoren,
-    spielen deren Fähigkeiten eine zentrale Rolle bei den
-    Möglichkeiten der Klassifizierung, die das \gls{wccs} bietet.
-    Betrachtet man die {\classificationModel}e der beiden Fallbeispiele wird klar,
+    Die Fähigkeiten der Selektoren spielen eine zentrale Rolle für
+    die Möglichkeiten bei einer Klassifizierung.
+    Betrachtet man die {\classificationModel}e der beiden Fallbeispiele, wird klar,
     dass ohne den {\xpathSelector} die Möglichkeiten weitaus eingeschränkter wären.
     Die Klasse \texttt{Portal}, durch die ein Feature das Kontextelement
     als {\referenceFeature} \texttt{homepage} klassifiziert,
@@ -20,13 +17,13 @@
     In beiden Fällen lässt sich argumentieren,
     dass mehrere HTML-Elemente zusammen eine Einheit darstellen
     und dass ihr textueller Inhalt deshalb
-    in einem skalaren Feature gespeichert werden sollten.
+    in einem skalaren Feature gespeichert werden sollte.
     Anders also als {\collectionFeature}s,
     bei denen jedes Element für sich eine eigenständige Einheit darstellt.
     Die beschriebene Anforderung lässt sich bisher nur umsetzen,
     wenn die übergeordnete Einheit der Elemente durch ein gemeinsames
-    Vaterelement dargestellt wird, welches nur genau diese Element enthält.
-    Für das erste Beispiele hieße die Anforderung, dass der Selektor des Namens eines Mitarbeiters
+    Vaterelement dargestellt wird, welches nur genau diese Elemente enthält.
+    Für das erste Beispiel hieße die Anforderung, dass der Selektor des Namens eines Mitarbeiters
     alle relevanten Elemente erfasst und
     das \gls{wccs} die textuellen Werte dieser Elemente
     in einem skalaren Feature speichert.
@@ -42,7 +39,7 @@
     wenn ein Element eines {\collectionFeature}s selbst ein {\collectionFeature} besitzt
     und weder das Parent- noch das {\childFeature} alleine in einem Element gekapselt ist.
     Diese Einschränkung ist durch die verwendeten Selektortypen begründet.
-    Eine Erweiterung des Systems durch andere Selektortypen, kann diese Lücke
+    Eine Erweiterung des Systems durch andere Selektortypen kann diese Lücke
     füllen\footnote{vgl. Kapitel \ref{section:endingOutlook}}.
 
     Die Entscheidung als Ergebnis eines {\xpathSelector}s auch reinen Text und nicht nur
@@ -55,4 +52,4 @@
     wird,
     muss der durch XPath ermittelte Text nicht in derselben Form im \texttt{innerText} eines Elementes auftauchen.
     Der zu durchsuchende Text muss deshalb ebenfalls über XPath ermittelt werden.
-    Für Drittsystemen wird dadurch die Auswertung eines eindeutigen Selektors allerdings komplexer.
+    Für Drittsysteme wird dadurch die Auswertung eines eindeutigen Selektors allerdings komplexer.
