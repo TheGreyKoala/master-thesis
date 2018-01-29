@@ -1,17 +1,8 @@
-- Datum bei den Quellen ändern
-- Position aller Bilder checken
-
 ?- Durch Browserautomatisierung können auch verschiedene Geräte und damit verschiedene Inhalte klassifiziert werden
 --> Ist das für Interpretation wichtig?
 
 ?- Spezifikation der APIs erstellen und in Anhang
 ?- JSON-Schema für DSL Generat & Page Objekt?
-!- Im Konzeptkapitel steht, dass Features in einer Collection alle dieselbe Klasse haben, aber durch die Möglichkeit der Nachbesserung kann das umgangen werden!
-!- Beschriftungen von Bildern etc. checken
-!- Ganzes Dokument auf Rechtschreibfehler prüfen
-!- TODOs im Quelltext
-!- Keywords der PDF
-!- Abkürzungen (z. B. etc. prüfen.; bzgl. ist falsch --> bez. ist richtig)
 
 !- CD zusammenstellen
 
@@ -25,11 +16,6 @@
 
 - Web App
 ?- Sollte die Detailseite auch die Selektoren und isCollection der Features beinhalten?
-
-- Crawler
-?- Es gibt eine Workpool Klasse, mit der sich alles sehr viel schöner programmieren ließe
-
-- Ist es "Klassifizierungsmodell" oder "Klassenmodell"? Betrifft viele Stellen.
 
 - Selektor eines Features in Beziehung zu speichern, trägt nicht zur Wiederverwendbarkeit Beziehung
 -- Selektor ist immer absolut. Er enthält kompletten Pfad seines Parent Features.
@@ -128,3 +114,17 @@ x!- DSL erlaubt Kommentare!
 x!-- Wie funktioniert das mit Xtext?
 x!-- Versionsnummern
 x?-- Namen der Services etc.
+
+x!- Datum bei den Quellen ändern
+x!- Im Konzeptkapitel steht, dass Features in einer Collection alle dieselbe Klasse haben, aber durch die Möglichkeit der Nachbesserung kann das umgangen werden!
+x!- Beschriftungen von Bildern etc. checken
+x!- Ganzes Dokument auf Rechtschreibfehler prüfen
+x!- Abkürzungen (z. B. etc. prüfen.; bzgl. ist falsch --> bez. ist richtig)
+x!- Keywords der PDF
+x!- TODOs im Quelltext
+
+- Crawler
+x?- Es gibt eine Workpool Klasse, mit der sich alles sehr viel schöner programmieren ließe
+
+x- Ist es "Klassifizierungsmodell" oder "Klassenmodell"? Betrifft viele Stellen.
+x- Position aller Bilder checken
