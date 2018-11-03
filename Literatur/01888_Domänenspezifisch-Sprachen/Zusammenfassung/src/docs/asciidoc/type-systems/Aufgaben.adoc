@@ -1,7 +1,0 @@
-=== Aufgaben
-
-[[type-systems-tasks]]
-.Aufgaben
-image::mindmaps/type-systems/tasks.svg[Aufgaben, 100%]
-
-* Beispiele für Aufgaben beziehen sich auf <<concrete-syntax-exmaple-2>> & <<abstract-syntax-exmaple-2>>

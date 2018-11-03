@@ -1,5 +1,0 @@
-== Scoping & Linking
-
-[[scoping-linking]]
-.Scoping & Linking
-image::mindmaps/scoping-linking.svg[Scoping & Linking, 100%]

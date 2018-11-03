@@ -1,5 +1,0 @@
-==== Model Transformation
-
-[[model-transformation]]
-.Model Transformation
-image::mindmaps/transformation-generation/model-transformation.svg[Model Transformation, 100%]

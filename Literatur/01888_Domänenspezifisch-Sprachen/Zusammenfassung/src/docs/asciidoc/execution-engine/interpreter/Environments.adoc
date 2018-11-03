@@ -1,5 +1,0 @@
-==== Environments
-
-[[environments]]
-.Environments
-image::mindmaps/interpreter/environments.svg[Environments, 100%]

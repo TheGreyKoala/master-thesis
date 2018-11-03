@@ -1,5 +1,0 @@
-==== Statements
-
-[[statements]]
-.Statements
-image::mindmaps/interpreter/statements.svg[Statements, 100%]

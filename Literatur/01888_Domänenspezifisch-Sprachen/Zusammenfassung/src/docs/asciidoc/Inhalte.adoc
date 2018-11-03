@@ -1,5 +1,0 @@
-== Inhalte
-
-[[content]]
-.Inhalte des Kurses
-image::mindmaps/content.svg[Inhalte des Kurses, 100%]

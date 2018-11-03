@@ -1,5 +1,0 @@
-==== Hybride Ansätze
-
-[[hybrid-approaches]]
-.Hybride Ansätze
-image::mindmaps/transformation-generation/hybrid-approaches.svg[Hybride Ansätze, 100%]

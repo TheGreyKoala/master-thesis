@@ -1,5 +1,0 @@
-=== Completeness
-
-[[completeness]]
-.Completeness
-image::mindmaps/design-dimensions/completeness.svg[Completeness, 100%]

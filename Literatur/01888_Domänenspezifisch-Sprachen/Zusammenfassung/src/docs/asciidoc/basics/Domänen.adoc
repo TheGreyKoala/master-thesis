@@ -1,9 +1,0 @@
-=== Domänen
-
-[[domains]]
-.Domänen
-image::mindmaps/domains.svg[Domänen, 100%]
-
-[[domain-hierarchy]]
-.Hierarchische Domänen
-image::domain-hierarchy.png[Hierarchische Domänen, 100%]

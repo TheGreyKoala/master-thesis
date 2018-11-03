@@ -1,5 +1,0 @@
-=== Code Folding
-
-[[code-folding]]
-.Code Folding
-image::mindmaps/ide-services/code-folding.svg[Code Folding, 100%]

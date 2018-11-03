@@ -1,5 +1,0 @@
-==== Code Generation
-
-[[code-generation]]
-.Code Generation
-image::mindmaps/transformation-generation/code-generation.svg[Code Generation, 100%]

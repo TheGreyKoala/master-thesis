@@ -1,5 +1,0 @@
-=== Outline Views
-
-[[outline-views]]
-.Outline Views
-image::mindmaps/ide-services/outline-views.svg[Outline Views, 100%]

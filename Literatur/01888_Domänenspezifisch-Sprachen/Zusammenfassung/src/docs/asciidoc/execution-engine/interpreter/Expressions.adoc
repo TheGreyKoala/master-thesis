@@ -1,5 +1,0 @@
-==== Expressions
-
-[[expressions]]
-.Expressions
-image::mindmaps/interpreter/expressions.svg[Expressions, 100%]

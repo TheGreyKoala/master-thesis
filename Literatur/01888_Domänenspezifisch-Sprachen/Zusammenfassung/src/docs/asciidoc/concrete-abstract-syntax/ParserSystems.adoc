@@ -1,9 +1,0 @@
-==== Parser Systems
-
-[[parsersystems]]
-.Parser Systems
-image::mindmaps/parsersystems.svg[Parser Systems, 100%]
-
-[[user-interaction-parser-systems]]
-.Benutzerinteraktionen in Parser Systems
-image::user-interaction-parser-systems.png[Benutzerinteraktionen in Parser Systems, 100%]

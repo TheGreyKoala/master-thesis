@@ -1,5 +1,0 @@
-=== Code Completion
-
-[[code-completion]]
-.Code Completion
-image::mindmaps/ide-services/code-completion.svg[Code Completion, 100%]

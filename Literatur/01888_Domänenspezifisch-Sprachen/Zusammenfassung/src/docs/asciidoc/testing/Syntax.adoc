@@ -1,5 +1,0 @@
-=== Syntax
-
-[[syntax-testing]]
-.Snytax testen
-image::mindmaps/testing/syntax.svg[Constraints testen, 100%]

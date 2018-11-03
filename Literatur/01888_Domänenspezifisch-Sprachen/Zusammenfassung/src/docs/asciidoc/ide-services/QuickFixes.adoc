@@ -1,5 +1,0 @@
-=== Quick Fixes
-
-[[quick-fixes]]
-.Quick Fixes
-image::mindmaps/ide-services/quick-fixes.svg[Quick Fixes, 100%]

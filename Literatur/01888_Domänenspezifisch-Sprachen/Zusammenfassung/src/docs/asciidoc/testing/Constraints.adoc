@@ -1,5 +1,0 @@
-=== Constraints
-
-[[constraint-testing]]
-.Constraints testen
-image::mindmaps/testing/constraints.svg[Constraints testen, 100%]

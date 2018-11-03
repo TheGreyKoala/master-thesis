@@ -1,5 +1,0 @@
-=== Angemessenheit der Sprache
-
-[[language-appropriateness]]
-.Angemessenheit der Sprache testen
-image::mindmaps/testing/language-appropriateness.svg[Angemessenheit der Sprache testen, 100%]

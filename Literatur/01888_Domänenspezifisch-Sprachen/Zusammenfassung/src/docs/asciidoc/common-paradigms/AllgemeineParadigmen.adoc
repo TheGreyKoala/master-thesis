@@ -1,9 +1,0 @@
-== Allgemeine Paradigmen
-
-* Verschiedene DSLs haben auch Gemeinsamkeiten
-* Allgemeine Paradigmen zur Beschreibung von Struktur und Verhalten einer DSL
-* Kombinationen möglich
-
-include::Struktur.adoc[]
-
-include::Verhalten.adoc[]

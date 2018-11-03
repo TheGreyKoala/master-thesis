@@ -1,5 +1,0 @@
-=== Refactoring
-
-[[refactoring]]
-.Refactoring
-image::mindmaps/ide-services/refactoring.svg[Refactoring, 100%]
